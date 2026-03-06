@@ -27,7 +27,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-md z-50 border-b border-gray-200 shadow-sm">
+      <nav className="fixed top-0 w-full bg-white/98 backdrop-blur-md z-50 border-b border-gray-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Image
@@ -35,24 +35,24 @@ export default function Home() {
               alt="HimmatKaar Logo"
               width={50}
               height={50}
-              className="rounded-lg"
+              className="rounded-lg shadow-md"
             />
             <span className="text-2xl font-bold text-gray-900">HimmatKaar</span>
           </div>
           
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
-            <a href="#about" className="text-gray-700 hover:text-green-600 transition-colors font-medium">About</a>
-            <a href="#fellowship" className="text-gray-700 hover:text-green-600 transition-colors font-medium">Fellowship</a>
-            <a href="#impact" className="text-gray-700 hover:text-green-600 transition-colors font-medium">Impact</a>
-            <a href="#contact" className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-all hover:shadow-lg font-medium">
+            <a href="#about" className="text-gray-900 hover:text-[#3a8a4d] transition-colors font-medium">About</a>
+            <a href="#fellowship" className="text-gray-900 hover:text-[#3a8a4d] transition-colors font-medium">Fellowship</a>
+            <a href="#impact" className="text-gray-900 hover:text-[#3a8a4d] transition-colors font-medium">Impact</a>
+            <a href="#contact" className="bg-[#3a8a4d] text-white px-6 py-2.5 rounded-lg hover:bg-[#17431f] transition-all hover:shadow-lg font-semibold">
               Apply Now
             </a>
           </div>
 
           {/* Mobile Menu Button */}
           <button 
-            className="md:hidden text-gray-700"
+            className="md:hidden text-gray-900"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -63,10 +63,10 @@ export default function Home() {
         {mobileMenuOpen && (
           <div className="md:hidden bg-white border-t border-gray-200 py-4 px-6">
             <div className="flex flex-col gap-4">
-              <a href="#about" className="text-gray-700 hover:text-green-600 transition-colors font-medium" onClick={() => setMobileMenuOpen(false)}>About</a>
-              <a href="#fellowship" className="text-gray-700 hover:text-green-600 transition-colors font-medium" onClick={() => setMobileMenuOpen(false)}>Fellowship</a>
-              <a href="#impact" className="text-gray-700 hover:text-green-600 transition-colors font-medium" onClick={() => setMobileMenuOpen(false)}>Impact</a>
-              <a href="#contact" className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-all text-center font-medium" onClick={() => setMobileMenuOpen(false)}>
+              <a href="#about" className="text-gray-900 hover:text-[#3a8a4d] transition-colors font-medium" onClick={() => setMobileMenuOpen(false)}>About</a>
+              <a href="#fellowship" className="text-gray-900 hover:text-[#3a8a4d] transition-colors font-medium" onClick={() => setMobileMenuOpen(false)}>Fellowship</a>
+              <a href="#impact" className="text-gray-900 hover:text-[#3a8a4d] transition-colors font-medium" onClick={() => setMobileMenuOpen(false)}>Impact</a>
+              <a href="#contact" className="bg-[#3a8a4d] text-white px-6 py-2.5 rounded-lg hover:bg-[#17431f] transition-all text-center font-semibold" onClick={() => setMobileMenuOpen(false)}>
                 Apply Now
               </a>
             </div>
@@ -78,20 +78,29 @@ export default function Home() {
       <section className="pt-32 pb-20 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className={`text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className="flex justify-center mb-8">
+              <Image
+                src="/himmatkaar-logo.jpg"
+                alt="HimmatKaar Logo"
+                width={150}
+                height={150}
+                className="rounded-2xl shadow-2xl"
+              />
+            </div>
             <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
               Empowering Youth Through
-              <span className="block text-green-600">
+              <span className="block text-[#3a8a4d]">
                 Skills & Mindset
               </span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-gray-700 mb-12 max-w-3xl mx-auto">
               We help underserved students develop the professional skills, critical thinking, and mindset to thrive in today's competitive world.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="#fellowship" className="bg-green-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-green-700 transition-all hover:shadow-xl hover:scale-105">
+              <a href="#fellowship" className="bg-[#3a8a4d] text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-[#17431f] transition-all hover:shadow-xl hover:scale-105">
                 Join Our Fellowship
               </a>
-              <a href="#impact" className="bg-white text-green-600 px-8 py-4 rounded-lg text-lg font-semibold border-2 border-green-600 hover:bg-green-50 transition-all hover:shadow-xl hover:scale-105">
+              <a href="#impact" className="bg-white text-[#3a8a4d] px-8 py-4 rounded-lg text-lg font-semibold border-2 border-[#3a8a4d] hover:bg-gray-50 transition-all hover:shadow-xl hover:scale-105">
                 See Our Impact
               </a>
             </div>
@@ -107,18 +116,18 @@ export default function Home() {
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                 The HimmatKaar Career-Prep Fellowship
               </h2>
-              <p className="text-lg text-gray-600 mb-6">
+              <p className="text-lg text-gray-700 mb-6">
                 Reach your dream career through developing your professional skills and learning to follow your passion.
               </p>
-              <p className="text-lg text-gray-600 mb-6">
+              <p className="text-lg text-gray-700 mb-6">
                 A transformative program where you'll build confidence, enhance communication skills, learn to write stellar resumes, become a critical thinker, and join a thriving community of ambitious fellows.
               </p>
-              <a href="#fellowship" className="inline-flex items-center gap-2 text-green-600 font-semibold hover:text-green-700 transition-colors">
+              <a href="#fellowship" className="inline-flex items-center gap-2 text-[#3a8a4d] font-semibold hover:text-[#17431f] transition-colors text-lg">
                 Learn more about the Fellowship 
                 <Rocket size={20} />
               </a>
             </div>
-            <div className="relative h-96 rounded-2xl overflow-hidden shadow-2xl animate-fade-in-right border-4 border-green-600">
+            <div className="relative h-96 rounded-2xl overflow-hidden shadow-2xl animate-fade-in-right border-4 border-[#3a8a4d]">
               <Image
                 src="/himmatkaar-logo.jpg"
                 alt="HimmatKaar Fellowship"
@@ -131,9 +140,12 @@ export default function Home() {
       </section>
 
       {/* Impact Stats */}
-      <section id="impact" className="py-20 px-6 bg-green-600 text-white">
+      <section id="impact" className="py-20 px-6 bg-[#17431f] text-white">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">Our Impact</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">Our Impact</h2>
+          <p className="text-center text-[#a3caad] text-lg mb-16 max-w-2xl mx-auto">
+            At HimmatKaar, our impact goes beyond numbers—it's about the lives we touch and the futures we help shape.
+          </p>
           <div className="grid md:grid-cols-3 gap-8">
             <ImpactCard
               icon={<Users size={48} />}
@@ -163,61 +175,64 @@ export default function Home() {
       {/* Fellowship Outcomes */}
       <section id="fellowship" className="py-20 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 text-center mb-4">
             Fellowship Learning Outcomes
           </h2>
+          <p className="text-center text-gray-700 text-lg mb-16 max-w-2xl mx-auto">
+            Develop essential skills and mindsets that will transform your professional journey
+          </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <OutcomeCard
               title="Professional Communication"
               description="Master clear and effective communication in professional settings, interviews, and presentations"
-              icon={<MessageSquare size={40} className="text-green-600" />}
+              icon={<MessageSquare size={40} className="text-[#3a8a4d]" />}
             />
             <OutcomeCard
               title="Resume & Applications"
               description="Write compelling resumes, cover letters, and job applications that get you noticed"
-              icon={<FileText size={40} className="text-green-600" />}
+              icon={<FileText size={40} className="text-[#3a8a4d]" />}
             />
             <OutcomeCard
               title="Confidence & Public Speaking"
               description="Overcome nervousness and build confidence to present yourself effectively"
-              icon={<Mic size={40} className="text-green-600" />}
+              icon={<Mic size={40} className="text-[#3a8a4d]" />}
             />
             <OutcomeCard
               title="Leadership & Initiative"
               description="Develop leadership skills and learn to take ownership of your growth"
-              icon={<Rocket size={40} className="text-green-600" />}
+              icon={<Rocket size={40} className="text-[#3a8a4d]" />}
             />
             <OutcomeCard
               title="Critical Thinking"
               description="Enhance problem-solving abilities and become a strategic thinker"
-              icon={<Brain size={40} className="text-green-600" />}
+              icon={<Brain size={40} className="text-[#3a8a4d]" />}
             />
             <OutcomeCard
               title="Lifelong Learning"
               description="Cultivate the mindset and skills to continuously learn and adapt"
-              icon={<BookOpen size={40} className="text-green-600" />}
+              icon={<BookOpen size={40} className="text-[#3a8a4d]" />}
             />
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section id="contact" className="py-20 px-6 bg-gray-50">
+      <section id="contact" className="py-20 px-6 bg-[#a3caad]">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#17431f] mb-6">
             Ready to Transform Your Future?
           </h2>
-          <p className="text-xl text-gray-600 mb-12">
+          <p className="text-xl text-[#17431f] mb-12">
             Join thousands of students who have already started their journey with HimmatKaar
           </p>
-          <a href="#apply" className="inline-block bg-green-600 text-white px-12 py-5 rounded-lg text-lg font-semibold hover:shadow-2xl transition-all hover:scale-105 hover:bg-green-700">
+          <a href="#apply" className="inline-block bg-[#3a8a4d] text-white px-12 py-5 rounded-lg text-lg font-semibold hover:shadow-2xl transition-all hover:scale-105 hover:bg-[#17431f]">
             Apply for Fellowship
           </a>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12 px-6">
+      <footer className="bg-black text-white py-12 px-6">
         <div className="max-w-7xl mx-auto text-center">
           <div className="flex items-center justify-center gap-3 mb-6">
             <Image
@@ -233,10 +248,10 @@ export default function Home() {
             Empowering youth through skills and mindset development
           </p>
           <div className="flex justify-center gap-6 mb-6">
-            <a href="#about" className="text-gray-400 hover:text-green-400 transition-colors">About</a>
-            <a href="#fellowship" className="text-gray-400 hover:text-green-400 transition-colors">Fellowship</a>
-            <a href="#impact" className="text-gray-400 hover:text-green-400 transition-colors">Impact</a>
-            <a href="#contact" className="text-gray-400 hover:text-green-400 transition-colors">Contact</a>
+            <a href="#about" className="text-gray-400 hover:text-[#a3caad] transition-colors">About</a>
+            <a href="#fellowship" className="text-gray-400 hover:text-[#a3caad] transition-colors">Fellowship</a>
+            <a href="#impact" className="text-gray-400 hover:text-[#a3caad] transition-colors">Impact</a>
+            <a href="#contact" className="text-gray-400 hover:text-[#a3caad] transition-colors">Contact</a>
           </div>
           <p className="text-gray-500 text-sm">
             © 2026 HimmatKaar. All rights reserved.
@@ -256,21 +271,21 @@ function ImpactCard({ icon, number, label, description, delay }: { icon: React.R
   }, [delay]);
 
   return (
-    <div className={`bg-white text-gray-900 rounded-2xl p-8 text-center transition-all duration-1000 shadow-lg hover:shadow-2xl ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-      <div className="flex justify-center mb-4 text-green-600">{icon}</div>
-      <div className="text-5xl font-bold mb-3 text-green-600">{number}</div>
-      <div className="text-xl font-semibold mb-3">{label}</div>
-      <div className="text-gray-600">{description}</div>
+    <div className={`bg-white text-gray-900 rounded-2xl p-8 text-center transition-all duration-1000 shadow-xl hover:shadow-2xl ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+      <div className="flex justify-center mb-4 text-[#3a8a4d]">{icon}</div>
+      <div className="text-5xl font-bold mb-3 text-[#3a8a4d]">{number}</div>
+      <div className="text-xl font-semibold mb-3 text-gray-900">{label}</div>
+      <div className="text-gray-700">{description}</div>
     </div>
   );
 }
 
 function OutcomeCard({ title, description, icon }: { title: string; description: string; icon: React.ReactNode }) {
   return (
-    <div className="bg-white border-2 border-gray-200 rounded-2xl p-8 hover:border-green-600 hover:shadow-2xl transition-all hover:scale-105 cursor-pointer">
+    <div className="bg-white border-2 border-gray-200 rounded-2xl p-8 hover:border-[#3a8a4d] hover:shadow-2xl transition-all hover:scale-105 cursor-pointer">
       <div className="mb-4">{icon}</div>
       <h3 className="text-xl font-bold text-gray-900 mb-3">{title}</h3>
-      <p className="text-gray-600">{description}</p>
+      <p className="text-gray-700">{description}</p>
     </div>
   );
 }
