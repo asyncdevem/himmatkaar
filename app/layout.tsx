@@ -29,6 +29,7 @@ export const metadata: Metadata = {
     description: "Transform your future with HimmatKaar's career-prep fellowship program",
     images: ["/himmatkaar-logo.jpg"],
   },
+  metadataBase: new URL('https://himmatkaar.org'),
 };
 
 export default function RootLayout({
