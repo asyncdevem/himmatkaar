@@ -2,18 +2,32 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { 
+  MessageSquare, 
+  FileText, 
+  Mic, 
+  Rocket, 
+  Brain, 
+  BookOpen,
+  Users,
+  TrendingUp,
+  Award,
+  Menu,
+  X
+} from "lucide-react";
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+    <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
+      <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-md z-50 border-b border-gray-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Image
@@ -25,22 +39,48 @@ export default function Home() {
             />
             <span className="text-2xl font-bold text-gray-900">HimmatKaar</span>
           </div>
+          
+          {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
-            <a href="#about" className="text-gray-600 hover:text-gray-900 transition-colors">About</a>
-            <a href="#fellowship" className="text-gray-600 hover:text-gray-900 transition-colors">Fellowship</a>
-            <a href="#impact" className="text-gray-600 hover:text-gray-900 transition-colors">Impact</a>
-            <a href="#contact" className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-all hover:shadow-lg">Apply Now</a>
+            <a href="#about" className="text-gray-700 hover:text-green-600 transition-colors font-medium">About</a>
+            <a href="#fellowship" className="text-gray-700 hover:text-green-600 transition-colors font-medium">Fellowship</a>
+            <a href="#impact" className="text-gray-700 hover:text-green-600 transition-colors font-medium">Impact</a>
+            <a href="#contact" className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-all hover:shadow-lg font-medium">
+              Apply Now
+            </a>
           </div>
+
+          {/* Mobile Menu Button */}
+          <button 
+            className="md:hidden text-gray-700"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
+
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-white border-t border-gray-200 py-4 px-6">
+            <div className="flex flex-col gap-4">
+              <a href="#about" className="text-gray-700 hover:text-green-600 transition-colors font-medium" onClick={() => setMobileMenuOpen(false)}>About</a>
+              <a href="#fellowship" className="text-gray-700 hover:text-green-600 transition-colors font-medium" onClick={() => setMobileMenuOpen(false)}>Fellowship</a>
+              <a href="#impact" className="text-gray-700 hover:text-green-600 transition-colors font-medium" onClick={() => setMobileMenuOpen(false)}>Impact</a>
+              <a href="#contact" className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-all text-center font-medium" onClick={() => setMobileMenuOpen(false)}>
+                Apply Now
+              </a>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6">
+      <section className="pt-32 pb-20 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className={`text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
               Empowering Youth Through
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+              <span className="block text-green-600">
                 Skills & Mindset
               </span>
             </h1>
@@ -48,10 +88,10 @@ export default function Home() {
               We help underserved students develop the professional skills, critical thinking, and mindset to thrive in today's competitive world.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="#fellowship" className="bg-blue-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-blue-700 transition-all hover:shadow-xl hover:scale-105">
+              <a href="#fellowship" className="bg-green-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-green-700 transition-all hover:shadow-xl hover:scale-105">
                 Join Our Fellowship
               </a>
-              <a href="#impact" className="bg-white text-blue-600 px-8 py-4 rounded-full text-lg font-semibold border-2 border-blue-600 hover:bg-blue-50 transition-all hover:shadow-xl hover:scale-105">
+              <a href="#impact" className="bg-white text-green-600 px-8 py-4 rounded-lg text-lg font-semibold border-2 border-green-600 hover:bg-green-50 transition-all hover:shadow-xl hover:scale-105">
                 See Our Impact
               </a>
             </div>
@@ -60,7 +100,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 px-6 bg-white">
+      <section id="about" className="py-20 px-6 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in-left">
@@ -73,11 +113,12 @@ export default function Home() {
               <p className="text-lg text-gray-600 mb-6">
                 A transformative program where you'll build confidence, enhance communication skills, learn to write stellar resumes, become a critical thinker, and join a thriving community of ambitious fellows.
               </p>
-              <a href="#fellowship" className="inline-block text-blue-600 font-semibold hover:text-blue-700 transition-colors">
-                Learn more about the Fellowship →
+              <a href="#fellowship" className="inline-flex items-center gap-2 text-green-600 font-semibold hover:text-green-700 transition-colors">
+                Learn more about the Fellowship 
+                <Rocket size={20} />
               </a>
             </div>
-            <div className="relative h-96 rounded-2xl overflow-hidden shadow-2xl animate-fade-in-right">
+            <div className="relative h-96 rounded-2xl overflow-hidden shadow-2xl animate-fade-in-right border-4 border-green-600">
               <Image
                 src="/himmatkaar-logo.jpg"
                 alt="HimmatKaar Fellowship"
@@ -90,23 +131,26 @@ export default function Home() {
       </section>
 
       {/* Impact Stats */}
-      <section id="impact" className="py-20 px-6 bg-gradient-to-br from-blue-600 to-purple-600 text-white">
+      <section id="impact" className="py-20 px-6 bg-green-600 text-white">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">Our Impact</h2>
           <div className="grid md:grid-cols-3 gap-8">
             <ImpactCard
+              icon={<Users size={48} />}
               number="1000+"
               label="Fellows Empowered"
               description="Students from diverse backgrounds transformed through our program"
               delay="0"
             />
             <ImpactCard
+              icon={<TrendingUp size={48} />}
               number="85%"
               label="Career Success Rate"
               description="Fellows secure meaningful employment within 3 months"
               delay="200"
             />
             <ImpactCard
+              icon={<Award size={48} />}
               number="75%"
               label="Skills Improvement"
               description="Average improvement in professional and soft skills"
@@ -117,7 +161,7 @@ export default function Home() {
       </section>
 
       {/* Fellowship Outcomes */}
-      <section id="fellowship" className="py-20 px-6 bg-gray-50">
+      <section id="fellowship" className="py-20 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 text-center mb-16">
             Fellowship Learning Outcomes
@@ -126,39 +170,39 @@ export default function Home() {
             <OutcomeCard
               title="Professional Communication"
               description="Master clear and effective communication in professional settings, interviews, and presentations"
-              icon="💬"
+              icon={<MessageSquare size={40} className="text-green-600" />}
             />
             <OutcomeCard
               title="Resume & Applications"
               description="Write compelling resumes, cover letters, and job applications that get you noticed"
-              icon="📝"
+              icon={<FileText size={40} className="text-green-600" />}
             />
             <OutcomeCard
               title="Confidence & Public Speaking"
               description="Overcome nervousness and build confidence to present yourself effectively"
-              icon="🎤"
+              icon={<Mic size={40} className="text-green-600" />}
             />
             <OutcomeCard
               title="Leadership & Initiative"
               description="Develop leadership skills and learn to take ownership of your growth"
-              icon="🚀"
+              icon={<Rocket size={40} className="text-green-600" />}
             />
             <OutcomeCard
               title="Critical Thinking"
               description="Enhance problem-solving abilities and become a strategic thinker"
-              icon="🧠"
+              icon={<Brain size={40} className="text-green-600" />}
             />
             <OutcomeCard
               title="Lifelong Learning"
               description="Cultivate the mindset and skills to continuously learn and adapt"
-              icon="📚"
+              icon={<BookOpen size={40} className="text-green-600" />}
             />
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section id="contact" className="py-20 px-6 bg-white">
+      <section id="contact" className="py-20 px-6 bg-gray-50">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Ready to Transform Your Future?
@@ -166,7 +210,7 @@ export default function Home() {
           <p className="text-xl text-gray-600 mb-12">
             Join thousands of students who have already started their journey with HimmatKaar
           </p>
-          <a href="#apply" className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-12 py-5 rounded-full text-lg font-semibold hover:shadow-2xl transition-all hover:scale-105">
+          <a href="#apply" className="inline-block bg-green-600 text-white px-12 py-5 rounded-lg text-lg font-semibold hover:shadow-2xl transition-all hover:scale-105 hover:bg-green-700">
             Apply for Fellowship
           </a>
         </div>
@@ -189,10 +233,10 @@ export default function Home() {
             Empowering youth through skills and mindset development
           </p>
           <div className="flex justify-center gap-6 mb-6">
-            <a href="#" className="text-gray-400 hover:text-white transition-colors">About</a>
-            <a href="#" className="text-gray-400 hover:text-white transition-colors">Fellowship</a>
-            <a href="#" className="text-gray-400 hover:text-white transition-colors">Impact</a>
-            <a href="#" className="text-gray-400 hover:text-white transition-colors">Contact</a>
+            <a href="#about" className="text-gray-400 hover:text-green-400 transition-colors">About</a>
+            <a href="#fellowship" className="text-gray-400 hover:text-green-400 transition-colors">Fellowship</a>
+            <a href="#impact" className="text-gray-400 hover:text-green-400 transition-colors">Impact</a>
+            <a href="#contact" className="text-gray-400 hover:text-green-400 transition-colors">Contact</a>
           </div>
           <p className="text-gray-500 text-sm">
             © 2026 HimmatKaar. All rights reserved.
@@ -203,7 +247,7 @@ export default function Home() {
   );
 }
 
-function ImpactCard({ number, label, description, delay }: { number: string; label: string; description: string; delay: string }) {
+function ImpactCard({ icon, number, label, description, delay }: { icon: React.ReactNode; number: string; label: string; description: string; delay: string }) {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -212,18 +256,19 @@ function ImpactCard({ number, label, description, delay }: { number: string; lab
   }, [delay]);
 
   return (
-    <div className={`bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-      <div className="text-5xl font-bold mb-3">{number}</div>
+    <div className={`bg-white text-gray-900 rounded-2xl p-8 text-center transition-all duration-1000 shadow-lg hover:shadow-2xl ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+      <div className="flex justify-center mb-4 text-green-600">{icon}</div>
+      <div className="text-5xl font-bold mb-3 text-green-600">{number}</div>
       <div className="text-xl font-semibold mb-3">{label}</div>
-      <div className="text-white/80">{description}</div>
+      <div className="text-gray-600">{description}</div>
     </div>
   );
 }
 
-function OutcomeCard({ title, description, icon }: { title: string; description: string; icon: string }) {
+function OutcomeCard({ title, description, icon }: { title: string; description: string; icon: React.ReactNode }) {
   return (
-    <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all hover:scale-105 cursor-pointer">
-      <div className="text-5xl mb-4">{icon}</div>
+    <div className="bg-white border-2 border-gray-200 rounded-2xl p-8 hover:border-green-600 hover:shadow-2xl transition-all hover:scale-105 cursor-pointer">
+      <div className="mb-4">{icon}</div>
       <h3 className="text-xl font-bold text-gray-900 mb-3">{title}</h3>
       <p className="text-gray-600">{description}</p>
     </div>
