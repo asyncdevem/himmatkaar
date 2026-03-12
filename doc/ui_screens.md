@@ -267,30 +267,48 @@ Using 8px base unit:
 #### 5.2 My Courses (`/dashboard/student/courses`)
 
 **Layout:**
-- Grid of course cards (3 columns)
-- Filter and sort options
-- Search bar
+- DashboardLayout wrapper with student role
+- Page header with title and description
+- Stats cards section (4 across)
+- Grid of course cards (3 columns on desktop, responsive)
+
+**Stats Cards (4 across):**
+- Enrolled (count with BookOpen icon, green theme)
+- In Progress (count with Clock icon, yellow theme)
+- Completed (count with CheckCircle icon, green theme)
+- Not Started (count with Play icon, gray theme)
+- Each card shows icon with colored background and count
 
 **Course Card:**
-- Thumbnail image
-- Category badge
-- Course title
-- Instructor name
-- Progress bar
-- Duration
-- Action button (Continue/Start)
+- Thumbnail image (height: 192px, full-width)
+- Status badge (top-right corner, yellow for "In Progress")
+- Course title (bold, large)
+- Instructor name (small, gray text)
+- Module progress indicator (completed/total modules with BookOpen icon)
+- Duration display (with Clock icon)
+- Animated progress bar:
+  - Shows percentage complete
+  - Green color (#3a8a4d)
+  - Animated on load with delay based on card index
+- "Continue Learning" button (full-width, green, with Play icon)
 
-**Filters:**
-- All courses
-- In Progress
-- Completed
-- Not Started
+**Interactions:**
+- Hover effect on course cards (scale up, lift)
+- Animated progress bars on page load
+- Staggered animation for cards (delay based on index)
+- Click course card or button to continue learning
 
-**Sort Options:**
-- Recently accessed
-- Title (A-Z)
-- Progress
-- Due date
+**Animations:**
+- Page elements fade in from bottom with stagger
+- Stats cards animate in with sequential delay
+- Course cards animate in with sequential delay
+- Progress bars animate width from 0 to percentage
+- Hover effects: scale 1.02 and translate Y -5px
+
+**Responsive:**
+- Desktop: 3-column grid for courses, 4 stats cards
+- Tablet: 2-column grid for courses, 4 stats cards
+- Mobile: Single column for courses, 2x2 grid for stats cards
 
 #### 5.3 Assignments (`/dashboard/student/assignments`)
 
