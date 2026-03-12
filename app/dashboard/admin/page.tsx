@@ -46,15 +46,11 @@ export default function AdminDashboard() {
           </Link>
           <Link href="/dashboard/admin/users" className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50 transition-all group">
             <Users size={20} className="group-hover:text-[#dc2828] transition-colors" />
-            <span className="text-sm font-medium">User Management</span>
+            <span className="text-sm font-medium">Team Members</span>
           </Link>
-          <Link href="/dashboard/admin/roles" className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50 transition-all group">
-            <UserCheck size={20} className="group-hover:text-[#dc2828] transition-colors" />
-            <span className="text-sm font-medium">Role Assignment</span>
-          </Link>
-          <Link href="/dashboard/admin/courses" className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50 transition-all group">
-            <BookOpen size={20} className="group-hover:text-[#dc2828] transition-colors" />
-            <span className="text-sm font-medium">Course Management</span>
+          <Link href="/dashboard/admin/events" className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50 transition-all group">
+            <Zap size={20} className="group-hover:text-[#dc2828] transition-colors" />
+            <span className="text-sm font-medium">Events</span>
           </Link>
           
           <div className="pt-6 pb-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest px-3">Insights</div>

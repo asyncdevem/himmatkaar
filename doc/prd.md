@@ -57,14 +57,20 @@ To build a global ecosystem where every young person has the courage and capabil
 - **Analytics Dashboard:** Student performance metrics
 
 #### 4.4 Admin Dashboard
-- **User Management:** Create, update, delete users
-- **Role Assignment:** Assign and modify user roles
-- **Course Management:** Create, edit, and publish courses
-- **Event Management:** Create, manage, and track platform events
+
+**Primary Navigation (Sidebar):**
+- **Team Members:** User management (create, update, delete users)
+- **Events:** Event management (create, manage, and track platform events)
+- **Analytics:** Platform-wide metrics and insights
+- **Settings:** System-wide settings and preferences
+
+**Additional Features (Accessible via other routes):**
+- **Role Assignment:** Assign and modify user roles (available at /dashboard/admin/roles)
+- **Course Management:** Create, edit, and publish courses (available at /dashboard/admin/courses)
 - **Content Management:** Manage platform content and resources
-- **System Analytics:** Platform-wide metrics and insights
-- **Settings Configuration:** System-wide settings and preferences
 - **Audit Logs:** Track all system activities
+
+**Note:** The admin dashboard prioritizes the most frequently used features in the main navigation while maintaining access to all administrative functions through direct routes.
 
 #### 4.5 Course Management
 - **Course Creation:** Rich text editor for course content

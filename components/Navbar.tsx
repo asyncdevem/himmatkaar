@@ -28,7 +28,7 @@ export default function Navbar() {
           <nav className="hidden md:flex items-center gap-10">
             <Link href="/" className="text-sm font-semibold hover:text-[var(--color-primary)] transition-colors">Home</Link>
             <Link href="/about" className="text-sm font-semibold hover:text-[var(--color-primary)] transition-colors">About</Link>
-            <Link href="/fellowship" className="text-sm font-semibold hover:text-[var(--color-primary)] transition-colors">Fellowship</Link>
+            <Link href="/launchpad" className="text-sm font-semibold hover:text-[var(--color-primary)] transition-colors">Launchpad</Link>
             <Link href="/impact" className="text-sm font-semibold hover:text-[var(--color-primary)] transition-colors">Impact</Link>
             <Link href="/contact" className="text-sm font-semibold hover:text-[var(--color-primary)] transition-colors">Contact</Link>
           </nav>
@@ -64,7 +64,7 @@ export default function Navbar() {
             <div className="flex flex-col gap-4 py-6 px-6">
               <Link href="/" className="text-lg font-semibold hover:text-[var(--color-primary)] transition-colors" onClick={() => setMobileMenuOpen(false)}>Home</Link>
               <Link href="/about" className="text-lg font-semibold hover:text-[var(--color-primary)] transition-colors" onClick={() => setMobileMenuOpen(false)}>About</Link>
-              <Link href="/fellowship" className="text-lg font-semibold hover:text-[var(--color-primary)] transition-colors" onClick={() => setMobileMenuOpen(false)}>Fellowship</Link>
+              <Link href="/launchpad" className="text-lg font-semibold hover:text-[var(--color-primary)] transition-colors" onClick={() => setMobileMenuOpen(false)}>Launchpad</Link>
               <Link href="/impact" className="text-lg font-semibold hover:text-[var(--color-primary)] transition-colors" onClick={() => setMobileMenuOpen(false)}>Impact</Link>
               <Link href="/contact" className="text-lg font-semibold hover:text-[var(--color-primary)] transition-colors" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
               <hr className="border-[var(--color-primary)]/10 my-2" />

@@ -30,11 +30,9 @@ Three role-based dashboards with distinct features:
 - Communication tools
 
 #### Admin Dashboard
-- User management
-- Role assignment
-- System analytics
-- Course management
+- User management (Team Members)
 - Event management
+- System analytics
 - System settings
 
 **Enhanced User Management Features:**

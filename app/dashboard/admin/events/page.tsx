@@ -105,19 +105,11 @@ export default function AdminEvents() {
           </Link>
           <Link href="/dashboard/admin/users" className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50 transition-all group">
             <Users size={20} className="group-hover:text-[#dc2828] transition-colors" />
-            <span className="text-sm font-medium">User Management</span>
-          </Link>
-          <Link href="/dashboard/admin/roles" className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50 transition-all group">
-            <UserCheck size={20} className="group-hover:text-[#dc2828] transition-colors" />
-            <span className="text-sm font-medium">Role Assignment</span>
-          </Link>
-          <Link href="/dashboard/admin/courses" className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50 transition-all group">
-            <BookOpen size={20} className="group-hover:text-[#dc2828] transition-colors" />
-            <span className="text-sm font-medium">Course Management</span>
+            <span className="text-sm font-medium">Team Members</span>
           </Link>
           <Link href="/dashboard/admin/events" className="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-[#dc2828] text-white font-semibold transition-all shadow-md shadow-[#dc2828]/20">
             <Calendar size={20} />
-            <span className="text-sm">Event Management</span>
+            <span className="text-sm">Events</span>
           </Link>
           
           <div className="pt-6 pb-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest px-3">Insights</div>
@@ -314,7 +306,7 @@ export default function AdminEvents() {
                       </button>
                       <button className="flex items-center gap-2 px-4 py-2 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 transition-all font-medium">
                         <Users size={18} />
-                        View Participants ({event.registered})
+                        Registrations ({event.registered})
                       </button>
                       <button className="px-4 py-2 bg-slate-100 text-slate-700 rounded-lg hover:bg-red-50 hover:text-red-600 transition-all">
                         <Trash2 size={18} />

@@ -21,9 +21,8 @@ import DashboardLayout from "@/components/DashboardLayout";
 
 const navigation = [
   { name: "Dashboard", href: "/dashboard/admin", icon: <Home size={20} /> },
-  { name: "User Management", href: "/dashboard/admin/users", icon: <Users size={20} /> },
-  { name: "Role Assignment", href: "/dashboard/admin/roles", icon: <UserCog size={20} /> },
-  { name: "Course Management", href: "/dashboard/admin/courses", icon: <BookOpen size={20} /> },
+  { name: "Team Members", href: "/dashboard/admin/users", icon: <Users size={20} /> },
+  { name: "Events", href: "/dashboard/admin/events", icon: <BookOpen size={20} /> },
   { name: "Analytics", href: "/dashboard/admin/analytics", icon: <BarChart3 size={20} /> },
   { name: "System Settings", href: "/dashboard/admin/settings", icon: <Settings size={20} /> },
 ];
@@ -105,15 +104,15 @@ export default function AdminUsers() {
           className="flex justify-between items-center"
         >
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">User Management</h1>
-            <p className="text-gray-600 mt-2">Manage all users in the system</p>
+            <h1 className="text-3xl font-bold text-gray-900">Team Members</h1>
+            <p className="text-gray-600 mt-2">Manage team members and their roles</p>
           </div>
           <button 
             onClick={() => setShowCreateModal(true)}
             className="bg-red-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-700 transition-colors flex items-center gap-2"
           >
             <UserPlus size={20} />
-            Add New User
+            Add Team Member
           </button>
         </motion.div>
 
@@ -275,7 +274,7 @@ export default function AdminUsers() {
               className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-xl p-6 w-full max-w-md z-50 shadow-2xl"
             >
               <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl font-bold text-gray-900">Add New User</h2>
+                <h2 className="text-2xl font-bold text-gray-900">Add Team Member</h2>
                 <button onClick={() => setShowCreateModal(false)} className="p-2 hover:bg-gray-100 rounded-lg">
                   <X size={20} />
                 </button>
@@ -337,7 +336,7 @@ export default function AdminUsers() {
                   onClick={handleCreate}
                   className="flex-1 px-4 py-3 bg-red-600 text-white rounded-lg font-semibold hover:bg-red-700 transition-colors"
                 >
-                  Create User
+                  Add Member
                 </button>
               </div>
             </motion.div>
@@ -363,7 +362,7 @@ export default function AdminUsers() {
               className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-xl p-6 w-full max-w-md z-50 shadow-2xl"
             >
               <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl font-bold text-gray-900">Edit User</h2>
+                <h2 className="text-2xl font-bold text-gray-900">Edit Team Member</h2>
                 <button onClick={() => setShowEditModal(false)} className="p-2 hover:bg-gray-100 rounded-lg">
                   <X size={20} />
                 </button>
@@ -449,13 +448,13 @@ export default function AdminUsers() {
               className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-xl p-6 w-full max-w-md z-50 shadow-2xl"
             >
               <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl font-bold text-gray-900">Delete User</h2>
+                <h2 className="text-2xl font-bold text-gray-900">Remove Team Member</h2>
                 <button onClick={() => setShowDeleteModal(false)} className="p-2 hover:bg-gray-100 rounded-lg">
                   <X size={20} />
                 </button>
               </div>
               <p className="text-gray-600 mb-6">
-                Are you sure you want to delete <span className="font-semibold text-gray-900">{selectedUser?.name}</span>? This action cannot be undone.
+                Are you sure you want to remove <span className="font-semibold text-gray-900">{selectedUser?.name}</span> from the team? This action cannot be undone.
               </p>
               <div className="flex gap-3">
                 <button
@@ -468,7 +467,7 @@ export default function AdminUsers() {
                   onClick={handleDelete}
                   className="flex-1 px-4 py-3 bg-red-600 text-white rounded-lg font-semibold hover:bg-red-700 transition-colors"
                 >
-                  Delete User
+                  Remove Member
                 </button>
               </div>
             </motion.div>

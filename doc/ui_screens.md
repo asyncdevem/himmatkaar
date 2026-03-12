@@ -543,6 +543,15 @@ Using 8px base unit:
 - Main content area
 - Top bar with global search
 
+**Sidebar Navigation:**
+- Management Section:
+  - System Overview (active)
+  - Team Members (User Management)
+  - Events
+- Insights Section:
+  - Analytics
+  - Settings
+
 **Health Metrics (4 cards):**
 - Total Users (count, trend)
 - Active Courses (count, trend)
