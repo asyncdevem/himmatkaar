@@ -112,7 +112,7 @@ export default function StudentEvents() {
               <FileText size={24} />
               <span>Assignments</span>
             </Link>
-            <Link href="/dashboard/student/events" className="flex items-center gap-4 px-8 py-4 text-[#3a8a4d] font-semibold bg-gradient-to-r from-[#3a8a4d]/20 to-transparent border-l-4 border-[#3a8a4d]">
+            <Link href="/dashboard/student/events" className="flex items-center gap-4 px-8 py-4 text-[#3a8a4d] font-semibold bg-[#3a8a4d]/20 border-l-4 border-[#3a8a4d]">
               <Calendar size={24} />
               <span>Events</span>
             </Link>
@@ -229,7 +229,7 @@ export default function StudentEvents() {
                     className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-500" 
                     style={{ backgroundImage: `url('${event.image}')` }}
                   ></div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                  <div className="absolute inset-0 bg-black/50"></div>
                   <div className="absolute top-4 left-4">
                     <span className="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-bold text-slate-900">
                       {event.type}

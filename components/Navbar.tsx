@@ -10,6 +10,7 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
   const [programDropdownOpen, setProgramDropdownOpen] = useState(false);
+  const [happeningsDropdownOpen, setHappeningsDropdownOpen] = useState(false);
 
   return (
     <>
@@ -34,7 +35,7 @@ export default function Navbar() {
             
             {/* About Us Dropdown */}
             <div 
-              className="relative group"
+              className="relative"
               onMouseEnter={() => setAboutDropdownOpen(true)}
               onMouseLeave={() => setAboutDropdownOpen(false)}
             >
@@ -42,20 +43,29 @@ export default function Navbar() {
                 ABOUT US <ChevronDown size={16} />
               </button>
               {aboutDropdownOpen && (
-                <div className="absolute top-full left-0 mt-2 w-48 bg-white dark:bg-slate-900 rounded-lg shadow-xl border border-slate-200 dark:border-slate-800 py-2">
-                  <Link href="/about" className="block px-4 py-2 text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-[var(--color-primary)] transition-colors">
-                    About Himmatkaar
-                  </Link>
-                  <Link href="/team" className="block px-4 py-2 text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-[var(--color-primary)] transition-colors">
-                    Our Team
-                  </Link>
+                <div 
+                  className="absolute top-full left-0 mt-0 pt-2 w-48 z-50"
+                  onMouseEnter={() => setAboutDropdownOpen(true)}
+                  onMouseLeave={() => setAboutDropdownOpen(false)}
+                >
+                  <div className="bg-white dark:bg-slate-900 rounded-lg shadow-xl border border-slate-200 dark:border-slate-800 py-2">
+                    <Link href="/about" className="block px-4 py-2 text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-[var(--color-primary)] transition-colors">
+                      About Himmatkaar
+                    </Link>
+                    <Link href="/team" className="block px-4 py-2 text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-[var(--color-primary)] transition-colors">
+                      Our Team
+                    </Link>
+                    <Link href="/ambassadors" className="block px-4 py-2 text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-[var(--color-primary)] transition-colors">
+                      Ambassadors
+                    </Link>
+                  </div>
                 </div>
               )}
             </div>
 
             {/* Programme Dropdown */}
             <div 
-              className="relative group"
+              className="relative"
               onMouseEnter={() => setProgramDropdownOpen(true)}
               onMouseLeave={() => setProgramDropdownOpen(false)}
             >
@@ -63,23 +73,56 @@ export default function Navbar() {
                 PROGRAMME <ChevronDown size={16} />
               </button>
               {programDropdownOpen && (
-                <div className="absolute top-full left-0 mt-2 w-48 bg-white dark:bg-slate-900 rounded-lg shadow-xl border border-slate-200 dark:border-slate-800 py-2">
-                  <Link href="/launchpad" className="block px-4 py-2 text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-[var(--color-primary)] transition-colors">
-                    Launchpad
-                  </Link>
-                  <Link href="/fellowship" className="block px-4 py-2 text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-[var(--color-primary)] transition-colors">
-                    Fellowship
-                  </Link>
-                  <Link href="/impact" className="block px-4 py-2 text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-[var(--color-primary)] transition-colors">
-                    Impact
-                  </Link>
+                <div 
+                  className="absolute top-full left-0 mt-0 pt-2 w-48 z-50"
+                  onMouseEnter={() => setProgramDropdownOpen(true)}
+                  onMouseLeave={() => setProgramDropdownOpen(false)}
+                >
+                  <div className="bg-white dark:bg-slate-900 rounded-lg shadow-xl border border-slate-200 dark:border-slate-800 py-2">
+                    <Link href="/launchpad" className="block px-4 py-2 text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-[var(--color-primary)] transition-colors">
+                      Launchpad
+                    </Link>
+                    <Link href="/fellowship" className="block px-4 py-2 text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-[var(--color-primary)] transition-colors">
+                      Fellowship
+                    </Link>
+                    <Link href="/impact" className="block px-4 py-2 text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-[var(--color-primary)] transition-colors">
+                      Impact
+                    </Link>
+                  </div>
                 </div>
               )}
             </div>
 
-            <Link href="/testimonials" className="text-sm font-bold hover:text-[var(--color-primary)] transition-colors">
-              HAPPENINGS
-            </Link>
+            {/* Happenings Dropdown */}
+            <div 
+              className="relative"
+              onMouseEnter={() => setHappeningsDropdownOpen(true)}
+              onMouseLeave={() => setHappeningsDropdownOpen(false)}
+            >
+              <button className="text-sm font-bold hover:text-[var(--color-primary)] transition-colors flex items-center gap-1">
+                HAPPENINGS <ChevronDown size={16} />
+              </button>
+              {happeningsDropdownOpen && (
+                <div 
+                  className="absolute top-full left-0 mt-0 pt-2 w-56 z-50"
+                  onMouseEnter={() => setHappeningsDropdownOpen(true)}
+                  onMouseLeave={() => setHappeningsDropdownOpen(false)}
+                >
+                  <div className="bg-white dark:bg-slate-900 rounded-lg shadow-xl border border-slate-200 dark:border-slate-800 py-2">
+                    <Link href="/events/upcoming" className="block px-4 py-2 text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-[var(--color-primary)] transition-colors">
+                      Upcoming Events
+                    </Link>
+                    <Link href="/events" className="block px-4 py-2 text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-[var(--color-primary)] transition-colors">
+                      Events
+                    </Link>
+                    <Link href="/blog" className="block px-4 py-2 text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-[var(--color-primary)] transition-colors">
+                      Blog
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div>
+
             <Link href="/contact" className="text-sm font-bold hover:text-[var(--color-primary)] transition-colors">
               CONTACT US
             </Link>
@@ -125,6 +168,9 @@ export default function Navbar() {
               <Link href="/team" className="text-base font-semibold hover:text-[var(--color-primary)] transition-colors py-2 pl-4" onClick={() => setMobileMenuOpen(false)}>
                 Our Team
               </Link>
+              <Link href="/ambassadors" className="text-base font-semibold hover:text-[var(--color-primary)] transition-colors py-2 pl-4" onClick={() => setMobileMenuOpen(false)}>
+                Ambassadors
+              </Link>
               <div className="border-t border-slate-200 dark:border-slate-800 my-2"></div>
               <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Programme</p>
               <Link href="/launchpad" className="text-base font-semibold hover:text-[var(--color-primary)] transition-colors py-2 pl-4" onClick={() => setMobileMenuOpen(false)}>
@@ -137,9 +183,17 @@ export default function Navbar() {
                 Impact
               </Link>
               <div className="border-t border-slate-200 dark:border-slate-800 my-2"></div>
-              <Link href="/testimonials" className="text-base font-bold hover:text-[var(--color-primary)] transition-colors py-2" onClick={() => setMobileMenuOpen(false)}>
-                HAPPENINGS
+              <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Happenings</p>
+              <Link href="/events/upcoming" className="text-base font-semibold hover:text-[var(--color-primary)] transition-colors py-2 pl-4" onClick={() => setMobileMenuOpen(false)}>
+                Upcoming Events
               </Link>
+              <Link href="/events" className="text-base font-semibold hover:text-[var(--color-primary)] transition-colors py-2 pl-4" onClick={() => setMobileMenuOpen(false)}>
+                Events
+              </Link>
+              <Link href="/blog" className="text-base font-semibold hover:text-[var(--color-primary)] transition-colors py-2 pl-4" onClick={() => setMobileMenuOpen(false)}>
+                Blog
+              </Link>
+              <div className="border-t border-slate-200 dark:border-slate-800 my-2"></div>
               <Link href="/contact" className="text-base font-bold hover:text-[var(--color-primary)] transition-colors py-2" onClick={() => setMobileMenuOpen(false)}>
                 CONTACT US
               </Link>

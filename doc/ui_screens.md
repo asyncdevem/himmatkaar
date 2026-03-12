@@ -84,6 +84,61 @@ Using 8px base unit:
 - Testimonials section
 - Footer
 
+**Navigation Component (Navbar):**
+- Fixed positioning at top (z-50)
+- Backdrop blur with semi-transparent background
+- Height: 80px (h-20)
+- Logo and branding (left side):
+  - HimmatKaar logo image (40x40px, rounded)
+  - Brand name with hover scale effect
+- Desktop Navigation (hidden on mobile, lg:flex):
+  - HOME link (active state with bottom border)
+  - About Us dropdown:
+    - Hover-triggered dropdown menu (onMouseEnter/onMouseLeave)
+    - Links: About Himmatkaar, Our Team
+    - Width: 192px (w-48)
+    - Z-index: z-50 (ensures dropdown appears above other content)
+  - Programme dropdown:
+    - Hover-triggered dropdown menu (onMouseEnter/onMouseLeave)
+    - Links: Launchpad, Fellowship, Impact
+    - Width: 192px (w-48)
+    - Z-index: z-50 (ensures dropdown appears above other content)
+  - Happenings dropdown:
+    - Hover-triggered dropdown menu (onMouseEnter/onMouseLeave)
+    - Links: Upcoming Events, Events, Blog
+    - Width: 224px (w-56)
+    - Z-index: z-50 (ensures dropdown appears above other content)
+  - CONTACT US link
+- Action buttons (right side):
+  - Login button (subtle hover effect)
+  - Apply Now button (primary CTA with shadow)
+- Mobile Menu:
+  - Hamburger icon toggle (lg:hidden)
+  - Full-width slide-down menu
+  - Collapsible sections with dividers
+  - Grouped navigation items
+  - Backdrop blur with animation
+  - Z-index: z-40 (below navbar but above page content)
+- Dropdown styling:
+  - Rounded corners (rounded-lg)
+  - Shadow-xl for depth
+  - Border with theme colors
+  - Hover states on menu items
+  - Smooth transitions
+  - Absolute positioning (top-full left-0 mt-2)
+- State management:
+  - aboutDropdownOpen (boolean)
+  - programDropdownOpen (boolean)
+  - happeningsDropdownOpen (boolean)
+  - mobileMenuOpen (boolean)
+- Responsive behavior:
+  - Desktop: Horizontal navigation with dropdowns
+  - Mobile: Collapsible menu with grouped sections
+- Z-index hierarchy:
+  - Navbar: z-50 (highest)
+  - Dropdown menus: z-50 (same as navbar, ensures visibility)
+  - Mobile menu: z-40 (below navbar)
+
 **Hero Section:**
 - Background: Light gray (slate-50 dark:bg-[#0f1410])
 - Layout: 2-column grid (lg:grid-cols-2) with 12-16 gap
@@ -158,9 +213,7 @@ Using 8px base unit:
   - Partner name below icon
   - Group hover effects on icon and text color
 - Scroll indicators:
-  - Gradient overlays on left and right edges
-  - Width: 20px each side
-  - Gradient: from-slate-50 to-transparent
+  - Removed gradient overlays (previously had left/right edge gradients)
 - Scroll hint text:
   - Center-aligned below partner grid
   - Arrow icons on both sides
@@ -459,6 +512,369 @@ Using 8px base unit:
 - Filter by category
 - Pagination
 - Featured testimonials
+
+#### 3.7 Team Page (`/team`)
+
+**Layout:**
+- Fixed Navbar at top
+- Hero section with back button
+- Core Team section
+- Campus Ambassadors Preview section (shows 4 ambassadors)
+- Join Team CTA section
+- Footer at bottom
+
+**Hero Section:**
+- Back to Home link with ArrowLeft icon (top-left, links to /)
+- Badge: "Our Team" (green, uppercase, tracking-wider)
+- Page title: "Meet the People Behind Himmatkaar" (4xl/6xl font size)
+  - "Himmatkaar" highlighted in green (#39894c)
+- Subtitle: "Our dedicated team of professionals is committed to empowering youth across Pakistan and creating lasting impact in communities"
+- Background: White (dark mode: dark:bg-[#0a0f0b])
+- Padding: pt-32 pb-24
+- Max-width: 3xl, centered
+- Animation: Fade in with y-axis motion (20px, duration 0.6s)
+
+**Core Team Section:**
+- Section heading: "Core Team" (3xl font size)
+- Section description: "Leadership driving our mission forward"
+- Grid layout: 3 columns on desktop (md:grid-cols-2 lg:grid-cols-3)
+- Team member cards (8 members):
+  - Card structure:
+    - Image section (h-80, overflow-hidden):
+      - Profile image with hover scale effect (scale-110, duration-500)
+      - Gradient overlay (bg-black/40, absolute inset-0)
+      - LinkedIn link (bottom-left):
+        - Opacity: 0 (default), 100 (on hover)
+        - Button: w-10 h-10, bg-white/90, rounded-full
+        - Hover: bg-[#39894c] with white text
+        - Icon: Linkedin (size 18)
+        - Opens in new tab (target="_blank", rel="noopener noreferrer")
+    - Content section (p-6):
+      - Name (text-2xl font-bold)
+      - Role (text-[#39894c] font-semibold, mb-3)
+      - Bio (text-slate-600 dark:text-slate-400, leading-relaxed)
+  - Card styling:
+    - Background: bg-slate-50 (dark:bg-slate-900)
+    - Border: border-slate-200 (dark:border-slate-800)
+    - Rounded: rounded-2xl
+    - Hover: shadow-2xl
+    - Overflow: hidden
+  - Hover effects:
+    - Card shadow increases (hover:shadow-2xl)
+    - Image scales up (group-hover:scale-110)
+    - LinkedIn link fades in (opacity-0 to opacity-100)
+  - Animations:
+    - Staggered fade-in with y-axis motion (30px)
+    - Delay: idx * 0.1
+    - Duration: 0.5s
+    - Viewport: once: true
+- Team members:
+  - Ahmed Khan (Founder & CEO) - Local image: /team/founder.jpeg
+  - Fatima Ali (Co-Founder) - Local image: /team/cofounder.png
+  - Hassan Malik (Creative & Graphics Lead) - Local image: /team/creative-and graphics-lead.png
+  - Ayesha Raza (Community Manager) - Unsplash image
+  - Bilal Ahmed (Technical Lead) - Unsplash image
+  - Sara Hussain (Marketing Director) - Unsplash image
+  - Zain Abbas (Partnership Manager) - Unsplash image
+  - Nida Malik (Content Strategist) - Unsplash image
+
+**Campus Ambassadors Preview Section:**
+- Section heading: "Campus Ambassadors" (3xl font size)
+- Section description: "Our representatives spreading impact across Pakistan"
+- Header layout: Flex with justify-between
+  - Left: Heading and description
+  - Right: "View All Ambassadors" link with ArrowLeft icon (rotated 180°)
+    - Links to: /ambassadors
+    - Text color: text-[#39894c]
+    - Font: font-semibold
+    - Hover: underline
+- Grid layout: 4 columns on desktop (md:grid-cols-2 lg:grid-cols-4)
+- Ambassador cards (4 members shown - preview only):
+  - Card structure (more compact than core team):
+    - Image section (h-64, overflow-hidden):
+      - Profile image with hover scale effect (scale-110, duration-500)
+      - Gradient overlay (bg-[#2d5f3d]/40)
+      - LinkedIn link (bottom-left):
+        - Opacity: 0 (default), 100 (on hover)
+        - Button: w-8 h-8, bg-white/90, rounded-full
+        - Hover: bg-[#39894c] with white text
+        - Icon: Linkedin (size 16)
+        - Opens in new tab (target="_blank", rel="noopener noreferrer")
+    - Content section (p-5):
+      - Name (text-xl font-bold)
+      - Role (text-[#39894c] font-semibold, text-sm, mb-2)
+      - Bio (text-slate-600 dark:text-slate-400, text-sm, leading-relaxed)
+  - Card styling:
+    - Background: bg-slate-50 (dark:bg-slate-900)
+    - Border: border-slate-200 (dark:border-slate-800)
+    - Rounded: rounded-2xl
+    - Hover: shadow-2xl
+    - Overflow: hidden
+  - Hover effects:
+    - Card shadow increases
+    - Image scales up (group-hover:scale-110)
+    - LinkedIn link fades in
+  - Animations:
+    - Staggered fade-in with y-axis motion (30px)
+    - Delay: idx * 0.1
+    - Duration: 0.5s
+    - Viewport: once: true
+- Ambassadors (preview - first 4):
+  - Zainab Tariq (Campus Ambassador - Karachi) - Unsplash image
+  - Ali Raza (Campus Ambassador - Lahore) - Unsplash image
+  - Maryam Sheikh (Campus Ambassador - Islamabad) - Unsplash image
+  - Usman Khalid (Campus Ambassador - Faisalabad) - Unsplash image
+
+**Join Team CTA Section:**
+- Max-width: 4xl container
+- Margin-top: 24 (mt-24)
+- Card structure:
+  - Background: bg-[#2d5f3d]
+  - Rounded: rounded-3xl
+  - Padding: p-12
+  - Text: white, centered
+  - Shadow: shadow-2xl
+  - Overflow: hidden
+  - Relative positioning for background image
+- Background image:
+  - Image: /hero-bg.jpg
+  - Opacity: 10%
+  - Position: absolute inset-0
+  - Background: cover, center
+- Content (relative z-10):
+  - Heading: "Want to Join Our Team?" (3xl/4xl font-bold)
+  - Description: "We're always looking for passionate individuals who want to make a difference" (text-lg, text-white/90, mb-8)
+  - CTA button:
+    - Text: "Get in Touch"
+    - Background: white
+    - Text color: #2d5f3d
+    - Padding: px-10 py-4
+    - Rounded: rounded-lg
+    - Font: bold, text-lg
+    - Hover: scale-105
+    - Shadow: shadow-xl
+    - Links to: /contact
+- Animation: Fade in with y-axis motion (30px)
+
+**State Management:**
+- `showAllTeam`: Boolean state (currently unused, prepared for future "Load More" feature)
+- `coreTeam`: Array of 8 core team member objects
+- `ambassadors`: Array of 4 campus ambassador objects
+- `displayedTeam`: Computed array (currently unused, prepared for future pagination)
+
+**Team Member Object Structure:**
+```typescript
+{
+  name: string;
+  role: string;
+  image: string; // URL to profile image or local path
+  bio: string;
+  linkedin: string; // LinkedIn profile URL
+}
+```
+
+**Interactions:**
+- Back to Home link navigation
+- Hover effects on team cards (shadow, image scale)
+- LinkedIn icon appears on card hover
+- LinkedIn links open in new tab
+- "View All Ambassadors" link navigates to /ambassadors page
+- Smooth animations using Framer Motion
+
+**Responsive:**
+- Desktop: 3-column grid for core team, 4-column for ambassadors
+- Tablet: 2-column grid for both sections
+- Mobile: Single column, full-width cards
+- Hero text adjusts from 6xl to 4xl on mobile
+- CTA section padding adjusts for mobile
+
+**Dark Mode Support:**
+- Background: bg-white (light) / bg-[#0a0f0b] (dark)
+- Card backgrounds: bg-slate-50 (light) / bg-slate-900 (dark)
+- Borders: border-slate-200 (light) / border-slate-800 (dark)
+- Text: text-slate-900 (light) / text-white (dark)
+- Bio text: text-slate-600 (light) / text-slate-400 (dark)
+
+#### 3.8 Ambassadors Page (`/ambassadors`)
+
+**Layout:**
+- Fixed Navbar at top
+- Hero section with back button
+- Ambassadors grid section
+- Become Ambassador CTA section
+- Footer at bottom
+
+**Hero Section:**
+- Back to Team link with ArrowLeft icon (top-left, links to /team)
+- Badge: "Campus Ambassadors" (green, uppercase, tracking-wider)
+- Page title: "Our Ambassadors Network" (4xl/6xl font size)
+  - "Ambassadors" highlighted in green (#39894c)
+- Subtitle: "Meet our passionate campus ambassadors representing Himmatkaar across Pakistan's major cities and universities"
+- Background: White (dark mode: dark:bg-[#0a0f0b])
+- Padding: pt-32 pb-24
+- Max-width: 3xl, centered
+- Animation: Fade in with y-axis motion (20px)
+
+**Ambassadors Grid Section:**
+- Max-width: 7xl container
+- Grid layout: 4 columns on desktop (md:grid-cols-2 lg:grid-cols-4)
+- Gap: 8 (gap-8)
+- Ambassador cards (8 ambassadors):
+  - Card structure:
+    - Image section (h-64, overflow-hidden):
+      - Profile image with hover scale effect (scale-110, duration-500)
+      - Gradient overlay (bg-[#2d5f3d]/40)
+      - City badge (top-right):
+        - Background: bg-[#39894c]
+        - Text: white, text-xs font-bold
+        - Icon: MapPin (size 12)
+        - Rounded-full with padding
+      - LinkedIn link (bottom-left):
+        - Opacity: 0 (default), 100 (on hover)
+        - Button: w-10 h-10, bg-white, rounded-full
+        - Hover: bg-[#39894c] with white text
+        - Icon: Linkedin (size 18)
+        - Opens in new tab (target="_blank", rel="noopener noreferrer")
+    - Content section (p-5):
+      - Name (text-xl font-bold)
+      - Role (text-[#39894c] font-semibold, text-sm)
+      - Bio (text-slate-600, text-sm, leading-relaxed)
+  - Card styling:
+    - Background: bg-slate-50 (dark:bg-slate-900)
+    - Border: border-slate-200 (dark:border-slate-800)
+    - Rounded: rounded-2xl
+    - Hover: shadow-2xl
+    - Overflow: hidden
+  - Hover effects:
+    - Card shadow increases
+    - Image scales up (group-hover:scale-110)
+    - LinkedIn link fades in
+  - Animations:
+    - Staggered fade-in with y-axis motion (30px)
+    - Delay: idx * 0.08
+    - Duration: 0.5s
+    - Viewport: once: true
+
+**Ambassadors List (8 members):**
+1. Zainab Tariq - Karachi
+   - Bio: "Leading Himmatkaar initiatives at universities across Karachi"
+2. Ali Raza - Lahore
+   - Bio: "Connecting students with opportunities in Lahore region"
+3. Maryam Sheikh - Islamabad
+   - Bio: "Driving youth engagement in the capital region"
+4. Usman Khalid - Faisalabad
+   - Bio: "Expanding Himmatkaar's reach in Punjab's industrial hub"
+5. Hira Jamil - Multan
+   - Bio: "Building youth networks in South Punjab"
+6. Hamza Iqbal - Peshawar
+   - Bio: "Empowering youth in Khyber Pakhtunkhwa"
+7. Sana Malik - Quetta
+   - Bio: "Representing Himmatkaar in Balochistan"
+8. Fahad Ahmed - Hyderabad
+   - Bio: "Growing the community in Sindh region"
+
+**Become Ambassador CTA Section:**
+- Max-width: 4xl container
+- Margin-top: 24 (mt-24)
+- Card structure:
+  - Background: gradient from #2d5f3d to #39894c (via transparent)
+  - Rounded: rounded-3xl
+  - Padding: p-12
+  - Text: white, centered
+  - Shadow: shadow-2xl
+  - Overflow: hidden
+  - Relative positioning for background image
+- Background image:
+  - Image: /hero-bg.jpg
+  - Opacity: 10%
+  - Position: absolute inset-0
+  - Background: cover, center
+- Content (relative z-10):
+  - Heading: "Become a Campus Ambassador" (3xl/4xl font-bold)
+  - Description: "Join our network and represent Himmatkaar at your university" (text-lg, text-white/90)
+  - CTA button:
+    - Text: "Apply Now"
+    - Background: white
+    - Text color: #2d5f3d
+    - Padding: px-10 py-4
+    - Rounded: rounded-lg
+    - Font: bold, text-lg
+    - Hover: scale-105
+    - Shadow: shadow-xl
+    - Links to: /contact
+- Animation: Fade in with y-axis motion (30px)
+
+**Interactions:**
+- Back to Team link navigation
+- Hover effects on ambassador cards (shadow, image scale)
+- LinkedIn icon appears on card hover
+- LinkedIn links open in new tab
+- Apply Now button scales on hover
+- Smooth animations using Framer Motion
+
+**Responsive:**
+- Desktop: 4-column grid for ambassadors
+- Tablet: 2-column grid
+- Mobile: Single column, full-width cards
+- Hero text adjusts from 6xl to 4xl on mobile
+- CTA section padding adjusts for mobile
+
+**Dark Mode Support:**
+- Background: bg-white (light) / bg-[#0a0f0b] (dark)
+- Card backgrounds: bg-slate-50 (light) / bg-slate-900 (dark)
+- Borders: border-slate-200 (light) / border-slate-800 (dark)
+- Text: text-slate-900 (light) / text-white (dark)
+- Bio text: text-slate-600 (light) / text-slate-400 (dark)
+
+**State Management:**
+- `showAllTeam`: Boolean state (currently unused, prepared for future "Load More" feature)
+- `coreTeam`: Array of 8 core team member objects
+- `ambassadors`: Array of 4 campus ambassador objects
+- `displayedTeam`: Computed array (currently unused, prepared for future pagination)
+
+**Team Member Object Structure:**
+```typescript
+{
+  name: string;
+  role: string;
+  image: string; // URL to profile image or local path
+  bio: string;
+  linkedin: string; // LinkedIn profile URL
+}
+```
+
+**Join Team CTA Section:**
+- Background: Gradient from [#2d5f3d] to [#39894c]
+- Centered content with max-width
+- Heading: "Join Our Team"
+- Description text
+- CTA button: "View Open Positions"
+- Decorative elements with opacity
+
+**Animations:**
+- Staggered fade-in for team cards (delay: idx * 0.1)
+- Image scale on hover (duration: 500ms)
+- Social links fade in on card hover
+- Smooth transitions for all interactive elements
+
+**Interactions:**
+- Hover over team card to reveal social links
+- Click LinkedIn icon to open profile in new tab
+- Back to Home link navigation
+- Smooth scroll behavior
+
+**Responsive:**
+- Desktop: 3-column grid for core team, 4-column for ambassadors
+- Tablet: 2-column grid for both sections
+- Mobile: Single column, full-width cards
+- Image heights adjust for smaller screens
+- Social links always visible on mobile (no hover required)
+
+**Dark Mode Support:**
+- Background: bg-white (light) / bg-[#0a0f0b] (dark)
+- Text: text-slate-900 (light) / text-white (dark)
+- Card backgrounds: bg-slate-50 (light) / bg-slate-900 (dark)
+- Borders: border-slate-200 (light) / border-slate-800 (dark)
 
 ### 4. Authentication Pages
 
@@ -1248,6 +1664,7 @@ Using 8px base unit:
   - Menu items:
     - About Himmatkaar (links to /about)
     - Our Team (links to /team)
+    - Ambassadors (links to /ambassadors)
   - Styling:
     - Position: absolute top-full left-0 mt-2
     - Width: 192px (w-48)

@@ -48,7 +48,7 @@ export default function Impact() {
               variants={fadeInUp} 
               className="text-5xl md:text-7xl font-extrabold text-gray-900 mb-8 tracking-tight"
             >
-              Measuring Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-emerald-400">Impact</span>
+              Measuring Our <span className="text-[#39894c]">Impact</span>
             </motion.h1>
             <motion.p 
               variants={fadeInUp} 
@@ -77,8 +77,8 @@ export default function Impact() {
                 transition={{ duration: 0.6, delay: index * 0.15 }}
                 className="bg-white/80 backdrop-blur-xl rounded-3xl p-8 border border-white shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] transition-all duration-300 relative overflow-hidden group"
               >
-                {/* Decorative Gradient Line */}
-                <div className={`absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r ${stat.color} opacity-70 group-hover:opacity-100 transition-opacity`} />
+                {/* Decorative Solid Line */}
+                <div className={`absolute top-0 left-0 w-full h-1.5 ${stat.iconColor} opacity-70 group-hover:opacity-100 transition-opacity`} />
                 
                 <div className="flex justify-between items-start mb-6">
                   <div className={`p-4 rounded-2xl ${stat.bg} ${stat.iconColor}`}>
@@ -235,8 +235,7 @@ export default function Impact() {
                       transition={{ duration: 1.2, delay: index * 0.1 + 0.2, ease: "easeOut" }}
                       className={`h-full rounded-full relative ${metric.color}`}
                     >
-                      {/* Shimmer effect inside progress bar */}
-                      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-[100%] animate-[shimmer_2s_infinite]" />
+                      {/* Shimmer effect inside progress bar - removed */}
                     </motion.div>
                   </div>
                 </motion.div>

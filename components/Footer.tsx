@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Rocket, Share2, Globe } from "lucide-react";
+import { Rocket, Facebook, Instagram, Linkedin } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -21,12 +21,33 @@ export default function Footer() {
             Building a global ecosystem where every young person has the courage and the capability to lead meaningful change.
           </p>
           <div className="flex gap-4">
-            <div className="size-8 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center cursor-pointer hover:bg-[var(--color-primary)] hover:text-white transition-all text-slate-600 dark:text-slate-300">
-              <Share2 size={16} />
-            </div>
-            <div className="size-8 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center cursor-pointer hover:bg-[var(--color-primary)] hover:text-white transition-all text-slate-600 dark:text-slate-300">
-              <Globe size={16} />
-            </div>
+            <a 
+              href="https://www.instagram.com/himmatkaar" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="size-8 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center cursor-pointer hover:bg-[var(--color-primary)] hover:text-white transition-all text-slate-600 dark:text-slate-300"
+              aria-label="Instagram"
+            >
+              <Instagram size={16} />
+            </a>
+            <a 
+              href="https://www.linkedin.com/company/himmatkaar/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="size-8 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center cursor-pointer hover:bg-[var(--color-primary)] hover:text-white transition-all text-slate-600 dark:text-slate-300"
+              aria-label="LinkedIn"
+            >
+              <Linkedin size={16} />
+            </a>
+            <a 
+              href="https://www.facebook.com/himmatkaar" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="size-8 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center cursor-pointer hover:bg-[var(--color-primary)] hover:text-white transition-all text-slate-600 dark:text-slate-300"
+              aria-label="Facebook"
+            >
+              <Facebook size={16} />
+            </a>
           </div>
         </div>
 

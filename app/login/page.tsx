@@ -14,9 +14,9 @@ export default function Login() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // TODO: Integrate with Supabase authentication
-    // For now, redirect based on mock role
-    const mockRole = "student"; // This will come from Supabase
-    window.location.href = `/dashboard/${mockRole}`;
+    // For now, only admin login is implemented
+    // Student and Coordinator dashboards will be implemented in future work
+    window.location.href = `/dashboard/admin`;
   };
 
   return (
@@ -24,8 +24,7 @@ export default function Login() {
       <div className="flex w-full min-h-screen">
         {/* Left Side: Hero Image Section */}
         <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden">
-          <div className="absolute inset-0 bg-[var(--color-primary)]/40 mix-blend-multiply z-10"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-primary)]/80 via-transparent to-transparent z-10"></div>
+          <div className="absolute inset-0 bg-[var(--color-primary)]/60 mix-blend-multiply z-10"></div>
           <div 
             className="absolute inset-0 bg-center bg-cover" 
             style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80")' }}

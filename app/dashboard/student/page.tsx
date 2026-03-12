@@ -40,7 +40,7 @@ export default function StudentDashboard() {
             </div>
           </div>
           <nav className="space-y-1">
-            <Link href="/dashboard/student" className="flex items-center gap-4 px-8 py-4 text-[#3a8a4d] font-semibold bg-gradient-to-r from-[#3a8a4d]/20 to-transparent border-l-4 border-[#3a8a4d]">
+            <Link href="/dashboard/student" className="flex items-center gap-4 px-8 py-4 text-[#3a8a4d] font-semibold bg-[#3a8a4d]/20 border-l-4 border-[#3a8a4d]">
               <LayoutDashboard size={24} />
               <span>Dashboard</span>
             </Link>
@@ -221,7 +221,7 @@ export default function StudentDashboard() {
           <div className="col-span-12 xl:col-span-4 space-y-8">
             
             {/* Progress Overview Card */}
-            <div className="bg-white/40 border border-white/60 backdrop-blur-xl shadow-sm rounded-3xl p-8 relative overflow-hidden bg-gradient-to-br from-[#3a8a4d]/5 to-transparent">
+            <div className="bg-white/40 border border-white/60 backdrop-blur-xl shadow-sm rounded-3xl p-8 relative overflow-hidden bg-[#3a8a4d]/5">
               <div className="absolute -top-12 -right-12 size-48 bg-[#3a8a4d]/20 rounded-full blur-3xl"></div>
               <h4 className="text-lg font-extrabold mb-8 text-slate-900">Overall Progress</h4>
               <div className="flex flex-col items-center relative z-10">

@@ -60,6 +60,7 @@
 - Tailwind CSS 3+
 - Framer Motion 11+
 - Lucide React (Icons)
+- Next.js Image Optimization (configured for Unsplash)
 
 **Backend (API):**
 - Next.js API Routes
@@ -902,9 +903,64 @@ Response: {
 - Deployment guides
 - User manuals
 
-### 11. MCP (Model Context Protocol) Integration
+### 11. Next.js Configuration
 
-#### 11.1 Firecrawl MCP Server
+#### 11.1 Image Optimization
+
+**Remote Image Patterns:**
+The application is configured to optimize images from external sources using Next.js Image component.
+
+**Configuration Location:** `next.config.ts`
+
+**Allowed Remote Patterns:**
+```typescript
+images: {
+  remotePatterns: [
+    {
+      protocol: 'https',
+      hostname: 'images.unsplash.com',
+      port: '',
+      pathname: '/**',
+    },
+  ],
+}
+```
+
+**Purpose:**
+- Automatic image optimization for external images
+- Lazy loading support
+- Responsive image sizing
+- WebP format conversion when supported
+- Improved page load performance
+
+**Usage in Components:**
+```typescript
+import Image from 'next/image';
+
+<Image 
+  src="https://images.unsplash.com/photo-example" 
+  alt="Description"
+  width={800}
+  height={600}
+  className="w-full h-auto"
+/>
+```
+
+**Benefits:**
+- Reduced bandwidth usage
+- Faster page loads
+- Better Core Web Vitals scores
+- Automatic format optimization
+- Built-in lazy loading
+
+**Security:**
+- Only whitelisted domains can be used
+- Prevents unauthorized image sources
+- Protects against image-based attacks
+
+### 12. MCP (Model Context Protocol) Integration
+
+#### 12.1 Firecrawl MCP Server
 
 **Purpose:** Web scraping and content extraction capabilities for AI-powered features.
 

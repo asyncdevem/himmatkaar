@@ -217,7 +217,7 @@ export default function AdminCourses() {
                     className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-500" 
                     style={{ backgroundImage: `url('${course.thumbnail}')` }}
                   ></div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  <div className="absolute inset-0 bg-black/40"></div>
                   <div className="absolute top-4 right-4">
                     <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase ${
                       course.status === 'published' 

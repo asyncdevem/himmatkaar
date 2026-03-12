@@ -331,7 +331,7 @@ export default function CoordinatorDashboard() {
               </div>
 
               {/* Promotion/Info Card */}
-              <div className="bg-gradient-to-br from-[#2563eb] to-blue-700 rounded-xl p-6 text-white shadow-xl shadow-[#2563eb]/20 relative overflow-hidden">
+              <div className="bg-[#2d5f3d] rounded-xl p-6 text-white shadow-xl shadow-[#39894c]/20 relative overflow-hidden">
                 <div className="relative z-10">
                   <h4 className="font-bold mb-2">Platform Update v2.4</h4>
                   <p className="text-xs text-blue-100 mb-4">New student analytics tools and detailed course tracking are now available.</p>

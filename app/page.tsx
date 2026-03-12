@@ -182,9 +182,7 @@ export default function Home() {
                 </div>
               </div>
               
-              {/* Scroll Indicators */}
-              <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-slate-50 dark:from-[#0f1410] to-transparent pointer-events-none"></div>
-              <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-slate-50 dark:from-[#0f1410] to-transparent pointer-events-none"></div>
+              {/* Scroll Indicators - removed gradients */}
             </div>
             
             {/* Scroll hint */}
@@ -299,8 +297,8 @@ export default function Home() {
                         style={{ backgroundImage: `url('${track.img}')` }}
                       ></div>
                       
-                      {/* Gradient Overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-transparent to-black/60"></div>
+                      {/* Solid Overlay */}
+                      <div className="absolute inset-0 bg-black/50"></div>
                       
                       {/* Content */}
                       <div className="relative z-10 h-full flex flex-col items-center justify-center p-8">
@@ -417,7 +415,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-gradient-to-br from-[#2d5f3d] to-[#39894c] rounded-3xl p-12 lg:p-16 mb-20 shadow-2xl"
+              className="bg-[#2d5f3d] rounded-3xl p-12 lg:p-16 mb-20 shadow-2xl"
             >
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center text-white">
                 <div>

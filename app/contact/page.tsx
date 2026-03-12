@@ -65,7 +65,7 @@ export default function Contact() {
               variants={fadeInUp} 
               className="text-5xl md:text-7xl font-extrabold text-gray-900 mb-6 tracking-tight"
             >
-              Start Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-emerald-400">Journey</span>
+              Start Your <span className="text-[#39894c]">Journey</span>
             </motion.h1>
             <motion.p 
               variants={fadeInUp} 
@@ -255,7 +255,7 @@ export default function Contact() {
                           type="submit"
                           className="w-full bg-primary hover:bg-primary-hover text-white px-8 py-5 rounded-xl font-bold text-lg transition-all shadow-lg shadow-primary/30 flex items-center justify-center gap-3 relative overflow-hidden group"
                         >
-                          <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]" />
+                          {/* Shimmer effect removed */}
                           Submit Application
                           <Send size={20} className="group-hover:translate-x-1 transition-transform" />
                         </motion.button>

@@ -79,7 +79,7 @@ export default function StudentCertificates() {
               <User size={24} />
               <span>Profile</span>
             </Link>
-            <Link href="/dashboard/student/certificates" className="flex items-center gap-4 px-8 py-4 text-[#3a8a4d] font-semibold bg-gradient-to-r from-[#3a8a4d]/20 to-transparent border-l-4 border-[#3a8a4d]">
+            <Link href="/dashboard/student/certificates" className="flex items-center gap-4 px-8 py-4 text-[#3a8a4d] font-semibold bg-[#3a8a4d]/20 border-l-4 border-[#3a8a4d]">
               <Award size={24} />
               <span>Certificates</span>
             </Link>
@@ -170,7 +170,7 @@ export default function StudentCertificates() {
               <div key={cert.id} className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
                 
                 {/* Certificate Preview */}
-                <div className="relative mb-6 rounded-xl overflow-hidden bg-gradient-to-br from-[#3a8a4d]/10 to-blue-50 aspect-[4/3] flex items-center justify-center border-2 border-slate-100">
+                <div className="relative mb-6 rounded-xl overflow-hidden bg-[#39894c]/10 aspect-[4/3] flex items-center justify-center border-2 border-slate-100">
                   <div className="text-center p-8">
                     <Award className="mx-auto text-[#3a8a4d] mb-4" size={48} />
                     <h3 className="text-xl font-extrabold text-slate-900 mb-2">{cert.courseName}</h3>

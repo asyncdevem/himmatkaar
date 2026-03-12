@@ -7,6 +7,8 @@ A comprehensive web platform for the HimmatKaar fellowship program, featuring a 
 ### Public Website
 - **Home Page** - Hero section with animations, statistics, and testimonials
 - **About Page** - Mission, vision, and core values
+- **Team Page** - Core team members and campus ambassadors with social links
+- **Ambassadors Page** - Dedicated page showcasing all campus ambassadors across Pakistan
 - **Fellowship Page** - Program details and learning outcomes
 - **Impact Page** - Statistics and success metrics
 - **Testimonials Page** - Success stories with carousel
@@ -14,6 +16,7 @@ A comprehensive web platform for the HimmatKaar fellowship program, featuring a 
 - **Enhanced Navigation** - Dropdown menus for organized content access
   - About Us dropdown (About Himmatkaar, Our Team)
   - Programme dropdown (Launchpad, Fellowship, Impact)
+  - Happenings dropdown (Upcoming Events, Events, Blog)
   - Responsive mobile menu with collapsible sections
 
 ### Dashboard System
@@ -62,6 +65,7 @@ Three role-based dashboards with distinct features:
 - **Animations**: Framer Motion
 - **Carousel**: Embla Carousel React
 - **Icons**: Lucide React
+- **Image Optimization**: Next.js Image (configured for Unsplash)
 - **Backend (Ready)**: Supabase (to be integrated)
 - **MCP Integrations**: Firecrawl (web scraping and content extraction)
 
@@ -86,6 +90,8 @@ himmatkaar/
 ├── app/
 │   ├── page.tsx                    # Home page
 │   ├── about/page.tsx              # About page
+│   ├── team/page.tsx               # Team page with core team and ambassadors
+│   ├── ambassadors/page.tsx        # Full ambassadors page with all campus ambassadors
 │   ├── fellowship/page.tsx         # Fellowship details
 │   ├── impact/page.tsx             # Impact statistics
 │   ├── testimonials/page.tsx       # Success stories
@@ -142,16 +148,28 @@ Add your API keys:
 FIRECRAWL_API_KEY=your-firecrawl-api-key
 ```
 
-4. Run development server:
+4. Configure Next.js (already done):
+The project is pre-configured to optimize images from Unsplash and other external sources. See `next.config.ts` for image optimization settings.
+
+5. Run development server:
 ```bash
 npm run dev
 ```
 
-5. Open [http://localhost:3000](http://localhost:3000)
+6. Open [http://localhost:3000](http://localhost:3000)
 
 ## 🔐 Authentication (To Be Implemented)
 
-The UI is ready for Supabase integration:
+The UI is ready for Supabase integration. Currently, the login page redirects all users to the Admin dashboard as a temporary implementation.
+
+**Current Status:**
+- Login form UI: ✅ Complete
+- Registration form UI: ✅ Complete
+- Admin dashboard: ✅ Fully functional
+- Student dashboard: ✅ UI complete (backend pending)
+- Coordinator dashboard: ✅ UI complete (backend pending)
+- Supabase authentication: ⏳ Pending
+- Role-based routing: ⏳ Pending
 
 ### Setup Supabase
 1. Create a Supabase project
@@ -236,9 +254,11 @@ create table event_registrations (
 ## 🎯 Quick Demo Access
 
 The login page includes demo buttons for quick access:
-- Student Dashboard
-- Coordinator Dashboard
-- Admin Dashboard
+- **Admin Dashboard** - Fully implemented with user management, events, analytics, and settings
+- **Student Dashboard** - UI complete, backend integration pending
+- **Coordinator Dashboard** - UI complete, backend integration pending
+
+**Note:** Currently, the login form redirects all users to the Admin dashboard. Student and Coordinator authentication will be implemented when Supabase integration is complete.
 
 ## 📱 Responsive Design
 

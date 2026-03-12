@@ -90,7 +90,7 @@ export default function Testimonials() {
                 variants={fadeInUp}
                 className="text-5xl md:text-7xl font-extrabold text-gray-900 mb-6 tracking-tight"
               >
-                Success <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-500">Stories</span>
+                Success <span className="text-[#2d5f3d]">Stories</span>
               </motion.h1>
               <motion.p
                 variants={fadeInUp}
@@ -127,8 +127,8 @@ export default function Testimonials() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="bg-white rounded-3xl p-8 border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] hover:-translate-y-2 transition-all duration-300 relative group overflow-hidden"
               >
-                {/* Decorative subtle gradient background on hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-emerald-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                {/* Decorative background on hover */}
+                <div className="absolute inset-0 bg-emerald-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 
                 <div className="relative z-10">
                   <div className="flex justify-between items-start mb-6">
@@ -172,7 +172,7 @@ export default function Testimonials() {
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-bold mb-16 tracking-tight"
           >
-            The HimmatKaar <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-primary">Difference</span>
+            The HimmatKaar <span className="text-[#39894c]">Difference</span>
           </motion.h2>
           
           <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
@@ -189,7 +189,7 @@ export default function Testimonials() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="bg-white/5 backdrop-blur-md rounded-3xl p-10 border border-white/10 hover:bg-white/10 transition-colors"
               >
-                <div className="text-6xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-emerald-300 to-primary mb-4">{stat.number}</div>
+                <div className="text-6xl md:text-7xl font-extrabold text-white mb-4">{stat.number}</div>
                 <div className="text-lg font-medium text-gray-300">{stat.label}</div>
               </motion.div>
             ))}

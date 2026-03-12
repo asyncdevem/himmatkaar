@@ -221,7 +221,7 @@ export default function AdminEvents() {
                       className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-500" 
                       style={{ backgroundImage: `url('${event.image}')` }}
                     ></div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div className="absolute inset-0 bg-black/40"></div>
                     <div className="absolute top-4 left-4">
                       <span className="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-bold text-slate-900">
                         {event.type}

@@ -26,7 +26,7 @@ export default function Launchpad() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-[#2d5f3d] to-[#39894c] text-white py-32 lg:py-40 overflow-hidden mt-20">
+      <section className="relative bg-[#2d5f3d] text-white py-32 lg:py-40 overflow-hidden mt-20">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
@@ -202,7 +202,7 @@ export default function Launchpad() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-gradient-to-br from-[#2d5f3d] to-[#39894c] rounded-3xl p-12 lg:p-16 shadow-2xl"
+            className="bg-[#2d5f3d] rounded-3xl p-12 lg:p-16 shadow-2xl"
           >
             <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6 tracking-tight">
               Ready to Launch Your Startup?
