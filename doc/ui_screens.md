@@ -139,6 +139,77 @@ Using 8px base unit:
 
 **Partner Network Section:**
 - Background: Light gray (slate-50 dark:bg-[#0f1410])
+- Padding: py-20
+- Border: Bottom border (border-slate-200 dark:border-slate-800)
+- Section header:
+  - Title: "Our Partner Network" (text-3xl lg:text-4xl)
+  - Subtitle: "Trusted by leading organizations across Pakistan"
+- Horizontal scrollable partner grid:
+  - Flex layout with gap-8
+  - Overflow-x-auto with scrollbar-hide
+  - Min-width-max to enable scrolling
+- Partner cards (8 partners):
+  - Size: w-48 h-32
+  - Background: white (dark:bg-slate-900)
+  - Border: 2px border-slate-200 (dark:border-slate-800)
+  - Hover: border-[#39894c]
+  - Rounded-2xl with shadow-sm
+  - Placeholder icon (12x12 rounded-lg)
+  - Partner name below icon
+  - Group hover effects on icon and text color
+- Scroll indicators:
+  - Gradient overlays on left and right edges
+  - Width: 20px each side
+  - Gradient: from-slate-50 to-transparent
+- Scroll hint text:
+  - Center-aligned below partner grid
+  - Arrow icons on both sides
+  - Text: "Scroll to see more partners"
+- Partners listed:
+  - UNICEF, RED CROSS, TECH CORPS, GLOBAL IMPACT
+  - EDUCARE, FUTURE GEN, INNOVATION HUB, YOUTH ALLIANCE
+- Animations: Staggered fade-in with y-axis motion (delay: idx * 0.05)
+  - Font: extrabold, tight tracking
+- Description paragraph (text-lg lg:text-xl)
+  - Color: text-slate-600 dark:text-slate-400
+  - Leading: relaxed
+- Two CTA buttons (flex-col sm:flex-row gap-4):
+  - Primary: "Apply Here" with ArrowRight icon
+    - Background: bg-[#39894c]
+    - Hover: hover:bg-[#2d6f3d]
+    - Shadow: shadow-xl hover:shadow-2xl
+    - Transform: hover:scale-105
+  - Secondary: "Learn More"
+    - Background: bg-white dark:bg-slate-800
+    - Text: text-slate-900 dark:text-white
+    - Border: border-2 border-slate-200 dark:border-slate-700
+    - Hover: hover:bg-slate-100 dark:hover:bg-slate-700
+- Animations: Slide in from left (x: -30 → 0), staggered delays (0.1s, 0.2s, 0.3s)
+
+**Right Column - Hero Image:**
+- Container: Relative positioning with decorative elements
+- Background decorations:
+  - Top-right blob: w-72 h-72 bg-[#39894c]/10 rounded-full blur-3xl (absolute -top-8 -right-8)
+  - Bottom-left blob: w-72 h-72 bg-[#2d5f3d]/10 rounded-full blur-3xl (absolute -bottom-8 -left-8)
+- Main image container:
+  - Background: bg-white dark:bg-slate-800
+  - Border: border-4 border-white dark:border-slate-700
+  - Border radius: rounded-3xl
+  - Shadow: shadow-2xl
+  - Image: `/hero-person.jpg` (600x600, priority loading)
+- Overlay badge (absolute bottom-6 left-6 right-6):
+  - Background: bg-white/95 dark:bg-slate-900/95 with backdrop-blur-sm
+  - Border radius: rounded-2xl
+  - Padding: p-6
+  - Shadow: shadow-xl
+  - Content:
+    - Checkmark icon: w-12 h-12 bg-[#39894c] rounded-full with white checkmark
+    - Text: "10,000+ Youth Empowered" (font-bold text-lg)
+    - Subtext: "Join Pakistan's largest youth network" (text-sm)
+- Animations: Slide in from right (x: 30 → 0), delay 0.2s
+
+**Partner Network Section:**
+- Background: Light gray (slate-50 dark:bg-[#0f1410])
 - Section title: "Our Partner Network" (text-3xl lg:text-4xl)
 - Subtitle: "Trusted by leading organizations across Pakistan"
 - 6-column grid on desktop (2 cols mobile, 3 cols tablet)
@@ -249,6 +320,20 @@ Using 8px base unit:
   - Right column:
     - Newsletter subscription with email input and subscribe button
     - Contact information card with email, phone, location (using emoji icons)
+
+**Testimonials Section:**
+- Background: Light gray (slate-50 dark:bg-[#0f1410])
+- Padding: py-28
+- Max-width: 6xl
+- Animated header section:
+  - Label: "Testimonials" (green, uppercase, tracking-wider)
+  - Heading: "What Our Members Say" (text-4xl lg:text-5xl)
+  - Subtitle: "Hear from the changemakers who are making a difference"
+  - Animation: Fade-in with y-axis motion (20px)
+- TestimonialCarousel component
+  - Displays testimonials from fellows
+  - Carousel navigation with prev/next buttons
+  - Dot indicators for slide position
 
 **Testimonials Section:**
 - Background: Light gray (slate-50 dark:bg-[#0f1410])
@@ -1128,9 +1213,125 @@ Using 8px base unit:
 - Tablet: Stacked layout
 - Mobile: Single column
 
-### 8. Common UI Components
+### 8. Shared Components
 
-#### 8.1 Buttons
+#### 8.1 Navbar Component (`components/Navbar.tsx`)
+
+**Layout:**
+- Fixed header at top of page (z-index: 50)
+- Backdrop blur with semi-transparent background (bg-white/95 dark:bg-[#151d17]/95)
+- Border bottom (border-slate-200 dark:border-[var(--color-primary)]/10)
+- Max-width container (max-w-7xl) with horizontal padding
+- Height: 80px (h-20)
+
+**Desktop Navigation (lg breakpoint and above):**
+- Logo section (left):
+  - HimmatKaar logo image (40x40px, rounded-lg)
+  - "Himmatkaar" text (text-xl font-bold)
+  - Hover effect: scale-105 on logo
+- Navigation menu (center):
+  - HOME link (active state with border-bottom-2 border-[var(--color-primary)])
+  - ABOUT US dropdown menu
+  - PROGRAMME dropdown menu
+  - HAPPENINGS link
+  - CONTACT US link
+  - All links: text-sm font-bold uppercase
+  - Hover: text-[var(--color-primary)]
+- Action buttons (right):
+  - Login button (text-sm font-bold, hover:bg-[var(--color-primary)]/5)
+  - Apply Now button (bg-[var(--color-primary)], shadow-lg)
+
+**Dropdown Menus:**
+- **About Us Dropdown:**
+  - Trigger: ABOUT US button with ChevronDown icon
+  - Opens on hover (onMouseEnter/onMouseLeave)
+  - Menu items:
+    - About Himmatkaar (links to /about)
+    - Our Team (links to /team)
+  - Styling:
+    - Position: absolute top-full left-0 mt-2
+    - Width: 192px (w-48)
+    - Background: white (dark:bg-slate-900)
+    - Border: border-slate-200 (dark:border-slate-800)
+    - Rounded: rounded-lg
+    - Shadow: shadow-xl
+    - Padding: py-2
+  - Menu item styling:
+    - Padding: px-4 py-2
+    - Font: text-sm font-semibold
+    - Hover: bg-slate-50 (dark:bg-slate-800) and text-[var(--color-primary)]
+
+- **Programme Dropdown:**
+  - Trigger: PROGRAMME button with ChevronDown icon
+  - Opens on hover (onMouseEnter/onMouseLeave)
+  - Menu items:
+    - Launchpad (links to /launchpad)
+    - Fellowship (links to /fellowship)
+    - Impact (links to /impact)
+  - Same styling as About Us dropdown
+
+**Mobile Navigation (below lg breakpoint):**
+- Hamburger menu button (right side):
+  - Menu icon when closed
+  - X icon when open
+  - Size: 28px
+- Mobile menu overlay:
+  - Fixed position (top-20 left-0 right-0)
+  - Semi-transparent background with backdrop blur
+  - Border bottom
+  - Shadow: shadow-2xl
+  - Max height: calc(100vh - 5rem) with overflow-y-auto
+- Mobile menu structure:
+  - HOME link
+  - Divider
+  - "About Us" section label (text-xs font-bold uppercase)
+    - About Himmatkaar (indented with pl-4)
+    - Our Team (indented with pl-4)
+  - Divider
+  - "Programme" section label (text-xs font-bold uppercase)
+    - Launchpad (indented with pl-4)
+    - Fellowship (indented with pl-4)
+    - Impact (indented with pl-4)
+  - Divider
+  - HAPPENINGS link
+  - CONTACT US link
+  - Divider
+  - Login button (centered)
+  - Apply Now button (centered, primary style)
+- All links: text-base font styling
+- Section labels: text-slate-500 uppercase tracking-wider
+- Dividers: border-slate-200 (dark:border-slate-800)
+
+**State Management:**
+- `mobileMenuOpen`: Boolean for mobile menu visibility
+- `aboutDropdownOpen`: Boolean for About Us dropdown visibility (desktop)
+- `programDropdownOpen`: Boolean for Programme dropdown visibility (desktop)
+
+**Animations:**
+- Mobile menu: Framer Motion AnimatePresence
+  - Initial: opacity 0, height 0
+  - Animate: opacity 1, height auto
+  - Exit: opacity 0, height 0
+- Logo hover: scale-105 transition
+- Dropdown menus: Conditional rendering on hover state
+
+**Interactions:**
+- Desktop dropdowns open on mouse enter, close on mouse leave
+- Mobile menu toggles on hamburger button click
+- All navigation links close mobile menu on click
+- Smooth transitions for all hover states
+
+**Responsive Breakpoints:**
+- Desktop navigation: lg (1024px) and above
+- Mobile navigation: below lg (< 1024px)
+
+**Dark Mode Support:**
+- Background: bg-white/95 (light) / bg-[#151d17]/95 (dark)
+- Text: text-slate-900 (light) / text-white (dark)
+- Borders: border-slate-200 (light) / border-[var(--color-primary)]/10 (dark)
+- Dropdown backgrounds: bg-white (light) / bg-slate-900 (dark)
+
+#### 8.2 Buttons
 
 **Variants:**
 - Primary: Solid background, white text

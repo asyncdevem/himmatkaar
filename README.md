@@ -11,6 +11,10 @@ A comprehensive web platform for the HimmatKaar fellowship program, featuring a 
 - **Impact Page** - Statistics and success metrics
 - **Testimonials Page** - Success stories with carousel
 - **Contact Page** - Application form
+- **Enhanced Navigation** - Dropdown menus for organized content access
+  - About Us dropdown (About Himmatkaar, Our Team)
+  - Programme dropdown (Launchpad, Fellowship, Impact)
+  - Responsive mobile menu with collapsible sections
 
 ### Dashboard System
 Three role-based dashboards with distinct features:
@@ -105,7 +109,7 @@ himmatkaar/
 │           ├── analytics/page.tsx  # Analytics dashboard
 │           └── settings/page.tsx   # System settings
 ├── components/
-│   ├── Navbar.tsx                  # Public site navigation
+│   ├── Navbar.tsx                  # Public site navigation with dropdown menus
 │   ├── Footer.tsx                  # Public site footer
 │   ├── DashboardLayout.tsx         # Dashboard wrapper
 │   └── TestimonialCarousel.tsx     # Testimonial slider
