@@ -141,61 +141,47 @@ export default function Home() {
               <p className="text-slate-600 dark:text-slate-400 text-lg">Trusted by leading organizations across Pakistan</p>
             </motion.div>
             
-            {/* Scrollable Partner Logos */}
-            <div className="relative">
-              <div className="overflow-x-auto scrollbar-hide">
-                <div className="flex gap-8 pb-4 min-w-max px-4">
-                  {[
-                    { name: "UNICEF", logo: "/partners/unicef.png" },
-                    { name: "RED CROSS", logo: "/partners/redcross.png" },
-                    { name: "TECH CORPS", logo: "/partners/techcorps.png" },
-                    { name: "GLOBAL IMPACT", logo: "/partners/globalimpact.png" },
-                    { name: "EDUCARE", logo: "/partners/educare.png" },
-                    { name: "FUTURE GEN", logo: "/partners/futuregen.png" },
-                    { name: "INNOVATION HUB", logo: "/partners/innovationhub.png" },
-                    { name: "YOUTH ALLIANCE", logo: "/partners/youthalliance.png" }
-                  ].map((partner, idx) => (
-                    <motion.div
-                      key={idx}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: idx * 0.05 }}
-                      className="flex-shrink-0 w-48 h-32 bg-white dark:bg-slate-900 rounded-2xl border-2 border-slate-200 dark:border-slate-800 hover:border-[#39894c] dark:hover:border-[#39894c] transition-all shadow-sm hover:shadow-lg flex items-center justify-center p-6 group"
-                    >
-                      {/* Placeholder for logo - replace with actual logo image */}
-                      <div className="text-center">
-                        <div className="w-full h-16 mb-2 flex items-center justify-center">
-                          {/* Add logo image here */}
-                          <div className="w-12 h-12 bg-slate-200 dark:bg-slate-700 rounded-lg flex items-center justify-center text-slate-400 dark:text-slate-500 group-hover:bg-[#39894c]/10 group-hover:text-[#39894c] transition-colors">
-                            <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-                              <path d="M10 2a8 8 0 100 16 8 8 0 000-16zM8 11a1 1 0 112 0v3a1 1 0 11-2 0v-3zm1-5a1 1 0 100 2 1 1 0 000-2z" />
-                            </svg>
-                          </div>
-                        </div>
-                        <p className="text-sm font-bold text-slate-600 dark:text-slate-400 group-hover:text-[#39894c] transition-colors">
-                          {partner.name}
-                        </p>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-              
-              {/* Scroll Indicators - removed gradients */}
+            {/* Partner Logos */}
+            <div className="flex flex-wrap justify-center items-center gap-12 max-w-4xl mx-auto">
+              {[
+                { name: "Partner Organization 1", logo: "/partners/partner1.png" },
+                { name: "Partner Organization 2", logo: "/partners/partner2.png" }
+              ].map((partner, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1 }}
+                  className="flex-shrink-0 w-64 h-40 bg-white dark:bg-slate-900 rounded-2xl border-2 border-slate-200 dark:border-slate-800 hover:border-[#39894c] dark:hover:border-[#39894c] transition-all shadow-sm hover:shadow-lg flex items-center justify-center p-8 group"
+                >
+                  <div className="relative w-full h-full flex items-center justify-center">
+                    <Image 
+                      src={partner.logo}
+                      alt={partner.name}
+                      width={200}
+                      height={100}
+                      className="object-contain max-w-full max-h-full transition-transform group-hover:scale-105"
+                    />
+                  </div>
+                </motion.div>
+              ))}
             </div>
             
-            {/* Scroll hint */}
-            <div className="text-center mt-6">
-              <p className="text-sm text-slate-500 dark:text-slate-500 flex items-center justify-center gap-2">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16l-4-4m0 0l4-4m-4 4h18" />
-                </svg>
-                Scroll to see more partners
+            {/* Partnership CTA */}
+            <div className="text-center mt-12">
+              <p className="text-slate-600 dark:text-slate-400 mb-4">
+                Interested in partnering with us?
+              </p>
+              <Link 
+                href="/contact"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[#2d5f3d] hover:bg-[#39894c] text-white rounded-lg transition-colors"
+              >
+                Get in Touch
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
-              </p>
+              </Link>
             </div>
           </div>
         </section>

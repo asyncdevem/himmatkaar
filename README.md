@@ -9,10 +9,12 @@ A comprehensive web platform for the HimmatKaar fellowship program, featuring a 
 - **About Page** - Mission, vision, and core values
 - **Team Page** - Core team members and campus ambassadors with social links
 - **Ambassadors Page** - Dedicated page showcasing all campus ambassadors across Pakistan
+- **Launchpad Page** - 12-week professional development program details with eligibility and benefits
 - **Fellowship Page** - Program details and learning outcomes
 - **Impact Page** - Statistics and success metrics
 - **Testimonials Page** - Success stories with carousel
 - **Contact Page** - Application form
+- **Blog** - Article listing and individual blog post pages with dynamic routing
 - **Enhanced Navigation** - Dropdown menus for organized content access
   - About Us dropdown (About Himmatkaar, Our Team)
   - Programme dropdown (Launchpad, Fellowship, Impact)
@@ -96,6 +98,9 @@ himmatkaar/
 │   ├── impact/page.tsx             # Impact statistics
 │   ├── testimonials/page.tsx       # Success stories
 │   ├── contact/page.tsx            # Contact/Application form
+│   ├── blog/
+│   │   ├── page.tsx                # Blog listing page
+│   │   └── [slug]/page.tsx         # Individual blog post (dynamic routing)
 │   ├── login/page.tsx              # Login page
 │   ├── register/page.tsx           # Registration page
 │   └── dashboard/

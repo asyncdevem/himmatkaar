@@ -199,6 +199,43 @@ Using 8px base unit:
 - Section header:
   - Title: "Our Partner Network" (text-3xl lg:text-4xl)
   - Subtitle: "Trusted by leading organizations across Pakistan"
+- Partner logo grid:
+  - Layout: Flex wrap with centered alignment (flex-wrap justify-center items-center)
+  - Gap: gap-12
+  - Max-width: 4xl container
+  - Currently displays 2 partner organizations
+- Partner cards:
+  - Size: w-64 h-40 (256px x 160px)
+  - Background: white (dark:bg-slate-900)
+  - Border: 2px border-slate-200 (dark:border-slate-800)
+  - Hover: border-[#39894c]
+  - Rounded-2xl with shadow-sm
+  - Hover effect: shadow-lg
+  - Padding: p-8
+  - Group hover effects
+  - Image container:
+    - Relative positioning with full width/height
+    - Flex centered (items-center justify-center)
+    - Next.js Image component:
+      - Width: 200px, Height: 100px
+      - Object-fit: contain
+      - Max-width/height: 100%
+      - Hover: scale-105 transition
+- Partners listed:
+  - Partner Organization 1 (/partners/partner1.png)
+  - Partner Organization 2 (/partners/partner2.png)
+- Partnership CTA section:
+  - Margin-top: mt-12
+  - Text: "Interested in partnering with us?"
+  - CTA button:
+    - Text: "Get in Touch"
+    - Background: bg-[#2d5f3d]
+    - Hover: bg-[#39894c]
+    - Rounded-lg with padding
+    - Arrow icon (right arrow)
+    - Links to: /contact
+- Animations: Staggered fade-in with y-axis motion (delay: idx * 0.1)
+  - Subtitle: "Trusted by leading organizations across Pakistan"
 - Horizontal scrollable partner grid:
   - Flex layout with gap-8
   - Overflow-x-auto with scrollbar-hide
@@ -479,7 +516,105 @@ Using 8px base unit:
 - Tablet: Adjusted padding and font sizes
 - Mobile: Single column, full-width content
 
-**Note:** This is a simplified placeholder page. The full Fellowship page with comprehensive content is available at `/launchpad` which includes detailed curriculum, eligibility requirements, and application process.
+**Note:** This is a simplified placeholder page. The full program details are available at `/launchpad`.
+
+#### 3.3.1 Launchpad Page (`/launchpad`)
+
+**Layout:**
+- Fixed Navbar at top
+- Hero section with gradient background
+- Program overview section
+- Benefits section
+- Eligibility requirements section
+- CTA section
+- Footer at bottom
+
+**Hero Section:**
+- Background: Dark green gradient (#2d5f3d)
+- Decorative background blobs (opacity 10%)
+- Badge: "12-Week Professional Development Program" with Rocket icon
+- Heading: "Himmatkaar LaunchPad" with "LaunchPad" highlighted in light green (#a8d5ba)
+- Subtitle: "Empowering Future Professionals - Bridge the gap between education and industry-readiness through practical workshops, guided mentorship, and real-world exposure."
+- Two CTA buttons:
+  - Primary: "Apply for LaunchPad" (white background, links to /register)
+  - Secondary: "Learn More" (transparent with border, links to /contact)
+- Animations: Fade in with scale and stagger effects
+
+**Program Overview Section:**
+- Background: Light gray (slate-50 dark:bg-[#0f1410])
+- 4-column grid (responsive: 2 cols on mobile, 4 on desktop)
+- Info cards with icons:
+  - Duration: "6 Months Intensive" (Calendar icon)
+  - Time Commitment: "15-20 hrs / week" (Clock icon)
+  - Cohort Size: "30-50 Startups" (Users icon)
+  - Funding: "Up to PKR 5M" (Award icon)
+- Card styling:
+  - White background with border
+  - Icon in colored circle background
+  - Hover: shadow-2xl effect
+  - Center-aligned text
+
+**What You'll Get Section:**
+- Background: White (dark:bg-[#0a0f0b])
+- Section heading: "What You'll Get at LaunchPad"
+- 3-column grid (responsive: 1 col mobile, 2 cols tablet, 3 cols desktop)
+- Benefit cards with icons:
+  - Expert Mentorship (Target icon)
+  - Seed Funding (DollarSign icon)
+  - Investor Network (Network icon)
+  - Product Development (Lightbulb icon)
+  - Business Strategy (TrendingUp icon)
+  - Launch Support (Rocket icon)
+- Card styling:
+  - Light gray background (slate-50 dark:bg-slate-900)
+  - Icon in green color (#39894c)
+  - Hover: shadow-2xl and border color change
+  - Group hover: icon scale-110
+
+**Eligibility Requirements Section:**
+- Background: Dark green (#2d5f3d) with decorative blobs
+- White text on dark background
+- Section heading: "Who Can Apply?"
+- 2-column grid of requirements
+- Requirement cards:
+  - Checkmark icon in green circle
+  - Requirement text
+  - Semi-transparent white background with backdrop blur
+  - Hover: bg-white/15
+- Requirements listed:
+  - Early-stage startups with validated idea or MVP
+  - Tech-enabled businesses with scalability potential
+  - Teams of 2-4 co-founders with complementary skills
+  - Commitment to full-time focus during program
+  - Based in Pakistan or willing to relocate temporarily
+  - Innovative solution addressing real market problem
+
+**CTA Section:**
+- Background: White (dark:bg-[#0a0f0b])
+- Dark green card (#2d5f3d) with rounded corners
+- Heading: "Ready to Launch Your Startup?"
+- Description text
+- Two CTA buttons:
+  - Primary: "Start Application" (white background, links to /register)
+  - Secondary: "Contact Us" (transparent with border, links to /contact)
+
+**Animations:**
+- Framer Motion animations throughout
+- Fade in with y-axis motion
+- Staggered delays for cards
+- Scale animations on viewport entry
+- Hover effects with transitions
+
+**Responsive:**
+- Desktop: Multi-column grids, full layout
+- Tablet: 2-column grids, adjusted spacing
+- Mobile: Single column, stacked layout, full-width buttons
+
+**Dark Mode Support:**
+- Background colors adapt to dark theme
+- Text colors adjust for readability
+- Border colors change for dark mode
+- Consistent styling across light/dark modes
 
 #### 3.4 Impact Page (`/impact`)
 
@@ -2114,3 +2249,180 @@ Mark Attendance → Receive Certificate
 - No registrations yet
 - Search no results
 - Filter no results
+
+
+#### 3.9 Blog Post Detail Page (`/blog/[slug]`)
+
+**Layout:**
+- Fixed Navbar at top
+- Article content area with max-width container
+- Related posts CTA section
+- Footer at bottom
+
+**Dynamic Routing:**
+- Uses Next.js dynamic routing with [slug] parameter
+- Slug-based URL structure (e.g., `/blog/5-ways-to-build-successful-startup-pakistan`)
+- 404 handling for non-existent posts via `notFound()` function
+
+**Article Header:**
+- Back to Blog link with ArrowLeft icon (top-left, links to /blog)
+- Category badge (green background, white text, rounded-full)
+- Article title (4xl/5xl font size, extrabold)
+- Meta information row:
+  - Author name with User icon
+  - Publication date with Calendar icon
+  - Read time with Clock icon
+  - Text color: slate-600 (light) / slate-400 (dark)
+  - Bottom border separator
+- Featured image:
+  - Aspect ratio: h-96 (384px height)
+  - Rounded-2xl corners
+  - Full-width within container
+  - Object-cover for proper scaling
+
+**Article Content:**
+- Prose styling with prose-lg class
+- Dark mode support: prose-invert
+- Content structure:
+  - Paragraphs: text-lg, leading-relaxed, mb-6
+  - Headings (H2): text-3xl, font-bold, mt-12, mb-6
+  - Automatic rendering of markdown-style headings (## prefix)
+- Max-width: none (full container width)
+- Text color: slate-700 (light) / slate-300 (dark)
+
+**Share Section:**
+- Top border separator
+- "Share this article" heading
+- Social media buttons:
+  - Facebook, Twitter, LinkedIn, Share2 (generic)
+  - Circular buttons (w-10 h-10)
+  - Background: slate-100 (light) / slate-800 (dark)
+  - Hover: bg-[#39894c] with white text
+  - Icon size: 18px
+
+**Author Bio Section:**
+- Background: slate-50 (light) / slate-900 (dark)
+- Rounded-2xl container with p-8 padding
+- Layout: Flex with avatar and text
+- Avatar:
+  - Circular (w-16 h-16)
+  - Background: #39894c
+  - White text with first letter of author name
+  - Font: bold, text-xl
+- Author info:
+  - Name: font-bold, text-lg
+  - Bio: Generic description about the author
+  - Text color: slate-600 (light) / slate-400 (dark)
+
+**Related Posts CTA:**
+- Background: #2d5f3d (dark green)
+- Rounded-3xl container with p-12 padding
+- Centered text layout
+- White text throughout
+- Heading: text-3xl/4xl, font-bold
+- Description: text-lg, text-white/90
+- CTA button:
+  - Background: white
+  - Text color: #2d5f3d
+  - Padding: px-10 py-4
+  - Rounded-lg
+  - Font: bold, text-lg
+  - Hover: scale-105
+  - Shadow: shadow-xl
+  - Links to: /blog
+
+**Blog Post Data Structure:**
+```typescript
+{
+  title: string;
+  excerpt: string;
+  author: string;
+  date: string;
+  readTime: string;
+  image: string;
+  category: string;
+  content: string[]; // Array of paragraphs/headings
+}
+```
+
+**Available Blog Posts (6 articles):**
+1. "5 Ways to Build a Successful Startup in Pakistan"
+   - Slug: `5-ways-to-build-successful-startup-pakistan`
+   - Category: Entrepreneurship
+   - Author: Ahmed Khan
+   - Read time: 5 min
+
+2. "The Power of Youth Leadership in Social Change"
+   - Slug: `power-of-youth-leadership-social-change`
+   - Category: Leadership
+   - Author: Fatima Ali
+   - Read time: 7 min
+
+3. "Tech Skills Every Young Professional Needs in 2026"
+   - Slug: `tech-skills-young-professionals-2026`
+   - Category: Technology
+   - Author: Bilal Ahmed
+   - Read time: 6 min
+
+4. "Building Sustainable Communities: A Guide"
+   - Slug: `building-sustainable-communities-guide`
+   - Category: Impact
+   - Author: Sara Hussain
+   - Read time: 8 min
+
+5. "From Idea to Launch: A Startup Journey"
+   - Slug: `from-idea-to-launch-startup-journey`
+   - Category: Success Stories
+   - Author: Hassan Malik
+   - Read time: 10 min
+
+6. "Networking Tips for Young Professionals"
+   - Slug: `networking-tips-young-professionals`
+   - Category: Career
+   - Author: Ayesha Raza
+   - Read time: 4 min
+
+**Animations:**
+- Framer Motion animations throughout
+- Header elements: Staggered fade-in with y-axis motion
+- Featured image: Fade-in with y-axis motion (delay 0.2s)
+- Content: Fade-in with y-axis motion (delay 0.3s)
+- Share section: Fade-in on viewport entry
+- Author bio: Fade-in on viewport entry
+- Related CTA: Fade-in on viewport entry
+
+**Interactions:**
+- Back to Blog link navigation
+- Social share buttons (functional placeholders)
+- View All Posts button in CTA section
+- Smooth scroll behavior
+
+**Responsive:**
+- Desktop: Full layout with max-w-4xl container
+- Tablet: Adjusted padding and font sizes
+- Mobile: Single column, full-width content
+- Title adjusts from 5xl to 4xl on mobile
+- Meta info wraps on smaller screens
+
+**Dark Mode Support:**
+- Background: bg-white (light) / bg-[#0a0f0b] (dark)
+- Text: text-slate-900 (light) / text-white (dark)
+- Content text: text-slate-700 (light) / text-slate-300 (dark)
+- Meta text: text-slate-600 (light) / text-slate-400 (dark)
+- Borders: border-slate-200 (light) / border-slate-800 (dark)
+- Author bio bg: bg-slate-50 (light) / bg-slate-900 (dark)
+
+**SEO Considerations:**
+- Semantic HTML structure (article, header, section)
+- Proper heading hierarchy (h1, h2)
+- Meta information for search engines
+- Image alt text support
+- Structured content format
+
+**Content Features:**
+- Long-form articles (4-10 min read time)
+- Comprehensive, educational content
+- Practical advice and actionable insights
+- Real-world examples and case studies
+- Conclusion sections with key takeaways
+- Professional, engaging writing style

@@ -13,7 +13,8 @@
 - Impact page with metrics and statistics
 - Events page (past events)
 - Upcoming events page
-- Blog page
+- Blog page with article listing
+- Blog post detail page with dynamic routing
 - Contact page with application form
 - Testimonials page
 - About page
@@ -135,6 +136,8 @@ himmatkaar/
 │   │   ├── impact/
 │   │   ├── events/
 │   │   ├── blog/
+│   │   │   ├── page.tsx (blog listing)
+│   │   │   └── [slug]/page.tsx (blog post detail)
 │   │   ├── contact/
 │   │   └── testimonials/
 │   ├── login/

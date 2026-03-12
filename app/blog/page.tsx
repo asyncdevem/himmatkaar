@@ -10,6 +10,7 @@ import Footer from "@/components/Footer";
 export default function Blog() {
   const blogPosts = [
     {
+      slug: "5-ways-to-build-successful-startup-pakistan",
       title: "5 Ways to Build a Successful Startup in Pakistan",
       excerpt: "Discover the essential strategies and insights for launching and scaling your startup in Pakistan's growing entrepreneurial ecosystem.",
       author: "Ahmed Khan",
@@ -19,6 +20,7 @@ export default function Blog() {
       category: "Entrepreneurship"
     },
     {
+      slug: "power-of-youth-leadership-social-change",
       title: "The Power of Youth Leadership in Social Change",
       excerpt: "Explore how young leaders are driving transformative change in communities across Pakistan through innovative solutions.",
       author: "Fatima Ali",
@@ -28,6 +30,7 @@ export default function Blog() {
       category: "Leadership"
     },
     {
+      slug: "tech-skills-young-professionals-2026",
       title: "Tech Skills Every Young Professional Needs in 2026",
       excerpt: "Stay ahead of the curve with these essential technical skills that are shaping the future of work in Pakistan.",
       author: "Bilal Ahmed",
@@ -37,6 +40,7 @@ export default function Blog() {
       category: "Technology"
     },
     {
+      slug: "building-sustainable-communities-guide",
       title: "Building Sustainable Communities: A Guide",
       excerpt: "Learn practical approaches to creating lasting impact in your community through sustainable development initiatives.",
       author: "Sara Hussain",
@@ -46,6 +50,7 @@ export default function Blog() {
       category: "Impact"
     },
     {
+      slug: "from-idea-to-launch-startup-journey",
       title: "From Idea to Launch: A Startup Journey",
       excerpt: "Follow the inspiring journey of a Himmatkaar alumni who turned their innovative idea into a thriving business.",
       author: "Hassan Malik",
@@ -55,6 +60,7 @@ export default function Blog() {
       category: "Success Stories"
     },
     {
+      slug: "networking-tips-young-professionals",
       title: "Networking Tips for Young Professionals",
       excerpt: "Master the art of professional networking with these proven strategies to build meaningful connections.",
       author: "Ayesha Raza",
@@ -142,7 +148,7 @@ export default function Blog() {
                       <Calendar size={14} />
                       {post.date}
                     </span>
-                    <Link href="#" className="text-[#39894c] font-semibold text-sm hover:gap-2 flex items-center gap-1 transition-all">
+                    <Link href={`/blog/${post.slug}`} className="text-[#39894c] font-semibold text-sm hover:gap-2 flex items-center gap-1 transition-all">
                       Read More <ArrowRight size={16} />
                     </Link>
                   </div>
