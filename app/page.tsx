@@ -11,7 +11,10 @@ import {
   Globe,
   Award,
   ArrowRight,
-  CheckCircle2
+  CheckCircle2,
+  Mail,
+  Phone,
+  MapPin
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -478,15 +481,15 @@ export default function Home() {
                   <h3 className="text-xl font-bold mb-6 text-slate-900 dark:text-white">Contact Information</h3>
                   <div className="space-y-4 text-slate-600 dark:text-slate-400">
                     <p className="flex items-center gap-3">
-                      <span className="text-[#39894c]">📧</span>
+                      <Mail className="text-[#39894c]" size={20} />
                       <span>info@himmatkaar.org</span>
                     </p>
                     <p className="flex items-center gap-3">
-                      <span className="text-[#39894c]">📞</span>
+                      <Phone className="text-[#39894c]" size={20} />
                       <span>+92 300 1234567</span>
                     </p>
                     <p className="flex items-center gap-3">
-                      <span className="text-[#39894c]">📍</span>
+                      <MapPin className="text-[#39894c]" size={20} />
                       <span>Karachi, Pakistan</span>
                     </p>
                   </div>
