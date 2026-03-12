@@ -75,31 +75,215 @@ Using 8px base unit:
 **Layout:**
 - Fixed header with navigation
 - Hero section with CTA
-- Features section
-- Testimonials carousel
-- Impact statistics
+- Partner Network section
+- About Us section
+- Our Three Tracks section
+- Events section
+- Our Offerings section
+- Contact & Newsletter section
+- Testimonials section
 - Footer
+
+**Hero Section:**
+- Background: Light gray (slate-50 dark:bg-[#0f1410])
+- Layout: 2-column grid (lg:grid-cols-2) with 12-16 gap
+- Padding: py-20 lg:py-32
+- Responsive order: Image first on mobile (order-1), text second (order-2); reversed on desktop
+
+**Left Column - Text Content:**
+- Badge: "Pakistan's Leading Youth Empowerment Platform" with CheckCircle icon
+  - Background: bg-[#39894c]/10
+  - Text color: text-[#39894c]
+  - Rounded-full with padding
+- Heading: "Evolve Your Future with Himmatkaar!" (text-4xl lg:text-6xl)
+  - Color: text-slate-900 dark:text-white
+  - "Himmatkaar!" highlighted in text-[#39894c]
+  - Font: extrabold, tight tracking
+- Description paragraph (text-lg lg:text-xl)
+  - Color: text-slate-600 dark:text-slate-400
+  - Leading: relaxed
+- Two CTA buttons (flex-col sm:flex-row gap-4):
+  - Primary: "Apply Here" with ArrowRight icon
+    - Background: bg-[#39894c]
+    - Hover: hover:bg-[#2d6f3d]
+    - Shadow: shadow-xl hover:shadow-2xl
+    - Transform: hover:scale-105
+  - Secondary: "Learn More"
+    - Background: bg-white dark:bg-slate-800
+    - Text: text-slate-900 dark:text-white
+    - Border: border-2 border-slate-200 dark:border-slate-700
+    - Hover: hover:bg-slate-100 dark:hover:bg-slate-700
+- Animations: Slide in from left (x: -30 → 0), staggered delays (0.1s, 0.2s, 0.3s)
+
+**Right Column - Hero Image:**
+- Container: Relative positioning with decorative elements
+- Background decorations:
+  - Top-right blob: w-72 h-72 bg-[#39894c]/10 rounded-full blur-3xl (absolute -top-8 -right-8)
+  - Bottom-left blob: w-72 h-72 bg-[#2d5f3d]/10 rounded-full blur-3xl (absolute -bottom-8 -left-8)
+- Main image container:
+  - Background: bg-white dark:bg-slate-800
+  - Border: border-4 border-white dark:border-slate-700
+  - Border radius: rounded-3xl
+  - Shadow: shadow-2xl
+  - Image: `/hero-person.jpg` (600x600, priority loading)
+- Overlay badge (absolute bottom-6 left-6 right-6):
+  - Background: bg-white/95 dark:bg-slate-900/95 with backdrop-blur-sm
+  - Border radius: rounded-2xl
+  - Padding: p-6
+  - Shadow: shadow-xl
+  - Content:
+    - Checkmark icon: w-12 h-12 bg-[#39894c] rounded-full with white checkmark
+    - Text: "10,000+ Youth Empowered" (font-bold text-lg)
+    - Subtext: "Join Pakistan's largest youth network" (text-sm)
+- Animations: Slide in from right (x: 30 → 0), delay 0.2s
+
+**Partner Network Section:**
+- Background: Light gray (slate-50 dark:bg-[#0f1410])
+- Section title: "Our Partner Network" (text-3xl lg:text-4xl)
+- Subtitle: "Trusted by leading organizations across Pakistan"
+- 6-column grid on desktop (2 cols mobile, 3 cols tablet)
+- Partner names displayed as text (UNICEF, RED CROSS, TECH CORPS, GLOBAL IMPACT, EDUCARE, FUTURE GEN)
+- Hover effect: Text color changes to primary green (#39894c)
+- Staggered fade-in animation on scroll (delay: idx * 0.05)
+- Font: text-xl font-extrabold tracking-tight
+
+**About Us Section:**
+- Background: White (dark:bg-[#0a0f0b])
+- Padding: py-28
+- 2-column grid layout (lg:grid-cols-2)
+- Left column:
+  - Image container (aspect-[4/3], rounded-2xl, shadow-2xl)
+  - Absolute positioned stats card (bottom-right):
+    - Background: #39894c
+    - Text: "10,000+ Youth Empowered"
+    - Rounded-xl with shadow-2xl
+- Right column:
+  - Label: "About Us" (green, uppercase, tracking-wider)
+  - Heading: "Pakistan's Leading Youth Empowerment Platform" (text-4xl lg:text-5xl)
+  - Two paragraphs of description text
+  - 2-column grid of features with CheckCircle icons:
+    - Expert Mentorship
+    - Skill Development
+- Animations: Fade-in with x-axis motion (±30px)
+
+**Our Three Tracks Section:**
+- Background: Light gray (slate-50 dark:bg-[#0f1410])
+- Padding: py-28
+- Animated header section:
+  - Label: "Programs" (green, uppercase, tracking-wider)
+  - Heading: "Our Three Tracks" (text-4xl lg:text-5xl)
+  - Subtitle: "Choose the path that aligns with your goals and aspirations"
+  - Animation: Fade-in with y-axis motion (20px)
+- 3-column grid layout (md:grid-cols-3)
+- Track cards:
+  - Launchpad: #2d5f3d (dark green) - "Launch your innovative projects with Himmatkaar" - Image: /track-launchpad.jpg
+  - Fellowship: #39894c (primary green) - "Intensive leadership development program" - Image: /track-fellowship.jpg
+  - Impact: #4a9d5f (light green) - "Create lasting community change" - Image: /track-impact.jpg
+- Card design:
+  - Relative positioning with group hover
+  - Fixed height: h-80 (320px)
+  - Border radius: rounded-2xl
+  - Shadow: shadow-xl hover:shadow-2xl
+  - Hover effect: scale-105 transition
+  - Background image layer:
+    - Absolute positioning (inset-0)
+    - Background cover with center positioning
+    - Opacity: 30% (default), 40% (hover)
+    - Smooth opacity transition (duration-500)
+  - Gradient overlay: from-black/40 via-transparent to-black/60
+  - Content structure (centered flex column):
+    - Title: text-3xl font-extrabold mb-4
+    - Description: text-base font-normal text-white/95 mb-6 max-w-xs
+    - ArrowRight icon (size-28) with hover translate-x-2 animation
+- Animations: Staggered fade-in with y-axis motion (delay: idx * 0.1)
+
+**Events Section:**
+- Background: White (dark:bg-[#0a0f0b])
+- Padding: py-24
+- Section title: "Invent Your Future With Us at HimmatKaar!" (text-3xl lg:text-4xl)
+- 3-column grid of event cards (md:grid-cols-3)
+- Event cards:
+  - Background: slate-50 (dark:bg-slate-900)
+  - Rounded-lg with hover shadow-xl
+  - Event image (h-48, object-cover)
+  - Content padding: p-6
+  - Event title (text-xl font-bold)
+  - "Event Details" link (green, hover underline)
+- Events:
+  - Youth Leadership Summit
+  - Innovation Workshop
+  - Community Open House
+
+**Our Offerings Section:**
+- Background: White (dark:bg-[#0a0f0b])
+- Padding: py-24
+- Section title: "Our Offerings" (text-3xl lg:text-4xl)
+- 3-column grid layout (md:grid-cols-2 lg:grid-cols-3)
+- Offering cards:
+  - Background: slate-50 (dark:bg-slate-900)
+  - Padding: p-8
+  - Rounded-lg with hover shadow-lg
+  - Icon (32px, green color)
+  - Title (text-xl font-bold)
+  - Description text
+- Offerings:
+  - Mentorship & Coaching (Users icon)
+  - Investment Readiness (TrendingUp icon)
+  - Industry Connections (Globe icon)
+  - Founder Institute Curriculum (BookOpen icon)
+  - Grants & Global Expos (Award icon)
+  - Co-Working Space (Lightbulb icon)
+
+**Contact & Newsletter Section:**
+- Background: Light gray (slate-50 dark:bg-[#0f1410])
+- Padding: py-24
+- 2-column grid layout (lg:grid-cols-2)
+- Left column: Contact form
+  - Fields: First Name, Last Name, Phone, Email, Message
+  - Submit button (green)
+- Right column:
+  - Newsletter subscription
+  - Stats grid (2x2):
+    - 10k+ Members
+    - 500+ Projects
+    - 50+ Cities
+    - $2M+ Funds Raised
+
+**Testimonials Section:**
+- Background: Light gray (slate-50 dark:bg-[#0f1410])
+- Padding: py-28
+- Animated header section:
+  - Label: "Testimonials" (green, uppercase, tracking-wider)
+  - Heading: "What Our Members Say" (text-4xl lg:text-5xl)
+  - Subtitle: "Hear from the changemakers who are making a difference"
+  - Animation: Fade-in with y-axis motion (20px)
+- TestimonialCarousel component
+- Max-width: 6xl (increased from 5xl)
 
 **Components:**
 - Navbar with logo and navigation links
-- Hero banner with gradient background
-- Feature cards (3-column grid)
-- Testimonial carousel with auto-play
-- Statistics counter with animations
-- Newsletter signup form
+- Hero banner with gradient background and image overlay
+- Partner grid with text-based logos
+- About section with image and stats card
+- Three Tracks cards with hover animations
+- Event cards with images
+- Offering cards with icons
+- Contact form and newsletter signup
+- Testimonial carousel component
 - Footer with links and social media
 
 **Interactions:**
 - Smooth scroll to sections
-- Hover effects on cards
-- Animated counters on scroll
-- Carousel auto-advance
+- Hover effects on cards (scale, shadow, color changes)
+- Staggered animations on scroll (Framer Motion)
+- Button hover effects (scale, brightness)
 - Mobile hamburger menu
+- Form submissions
 
 **Responsive:**
-- Desktop: Full layout
-- Tablet: 2-column grid
-- Mobile: Single column, stacked layout
+- Desktop: Full layout with multi-column grids
+- Tablet: 2-3 column grids, adjusted spacing
+- Mobile: Single column, stacked layout, full-width cards
 
 #### 3.2 About Page (`/about`)
 
@@ -119,13 +303,44 @@ Using 8px base unit:
 
 #### 3.3 Fellowship Page (`/fellowship`)
 
-**Content:**
-- Program overview
-- Benefits and features
-- Application process
-- Success stories
-- FAQ section
-- Apply CTA
+**Layout:**
+- Fixed Navbar at top
+- Main content area with max-width container
+- Footer at bottom
+
+**Components:**
+- Back to Home link with ArrowLeft icon (top-left)
+- Page title: "Fellowship Program" (4xl/5xl font size)
+- Program description paragraph
+- Benefits section card
+
+**Benefits Section:**
+- Background: Light gray (slate-50 dark mode: slate-900)
+- Rounded container with padding
+- Section heading: "Program Benefits"
+- Bulleted list of benefits:
+  - 6-month intensive leadership training
+  - One-on-one mentorship from industry experts
+  - Access to exclusive workshops and events
+  - Networking opportunities with alumni and partners
+  - Certificate of completion
+
+**Styling:**
+- Dark mode support (bg-white/dark:bg-[#0a0f0b])
+- Responsive typography
+- Consistent spacing (pt-32 pb-24)
+- Max-width container (max-w-4xl)
+
+**Interactions:**
+- Back to Home navigation link
+- Hover effects on links
+
+**Responsive:**
+- Desktop: Full layout with centered content
+- Tablet: Adjusted padding and font sizes
+- Mobile: Single column, full-width content
+
+**Note:** This is a simplified placeholder page. The full Fellowship page with comprehensive content is available at `/launchpad` which includes detailed curriculum, eligibility requirements, and application process.
 
 #### 3.4 Impact Page (`/impact`)
 

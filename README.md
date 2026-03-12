@@ -59,6 +59,7 @@ Three role-based dashboards with distinct features:
 - **Carousel**: Embla Carousel React
 - **Icons**: Lucide React
 - **Backend (Ready)**: Supabase (to be integrated)
+- **MCP Integrations**: Firecrawl (web scraping and content extraction)
 
 ## 🎨 Design System
 
@@ -127,12 +128,22 @@ cd himmatkaar
 npm install
 ```
 
-3. Run development server:
+3. Configure environment variables:
+```bash
+cp .env.example .env.local
+```
+
+Add your API keys:
+```env
+FIRECRAWL_API_KEY=your-firecrawl-api-key
+```
+
+4. Run development server:
 ```bash
 npm run dev
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000)
+5. Open [http://localhost:3000](http://localhost:3000)
 
 ## 🔐 Authentication (To Be Implemented)
 
@@ -258,6 +269,7 @@ All pages are fully responsive:
 - [ ] Certificate generation
 - [ ] Analytics dashboard
 - [ ] Mobile app
+- [ ] AI-powered content recommendations (via Firecrawl MCP)
 
 ## 🤝 Contributing
 

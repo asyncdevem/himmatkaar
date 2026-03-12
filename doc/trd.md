@@ -81,6 +81,12 @@
 - Supabase
 - Upstash (Redis)
 
+**MCP Integrations:**
+- Firecrawl MCP (Web scraping and content extraction)
+  - Used for AI-powered content recommendations
+  - Automated web research capabilities
+  - Dynamic content aggregation
+
 ### 3. Database Design
 
 #### 3.1 Entity Relationship Diagram
@@ -895,3 +901,45 @@ Response: {
 - Architecture diagrams
 - Deployment guides
 - User manuals
+
+### 11. MCP (Model Context Protocol) Integration
+
+#### 11.1 Firecrawl MCP Server
+
+**Purpose:** Web scraping and content extraction capabilities for AI-powered features.
+
+**Configuration:**
+```json
+{
+  "mcpServers": {
+    "firecrawl-mcp": {
+      "command": "npx",
+      "args": ["-y", "firecrawl-mcp"],
+      "env": {
+        "FIRECRAWL_API_KEY": "your-api-key"
+      }
+    }
+  }
+}
+```
+
+**Location:** `.kiro/settings/mcp.json`
+
+**Use Cases:**
+- Automated content aggregation for course materials
+- Web research for educational resources
+- Dynamic content extraction from external sources
+- AI-powered content recommendations
+- Automated news and updates gathering
+
+**Setup:**
+1. Install Firecrawl MCP: `npx -y firecrawl-mcp`
+2. Obtain API key from Firecrawl
+3. Configure in `.kiro/settings/mcp.json`
+4. Restart development environment
+
+**Security:**
+- API keys stored in environment variables
+- Never commit API keys to version control
+- Use `.env.local` for local development
+- Use secure environment variables in production

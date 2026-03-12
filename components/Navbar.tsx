@@ -16,12 +16,12 @@ export default function Navbar() {
           <Link href="/" className="flex items-center gap-3 group">
             <Image 
               src="/himmatkaar-logo.jpg" 
-              alt="HimmatKaar Logo" 
+              alt="Himmatkaar Logo" 
               width={40} 
               height={40} 
               className="rounded-lg group-hover:scale-105 transition-transform duration-300"
             />
-            <h1 className="text-xl font-bold tracking-tight">HimmatKaar</h1>
+            <h1 className="text-xl font-bold tracking-tight">Himmatkaar</h1>
           </Link>
           
           {/* Desktop Menu */}

@@ -67,7 +67,7 @@ export default function Footer() {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500 dark:text-slate-400 uppercase tracking-widest font-bold">
-        <p>© 2026 HIMMATKAAR GLOBAL FOUNDATION</p>
+        <p>© 2026 HIMMATKAAR</p>
         <div className="flex gap-8">
           <Link className="hover:text-[var(--color-primary)]" href="#">Privacy</Link>
           <Link className="hover:text-[var(--color-primary)]" href="#">Terms</Link>

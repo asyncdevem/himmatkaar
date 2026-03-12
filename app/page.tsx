@@ -1,253 +1,515 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { 
-  ArrowRight,
-  Search,
+  Users,
   BookOpen,
-  Zap,
-  Quote
+  Lightbulb,
+  TrendingUp,
+  Globe,
+  Award,
+  ArrowRight,
+  CheckCircle2
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 40 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6, ease: "easeOut" }
-};
-
-const staggerContainer = {
-  animate: {
-    transition: {
-      staggerChildren: 0.1
-    }
-  }
-};
-
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased">
+    <div className="min-h-screen bg-white dark:bg-[#0a0f0b] text-slate-900 dark:text-slate-100 antialiased">
       <Navbar />
 
       <main className="pt-20">
-        {/* Split Hero Section */}
-        <section className="relative max-w-7xl mx-auto px-6 py-16 lg:py-24 flex flex-col lg:flex-row items-center gap-16">
-          <motion.div 
-            initial="initial"
-            animate="animate"
-            variants={staggerContainer}
-            className="flex-1 space-y-8"
-          >
-            <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--color-primary)] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--color-primary)]"></span>
-              </span>
-              Join the 10k+ Movement
-            </motion.div>
-            <motion.h2 variants={fadeInUp} className="text-5xl lg:text-7xl font-black text-slate-900 dark:text-white leading-[1.1]">
-              Empowering <span className="text-[var(--color-primary)] italic">Youth</span> to Lead Change
-            </motion.h2>
-            <motion.p variants={fadeInUp} className="text-lg text-slate-600 dark:text-slate-400 max-w-lg leading-relaxed">
-              A premium ecosystem for the next generation of leaders. We provide the tools, mentorship, and community needed to turn bold ideas into real-world impact.
-            </motion.p>
-            <motion.div variants={fadeInUp} className="flex flex-wrap gap-4 pt-4">
-              <Link href="/register">
-                <button className="bg-[var(--color-primary)] text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl shadow-[var(--color-primary)]/25 flex items-center gap-2 hover:brightness-110 transition-all">
-                  Get Started <ArrowRight size={20} />
-                </button>
-              </Link>
-              <Link href="/impact">
-                <button className="bg-white dark:bg-slate-800 dark:text-white dark:border-slate-700 border border-slate-200 px-8 py-4 rounded-xl font-bold text-lg hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
-                  View Projects
-                </button>
-              </Link>
-            </motion.div>
-          </motion.div>
-          
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex-1 w-full"
-          >
-            <div className="relative w-full aspect-square lg:aspect-[4/5] bg-[var(--color-primary)]/5 rounded-3xl overflow-hidden" style={{ clipPath: "polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%)" }}>
-              <div 
-                className="absolute inset-0 bg-cover bg-center grayscale hover:grayscale-0 transition-all duration-700" 
-                style={{ backgroundImage: "url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80')" }}
-              >
-              </div>
-              <div className="absolute bottom-10 left-10 right-10 p-6 backdrop-blur-md bg-white/80 dark:bg-slate-900/80 rounded-2xl border border-white/20">
-                <p className="text-slate-900 dark:text-white font-bold">Latest Impact: Karachi Clean Water Initiative</p>
-                <p className="text-sm text-slate-600 dark:text-slate-400">Reached over 2,500 families this month.</p>
-              </div>
-            </div>
-          </motion.div>
-        </section>
-
-        {/* Floating Trust Bar */}
-        <section className="max-w-6xl mx-auto px-6 -mt-12 relative z-10">
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl border border-[var(--color-primary)]/5 p-8 lg:p-12 flex flex-wrap justify-around items-center gap-8"
-          >
-            <div className="text-center">
-              <p className="text-4xl font-black text-[var(--color-primary)] mb-1">10k+</p>
-              <p className="text-slate-500 font-medium uppercase text-xs tracking-widest">Members</p>
-            </div>
-            <div className="h-12 w-px bg-slate-100 dark:bg-slate-700 hidden md:block"></div>
-            <div className="text-center">
-              <p className="text-4xl font-black text-[var(--color-primary)] mb-1">500+</p>
-              <p className="text-slate-500 font-medium uppercase text-xs tracking-widest">Projects</p>
-            </div>
-            <div className="h-12 w-px bg-slate-100 dark:bg-slate-700 hidden md:block"></div>
-            <div className="text-center">
-              <p className="text-4xl font-black text-[var(--color-primary)] mb-1">50+</p>
-              <p className="text-slate-500 font-medium uppercase text-xs tracking-widest">Cities</p>
-            </div>
-            <div className="h-12 w-px bg-slate-100 dark:bg-slate-700 hidden md:block"></div>
-            <div className="text-center">
-              <p className="text-4xl font-black text-[var(--color-primary)] mb-1">$2M+</p>
-              <p className="text-slate-500 font-medium uppercase text-xs tracking-widest">Funds Raised</p>
-            </div>
-          </motion.div>
-        </section>
-
-        {/* Mission / Step-by-Step */}
-        <section className="max-w-7xl mx-auto px-6 py-24">
-          <motion.div 
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            variants={staggerContainer}
-            className="flex flex-col items-center text-center mb-20"
-          >
-            <motion.h3 variants={fadeInUp} className="text-[var(--color-primary)] font-bold uppercase tracking-widest text-sm mb-4">Our Mission</motion.h3>
-            <motion.h2 variants={fadeInUp} className="text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white max-w-2xl">
-              Three steps to making a lasting impact in your city
-            </motion.h2>
-          </motion.div>
-          <motion.div 
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            variants={staggerContainer}
-            className="grid lg:grid-cols-3 gap-12"
-          >
-            {[
-              { num: "01", icon: <Search size={32} />, title: "Discover Potential", desc: "We help you identify systemic issues and local opportunities where your unique skills can thrive." },
-              { num: "02", icon: <BookOpen size={32} />, title: "Build Skills", desc: "Access world-class workshops on leadership, project management, and sustainable development." },
-              { num: "03", icon: <Zap size={32} />, title: "Lead Impact", desc: "Execute your vision with our funding and mentorship network. Scale your project to new heights." }
-            ].map((step, idx) => (
-              <motion.div 
-                key={idx}
-                variants={fadeInUp}
-                className="relative group p-8 rounded-3xl hover:bg-white dark:hover:bg-slate-800 transition-all hover:shadow-xl border border-transparent hover:border-[var(--color-primary)]/10"
-              >
-                <span className="text-7xl font-black text-[var(--color-primary)]/10 absolute top-4 right-8 group-hover:text-[var(--color-primary)]/20 transition-colors">{step.num}</span>
-                <div className="size-16 bg-[var(--color-primary)]/10 rounded-2xl flex items-center justify-center text-[var(--color-primary)] mb-8">
-                  {step.icon}
-                </div>
-                <h4 className="text-2xl font-bold mb-4 dark:text-white">{step.title}</h4>
-                <p className="text-slate-600 dark:text-slate-400 leading-relaxed">{step.desc}</p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </section>
-
-        {/* Team Section */}
-        <section className="bg-white/50 dark:bg-slate-900/50 py-24 border-y border-[var(--color-primary)]/5">
+        {/* Hero Section */}
+        <section className="relative bg-slate-50 dark:bg-[#0f1410] py-20 lg:py-32 overflow-hidden">
           <div className="max-w-7xl mx-auto px-6">
-            <div className="flex justify-between items-end mb-16">
-              <div>
-                <h3 className="text-[var(--color-primary)] font-bold uppercase tracking-widest text-sm mb-4">The Team</h3>
-                <h2 className="text-4xl font-bold dark:text-white">Led by Visionaries</h2>
-              </div>
-              <button className="text-[var(--color-primary)] font-bold flex items-center gap-2 hover:gap-3 transition-all">
-                Meet Everyone <ArrowRight size={20} />
-              </button>
-            </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {[
-                { name: "Sarah Chen", role: "Co-Founder & CEO", img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80" },
-                { name: "Marcus Thorne", role: "Head of Operations", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80" },
-                { name: "Elena Rodriguez", role: "Community Lead", img: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80" },
-                { name: "David Kim", role: "Strategy Director", img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80" }
-              ].map((member, idx) => (
-                <motion.div 
-                  key={idx}
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+              {/* Left Column - Text Content */}
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
+                className="order-2 lg:order-1"
+              >
+                <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5 }}
+                  className="inline-block mb-6"
+                >
+                  <span className="inline-flex items-center gap-2 px-4 py-2 bg-[#39894c]/10 rounded-full text-sm font-semibold text-[#39894c]">
+                    <CheckCircle2 size={16} />
+                    Pakistan's Leading Youth Empowerment Platform
+                  </span>
+                </motion.div>
+                
+                <motion.h1 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.1 }}
+                  className="text-4xl lg:text-6xl font-extrabold leading-tight mb-6 tracking-tight text-slate-900 dark:text-white"
+                >
+                  Evolve Your Future with <span className="text-[#39894c]">Himmatkaar!</span>
+                </motion.h1>
+                
+                <motion.p 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  className="text-lg lg:text-xl mb-8 text-slate-600 dark:text-slate-400 leading-relaxed"
+                >
+                  Get empowered at Himmatkaar to scale your potential with resources, mentorship, skill development opportunities, community support, and a network that pushes you forward.
+                </motion.p>
+                
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                  className="flex flex-col sm:flex-row gap-4"
+                >
+                  <Link href="/register">
+                    <button className="bg-[#39894c] text-white px-10 py-4 rounded-lg font-bold text-lg hover:bg-[#2d6f3d] transition-all shadow-xl hover:shadow-2xl hover:scale-105 flex items-center justify-center gap-2">
+                      Apply Here <ArrowRight size={20} />
+                    </button>
+                  </Link>
+                  <Link href="/about">
+                    <button className="bg-white dark:bg-slate-800 text-slate-900 dark:text-white px-10 py-4 rounded-lg font-bold text-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-all border-2 border-slate-200 dark:border-slate-700">
+                      Learn More
+                    </button>
+                  </Link>
+                </motion.div>
+              </motion.div>
+
+              {/* Right Column - Image */}
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="order-1 lg:order-2 relative"
+              >
+                <div className="relative">
+                  {/* Background Decoration */}
+                  <div className="absolute -top-8 -right-8 w-72 h-72 bg-[#39894c]/10 rounded-full blur-3xl"></div>
+                  <div className="absolute -bottom-8 -left-8 w-72 h-72 bg-[#2d5f3d]/10 rounded-full blur-3xl"></div>
+                  
+                  {/* Main Image Container */}
+                  <div className="relative bg-white dark:bg-slate-800 rounded-3xl shadow-2xl overflow-hidden border-4 border-white dark:border-slate-700">
+                    <Image 
+                      src="/hero-person.jpg" 
+                      alt="Himmatkaar Community"
+                      width={600}
+                      height={600}
+                      className="w-full h-auto object-cover"
+                      priority
+                    />
+                    
+                    {/* Overlay Badge */}
+                    <div className="absolute bottom-6 left-6 right-6 bg-white/95 dark:bg-slate-900/95 backdrop-blur-sm rounded-2xl p-6 shadow-xl">
+                      <div className="flex items-center gap-4">
+                        <div className="w-12 h-12 bg-[#39894c] rounded-full flex items-center justify-center text-white font-bold text-xl">
+                          ✓
+                        </div>
+                        <div>
+                          <p className="font-bold text-slate-900 dark:text-white text-lg">10,000+ Youth Empowered</p>
+                          <p className="text-sm text-slate-600 dark:text-slate-400">Join Pakistan's largest youth network</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* Partner Network */}
+        <section className="py-20 bg-slate-50 dark:bg-[#0f1410] border-b border-slate-200 dark:border-slate-800">
+          <div className="max-w-7xl mx-auto px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white mb-3">Our Partner Network</h2>
+              <p className="text-slate-600 dark:text-slate-400 text-lg">Trusted by leading organizations across Pakistan</p>
+            </motion.div>
+            
+            {/* Scrollable Partner Logos */}
+            <div className="relative">
+              <div className="overflow-x-auto scrollbar-hide">
+                <div className="flex gap-8 pb-4 min-w-max px-4">
+                  {[
+                    { name: "UNICEF", logo: "/partners/unicef.png" },
+                    { name: "RED CROSS", logo: "/partners/redcross.png" },
+                    { name: "TECH CORPS", logo: "/partners/techcorps.png" },
+                    { name: "GLOBAL IMPACT", logo: "/partners/globalimpact.png" },
+                    { name: "EDUCARE", logo: "/partners/educare.png" },
+                    { name: "FUTURE GEN", logo: "/partners/futuregen.png" },
+                    { name: "INNOVATION HUB", logo: "/partners/innovationhub.png" },
+                    { name: "YOUTH ALLIANCE", logo: "/partners/youthalliance.png" }
+                  ].map((partner, idx) => (
+                    <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: idx * 0.05 }}
+                      className="flex-shrink-0 w-48 h-32 bg-white dark:bg-slate-900 rounded-2xl border-2 border-slate-200 dark:border-slate-800 hover:border-[#39894c] dark:hover:border-[#39894c] transition-all shadow-sm hover:shadow-lg flex items-center justify-center p-6 group"
+                    >
+                      {/* Placeholder for logo - replace with actual logo image */}
+                      <div className="text-center">
+                        <div className="w-full h-16 mb-2 flex items-center justify-center">
+                          {/* Add logo image here */}
+                          <div className="w-12 h-12 bg-slate-200 dark:bg-slate-700 rounded-lg flex items-center justify-center text-slate-400 dark:text-slate-500 group-hover:bg-[#39894c]/10 group-hover:text-[#39894c] transition-colors">
+                            <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                              <path d="M10 2a8 8 0 100 16 8 8 0 000-16zM8 11a1 1 0 112 0v3a1 1 0 11-2 0v-3zm1-5a1 1 0 100 2 1 1 0 000-2z" />
+                            </svg>
+                          </div>
+                        </div>
+                        <p className="text-sm font-bold text-slate-600 dark:text-slate-400 group-hover:text-[#39894c] transition-colors">
+                          {partner.name}
+                        </p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+              
+              {/* Scroll Indicators */}
+              <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-slate-50 dark:from-[#0f1410] to-transparent pointer-events-none"></div>
+              <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-slate-50 dark:from-[#0f1410] to-transparent pointer-events-none"></div>
+            </div>
+            
+            {/* Scroll hint */}
+            <div className="text-center mt-6">
+              <p className="text-sm text-slate-500 dark:text-slate-500 flex items-center justify-center gap-2">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+                </svg>
+                Scroll to see more partners
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* About Us */}
+        <section className="py-28 bg-white dark:bg-[#0a0f0b]">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="relative"
+              >
+                <div className="aspect-[4/3] bg-slate-200 dark:bg-slate-800 rounded-2xl overflow-hidden shadow-2xl">
+                  <Image 
+                    src="/about-hero.jpg" 
+                    alt="About Himmatkaar"
+                    width={800}
+                    height={600}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="absolute -bottom-6 -right-6 bg-[#39894c] text-white p-8 rounded-xl shadow-2xl max-w-xs">
+                  <p className="text-4xl font-bold mb-1">10,000+</p>
+                  <p className="text-sm font-semibold opacity-90">Youth Empowered</p>
+                </div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <span className="inline-block text-[#39894c] font-bold text-sm uppercase tracking-wider mb-4">About Us</span>
+                <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-slate-900 dark:text-white leading-tight">Pakistan's Leading Youth Empowerment Platform</h2>
+                <p className="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed text-lg">
+                  Himmatkaar is Pakistan's premier youth empowerment platform, driving the growth of the next generation of leaders. We provide comprehensive support through mentorship, skill development, and community engagement.
+                </p>
+                <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg mb-8">
+                  Our mission is to cultivate a strong resource pool to support young innovators and change-makers across Pakistan, helping them transform their ideas into impactful initiatives that benefit their communities.
+                </p>
+                <div className="grid grid-cols-2 gap-6">
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="text-[#39894c] flex-shrink-0 mt-1" size={24} />
+                    <div>
+                      <p className="font-bold text-slate-900 dark:text-white mb-1">Expert Mentorship</p>
+                      <p className="text-sm text-slate-600 dark:text-slate-400">Industry-leading guidance</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="text-[#39894c] flex-shrink-0 mt-1" size={24} />
+                    <div>
+                      <p className="font-bold text-slate-900 dark:text-white mb-1">Skill Development</p>
+                      <p className="text-sm text-slate-600 dark:text-slate-400">World-class training programs</p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* Our Three Tracks */}
+        <section className="py-28 bg-slate-50 dark:bg-[#0f1410]">
+          <div className="max-w-7xl mx-auto px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
+              <span className="inline-block text-[#39894c] font-bold text-sm uppercase tracking-wider mb-4">Programs</span>
+              <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4">Our Three Tracks</h2>
+              <p className="text-slate-600 dark:text-slate-400 text-lg max-w-2xl mx-auto">Choose the path that aligns with your goals and aspirations</p>
+            </motion.div>
+            <div className="grid md:grid-cols-3 gap-8">
+              {[
+                { title: "Launchpad", link: "/launchpad", color: "#2d5f3d", desc: "Launch your innovative projects with Himmatkaar", img: "/track-launchpad.jpg" },
+                { title: "Fellowship", link: "/fellowship", color: "#39894c", desc: "Intensive leadership development program", img: "/track-fellowship.jpg" },
+                { title: "Impact", link: "/impact", color: "#4a9d5f", desc: "Create lasting community change", img: "/track-impact.jpg" }
+              ].map((track, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1 }}
-                  className="text-center group"
                 >
-                  <div className="size-40 mx-auto rounded-full p-1 border-2 border-transparent group-hover:border-[var(--color-primary)] transition-all mb-6">
-                    <img alt={member.name} className="w-full h-full object-cover rounded-full" src={member.img} />
-                  </div>
-                  <h5 className="font-bold text-lg dark:text-white">{member.name}</h5>
-                  <p className="text-slate-500 text-sm">{member.role}</p>
+                  <Link href={track.link}>
+                    <div 
+                      className="group relative h-80 rounded-2xl text-white text-center font-bold text-2xl hover:scale-105 transition-all cursor-pointer overflow-hidden shadow-xl hover:shadow-2xl"
+                      style={{ backgroundColor: track.color }}
+                    >
+                      {/* Background Image */}
+                      <div 
+                        className="absolute inset-0 bg-cover bg-center opacity-30 group-hover:opacity-40 transition-opacity duration-500"
+                        style={{ backgroundImage: `url('${track.img}')` }}
+                      ></div>
+                      
+                      {/* Gradient Overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-transparent to-black/60"></div>
+                      
+                      {/* Content */}
+                      <div className="relative z-10 h-full flex flex-col items-center justify-center p-8">
+                        <h3 className="text-3xl font-extrabold mb-4">{track.title}</h3>
+                        <p className="text-base font-normal text-white/95 mb-6 max-w-xs">{track.desc}</p>
+                        <ArrowRight className="group-hover:translate-x-2 transition-transform" size={28} />
+                      </div>
+                    </div>
+                  </Link>
                 </motion.div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Testimonial Section */}
-        <section className="py-24 bg-[var(--color-primary)]/5 dark:bg-[var(--color-primary)]/10">
-          <div className="max-w-5xl mx-auto px-6 text-center">
-            <div className="flex justify-center mb-8 text-[var(--color-primary)] opacity-30">
-              <Quote size={64} />
-            </div>
-            <p className="text-3xl lg:text-4xl font-medium text-slate-800 dark:text-slate-200 leading-snug italic mb-10">
-              "HimmatKaar didn't just give me a platform; they gave me a purpose. I went from having a small idea about urban farming to leading a city-wide initiative with over 200 volunteers."
-            </p>
-            <div className="flex flex-col items-center">
-              <p className="font-bold text-xl text-slate-900 dark:text-white">Aisha Rahmani</p>
-              <p className="text-slate-500">Youth Lead, Green City Project</p>
-            </div>
-            {/* Keeping the previously existing Testimonial Carousel in as well */}
-            <div className="mt-16">
-              <TestimonialCarousel />
+        {/* Events Section */}
+        <section className="py-28 bg-white dark:bg-[#0a0f0b]">
+          <div className="max-w-7xl mx-auto px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
+              <span className="inline-block text-[#39894c] font-bold text-sm uppercase tracking-wider mb-4">Events</span>
+              <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4">Invent Your Future With Us</h2>
+              <p className="text-slate-600 dark:text-slate-400 text-lg max-w-2xl mx-auto">Join our upcoming events and connect with like-minded changemakers</p>
+            </motion.div>
+            <div className="grid md:grid-cols-3 gap-8">
+              {[
+                { title: "Youth Leadership Summit", img: "/event-leadership.jpg", date: "March 25, 2026" },
+                { title: "Innovation Workshop", img: "/event-workshop.jpg", date: "April 10, 2026" },
+                { title: "Community Open House", img: "/event-openhouse.jpg", date: "April 20, 2026" }
+              ].map((event, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1 }}
+                  className="group bg-white dark:bg-slate-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all border border-slate-100 dark:border-slate-800"
+                >
+                  <div className="relative overflow-hidden">
+                    <Image 
+                      src={event.img} 
+                      alt={event.title} 
+                      width={400}
+                      height={250}
+                      className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-500" 
+                    />
+                    <div className="absolute top-4 right-4 bg-[#39894c] text-white px-3 py-1 rounded-full text-xs font-bold">
+                      Upcoming
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <p className="text-sm text-[#39894c] font-semibold mb-2">{event.date}</p>
+                    <h3 className="text-xl font-bold mb-4 text-slate-900 dark:text-white">{event.title}</h3>
+                    <Link href="/testimonials">
+                      <button className="text-[#39894c] font-semibold hover:gap-2 flex items-center gap-1 transition-all group">
+                        Event Details <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                      </button>
+                    </Link>
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* Horizontal Scrolling Gallery */}
-        <section className="py-24 overflow-hidden">
-          <div className="max-w-7xl mx-auto px-6 mb-12">
-            <h3 className="text-[var(--color-primary)] font-bold uppercase tracking-widest text-sm mb-4">Global Network</h3>
-            <h2 className="text-4xl font-bold dark:text-white">Collaborations in Action</h2>
+        {/* Our Offerings */}
+        <section className="py-28 bg-slate-50 dark:bg-[#0f1410]">
+          <div className="max-w-7xl mx-auto px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
+              <span className="inline-block text-[#39894c] font-bold text-sm uppercase tracking-wider mb-4">What We Offer</span>
+              <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4">Our Offerings</h2>
+              <p className="text-slate-600 dark:text-slate-400 text-lg max-w-2xl mx-auto">Comprehensive support to help you succeed</p>
+            </motion.div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[
+                { icon: <Users size={40} />, title: "Mentorship & Coaching", desc: "Access tailored training & one-on-one coaching from leading industry experts across Pakistan to avoid common pitfalls & accelerate your growth." },
+                { icon: <TrendingUp size={40} />, title: "Investment Readiness", desc: "Get investor-ready with solid business models, compelling pitches & smart financials to help you secure the investment." },
+                { icon: <Globe size={40} />, title: "Industry Connections", desc: "With our strong partner network & industry ties, build meaningful connections & partnerships that can take you to the next level." },
+                { icon: <BookOpen size={40} />, title: "Founder Institute Curriculum", desc: "Tap into a globally acclaimed curriculum designed to help founders scale. Gain the tools, skills & mindset to go from idea to execution." },
+                { icon: <Award size={40} />, title: "Grants & Global Expos", desc: "Access national & international grant opportunities, & showcase your projects at leading expos around the world." },
+                { icon: <Lightbulb size={40} />, title: "Co-Working Space", desc: "Work in a vibrant, collaborative environment built for innovation, equipped with everything you need to focus, build & grow." }
+              ].map((offering, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.08 }}
+                  className="group p-8 bg-white dark:bg-slate-900 rounded-2xl hover:shadow-2xl transition-all border border-slate-100 dark:border-slate-800 hover:border-[#39894c]/30"
+                >
+                  <div className="text-[#39894c] mb-6 group-hover:scale-110 transition-transform inline-block">{offering.icon}</div>
+                  <h3 className="text-xl font-bold mb-4 text-slate-900 dark:text-white">{offering.title}</h3>
+                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed">{offering.desc}</p>
+                </motion.div>
+              ))}
+            </div>
           </div>
-          <div className="flex gap-6 px-6 overflow-x-auto pb-8 snap-x scrollbar-hide">
-            {[
-              "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800",
-              "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=800",
-              "https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?auto=format&fit=crop&q=80&w=800",
-              "https://images.unsplash.com/photo-1531497865144-0464ef8fb9a9?auto=format&fit=crop&q=80&w=800"
-            ].map((img, idx) => (
-              <div key={idx} className="min-w-[300px] md:min-w-[400px] aspect-[4/3] bg-[var(--color-primary)]/10 rounded-3xl overflow-hidden flex-shrink-0 snap-center">
-                <img className="w-full h-full object-cover" src={img} alt="Collaboration" loading="lazy" />
+        </section>
+
+        {/* Stats & Contact */}
+        <section className="py-28 bg-white dark:bg-[#0a0f0b]">
+          <div className="max-w-7xl mx-auto px-6">
+            {/* Stats */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="bg-gradient-to-br from-[#2d5f3d] to-[#39894c] rounded-3xl p-12 lg:p-16 mb-20 shadow-2xl"
+            >
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center text-white">
+                <div>
+                  <p className="text-5xl lg:text-6xl font-extrabold mb-2">10k+</p>
+                  <p className="text-lg font-semibold opacity-90">Members</p>
+                </div>
+                <div>
+                  <p className="text-5xl lg:text-6xl font-extrabold mb-2">500+</p>
+                  <p className="text-lg font-semibold opacity-90">Projects</p>
+                </div>
+                <div>
+                  <p className="text-5xl lg:text-6xl font-extrabold mb-2">50+</p>
+                  <p className="text-lg font-semibold opacity-90">Cities</p>
+                </div>
+                <div>
+                  <p className="text-5xl lg:text-6xl font-extrabold mb-2">$2M+</p>
+                  <p className="text-lg font-semibold opacity-90">Funds Raised</p>
+                </div>
               </div>
-            ))}
+            </motion.div>
+
+            {/* Contact Form */}
+            <div className="grid lg:grid-cols-2 gap-16">
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+              >
+                <span className="inline-block text-[#39894c] font-bold text-sm uppercase tracking-wider mb-4">Get In Touch</span>
+                <h2 className="text-4xl font-bold mb-6 text-slate-900 dark:text-white">Send Us A Message</h2>
+                <p className="text-slate-600 dark:text-slate-400 mb-8 text-lg">Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+                <form className="space-y-5">
+                  <div className="grid md:grid-cols-2 gap-5">
+                    <input type="text" placeholder="First Name" className="px-5 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:border-[#39894c] focus:outline-none transition-colors" />
+                    <input type="text" placeholder="Last Name" className="px-5 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:border-[#39894c] focus:outline-none transition-colors" />
+                  </div>
+                  <input type="tel" placeholder="Phone" className="w-full px-5 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:border-[#39894c] focus:outline-none transition-colors" />
+                  <input type="email" placeholder="Email" className="w-full px-5 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:border-[#39894c] focus:outline-none transition-colors" />
+                  <textarea placeholder="Message" rows={5} className="w-full px-5 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:border-[#39894c] focus:outline-none transition-colors resize-none"></textarea>
+                  <button type="submit" className="bg-[#39894c] text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-[#2d6f3d] transition-colors shadow-lg hover:shadow-xl w-full md:w-auto">
+                    Submit Message
+                  </button>
+                </form>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="flex flex-col justify-center"
+              >
+                <span className="inline-block text-[#39894c] font-bold text-sm uppercase tracking-wider mb-4">Stay Updated</span>
+                <h2 className="text-4xl font-bold mb-6 text-slate-900 dark:text-white">Subscribe to our Newsletter</h2>
+                <p className="text-slate-600 dark:text-slate-400 mb-8 text-lg">Stay updated with the latest news, events, and opportunities from Himmatkaar.</p>
+                <div className="flex gap-4 mb-12">
+                  <input type="email" placeholder="Enter your email" className="flex-1 px-5 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:border-[#39894c] focus:outline-none transition-colors" />
+                  <button className="bg-[#39894c] text-white px-10 py-4 rounded-xl font-bold hover:bg-[#2d6f3d] transition-colors shadow-lg hover:shadow-xl">
+                    Subscribe
+                  </button>
+                </div>
+                <div className="bg-slate-50 dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-slate-800">
+                  <h3 className="text-xl font-bold mb-6 text-slate-900 dark:text-white">Contact Information</h3>
+                  <div className="space-y-4 text-slate-600 dark:text-slate-400">
+                    <p className="flex items-center gap-3">
+                      <span className="text-[#39894c]">📧</span>
+                      <span>info@himmatkaar.org</span>
+                    </p>
+                    <p className="flex items-center gap-3">
+                      <span className="text-[#39894c]">📞</span>
+                      <span>+92 300 1234567</span>
+                    </p>
+                    <p className="flex items-center gap-3">
+                      <span className="text-[#39894c]">📍</span>
+                      <span>Karachi, Pakistan</span>
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
           </div>
         </section>
 
-        {/* Partners Row */}
-        <section className="max-w-7xl mx-auto px-6 py-12 border-t border-slate-100 dark:border-slate-800">
-          <div className="flex flex-wrap items-center justify-between gap-8 opacity-40 grayscale contrast-125 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
-            <div className="text-2xl font-black tracking-tighter dark:text-white">UNICEF</div>
-            <div className="text-2xl font-black tracking-tighter dark:text-white">RED CROSS</div>
-            <div className="text-2xl font-black tracking-tighter dark:text-white">TECH CORPS</div>
-            <div className="text-2xl font-black tracking-tighter dark:text-white">GLOBAL IMPACT</div>
-            <div className="text-2xl font-black tracking-tighter dark:text-white">EDUCARE</div>
-            <div className="text-2xl font-black tracking-tighter dark:text-white">FUTURE GEN</div>
+        {/* Testimonials */}
+        <section className="py-28 bg-slate-50 dark:bg-[#0f1410]">
+          <div className="max-w-6xl mx-auto px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
+              <span className="inline-block text-[#39894c] font-bold text-sm uppercase tracking-wider mb-4">Testimonials</span>
+              <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4">What Our Members Say</h2>
+              <p className="text-slate-600 dark:text-slate-400 text-lg max-w-2xl mx-auto">Hear from the changemakers who are making a difference</p>
+            </motion.div>
+            <TestimonialCarousel />
           </div>
         </section>
       </main>

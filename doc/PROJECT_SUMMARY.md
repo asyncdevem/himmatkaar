@@ -56,12 +56,19 @@ HimmatKaar is a comprehensive youth empowerment platform designed to facilitate 
 - Impact statistics
 
 #### Fellowship Page (`/fellowship`)
-- Program overview and benefits
-- Learning outcomes
-- Application process
-- Success stories
-- FAQ section
-- Apply CTA
+- Simplified program overview page
+- Back to home navigation
+- Program description
+- Benefits section with bulleted list:
+  - 6-month intensive leadership training
+  - One-on-one mentorship from industry experts
+  - Access to exclusive workshops and events
+  - Networking opportunities with alumni and partners
+  - Certificate of completion
+- Dark mode support
+- Responsive design
+
+**Note:** This is a simplified placeholder page. The comprehensive Fellowship program details with full curriculum, eligibility requirements, and application process are available at `/launchpad`.
 
 #### Impact Page (`/impact`)
 - Impact metrics dashboard
