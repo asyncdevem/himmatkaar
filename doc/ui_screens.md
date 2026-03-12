@@ -234,20 +234,21 @@ Using 8px base unit:
   - Grants & Global Expos (Award icon)
   - Co-Working Space (Lightbulb icon)
 
-**Contact & Newsletter Section:**
-- Background: Light gray (slate-50 dark:bg-[#0f1410])
-- Padding: py-24
-- 2-column grid layout (lg:grid-cols-2)
-- Left column: Contact form
-  - Fields: First Name, Last Name, Phone, Email, Message
-  - Submit button (green)
-- Right column:
-  - Newsletter subscription
-  - Stats grid (2x2):
-    - 10k+ Members
-    - 500+ Projects
-    - 50+ Cities
-    - $2M+ Funds Raised
+**Stats & Contact Section:**
+- Background: White (dark:bg-[#0a0f0b])
+- Padding: py-28
+- Stats card (gradient background):
+  - Background: gradient from #2d5f3d to #39894c
+  - Grid: 2 columns on mobile, 4 columns on desktop
+  - Stats: 10k+ Members, 500+ Projects, 50+ Cities, $2M+ Funds Raised
+  - Text: White with large font sizes (5xl-6xl)
+- Contact form section (2-column grid):
+  - Left column: Contact form
+    - Fields: First Name, Last Name, Phone, Email, Message
+    - Submit button (green)
+  - Right column:
+    - Newsletter subscription with email input and subscribe button
+    - Contact information card with email, phone, location (using emoji icons)
 
 **Testimonials Section:**
 - Background: Light gray (slate-50 dark:bg-[#0f1410])
