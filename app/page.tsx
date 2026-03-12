@@ -53,7 +53,7 @@ export default function Home() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.1 }}
-                  className="text-4xl lg:text-6xl font-extrabold leading-tight mb-6 tracking-tight text-slate-900 dark:text-white"
+                  className="text-5xl lg:text-7xl font-extrabold leading-tight mb-6 tracking-tight text-slate-900 dark:text-white"
                 >
                   Evolve Your Future with <span className="text-[#39894c]">Himmatkaar!</span>
                 </motion.h1>
@@ -62,7 +62,7 @@ export default function Home() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
-                  className="text-lg lg:text-xl mb-8 text-slate-600 dark:text-slate-400 leading-relaxed"
+                  className="text-xl lg:text-2xl mb-8 text-slate-600 dark:text-slate-400 leading-relaxed"
                 >
                   Get empowered at Himmatkaar to scale your potential with resources, mentorship, skill development opportunities, community support, and a network that pushes you forward.
                 </motion.p>
@@ -137,8 +137,8 @@ export default function Home() {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white mb-3">Our Partner Network</h2>
-              <p className="text-slate-600 dark:text-slate-400 text-lg">Trusted by leading organizations across Pakistan</p>
+              <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4">Our Partner Network</h2>
+              <p className="text-slate-600 dark:text-slate-400 text-xl">Trusted by leading organizations across Pakistan</p>
             </motion.div>
             
             {/* Partner Logos */}
@@ -170,15 +170,15 @@ export default function Home() {
             
             {/* Partnership CTA */}
             <div className="text-center mt-12">
-              <p className="text-slate-600 dark:text-slate-400 mb-4">
+              <p className="text-slate-600 dark:text-slate-400 mb-4 text-lg">
                 Interested in partnering with us?
               </p>
               <Link 
                 href="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-[#2d5f3d] hover:bg-[#39894c] text-white rounded-lg transition-colors"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-[#2d5f3d] hover:bg-[#39894c] text-white text-lg font-semibold rounded-lg transition-colors"
               >
                 Get in Touch
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </Link>
@@ -217,27 +217,27 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                <span className="inline-block text-[#39894c] font-bold text-sm uppercase tracking-wider mb-4">About Us</span>
-                <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-slate-900 dark:text-white leading-tight">Pakistan's Leading Youth Empowerment Platform</h2>
-                <p className="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed text-lg">
+                <span className="inline-block text-[#39894c] font-bold text-base uppercase tracking-wider mb-4">About Us</span>
+                <h2 className="text-4xl lg:text-6xl font-bold mb-6 text-slate-900 dark:text-white leading-tight">Pakistan's Leading Youth Empowerment Platform</h2>
+                <p className="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed text-xl">
                   Himmatkaar is Pakistan's premier youth empowerment platform, driving the growth of the next generation of leaders. We provide comprehensive support through mentorship, skill development, and community engagement.
                 </p>
-                <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg mb-8">
+                <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-xl mb-8">
                   Our mission is to cultivate a strong resource pool to support young innovators and change-makers across Pakistan, helping them transform their ideas into impactful initiatives that benefit their communities.
                 </p>
                 <div className="grid grid-cols-2 gap-6">
                   <div className="flex items-start gap-3">
-                    <CheckCircle2 className="text-[#39894c] flex-shrink-0 mt-1" size={24} />
+                    <CheckCircle2 className="text-[#39894c] flex-shrink-0 mt-1" size={28} />
                     <div>
-                      <p className="font-bold text-slate-900 dark:text-white mb-1">Expert Mentorship</p>
-                      <p className="text-sm text-slate-600 dark:text-slate-400">Industry-leading guidance</p>
+                      <p className="font-bold text-slate-900 dark:text-white mb-1 text-lg">Expert Mentorship</p>
+                      <p className="text-base text-slate-600 dark:text-slate-400">Industry-leading guidance</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <CheckCircle2 className="text-[#39894c] flex-shrink-0 mt-1" size={24} />
+                    <CheckCircle2 className="text-[#39894c] flex-shrink-0 mt-1" size={28} />
                     <div>
-                      <p className="font-bold text-slate-900 dark:text-white mb-1">Skill Development</p>
-                      <p className="text-sm text-slate-600 dark:text-slate-400">World-class training programs</p>
+                      <p className="font-bold text-slate-900 dark:text-white mb-1 text-lg">Skill Development</p>
+                      <p className="text-base text-slate-600 dark:text-slate-400">World-class training programs</p>
                     </div>
                   </div>
                 </div>
@@ -255,9 +255,9 @@ export default function Home() {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <span className="inline-block text-[#39894c] font-bold text-sm uppercase tracking-wider mb-4">Programs</span>
-              <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4">Our Three Tracks</h2>
-              <p className="text-slate-600 dark:text-slate-400 text-lg max-w-2xl mx-auto">Choose the path that aligns with your goals and aspirations</p>
+              <span className="inline-block text-[#39894c] font-bold text-base uppercase tracking-wider mb-4">Programs</span>
+              <h2 className="text-4xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-4">Our Three Tracks</h2>
+              <p className="text-slate-600 dark:text-slate-400 text-xl max-w-2xl mx-auto">Choose the path that aligns with your goals and aspirations</p>
             </motion.div>
             <div className="grid md:grid-cols-3 gap-8">
               {[
@@ -288,9 +288,9 @@ export default function Home() {
                       
                       {/* Content */}
                       <div className="relative z-10 h-full flex flex-col items-center justify-center p-8">
-                        <h3 className="text-3xl font-extrabold mb-4">{track.title}</h3>
-                        <p className="text-base font-normal text-white/95 mb-6 max-w-xs">{track.desc}</p>
-                        <ArrowRight className="group-hover:translate-x-2 transition-transform" size={28} />
+                        <h3 className="text-4xl font-extrabold mb-4">{track.title}</h3>
+                        <p className="text-lg font-normal text-white/95 mb-6 max-w-xs">{track.desc}</p>
+                        <ArrowRight className="group-hover:translate-x-2 transition-transform" size={32} />
                       </div>
                     </div>
                   </Link>
@@ -309,9 +309,9 @@ export default function Home() {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <span className="inline-block text-[#39894c] font-bold text-sm uppercase tracking-wider mb-4">Events</span>
-              <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4">Invent Your Future With Us</h2>
-              <p className="text-slate-600 dark:text-slate-400 text-lg max-w-2xl mx-auto">Join our upcoming events and connect with like-minded changemakers</p>
+              <span className="inline-block text-[#39894c] font-bold text-base uppercase tracking-wider mb-4">Events</span>
+              <h2 className="text-4xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-4">Invent Your Future With Us</h2>
+              <p className="text-slate-600 dark:text-slate-400 text-xl max-w-2xl mx-auto">Join our upcoming events and connect with like-minded changemakers</p>
             </motion.div>
             <div className="grid md:grid-cols-3 gap-8">
               {[
@@ -340,11 +340,11 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="p-6">
-                    <p className="text-sm text-[#39894c] font-semibold mb-2">{event.date}</p>
-                    <h3 className="text-xl font-bold mb-4 text-slate-900 dark:text-white">{event.title}</h3>
+                    <p className="text-base text-[#39894c] font-semibold mb-2">{event.date}</p>
+                    <h3 className="text-2xl font-bold mb-4 text-slate-900 dark:text-white">{event.title}</h3>
                     <Link href="/testimonials">
-                      <button className="text-[#39894c] font-semibold hover:gap-2 flex items-center gap-1 transition-all group">
-                        Event Details <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                      <button className="text-[#39894c] font-semibold text-lg hover:gap-2 flex items-center gap-1 transition-all group">
+                        Event Details <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                       </button>
                     </Link>
                   </div>
@@ -363,9 +363,9 @@ export default function Home() {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <span className="inline-block text-[#39894c] font-bold text-sm uppercase tracking-wider mb-4">What We Offer</span>
-              <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4">Our Offerings</h2>
-              <p className="text-slate-600 dark:text-slate-400 text-lg max-w-2xl mx-auto">Comprehensive support to help you succeed</p>
+              <span className="inline-block text-[#39894c] font-bold text-base uppercase tracking-wider mb-4">What We Offer</span>
+              <h2 className="text-4xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-4">Our Offerings</h2>
+              <p className="text-slate-600 dark:text-slate-400 text-xl max-w-2xl mx-auto">Comprehensive support to help you succeed</p>
             </motion.div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
@@ -385,8 +385,8 @@ export default function Home() {
                   className="group p-8 bg-white dark:bg-slate-900 rounded-2xl hover:shadow-2xl transition-all border border-slate-100 dark:border-slate-800 hover:border-[#39894c]/30"
                 >
                   <div className="text-[#39894c] mb-6 group-hover:scale-110 transition-transform inline-block">{offering.icon}</div>
-                  <h3 className="text-xl font-bold mb-4 text-slate-900 dark:text-white">{offering.title}</h3>
-                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed">{offering.desc}</p>
+                  <h3 className="text-2xl font-bold mb-4 text-slate-900 dark:text-white">{offering.title}</h3>
+                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg">{offering.desc}</p>
                 </motion.div>
               ))}
             </div>
@@ -405,20 +405,20 @@ export default function Home() {
             >
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center text-white">
                 <div>
-                  <p className="text-5xl lg:text-6xl font-extrabold mb-2">10k+</p>
-                  <p className="text-lg font-semibold opacity-90">Members</p>
+                  <p className="text-6xl lg:text-7xl font-extrabold mb-3">10k+</p>
+                  <p className="text-xl font-semibold opacity-90">Members</p>
                 </div>
                 <div>
-                  <p className="text-5xl lg:text-6xl font-extrabold mb-2">500+</p>
-                  <p className="text-lg font-semibold opacity-90">Projects</p>
+                  <p className="text-6xl lg:text-7xl font-extrabold mb-3">500+</p>
+                  <p className="text-xl font-semibold opacity-90">Projects</p>
                 </div>
                 <div>
-                  <p className="text-5xl lg:text-6xl font-extrabold mb-2">50+</p>
-                  <p className="text-lg font-semibold opacity-90">Cities</p>
+                  <p className="text-6xl lg:text-7xl font-extrabold mb-3">50+</p>
+                  <p className="text-xl font-semibold opacity-90">Cities</p>
                 </div>
                 <div>
-                  <p className="text-5xl lg:text-6xl font-extrabold mb-2">$2M+</p>
-                  <p className="text-lg font-semibold opacity-90">Funds Raised</p>
+                  <p className="text-6xl lg:text-7xl font-extrabold mb-3">$2M+</p>
+                  <p className="text-xl font-semibold opacity-90">Funds Raised</p>
                 </div>
               </div>
             </motion.div>
@@ -430,9 +430,9 @@ export default function Home() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
               >
-                <span className="inline-block text-[#39894c] font-bold text-sm uppercase tracking-wider mb-4">Get In Touch</span>
-                <h2 className="text-4xl font-bold mb-6 text-slate-900 dark:text-white">Send Us A Message</h2>
-                <p className="text-slate-600 dark:text-slate-400 mb-8 text-lg">Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+                <span className="inline-block text-[#39894c] font-bold text-base uppercase tracking-wider mb-4">Get In Touch</span>
+                <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-slate-900 dark:text-white">Send Us A Message</h2>
+                <p className="text-slate-600 dark:text-slate-400 mb-8 text-xl">Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
                 <form className="space-y-5">
                   <div className="grid md:grid-cols-2 gap-5">
                     <input type="text" placeholder="First Name" className="px-5 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:border-[#39894c] focus:outline-none transition-colors" />
@@ -452,9 +452,9 @@ export default function Home() {
                 viewport={{ once: true }}
                 className="flex flex-col justify-center"
               >
-                <span className="inline-block text-[#39894c] font-bold text-sm uppercase tracking-wider mb-4">Stay Updated</span>
-                <h2 className="text-4xl font-bold mb-6 text-slate-900 dark:text-white">Subscribe to our Newsletter</h2>
-                <p className="text-slate-600 dark:text-slate-400 mb-8 text-lg">Stay updated with the latest news, events, and opportunities from Himmatkaar.</p>
+                <span className="inline-block text-[#39894c] font-bold text-base uppercase tracking-wider mb-4">Stay Updated</span>
+                <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-slate-900 dark:text-white">Subscribe to our Newsletter</h2>
+                <p className="text-slate-600 dark:text-slate-400 mb-8 text-xl">Stay updated with the latest news, events, and opportunities from Himmatkaar.</p>
                 <div className="flex gap-4 mb-12">
                   <input type="email" placeholder="Enter your email" className="flex-1 px-5 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:border-[#39894c] focus:outline-none transition-colors" />
                   <button className="bg-[#39894c] text-white px-10 py-4 rounded-xl font-bold hover:bg-[#2d6f3d] transition-colors shadow-lg hover:shadow-xl">
@@ -462,18 +462,18 @@ export default function Home() {
                   </button>
                 </div>
                 <div className="bg-slate-50 dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-slate-800">
-                  <h3 className="text-xl font-bold mb-6 text-slate-900 dark:text-white">Contact Information</h3>
-                  <div className="space-y-4 text-slate-600 dark:text-slate-400">
+                  <h3 className="text-2xl font-bold mb-6 text-slate-900 dark:text-white">Contact Information</h3>
+                  <div className="space-y-4 text-slate-600 dark:text-slate-400 text-lg">
                     <p className="flex items-center gap-3">
-                      <Mail className="text-[#39894c]" size={20} />
+                      <Mail className="text-[#39894c]" size={24} />
                       <span>info@himmatkaar.org</span>
                     </p>
                     <p className="flex items-center gap-3">
-                      <Phone className="text-[#39894c]" size={20} />
+                      <Phone className="text-[#39894c]" size={24} />
                       <span>+92 300 1234567</span>
                     </p>
                     <p className="flex items-center gap-3">
-                      <MapPin className="text-[#39894c]" size={20} />
+                      <MapPin className="text-[#39894c]" size={24} />
                       <span>Karachi, Pakistan</span>
                     </p>
                   </div>
@@ -492,9 +492,9 @@ export default function Home() {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <span className="inline-block text-[#39894c] font-bold text-sm uppercase tracking-wider mb-4">Testimonials</span>
-              <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4">What Our Members Say</h2>
-              <p className="text-slate-600 dark:text-slate-400 text-lg max-w-2xl mx-auto">Hear from the changemakers who are making a difference</p>
+              <span className="inline-block text-[#39894c] font-bold text-base uppercase tracking-wider mb-4">Testimonials</span>
+              <h2 className="text-4xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-4">What Our Members Say</h2>
+              <p className="text-slate-600 dark:text-slate-400 text-xl max-w-2xl mx-auto">Hear from the changemakers who are making a difference</p>
             </motion.div>
             <TestimonialCarousel />
           </div>

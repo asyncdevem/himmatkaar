@@ -150,11 +150,11 @@ Using 8px base unit:
   - Background: bg-[#39894c]/10
   - Text color: text-[#39894c]
   - Rounded-full with padding
-- Heading: "Evolve Your Future with Himmatkaar!" (text-4xl lg:text-6xl)
+- Heading: "Evolve Your Future with Himmatkaar!" (text-5xl lg:text-7xl)
   - Color: text-slate-900 dark:text-white
   - "Himmatkaar!" highlighted in text-[#39894c]
   - Font: extrabold, tight tracking
-- Description paragraph (text-lg lg:text-xl)
+- Description paragraph (text-xl lg:text-2xl)
   - Color: text-slate-600 dark:text-slate-400
   - Leading: relaxed
 - Two CTA buttons (flex-col sm:flex-row gap-4):
