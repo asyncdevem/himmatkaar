@@ -57,77 +57,100 @@ const testimonials = [
   }
 ];
 
+const fadeInUp = {
+  initial: { opacity: 0, y: 30 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
+};
+
 export default function Testimonials() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gray-50 flex flex-col font-jakarta relative overflow-hidden">
+      {/* Dynamic Background Elements */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+        <div className="absolute top-[-10%] right-[-5%] w-[40%] h-[40%] bg-blue-400/20 rounded-full blur-[120px]" />
+        <div className="absolute top-[40%] left-[-10%] w-[50%] h-[30%] bg-emerald-500/10 rounded-full blur-[120px]" />
+        <div className="absolute bottom-[-10%] right-[20%] w-[40%] h-[40%] bg-primary/10 rounded-full blur-[120px]" />
+      </div>
+
       <Navbar />
 
       {/* Hero */}
-      <section className="pt-32 pb-20 px-6 bg-white">
-        <div className="max-w-7xl mx-auto text-center">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-7xl font-bold text-gray-900 mb-6"
-          >
-            Success <span className="text-[#3a8a4d]">Stories</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-xl text-gray-700 max-w-3xl mx-auto"
-          >
-            Hear from our fellows who transformed their careers through HimmatKaar
-          </motion.p>
+      <section className="pt-32 pb-24 px-6 lg:px-12 relative z-10 flex-grow">
+        <div className="max-w-5xl mx-auto text-center">
+            <motion.div
+              initial="initial"
+              animate="animate"
+              variants={{ animate: { transition: { staggerChildren: 0.1 } } }}
+            >
+              <motion.div variants={fadeInUp} className="inline-block px-4 py-1.5 rounded-full bg-blue-500/10 text-blue-600 font-medium text-sm mb-6 border border-blue-500/20">
+                Community Impact
+              </motion.div>
+              <motion.h1
+                variants={fadeInUp}
+                className="text-5xl md:text-7xl font-extrabold text-gray-900 mb-6 tracking-tight"
+              >
+                Success <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-500">Stories</span>
+              </motion.h1>
+              <motion.p
+                variants={fadeInUp}
+                className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
+              >
+                Hear from our incredible fellows who have transformed their careers and lives through the HimmatKaar experience.
+              </motion.p>
+            </motion.div>
         </div>
       </section>
 
-      {/* Carousel */}
-      <section className="py-20 px-6 bg-gray-50">
+      {/* Main Carousel area */}
+      <section className="py-16 px-6 relative z-20 -mt-10">
         <div className="max-w-6xl mx-auto">
           <TestimonialCarousel />
         </div>
       </section>
 
       {/* Grid Testimonials */}
-      <section className="py-20 px-6 bg-white">
+      <section className="py-24 px-6 lg:px-12 bg-white relative">
         <div className="max-w-7xl mx-auto">
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-4xl font-bold text-gray-900 text-center mb-16"
-          >
-            More Success Stories
-          </motion.h2>
+          <div className="text-center max-w-2xl mx-auto mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">More Voices</h2>
+            <p className="text-lg text-gray-600 leading-relaxed">Discover the diverse experiences of our growing community across Pakistan.</p>
+          </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ scale: 1.02, y: -5 }}
-                className="bg-gray-50 rounded-2xl p-6 shadow-lg"
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-white rounded-3xl p-8 border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] hover:-translate-y-2 transition-all duration-300 relative group overflow-hidden"
               >
-                <div className="flex gap-1 mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="text-[#3a8a4d] fill-[#3a8a4d]" size={20} />
-                  ))}
-                </div>
-                <Quote className="text-[#3a8a4d] mb-3" size={32} />
-                <p className="text-gray-700 mb-6 italic">"{testimonial.text}"</p>
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-[#3a8a4d]">
-                    <img src={testimonial.image} alt={testimonial.name} className="w-full h-full object-cover" />
+                {/* Decorative subtle gradient background on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-emerald-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                
+                <div className="relative z-10">
+                  <div className="flex justify-between items-start mb-6">
+                    <Quote className="text-primary/20 w-12 h-12" />
+                    <div className="flex gap-1">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star key={i} className="text-amber-400 fill-amber-400" size={18} />
+                      ))}
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="font-bold text-gray-900">{testimonial.name}</h4>
-                    <p className="text-gray-600 text-sm">{testimonial.role}</p>
-                    <p className="text-gray-500 text-xs">{testimonial.location}</p>
+                  
+                  <p className="text-gray-700 mb-8 italic leading-relaxed">"{testimonial.text}"</p>
+                  
+                  <div className="flex items-center gap-4 mt-auto">
+                    <div className="w-14 h-14 rounded-full overflow-hidden border border-gray-200 shadow-sm relative">
+                      <img src={testimonial.image} alt={testimonial.name} className="w-full h-full object-cover" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-gray-900 text-lg">{testimonial.name}</h4>
+                      <p className="text-gray-500 font-medium text-sm">{testimonial.role}</p>
+                      <p className="text-emerald-600 font-semibold text-xs mt-0.5">{testimonial.location}</p>
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -136,34 +159,38 @@ export default function Testimonials() {
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="py-20 px-6 bg-[#17431f] text-white">
-        <div className="max-w-7xl mx-auto">
+      {/* Stats / Satisfaction section */}
+      <section className="py-24 px-6 lg:px-12 bg-gray-900 text-white relative overflow-hidden">
+        {/* Abstract background */}
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 mix-blend-overlay" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-primary/20 blur-[120px] rounded-full pointer-events-none" />
+
+        <div className="max-w-6xl mx-auto relative z-10 text-center">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl font-bold text-center mb-16"
+            className="text-4xl md:text-5xl font-bold mb-16 tracking-tight"
           >
-            Fellow Satisfaction
+            The HimmatKaar <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-primary">Difference</span>
           </motion.h2>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
             {[
-              { number: "92%", label: "Would Recommend" },
-              { number: "88%", label: "Completion Rate" },
-              { number: "95%", label: "Satisfaction Score" }
+              { number: "92%", label: "Would Recommend to a Friend" },
+              { number: "88%", label: "Fellowship Completion Rate" },
+              { number: "95%", label: "Overall Satisfaction Score" }
             ].map((stat, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, scale: 0.5 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.2 }}
-                className="text-center"
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-white/5 backdrop-blur-md rounded-3xl p-10 border border-white/10 hover:bg-white/10 transition-colors"
               >
-                <div className="text-6xl font-bold text-[#a3caad] mb-3">{stat.number}</div>
-                <div className="text-xl">{stat.label}</div>
+                <div className="text-6xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-emerald-300 to-primary mb-4">{stat.number}</div>
+                <div className="text-lg font-medium text-gray-300">{stat.label}</div>
               </motion.div>
             ))}
           </div>
