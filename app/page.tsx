@@ -225,15 +225,15 @@ export default function Home() {
             <h3 className="text-[var(--color-primary)] font-bold uppercase tracking-widest text-sm mb-4">Global Network</h3>
             <h2 className="text-4xl font-bold dark:text-white">Collaborations in Action</h2>
           </div>
-          <div className="flex gap-6 px-6 overflow-x-auto pb-8 snap-x no-scrollbar">
+          <div className="flex gap-6 px-6 overflow-x-auto pb-8 snap-x scrollbar-hide">
             {[
-              "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80",
-              "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80",
-              "https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?auto=format&fit=crop&q=80",
-              "https://images.unsplash.com/photo-1531497865144-0464ef8fb9a9?auto=format&fit=crop&q=80"
+              "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800",
+              "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=800",
+              "https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?auto=format&fit=crop&q=80&w=800",
+              "https://images.unsplash.com/photo-1531497865144-0464ef8fb9a9?auto=format&fit=crop&q=80&w=800"
             ].map((img, idx) => (
-              <div key={idx} className="min-w-[400px] aspect-[4/3] bg-[var(--color-primary)]/10 rounded-3xl overflow-hidden flex-shrink-0 snap-center">
-                <img className="w-full h-full object-cover" src={img} alt="Collaboration" />
+              <div key={idx} className="min-w-[300px] md:min-w-[400px] aspect-[4/3] bg-[var(--color-primary)]/10 rounded-3xl overflow-hidden flex-shrink-0 snap-center">
+                <img className="w-full h-full object-cover" src={img} alt="Collaboration" loading="lazy" />
               </div>
             ))}
           </div>
