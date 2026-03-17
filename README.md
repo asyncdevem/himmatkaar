@@ -8,6 +8,7 @@ A comprehensive web platform for the HimmatKaar fellowship program, featuring a 
 
 ### Public Website
 - **Home Page** - Hero section with animations, statistics, and testimonials
+  - **Dynamic Events Section** - Fetches live events from API with fallback support
 - **About Page** - Mission, vision, and core values
 - **Team Page** - Core team members and campus ambassadors with social links
 - **Ambassadors Page** - Dedicated page showcasing all campus ambassadors across Pakistan
@@ -71,7 +72,9 @@ Three role-based dashboards with distinct features:
 - **Icons**: Lucide React
 - **Image Optimization**: Next.js Image (configured for Unsplash)
 - **Backend (Ready)**: Supabase (to be integrated)
-- **MCP Integrations**: Firecrawl (web scraping and content extraction)
+- **MCP Integrations**: 
+  - Firecrawl (web scraping and content extraction)
+  - Supabase MCP (direct database operations via MCP)
 
 ## 🎨 Design System
 
@@ -124,6 +127,7 @@ himmatkaar/
 ├── components/
 │   ├── Navbar.tsx                  # Public site navigation with dropdown menus
 │   ├── Footer.tsx                  # Public site footer
+│   ├── EventsSection.tsx           # Dynamic events component with API integration
 │   ├── DashboardLayout.tsx         # Dashboard wrapper
 │   └── TestimonialCarousel.tsx     # Testimonial slider
 └── public/
@@ -167,9 +171,11 @@ npm run dev
 
 ## 🔐 Authentication (To Be Implemented)
 
-The UI is ready for Supabase integration. Currently, the login page redirects all users to the Admin dashboard as a temporary implementation.
+The UI is ready for Supabase integration. The Supabase client is configured in `lib/supabase.ts`.
 
 **Current Status:**
+- Supabase client: ✅ Configured
+- TypeScript interfaces: ✅ Event interface added
 - Login form UI: ✅ Complete
 - Registration form UI: ✅ Complete
 - Admin dashboard: ✅ Fully functional
@@ -179,19 +185,34 @@ The UI is ready for Supabase integration. Currently, the login page redirects al
 - Role-based routing: ⏳ Pending
 
 ### Setup Supabase
-1. Create a Supabase project
-2. Create tables:
-   - `users` - User accounts
-   - `profiles` - User profiles
-   - `courses` - Course information
-   - `enrollments` - Student-course relationships
-   - `assignments` - Assignment data
-   - `submissions` - Assignment submissions
-
-3. Add environment variables:
+1. Create a Supabase project at https://supabase.com
+2. Create tables using the schema in `doc/drd.md`
+3. Enable Row Level Security (RLS) policies
+4. Create a storage bucket named `event-images` for event image uploads
+5. Add environment variables:
 ```env
 NEXT_PUBLIC_SUPABASE_URL=your-project-url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+```
+
+### Using the Supabase Client
+
+The Supabase client is pre-configured in `lib/supabase.ts`:
+
+```typescript
+import { supabase } from '@/lib/supabase';
+
+// Authentication
+const { data, error } = await supabase.auth.signInWithPassword({
+  email: 'user@example.com',
+  password: 'password'
+});
+
+// Database operations
+const { data: events } = await supabase
+  .from('events')
+  .select('*')
+  .eq('status', 'upcoming');
 ```
 
 ### Database Schema (Suggested)

@@ -127,6 +127,8 @@ The Events Management System allows administrators to create and manage events w
 └─────────────────────────────────────────────────────────────┘
 
 1. Admin Creates Event
+   ├─ Upload Event Image (via /api/upload)
+   └─ Fill Event Details
    ↓
 2. Event Published (visible to students)
    ↓
@@ -181,7 +183,35 @@ DELETE /api/events/:id                # Delete event
 GET    /api/events/:id/participants   # Get participant list
 POST   /api/events/:id/publish        # Publish event
 POST   /api/events/:id/cancel         # Cancel event
+POST   /api/upload                    # Upload event image
 ```
+
+### Image Upload Endpoint
+
+**POST /api/upload**
+
+Upload event images to Supabase Storage.
+
+**Request:**
+- Content-Type: `multipart/form-data`
+- Body: Form data with `file` field
+
+**Validation:**
+- Allowed types: JPEG, JPG, PNG, WebP
+- Max file size: 5MB
+- Unique filename generation
+
+**Response:**
+```json
+{
+  "url": "https://supabase-storage-url/events/filename.jpg",
+  "path": "events/filename.jpg"
+}
+```
+
+**Error Responses:**
+- 400: No file provided / Invalid file type / File too large
+- 500: Upload failed
 
 ### Student Endpoints
 

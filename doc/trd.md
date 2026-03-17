@@ -65,14 +65,14 @@
 **Backend (API):**
 - Next.js API Routes
 - Node.js 20+
-- NextAuth.js (Authentication)
+- Supabase Client (Authentication & Database)
 
 **Database:**
-- PostgreSQL 15+ (Primary database)
+- PostgreSQL 15+ via Supabase (Primary database)
 - Redis 7+ (Caching & sessions)
 
 **File Storage:**
--Supabase
+- Supabase Storage
 
 **Email:**
 - Resend
@@ -87,6 +87,11 @@
   - Used for AI-powered content recommendations
   - Automated web research capabilities
   - Dynamic content aggregation
+- Supabase MCP (Direct database operations)
+  - Direct database queries and operations via MCP
+  - Schema inspection and management
+  - Real-time database interaction
+  - Migration management
 
 ### 3. Database Design
 
@@ -665,6 +670,73 @@ Response: {
 }
 ```
 
+#### 4.7 File Upload Endpoints
+
+**POST /api/upload**
+
+Upload event images to Supabase Storage.
+
+```typescript
+Request: FormData {
+  file: File; // Image file (JPEG, JPG, PNG, WebP)
+}
+
+Response: {
+  url: string;      // Public URL of uploaded image
+  path: string;     // Storage path (events/filename.ext)
+}
+
+Error Responses: {
+  400: {
+    error: 'No file provided' | 
+           'Invalid file type. Only JPEG, PNG, and WebP are allowed.' |
+           'File size exceeds 5MB limit'
+  };
+  500: {
+    error: string;  // Upload error message
+  };
+}
+```
+
+**Validation Rules:**
+- Allowed file types: `image/jpeg`, `image/jpg`, `image/png`, `image/webp`
+- Maximum file size: 5MB (5 * 1024 * 1024 bytes)
+- Unique filename generation: `{timestamp}-{random}.{extension}`
+- Storage bucket: `event-images`
+- Storage path: `events/{filename}`
+
+**Security:**
+- File type validation on server-side
+- File size validation before upload
+- Unique filename prevents overwrites
+- Public URL generation for display
+- Stored in Supabase Storage with proper permissions
+
+**Usage Example:**
+```typescript
+// Client-side upload
+const formData = new FormData();
+formData.append('file', imageFile);
+
+const response = await fetch('/api/upload', {
+  method: 'POST',
+  body: formData
+});
+
+const { url, path } = await response.json();
+
+// Use URL in event creation
+await fetch('/api/events', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    title: 'Workshop',
+    image_url: url,
+    // ... other fields
+  })
+});
+```
+
 #### 4.6 Settings Endpoints
 
 **GET /api/settings**
@@ -958,9 +1030,149 @@ import Image from 'next/image';
 - Prevents unauthorized image sources
 - Protects against image-based attacks
 
-### 12. MCP (Model Context Protocol) Integration
+### 12. Supabase Client Configuration
 
-#### 12.1 Firecrawl MCP Server
+#### 12.1 Client Setup
+
+**Location:** `lib/supabase.ts`
+
+**Purpose:** Centralized Supabase client for authentication, database operations, and storage.
+
+**Configuration:**
+```typescript
+import { createClient } from '@supabase/supabase-js';
+
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+
+export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+```
+
+**Environment Variables:**
+```env
+NEXT_PUBLIC_SUPABASE_URL=your-project-url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+```
+
+**TypeScript Interfaces:**
+
+The client includes TypeScript interfaces for type-safe database operations:
+
+```typescript
+export interface Event {
+  id: string;
+  title: string;
+  description: string;
+  date: string;
+  time: string;
+  location: string;
+  type: string;
+  capacity: number;
+  registered: number;
+  status: 'upcoming' | 'past' | 'cancelled';
+  image: string;
+  created_at: string;
+  updated_at: string;
+}
+```
+
+**Usage Examples:**
+
+**Authentication:**
+```typescript
+import { supabase } from '@/lib/supabase';
+
+// Sign up
+const { data, error } = await supabase.auth.signUp({
+  email: 'user@example.com',
+  password: 'password'
+});
+
+// Sign in
+const { data, error } = await supabase.auth.signInWithPassword({
+  email: 'user@example.com',
+  password: 'password'
+});
+
+// Sign out
+await supabase.auth.signOut();
+```
+
+**Database Operations:**
+```typescript
+import { supabase } from '@/lib/supabase';
+import type { Event } from '@/lib/supabase';
+
+// Fetch events
+const { data: events, error } = await supabase
+  .from('events')
+  .select('*')
+  .eq('status', 'upcoming')
+  .order('date', { ascending: true });
+
+// Insert event
+const { data, error } = await supabase
+  .from('events')
+  .insert({
+    title: 'Workshop',
+    description: 'Description',
+    date: '2026-04-01',
+    time: '10:00',
+    location: 'Venue',
+    type: 'workshop',
+    capacity: 50,
+    registered: 0,
+    status: 'upcoming'
+  });
+
+// Update event
+const { data, error } = await supabase
+  .from('events')
+  .update({ registered: 25 })
+  .eq('id', eventId);
+
+// Delete event
+const { data, error } = await supabase
+  .from('events')
+  .delete()
+  .eq('id', eventId);
+```
+
+**Real-time Subscriptions:**
+```typescript
+// Subscribe to event changes
+const subscription = supabase
+  .channel('events')
+  .on('postgres_changes', 
+    { event: '*', schema: 'public', table: 'events' },
+    (payload) => {
+      console.log('Change received!', payload);
+    }
+  )
+  .subscribe();
+
+// Unsubscribe
+subscription.unsubscribe();
+```
+
+**Security:**
+- Use Row Level Security (RLS) policies in Supabase
+- Never expose service role key in client code
+- Use anon key for client-side operations
+- Implement proper authentication checks
+- Validate user permissions server-side
+
+**Best Practices:**
+- Define TypeScript interfaces for all tables
+- Use type-safe queries with interfaces
+- Handle errors appropriately
+- Implement loading states
+- Use optimistic updates for better UX
+- Cache frequently accessed data
+
+### 13. MCP (Model Context Protocol) Integration
+
+#### 13.1 Firecrawl MCP Server
 
 **Purpose:** Web scraping and content extraction capabilities for AI-powered features.
 
@@ -999,3 +1211,157 @@ import Image from 'next/image';
 - Never commit API keys to version control
 - Use `.env.local` for local development
 - Use secure environment variables in production
+
+#### 13.2 Supabase MCP Server
+
+**Purpose:** Direct database operations and management through Model Context Protocol.
+
+**Configuration:**
+```json
+{
+  "mcpServers": {
+    "supabase-primary": {
+      "url": "https://mcp.supabase.com/mcp?project_ref=your-project-ref"
+    }
+  }
+}
+```
+
+**Location:** `.kiro/settings/mcp.json`
+
+**Capabilities:**
+- Direct database queries and operations
+- Schema inspection and management
+- Table listing with column details
+- Migration management (apply and list)
+- SQL execution for complex operations
+- Real-time database interaction
+- TypeScript type generation
+- Edge Functions management
+- Project logs and advisors
+
+**Available Operations:**
+
+**Database Schema:**
+```typescript
+// List all tables in schema(s)
+list_tables({ schemas: ['public'], verbose: true })
+
+// List extensions
+list_extensions()
+
+// List migrations
+list_migrations()
+```
+
+**Data Operations:**
+```typescript
+// Execute SQL queries
+execute_sql({ query: 'SELECT * FROM events WHERE status = $1', params: ['upcoming'] })
+
+// Apply migrations
+apply_migration({ 
+  name: 'add_events_table',
+  query: 'CREATE TABLE events (...)'
+})
+```
+
+**Project Management:**
+```typescript
+// Get project URL
+get_project_url()
+
+// Get publishable keys
+get_publishable_keys()
+
+// Generate TypeScript types
+generate_typescript_types()
+```
+
+**Edge Functions:**
+```typescript
+// List Edge Functions
+list_edge_functions()
+
+// Get Edge Function code
+get_edge_function({ function_slug: 'my-function' })
+
+// Deploy Edge Function
+deploy_edge_function({
+  name: 'my-function',
+  entrypoint_path: 'index.ts',
+  files: [{ name: 'index.ts', content: '...' }]
+})
+```
+
+**Monitoring:**
+```typescript
+// Get logs
+get_logs({ service: 'api' | 'postgres' | 'auth' | 'storage' })
+
+// Get advisors (security/performance)
+get_advisors({ type: 'security' | 'performance' })
+```
+
+**Branching (Development Branches):**
+```typescript
+// Create branch
+create_branch({ name: 'develop' })
+
+// List branches
+list_branches()
+
+// Merge branch
+merge_branch({ branch_id: 'branch-id' })
+
+// Reset branch
+reset_branch({ branch_id: 'branch-id' })
+```
+
+**Use Cases:**
+- Database schema exploration and management
+- Direct data queries for debugging
+- Migration management and tracking
+- Edge Function deployment and management
+- Security and performance monitoring
+- Development branch workflows
+- TypeScript type generation for type-safe queries
+
+**Setup:**
+1. Ensure Supabase project is created
+2. Get project reference from Supabase dashboard
+3. Configure MCP URL with project reference
+4. MCP server handles authentication automatically
+
+**Security:**
+- MCP server uses secure authentication
+- Project reference is safe to include in configuration
+- All operations respect Row Level Security (RLS) policies
+- Audit logs track all database operations
+- Use advisors to check for security vulnerabilities
+
+**Best Practices:**
+- Use `list_tables` with `verbose: false` for quick schema overview
+- Enable `verbose: true` when you need detailed column information
+- Always use `apply_migration` for DDL operations (schema changes)
+- Use `execute_sql` for DML operations (data queries)
+- Check advisors regularly for security and performance issues
+- Use development branches for testing schema changes
+- Generate TypeScript types after schema changes
+- Monitor logs for debugging and troubleshooting
+
+**Integration with Application:**
+The Supabase MCP server complements the Supabase client (`lib/supabase.ts`) by providing:
+- Direct database access for development and debugging
+- Schema management capabilities
+- Migration tracking and management
+- Advanced monitoring and diagnostics
+- Edge Function deployment automation
+
+**Example Workflow:**
+1. Use MCP to explore schema: `list_tables({ schemas: ['public'], verbose: true })`
+2. Create migration: `apply_migration({ name: 'add_feature', query: '...' })`
+3. Generate types: `generate_typescript_types()`
+4. Update application code with new types
+5. Check for issues: `get_advisors({ type: 'security' })`
+6. Monitor logs: `get_logs({ service: 'postgres' })`

@@ -391,6 +391,79 @@ This document outlines all interactive features and CRUD (Create, Read, Update, 
 
 ## Common Interactive Features Across All Dashboards
 
+### 0. EventsSection Component (Public Website)
+
+**Dynamic Event Loading:**
+
+**Features:**
+- Fetches events from `/api/events` endpoint
+- Query parameters: `limit=3&status=upcoming`
+- Displays 3 most recent upcoming events
+- Automatic fallback to static events if API fails
+- Loading skeleton screens during fetch
+- Error handling with user-friendly messages
+
+**READ Operations:**
+- Fetch events on component mount
+- Display event cards with:
+  - Event image
+  - Event title
+  - Formatted date
+  - Status badge
+  - Event details link
+- View all events link
+
+**Interactive Features:**
+- Loading states (skeleton screens)
+- Error states with fallback content
+- Hover effects on event cards
+- Image zoom on hover
+- Smooth animations (Framer Motion)
+- Responsive grid layout (1 col mobile, 3 cols desktop)
+- "View All Events" CTA button
+
+**Data Flow:**
+```
+Component Mount → useEffect → fetch('/api/events?limit=3&status=upcoming') 
+→ Success: setEvents(data.events) 
+→ Error: setError(message) + Use fallback events
+→ Finally: setLoading(false)
+→ Render: displayEvents (API data or fallback)
+```
+
+**Fallback Events:**
+- Youth Leadership Summit (March 25, 2026)
+- Innovation Workshop (April 10, 2026)
+- Community Open House (April 20, 2026)
+
+**TypeScript Interface:**
+```typescript
+interface Event {
+  id: string;
+  title: string;
+  description: string;
+  date: string;
+  time: string;
+  location: string;
+  type: string;
+  image: string;
+  status: string;
+}
+```
+
+**Date Formatting:**
+- Converts ISO date strings to readable format
+- Example: "2026-03-25" → "March 25, 2026"
+- Uses `toLocaleDateString('en-US')` with options
+
+**Integration Points:**
+- Used in: `app/page.tsx` (Home page)
+- API endpoint: `/api/events/route.ts`
+- Replaces static events section with dynamic content
+- Maintains same UI/UX as original design
+
+---
+
 ### 1. Navigation
 - Active page highlighting
 - Hover effects on menu items

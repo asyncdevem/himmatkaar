@@ -19,6 +19,7 @@ import {
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
+import EventsSection from "@/components/EventsSection";
 
 export default function Home() {
   return (
@@ -300,59 +301,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Events Section */}
-        <section className="py-28 bg-white dark:bg-[#0a0f0b]">
-          <div className="max-w-7xl mx-auto px-6">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-16"
-            >
-              <span className="inline-block text-[#39894c] font-bold text-base uppercase tracking-wider mb-4">Events</span>
-              <h2 className="text-4xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-4">Invent Your Future With Us</h2>
-              <p className="text-slate-600 dark:text-slate-400 text-xl max-w-2xl mx-auto">Join our upcoming events and connect with like-minded changemakers</p>
-            </motion.div>
-            <div className="grid md:grid-cols-3 gap-8">
-              {[
-                { title: "Youth Leadership Summit", img: "/event-leadership.jpg", date: "March 25, 2026" },
-                { title: "Innovation Workshop", img: "/event-workshop.jpg", date: "April 10, 2026" },
-                { title: "Community Open House", img: "/event-openhouse.jpg", date: "April 20, 2026" }
-              ].map((event, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.1 }}
-                  className="group bg-white dark:bg-slate-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all border border-slate-100 dark:border-slate-800"
-                >
-                  <div className="relative overflow-hidden">
-                    <Image 
-                      src={event.img} 
-                      alt={event.title} 
-                      width={400}
-                      height={250}
-                      className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-500" 
-                    />
-                    <div className="absolute top-4 right-4 bg-[#39894c] text-white px-3 py-1 rounded-full text-xs font-bold">
-                      Upcoming
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <p className="text-base text-[#39894c] font-semibold mb-2">{event.date}</p>
-                    <h3 className="text-2xl font-bold mb-4 text-slate-900 dark:text-white">{event.title}</h3>
-                    <Link href="/testimonials">
-                      <button className="text-[#39894c] font-semibold text-lg hover:gap-2 flex items-center gap-1 transition-all group">
-                        Event Details <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                      </button>
-                    </Link>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
+        {/* Events Section - Dynamic from Supabase */}
+        <EventsSection />
 
         {/* Our Offerings */}
         <section className="py-28 bg-slate-50 dark:bg-[#0f1410]">
@@ -466,15 +416,15 @@ export default function Home() {
                   <div className="space-y-4 text-slate-600 dark:text-slate-400 text-lg">
                     <p className="flex items-center gap-3">
                       <Mail className="text-[#39894c]" size={24} />
-                      <span>info@himmatkaar.org</span>
+                      <span>himmatkaarofficial@gmail.com</span>
                     </p>
                     <p className="flex items-center gap-3">
                       <Phone className="text-[#39894c]" size={24} />
-                      <span>+92 300 1234567</span>
+                      <span>+92 342 4853908</span>
                     </p>
                     <p className="flex items-center gap-3">
                       <MapPin className="text-[#39894c]" size={24} />
-                      <span>Karachi, Pakistan</span>
+                      <span>Faisalabad, Pakistan</span>
                     </p>
                   </div>
                 </div>
