@@ -2,78 +2,41 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ArrowLeft, Linkedin, MapPin } from "lucide-react";
+import { ArrowLeft, Linkedin, MapPin, Loader2 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
+interface Ambassador {
+  id: string;
+  name: string;
+  role: string;
+  city: string;
+  bio: string;
+  image: string;
+  linkedin: string;
+}
+
 export default function Ambassadors() {
-  const ambassadors = [
-    {
-      name: "Zainab Tariq",
-      role: "Campus Ambassador",
-      city: "Karachi",
-      image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400",
-      bio: "Leading Himmatkaar initiatives at universities across Karachi",
-      linkedin: "#"
-    },
-    {
-      name: "Ali Raza",
-      role: "Campus Ambassador",
-      city: "Lahore",
-      image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400",
-      bio: "Connecting students with opportunities in Lahore region",
-      linkedin: "#"
-    },
-    {
-      name: "Maryam Sheikh",
-      role: "Campus Ambassador",
-      city: "Islamabad",
-      image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400",
-      bio: "Driving youth engagement in the capital region",
-      linkedin: "#"
-    },
-    {
-      name: "Usman Khalid",
-      role: "Campus Ambassador",
-      city: "Faisalabad",
-      image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=400",
-      bio: "Expanding Himmatkaar's reach in Punjab's industrial hub",
-      linkedin: "#"
-    },
-    {
-      name: "Hira Jamil",
-      role: "Campus Ambassador",
-      city: "Multan",
-      image: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&q=80&w=400",
-      bio: "Building youth networks in South Punjab",
-      linkedin: "#"
-    },
-    {
-      name: "Hamza Iqbal",
-      role: "Campus Ambassador",
-      city: "Peshawar",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400",
-      bio: "Empowering youth in Khyber Pakhtunkhwa",
-      linkedin: "#"
-    },
-    {
-      name: "Sana Malik",
-      role: "Campus Ambassador",
-      city: "Quetta",
-      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=400",
-      bio: "Representing Himmatkaar in Balochistan",
-      linkedin: "#"
-    },
-    {
-      name: "Fahad Ahmed",
-      role: "Campus Ambassador",
-      city: "Hyderabad",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400",
-      bio: "Growing the community in Sindh region",
-      linkedin: "#"
-    }
-  ];
+  const [ambassadors, setAmbassadors] = useState<Ambassador[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchAmbassadors = async () => {
+      try {
+        const response = await fetch('/api/ambassadors');
+        const data = await response.json();
+        setAmbassadors(data.ambassadors || []);
+      } catch (error) {
+        console.error('Error fetching ambassadors:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchAmbassadors();
+  }, []);
 
   return (
     <div className="min-h-screen bg-white dark:bg-[#0a0f0b]">
@@ -104,8 +67,13 @@ export default function Ambassadors() {
 
         {/* Ambassadors Grid */}
         <section className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {ambassadors.map((ambassador, idx) => (
+          {loading ? (
+            <div className="flex items-center justify-center py-20">
+              <Loader2 className="animate-spin text-[#39894c]" size={48} />
+            </div>
+          ) : (
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {ambassadors.map((ambassador, idx) => (
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 30 }}
@@ -152,7 +120,8 @@ export default function Ambassadors() {
                 </div>
               </motion.div>
             ))}
-          </div>
+            </div>
+          )}
         </section>
 
         {/* Become Ambassador CTA */}

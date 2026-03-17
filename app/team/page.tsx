@@ -2,106 +2,58 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ArrowLeft, Linkedin } from "lucide-react";
+import { ArrowLeft, Linkedin, Loader2 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
+interface TeamMember {
+  id: string;
+  name: string;
+  role: string;
+  bio: string;
+  image: string;
+  linkedin: string;
+}
+
+interface Ambassador {
+  id: string;
+  name: string;
+  role: string;
+  city: string;
+  bio: string;
+  image: string;
+  linkedin: string;
+}
+
 export default function Team() {
-  const [showAllTeam, setShowAllTeam] = useState(false);
+  const [coreTeam, setCoreTeam] = useState<TeamMember[]>([]);
+  const [ambassadors, setAmbassadors] = useState<Ambassador[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  const coreTeam = [
-    {
-      name: "Ahmed Khan",
-      role: "Founder & CEO",
-      image: "/team/founder.jpeg",
-      bio: "Visionary leader with 15+ years of experience in youth empowerment",
-      linkedin: "#"
-    },
-    {
-      name: "Fatima Ali",
-      role: "Co-Founder",
-      image: "/team/cofounder.png",
-      bio: "Expert in program development and community engagement",
-      linkedin: "#"
-    },
-    {
-      name: "Hassan Malik",
-      role: "Creative & Graphics Lead",
-      image: "/team/creative-and graphics-lead.png",
-      bio: "Creative designer bringing visual excellence to our brand",
-      linkedin: "#"
-    },
-    {
-      name: "Ayesha Raza",
-      role: "Community Manager",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=400",
-      bio: "Building and nurturing our vibrant community of changemakers",
-      linkedin: "#"
-    },
-    {
-      name: "Bilal Ahmed",
-      role: "Technical Lead",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400",
-      bio: "Technology expert driving digital innovation",
-      linkedin: "#"
-    },
-    {
-      name: "Sara Hussain",
-      role: "Marketing Director",
-      image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&q=80&w=400",
-      bio: "Creative strategist amplifying our impact and reach",
-      linkedin: "#"
-    },
-    {
-      name: "Zain Abbas",
-      role: "Partnership Manager",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400",
-      bio: "Building strategic partnerships to expand our reach",
-      linkedin: "#"
-    },
-    {
-      name: "Nida Malik",
-      role: "Content Strategist",
-      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=400",
-      bio: "Crafting compelling narratives that inspire action",
-      linkedin: "#"
-    }
-  ];
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const [teamRes, ambassadorsRes] = await Promise.all([
+          fetch('/api/team'),
+          fetch('/api/ambassadors?limit=4')
+        ]);
+        
+        const teamData = await teamRes.json();
+        const ambassadorsData = await ambassadorsRes.json();
+        
+        setCoreTeam(teamData.members || []);
+        setAmbassadors(ambassadorsData.ambassadors || []);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  const ambassadors = [
-    {
-      name: "Zainab Tariq",
-      role: "Campus Ambassador - Karachi",
-      image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400",
-      bio: "Leading Himmatkaar initiatives at universities across Karachi",
-      linkedin: "#"
-    },
-    {
-      name: "Ali Raza",
-      role: "Campus Ambassador - Lahore",
-      image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400",
-      bio: "Connecting students with opportunities in Lahore region",
-      linkedin: "#"
-    },
-    {
-      name: "Maryam Sheikh",
-      role: "Campus Ambassador - Islamabad",
-      image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400",
-      bio: "Driving youth engagement in the capital region",
-      linkedin: "#"
-    },
-    {
-      name: "Usman Khalid",
-      role: "Campus Ambassador - Faisalabad",
-      image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=400",
-      bio: "Expanding Himmatkaar's reach in Punjab's industrial hub",
-      linkedin: "#"
-    }
-  ];
-
-  const displayedTeam = showAllTeam ? [...coreTeam, ...ambassadors] : coreTeam;
+    fetchData();
+  }, []);
 
   return (
     <div className="min-h-screen bg-white dark:bg-[#0a0f0b]">
@@ -142,8 +94,13 @@ export default function Team() {
             <p className="text-slate-600 dark:text-slate-400">Leadership driving our mission forward</p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {coreTeam.map((member, idx) => (
+          {loading ? (
+            <div className="flex items-center justify-center py-20">
+              <Loader2 className="animate-spin text-[#39894c]" size={48} />
+            </div>
+          ) : (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {coreTeam.map((member, idx) => (
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 30 }}
@@ -184,7 +141,8 @@ export default function Team() {
                 </div>
               </motion.div>
             ))}
-          </div>
+            </div>
+          )}
         </section>
 
         {/* Ambassadors Preview Section */}
@@ -204,8 +162,13 @@ export default function Team() {
             </Link>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {ambassadors.slice(0, 4).map((member, idx) => (
+          {loading ? (
+            <div className="flex items-center justify-center py-20">
+              <Loader2 className="animate-spin text-[#39894c]" size={48} />
+            </div>
+          ) : (
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {ambassadors.map((member, idx) => (
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 30 }}
@@ -246,7 +209,8 @@ export default function Team() {
                 </div>
               </motion.div>
             ))}
-          </div>
+            </div>
+          )}
         </section>
 
         {/* Join Team CTA */}

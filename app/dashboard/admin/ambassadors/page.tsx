@@ -14,9 +14,9 @@ import {
   Award,
   MessageSquare
 } from "lucide-react";
-import AdminEventsManager from "@/components/AdminEventsManager";
+import AdminAmbassadorsManager from "@/components/AdminAmbassadorsManager";
 
-export default function AdminEvents() {
+export default function AdminAmbassadors() {
   return (
     <div className="flex h-screen overflow-hidden bg-slate-50 font-display text-slate-900 antialiased">
       <aside className="w-72 bg-white border-r border-slate-200 flex flex-col z-20">
@@ -37,17 +37,17 @@ export default function AdminEvents() {
             <Users size={20} className="group-hover:text-[#39894c] transition-colors" />
             <span className="text-sm font-medium">Users</span>
           </Link>
-          <Link href="/dashboard/admin/events" className="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-[#39894c] text-white font-semibold transition-all shadow-md shadow-[#39894c]/20">
-            <Calendar size={20} />
-            <span className="text-sm">Events</span>
+          <Link href="/dashboard/admin/events" className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50 transition-all group">
+            <Calendar size={20} className="group-hover:text-[#39894c] transition-colors" />
+            <span className="text-sm font-medium">Events</span>
           </Link>
           <Link href="/dashboard/admin/team" className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50 transition-all group">
             <UserCircle size={20} className="group-hover:text-[#39894c] transition-colors" />
             <span className="text-sm font-medium">Team</span>
           </Link>
-          <Link href="/dashboard/admin/ambassadors" className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50 transition-all group">
-            <Award size={20} className="group-hover:text-[#39894c] transition-colors" />
-            <span className="text-sm font-medium">Ambassadors</span>
+          <Link href="/dashboard/admin/ambassadors" className="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-[#39894c] text-white font-semibold transition-all shadow-md shadow-[#39894c]/20">
+            <Award size={20} />
+            <span className="text-sm">Ambassadors</span>
           </Link>
           <Link href="/dashboard/admin/messages" className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50 transition-all group">
             <MessageSquare size={20} className="group-hover:text-[#39894c] transition-colors" />
@@ -74,10 +74,10 @@ export default function AdminEvents() {
       <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
         <header className="h-20 bg-white border-b border-slate-200 flex items-center justify-between px-8 shadow-sm">
           <div className="flex items-center gap-10">
-            <h2 className="text-2xl font-bold text-[#2d5f3d]">Event Management</h2>
+            <h2 className="text-2xl font-bold text-[#2d5f3d]">Ambassador Management</h2>
             <div className="relative w-96 group">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-[#39894c] transition-colors" size={20} />
-              <input className="w-full bg-slate-50 border border-slate-200 rounded-lg pl-10 pr-4 py-2.5 text-sm focus:ring-2 focus:ring-[#39894c]/20 focus:border-[#39894c] transition-all placeholder:text-slate-400 focus:outline-none" placeholder="Search events..." type="text" />
+              <input className="w-full bg-slate-50 border border-slate-200 rounded-lg pl-10 pr-4 py-2.5 text-sm focus:ring-2 focus:ring-[#39894c]/20 focus:border-[#39894c] transition-all placeholder:text-slate-400 focus:outline-none" placeholder="Search ambassadors..." type="text" />
             </div>
           </div>
           <div className="flex items-center gap-4">
@@ -98,7 +98,7 @@ export default function AdminEvents() {
           </div>
         </header>
         <main className="flex-1 overflow-y-auto p-8 bg-slate-50">
-          <AdminEventsManager />
+          <AdminAmbassadorsManager />
         </main>
       </div>
     </div>

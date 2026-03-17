@@ -20,6 +20,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
 import EventsSection from "@/components/EventsSection";
+import ContactForm from "@/components/ContactForm";
+import NewsletterForm from "@/components/NewsletterForm";
 
 export default function Home() {
   return (
@@ -319,12 +321,12 @@ export default function Home() {
             </motion.div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
-                { icon: <Users size={40} />, title: "Mentorship & Coaching", desc: "Access tailored training & one-on-one coaching from leading industry experts across Pakistan to avoid common pitfalls & accelerate your growth." },
-                { icon: <TrendingUp size={40} />, title: "Investment Readiness", desc: "Get investor-ready with solid business models, compelling pitches & smart financials to help you secure the investment." },
-                { icon: <Globe size={40} />, title: "Industry Connections", desc: "With our strong partner network & industry ties, build meaningful connections & partnerships that can take you to the next level." },
-                { icon: <BookOpen size={40} />, title: "Founder Institute Curriculum", desc: "Tap into a globally acclaimed curriculum designed to help founders scale. Gain the tools, skills & mindset to go from idea to execution." },
-                { icon: <Award size={40} />, title: "Grants & Global Expos", desc: "Access national & international grant opportunities, & showcase your projects at leading expos around the world." },
-                { icon: <Lightbulb size={40} />, title: "Co-Working Space", desc: "Work in a vibrant, collaborative environment built for innovation, equipped with everything you need to focus, build & grow." }
+                { icon: <Award size={40} />, title: "Professional Branding", desc: "Build a strong personal brand that stands out. Learn to craft your unique value proposition and present yourself professionally across all platforms." },
+                { icon: <Users size={40} />, title: "Executive Communication", desc: "Master the art of professional communication. Develop skills in public speaking, presentation, and effective business correspondence." },
+                { icon: <TrendingUp size={40} />, title: "Corporate Readiness", desc: "Prepare for the corporate world with essential workplace skills, professional etiquette, and industry-standard practices." },
+                { icon: <BookOpen size={40} />, title: "Technical Workshops", desc: "Hands-on training in cutting-edge technologies and tools. Stay ahead with practical skills that employers are looking for." },
+                { icon: <Globe size={40} />, title: "Networking Events", desc: "Connect with industry leaders, mentors, and peers. Build meaningful relationships that open doors to new opportunities." },
+                { icon: <Lightbulb size={40} />, title: "Employability Excellence", desc: "Comprehensive career development support including resume building, interview preparation, and job search strategies." }
               ].map((offering, idx) => (
                 <motion.div
                   key={idx}
@@ -355,20 +357,20 @@ export default function Home() {
             >
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center text-white">
                 <div>
-                  <p className="text-6xl lg:text-7xl font-extrabold mb-3">1k+</p>
-                  <p className="text-xl font-semibold opacity-90">Members</p>
+                  <p className="text-6xl lg:text-7xl font-extrabold mb-3">0.7+</p>
+                  <p className="text-xl font-semibold opacity-90">Years of Operation</p>
                 </div>
                 <div>
-                  <p className="text-6xl lg:text-7xl font-extrabold mb-3">500+</p>
-                  <p className="text-xl font-semibold opacity-90">Projects</p>
+                  <p className="text-6xl lg:text-7xl font-extrabold mb-3">1000+</p>
+                  <p className="text-xl font-semibold opacity-90">Student Impact</p>
                 </div>
                 <div>
-                  <p className="text-6xl lg:text-7xl font-extrabold mb-3">50+</p>
-                  <p className="text-xl font-semibold opacity-90">Cities</p>
+                  <p className="text-6xl lg:text-7xl font-extrabold mb-3">6+</p>
+                  <p className="text-xl font-semibold opacity-90">Events Organized</p>
                 </div>
                 <div>
-                  <p className="text-6xl lg:text-7xl font-extrabold mb-3">$2M+</p>
-                  <p className="text-xl font-semibold opacity-90">Funds Raised</p>
+                  <p className="text-6xl lg:text-7xl font-extrabold mb-3">20+</p>
+                  <p className="text-xl font-semibold opacity-90">Staff Employs</p>
                 </div>
               </div>
             </motion.div>
@@ -383,18 +385,7 @@ export default function Home() {
                 <span className="inline-block text-[#39894c] font-bold text-base uppercase tracking-wider mb-4">Get In Touch</span>
                 <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-slate-900 dark:text-white">Send Us A Message</h2>
                 <p className="text-slate-600 dark:text-slate-400 mb-8 text-xl">Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
-                <form className="space-y-5">
-                  <div className="grid md:grid-cols-2 gap-5">
-                    <input type="text" placeholder="First Name" className="px-5 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:border-[#39894c] focus:outline-none transition-colors" />
-                    <input type="text" placeholder="Last Name" className="px-5 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:border-[#39894c] focus:outline-none transition-colors" />
-                  </div>
-                  <input type="tel" placeholder="Phone" className="w-full px-5 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:border-[#39894c] focus:outline-none transition-colors" />
-                  <input type="email" placeholder="Email" className="w-full px-5 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:border-[#39894c] focus:outline-none transition-colors" />
-                  <textarea placeholder="Message" rows={5} className="w-full px-5 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:border-[#39894c] focus:outline-none transition-colors resize-none"></textarea>
-                  <button type="submit" className="bg-[#39894c] text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-[#2d6f3d] transition-colors shadow-lg hover:shadow-xl w-full md:w-auto">
-                    Submit Message
-                  </button>
-                </form>
+                <ContactForm />
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
@@ -405,12 +396,7 @@ export default function Home() {
                 <span className="inline-block text-[#39894c] font-bold text-base uppercase tracking-wider mb-4">Stay Updated</span>
                 <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-slate-900 dark:text-white">Subscribe to our Newsletter</h2>
                 <p className="text-slate-600 dark:text-slate-400 mb-8 text-xl">Stay updated with the latest news, events, and opportunities from Himmatkaar.</p>
-                <div className="flex gap-4 mb-12">
-                  <input type="email" placeholder="Enter your email" className="flex-1 px-5 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:border-[#39894c] focus:outline-none transition-colors" />
-                  <button className="bg-[#39894c] text-white px-10 py-4 rounded-xl font-bold hover:bg-[#2d6f3d] transition-colors shadow-lg hover:shadow-xl">
-                    Subscribe
-                  </button>
-                </div>
+                <NewsletterForm />
                 <div className="bg-slate-50 dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-slate-800">
                   <h3 className="text-2xl font-bold mb-6 text-slate-900 dark:text-white">Contact Information</h3>
                   <div className="space-y-4 text-slate-600 dark:text-slate-400 text-lg">

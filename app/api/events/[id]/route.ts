@@ -38,16 +38,38 @@ export async function PUT(
     const { id } = await params;
     const body = await request.json();
     
-    const { data: event, error } = await supabase
+    // First check if event exists
+    const { data: existingEvent, error: checkError } = await supabase
       .from('events')
-      .update(body)
+      .select('id')
       .eq('id', id)
-      .select()
       .single();
 
-    if (error) {
-      console.error('Supabase error:', error);
-      return NextResponse.json({ error: error.message }, { status: 500 });
+    if (checkError || !existingEvent) {
+      return NextResponse.json({ error: 'Event not found' }, { status: 404 });
+    }
+
+    // Update the event
+    const { error: updateError } = await supabase
+      .from('events')
+      .update(body)
+      .eq('id', id);
+
+    if (updateError) {
+      console.error('Supabase update error:', updateError);
+      return NextResponse.json({ error: updateError.message }, { status: 500 });
+    }
+
+    // Fetch the updated event
+    const { data: event, error: fetchError } = await supabase
+      .from('events')
+      .select('*')
+      .eq('id', id)
+      .single();
+
+    if (fetchError) {
+      console.error('Supabase fetch error:', fetchError);
+      return NextResponse.json({ error: fetchError.message }, { status: 500 });
     }
 
     return NextResponse.json({ event });

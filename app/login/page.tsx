@@ -142,14 +142,11 @@ export default function Login() {
                 <span className="text-slate-700 dark:text-slate-200 font-bold">Sign in with Google</span>
               </button>
 
-              {/* Demo Access Links */}
+              {/* Demo Access Note */}
               <div className="mt-8 pt-6 border-t border-slate-200 dark:border-slate-700">
-                <p className="text-sm text-center text-slate-500 mb-4">Quick Demo Access (Dev Only):</p>
-                <div className="flex gap-2 text-xs">
-                  <Link href="/dashboard/student" className="flex-1 text-center py-2 px-3 border border-slate-200 dark:border-slate-700 rounded hover:bg-[var(--color-primary)] hover:text-white transition-colors dark:hover:bg-[var(--color-primary)]">Student</Link>
-                  <Link href="/dashboard/coordinator" className="flex-1 text-center py-2 px-3 border border-slate-200 dark:border-slate-700 rounded hover:bg-[var(--color-primary)] hover:text-white transition-colors dark:hover:bg-[var(--color-primary)]">Coordinator</Link>
-                  <Link href="/dashboard/admin" className="flex-1 text-center py-2 px-3 border border-slate-200 dark:border-slate-700 rounded hover:bg-[var(--color-primary)] hover:text-white transition-colors dark:hover:bg-[var(--color-primary)]">Admin</Link>
-                </div>
+                <p className="text-sm text-center text-slate-600 dark:text-slate-400">
+                  Admin access only. Student and Coordinator portals coming soon.
+                </p>
               </div>
             </div>
 
