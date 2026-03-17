@@ -14,6 +14,8 @@ HimmatKaar is a comprehensive digital platform designed to empower youth through
 
 To build a global ecosystem where every young person has the courage and capability to lead meaningful change through accessible, high-quality education and mentorship.
 
+**Geographic Focus:** HimmatKaar is positioned as Faisalabad's leading youth empowerment platform, with a primary focus on serving the youth of Faisalabad while maintaining a broader reach across Pakistan.
+
 ### 3. Target Users
 
 #### 3.1 Students

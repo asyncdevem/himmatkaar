@@ -2,6 +2,8 @@
 
 A comprehensive web platform for the HimmatKaar fellowship program, featuring a multi-page public website and role-based dashboards for students, coordinators, and administrators.
 
+**Geographic Focus:** HimmatKaar is Faisalabad's leading youth empowerment platform, serving the youth of Faisalabad and surrounding regions with a broader reach across Pakistan.
+
 ## 🎨 Features
 
 ### Public Website

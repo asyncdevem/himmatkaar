@@ -146,7 +146,7 @@ Using 8px base unit:
 - Responsive order: Image first on mobile (order-1), text second (order-2); reversed on desktop
 
 **Left Column - Text Content:**
-- Badge: "Pakistan's Leading Youth Empowerment Platform" with CheckCircle icon
+- Badge: "Faisalabad's Leading Youth Empowerment Platform" with CheckCircle icon
   - Background: bg-[#39894c]/10
   - Text color: text-[#39894c]
   - Rounded-full with padding
@@ -188,8 +188,8 @@ Using 8px base unit:
   - Shadow: shadow-xl
   - Content:
     - Checkmark icon: w-12 h-12 bg-[#39894c] rounded-full with white checkmark
-    - Text: "10,000+ Youth Empowered" (font-bold text-lg)
-    - Subtext: "Join Pakistan's largest youth network" (text-sm)
+    - Text: "1,000+ Youth Empowered" (font-bold text-lg)
+    - Subtext: "Join Faisalabad's largest youth network" (text-sm)
 - Animations: Slide in from right (x: 30 → 0), delay 0.2s
 
 **Partner Network Section:**
@@ -265,9 +265,9 @@ Using 8px base unit:
   - Animation: Fade-in with y-axis motion (20px)
 - 3-column grid layout (md:grid-cols-3)
 - Track cards:
-  - Launchpad: #2d5f3d (dark green) - "Launch your innovative projects with Himmatkaar" - Image: /track-launchpad.jpg
-  - Fellowship: #39894c (primary green) - "Intensive leadership development program" - Image: /track-fellowship.jpg
-  - Impact: #4a9d5f (light green) - "Create lasting community change" - Image: /track-impact.jpg
+  - Launchpad: #2d5f3d (dark green) - "Launch your innovative projects with Himmatkaar" - Links to: /launchpad - Image: /track-launchpad.jpg
+  - Workshops: #39894c (primary green) - "Skill-building workshops and training sessions" - Links to: /events - Image: /track-fellowship.jpg
+  - Networking Events: #4a9d5f (light green) - "Connect with mentors and industry leaders" - Links to: /events - Image: /track-impact.jpg
 - Card design:
   - Relative positioning with group hover
   - Fixed height: h-80 (320px)

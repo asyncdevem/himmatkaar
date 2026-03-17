@@ -45,7 +45,7 @@ export default function Home() {
                 >
                   <span className="inline-flex items-center gap-2 px-4 py-2 bg-[#39894c]/10 rounded-full text-sm font-semibold text-[#39894c]">
                     <CheckCircle2 size={16} />
-                    Pakistan's Leading Youth Empowerment Platform
+                    Faisalabad's Leading Youth Empowerment Platform
                   </span>
                 </motion.div>
                 
@@ -116,8 +116,8 @@ export default function Home() {
                           ✓
                         </div>
                         <div>
-                          <p className="font-bold text-slate-900 dark:text-white text-lg">10,000+ Youth Empowered</p>
-                          <p className="text-sm text-slate-600 dark:text-slate-400">Join Pakistan's largest youth network</p>
+                          <p className="font-bold text-slate-900 dark:text-white text-lg">1,000+ Youth Empowered</p>
+                          <p className="text-sm text-slate-600 dark:text-slate-400">Join Faisalabad's largest youth network</p>
                         </div>
                       </div>
                     </div>
@@ -207,7 +207,7 @@ export default function Home() {
                   />
                 </div>
                 <div className="absolute -bottom-6 -right-6 bg-[#39894c] text-white p-8 rounded-xl shadow-2xl max-w-xs">
-                  <p className="text-4xl font-bold mb-1">10,000+</p>
+                  <p className="text-4xl font-bold mb-1">1,000+</p>
                   <p className="text-sm font-semibold opacity-90">Youth Empowered</p>
                 </div>
               </motion.div>
@@ -218,9 +218,9 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
               >
                 <span className="inline-block text-[#39894c] font-bold text-base uppercase tracking-wider mb-4">About Us</span>
-                <h2 className="text-4xl lg:text-6xl font-bold mb-6 text-slate-900 dark:text-white leading-tight">Pakistan's Leading Youth Empowerment Platform</h2>
+                <h2 className="text-4xl lg:text-6xl font-bold mb-6 text-slate-900 dark:text-white leading-tight">Faisalabad's Leading Youth Empowerment Platform</h2>
                 <p className="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed text-xl">
-                  Himmatkaar is Pakistan's premier youth empowerment platform, driving the growth of the next generation of leaders. We provide comprehensive support through mentorship, skill development, and community engagement.
+                  Himmatkaar is Faisalabad's premier youth empowerment platform, driving the growth of the next generation of leaders. We provide comprehensive support through mentorship, skill development, and community engagement.
                 </p>
                 <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-xl mb-8">
                   Our mission is to cultivate a strong resource pool to support young innovators and change-makers across Pakistan, helping them transform their ideas into impactful initiatives that benefit their communities.
@@ -262,8 +262,8 @@ export default function Home() {
             <div className="grid md:grid-cols-3 gap-8">
               {[
                 { title: "Launchpad", link: "/launchpad", color: "#2d5f3d", desc: "Launch your innovative projects with Himmatkaar", img: "/track-launchpad.jpg" },
-                { title: "Fellowship", link: "/fellowship", color: "#39894c", desc: "Intensive leadership development program", img: "/track-fellowship.jpg" },
-                { title: "Impact", link: "/impact", color: "#4a9d5f", desc: "Create lasting community change", img: "/track-impact.jpg" }
+                { title: "Workshops", link: "/events", color: "#39894c", desc: "Skill-building workshops and training sessions", img: "/track-fellowship.jpg" },
+                { title: "Networking Events", link: "/events", color: "#4a9d5f", desc: "Connect with mentors and industry leaders", img: "/track-impact.jpg" }
               ].map((track, idx) => (
                 <motion.div
                   key={idx}
@@ -405,7 +405,7 @@ export default function Home() {
             >
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center text-white">
                 <div>
-                  <p className="text-6xl lg:text-7xl font-extrabold mb-3">10k+</p>
+                  <p className="text-6xl lg:text-7xl font-extrabold mb-3">1k+</p>
                   <p className="text-xl font-semibold opacity-90">Members</p>
                 </div>
                 <div>
