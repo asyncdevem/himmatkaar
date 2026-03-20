@@ -41,20 +41,37 @@
 - Consistent typography and spacing
 
 #### Admin Dashboard
-- Admin overview/dashboard page
-- User management page
-- Role assignment page
-- Course management page
-- Event management page
-- Analytics page
-- Settings page
-- Sidebar navigation
-- Top bar with search and notifications
+- ✅ Admin overview/dashboard page with real-time statistics
+- ✅ Event management page with full CRUD operations
+- ✅ Team management page with image upload
+- ✅ Ambassador management page with role assignment
+- ✅ Messages & subscribers management page
+- ✅ Centralized AdminLayout component with:
+  - Unified sidebar navigation with active state
+  - Logout functionality
+  - Search bar and notifications
+  - Responsive design
+- ✅ Protected routes with authentication middleware
+- ❌ User management page (deleted - not database-connected)
+- ❌ Role assignment page (deleted - not database-connected)
+- ❌ Course management page (deleted - not database-connected)
+- ❌ Analytics page (deleted - not database-connected)
+- ❌ Settings page (deleted - not database-connected)
 
 #### Authentication
-- Login page (redirects to admin dashboard)
-- Register page (UI only)
-- Admin-only access implemented
+- ✅ Unified login page with Supabase authentication (`/login`)
+- ✅ Session-based authentication with JWT tokens
+- ✅ Protected admin routes with middleware
+- ✅ Logout functionality across all admin pages
+- ✅ Centralized AdminLayout component with auth state
+- ✅ Authentication helper functions (`lib/auth.ts`)
+- ✅ Service role key support for admin operations
+- ✅ Error handling and validation
+- ✅ Automatic session management
+- ❌ Old admin login page removed (replaced by unified login)
+- 🚧 Register page (UI only - future implementation)
+- 🚧 Password reset functionality (future)
+- 🚧 Role-based access control (future)
 
 ### 🚧 Future Work (Phase 2+)
 
@@ -78,12 +95,15 @@
 
 #### Backend Integration
 - ✅ Supabase client setup with TypeScript support
+- ✅ Supabase admin client with service role key (bypasses RLS)
 - ✅ Event interface defined for type-safe operations
-- 🚧 Supabase authentication implementation
-- 🚧 Role-based access control (Admin, Student, Coordinator)
-- 🚧 Database schema implementation
-- 🚧 API endpoints for CRUD operations
-- 🚧 File upload functionality
+- ✅ Supabase authentication implementation with session management
+- ✅ Admin authentication and protected routes
+- ✅ Database schema implementation (events, team_members, ambassadors, contact_messages, newsletter_subscribers)
+- ✅ API endpoints for CRUD operations (events, team, ambassadors, contact, newsletter, upload)
+- ✅ File upload functionality with Supabase Storage (event-images, team-images, ambassador-images)
+- ✅ Storage buckets with RLS policies
+- 🚧 Role-based access control (Student, Coordinator roles - future)
 - 🚧 Email notifications
 - 🚧 Real-time updates
 
@@ -125,8 +145,14 @@ Current `.env.local` setup:
 NEXT_PUBLIC_SUPABASE_URL=your-supabase-project-url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
 
-# Optional: Service role key (server-side only, never expose to client)
+# Service role key (server-side only, bypasses RLS for storage uploads)
+# Get from: Supabase Dashboard → Project Settings → API → service_role key
+# WARNING: Keep this secret! Never commit to version control or expose to client
 SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
+
+# Application Settings
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+NEXT_PUBLIC_APP_NAME=HimmatKaar
 
 # Email Service (optional)
 SMTP_HOST=
@@ -135,7 +161,10 @@ SMTP_USER=
 SMTP_PASSWORD=
 ```
 
-**Note:** The Supabase client is now configured in `lib/supabase.ts` and ready for use throughout the application.
+**Notes:** 
+- The Supabase client is configured in `lib/supabase.ts` with both regular and admin clients
+- Admin client uses service role key to bypass RLS for server-side operations
+- Service role key is optional but required for storage uploads to work properly
 
 ## File Structure
 
@@ -156,20 +185,33 @@ himmatkaar/
 │   │   │   └── [slug]/page.tsx (blog post detail)
 │   │   ├── contact/
 │   │   └── testimonials/
-│   ├── login/
-│   ├── register/
+│   ├── login/ (✅ Unified Supabase authentication)
+│   ├── register/ (🚧 UI only - future)
 │   └── dashboard/
-│       ├── admin/ (✅ Implemented)
+│       ├── admin/ (✅ Fully implemented with auth)
+│       │   ├── page.tsx (dashboard overview)
+│       │   ├── events/
+│       │   ├── team/
+│       │   ├── ambassadors/
+│       │   └── messages/
 │       ├── student/ (🚧 UI only)
 │       └── coordinator/ (🚧 UI only)
+├── middleware.ts (✅ Route protection with session check)
 ├── components/
-│   ├── Navbar.tsx
+│   ├── Navbar.tsx                 # Updated with /login link
 │   ├── Footer.tsx
 │   ├── EventsSection.tsx          # Dynamic events component with API integration
 │   ├── TestimonialCarousel.tsx
-│   └── DashboardLayout.tsx
+│   ├── DashboardLayout.tsx
+│   ├── AdminLayout.tsx            # Centralized admin layout with logout
+│   ├── AdminEventsManager.tsx     # Event CRUD management
+│   ├── AdminTeamManager.tsx       # Team member CRUD management
+│   ├── AdminAmbassadorsManager.tsx # Ambassador CRUD management
+│   ├── ContactForm.tsx
+│   └── NewsletterForm.tsx
 ├── lib/
-│   └── supabase.ts (✅ Supabase client configuration)
+│   ├── supabase.ts (✅ Supabase client + admin client with service role)
+│   └── auth.ts (✅ Auth helpers: signIn, signOut, getCurrentUser, getSession)
 ├── public/
 │   ├── team/ (team member images)
 │   ├── partners/ (partner logos)
@@ -182,17 +224,21 @@ himmatkaar/
     ├── PROJECT_SUMMARY.md
     ├── EVENTS_SYSTEM_GUIDE.md
     ├── INTERACTIVE_FEATURES.md
+    ├── AUTHENTICATION_COMPLETE.md (✅ Complete auth guide)
     └── IMPLEMENTATION_STATUS.md (this file)
 ```
 
 ## Next Steps
 
-1. **Backend Setup**
-   - ✅ Configure Supabase client
-   - 🚧 Set up authentication with role-based access
-   - 🚧 Implement database schema in Supabase
-   - 🚧 Create API routes for data operations
-   - 🚧 Add TypeScript interfaces for remaining tables (users, courses, assignments, etc.)
+1. **Backend Setup** (Mostly Complete)
+   - ✅ Configure Supabase client (regular + admin)
+   - ✅ Set up authentication with session management
+   - ✅ Implement database schema in Supabase (events, team, ambassadors, messages, subscribers)
+   - ✅ Create API routes for data operations (events, team, ambassadors, contact, newsletter, upload)
+   - ✅ Set up storage buckets with RLS policies
+   - ✅ Implement middleware for route protection
+   - 🚧 Add role-based access control for Student/Coordinator roles
+   - 🚧 Add TypeScript interfaces for remaining tables (courses, assignments, etc.)
 
 2. **Student Dashboard Integration**
    - Connect student pages to backend
@@ -215,7 +261,13 @@ himmatkaar/
 ## Notes
 
 - All dashboard UIs are built and styled
-- Focus is on admin dashboard functionality first
+- Admin dashboard is fully functional with authentication and database integration
 - Student and coordinator dashboards are placeholder UIs for future implementation
-- Authentication currently redirects all logins to admin dashboard
-- Backend integration is the next major milestone
+- Authentication is fully implemented for admin users via Supabase
+- Unified login page at `/login` for all user types
+- Admin routes are protected with middleware
+- Service role key optional but recommended for storage uploads (get from Supabase dashboard)
+- All admin pages use centralized AdminLayout component for consistency
+- Non-database-connected admin pages have been removed (analytics, courses, roles, settings, users)
+- Google sign-in removed from login page (email/password only)
+- Complete authentication guide available in `doc/AUTHENTICATION_COMPLETE.md`

@@ -107,7 +107,8 @@ himmatkaar/
 │   │   ├── page.tsx                # Blog listing page
 │   │   └── [slug]/page.tsx         # Individual blog post (dynamic routing)
 │   ├── login/page.tsx              # Login page
-│   ├── register/page.tsx           # Registration page
+│   ├── signup/page.tsx             # Signup page
+│   ├── register/page.tsx           # Legacy route redirecting to /signup
 │   └── dashboard/
 │       ├── student/
 │       │   ├── page.tsx            # Student dashboard

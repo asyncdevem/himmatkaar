@@ -76,7 +76,7 @@ export default function Home() {
                   transition={{ duration: 0.6, delay: 0.3 }}
                   className="flex flex-col sm:flex-row gap-4"
                 >
-                  <Link href="/register">
+                  <Link href="/signup">
                     <button className="bg-[#39894c] text-white px-10 py-4 rounded-lg font-bold text-lg hover:bg-[#2d6f3d] transition-all shadow-xl hover:shadow-2xl hover:scale-105 flex items-center justify-center gap-2">
                       Apply Here <ArrowRight size={20} />
                     </button>

@@ -115,7 +115,7 @@ export default function UpcomingEvents() {
                     </p>
                   </div>
 
-                  <Link href="/register">
+                  <Link href="/signup">
                     <button className="w-full bg-[#39894c] text-white py-3 rounded-lg font-bold hover:bg-[#2d6f3d] transition-colors flex items-center justify-center gap-2">
                       Register Now <ArrowRight size={18} />
                     </button>

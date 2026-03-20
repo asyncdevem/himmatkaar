@@ -1,12 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { 
-  LayoutDashboard, Users, Calendar, BarChart2, Settings, Search, Bell,
-  Mail, MessageSquare, CheckCircle, Clock
-} from "lucide-react";
+import AdminLayout from "@/components/AdminLayout";
 
 interface Message {
   id: string;
@@ -67,47 +62,9 @@ export default function AdminMessages() {
   };
 
   return (
-    <div className="flex h-screen overflow-hidden bg-slate-50">
-      <aside className="w-72 bg-white border-r border-slate-200 flex flex-col z-20">
-        <div className="p-6 flex items-center gap-3 border-b border-slate-100">
-          <Image src="/himmatkaar-logo.jpg" alt="Himmatkaar" width={48} height={48} className="rounded-lg" />
-          <div>
-            <h1 className="text-xl font-extrabold text-[#2d5f3d]">Himmatkaar</h1>
-            <p className="text-xs font-semibold text-slate-500 uppercase">Admin Portal</p>
-          </div>
-        </div>
-        <nav className="flex-1 px-4 py-6 space-y-1">
-          <Link href="/dashboard/admin" className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50">
-            <LayoutDashboard size={20} />
-            <span className="text-sm font-medium">Dashboard</span>
-          </Link>
-          <Link href="/dashboard/admin/events" className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50">
-            <Calendar size={20} />
-            <span className="text-sm font-medium">Events</span>
-          </Link>
-          <Link href="/dashboard/admin/team" className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50">
-            <Users size={20} />
-            <span className="text-sm font-medium">Team</span>
-          </Link>
-          <Link href="/dashboard/admin/messages" className="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-[#39894c] text-white font-semibold shadow-md">
-            <MessageSquare size={20} />
-            <span className="text-sm">Messages</span>
-          </Link>
-        </nav>
-      </aside>
-
-      <div className="flex-1 flex flex-col overflow-hidden">
-        <header className="h-20 bg-white border-b border-slate-200 flex items-center justify-between px-8 shadow-sm">
-          <h2 className="text-2xl font-bold text-[#2d5f3d]">Messages & Subscribers</h2>
-          <div className="flex items-center gap-4">
-            <button className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-slate-50">
-              <Bell size={22} />
-            </button>
-          </div>
-        </header>
-
-        <main className="flex-1 overflow-y-auto p-8">
-          <div className="flex gap-4 mb-6">
+    <AdminLayout title="Messages & Subscribers">
+      <div className="space-y-6">
+        <div className="flex gap-4">
             <button
               onClick={() => setActiveTab('messages')}
               className={`px-6 py-3 rounded-lg font-semibold ${activeTab === 'messages' ? 'bg-[#39894c] text-white' : 'bg-white text-slate-700'}`}
@@ -175,8 +132,7 @@ export default function AdminMessages() {
               </table>
             </div>
           )}
-        </main>
       </div>
-    </div>
+    </AdminLayout>
   );
 }

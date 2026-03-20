@@ -464,7 +464,7 @@ Using 8px base unit:
 - Heading: "Himmatkaar LaunchPad" with "LaunchPad" highlighted in light green (#a8d5ba)
 - Subtitle: "Empowering Future Professionals - Bridge the gap between education and industry-readiness through practical workshops, guided mentorship, and real-world exposure."
 - Two CTA buttons:
-  - Primary: "Apply for LaunchPad" (white background, links to /register)
+  - Primary: "Apply for LaunchPad" (white background, links to /signup)
   - Secondary: "Learn More" (transparent with border, links to /contact)
 - Animations: Fade in with scale and stagger effects
 
@@ -523,7 +523,7 @@ Using 8px base unit:
 - Heading: "Ready to Launch Your Startup?"
 - Description text
 - Two CTA buttons:
-  - Primary: "Start Application" (white background, links to /register)
+  - Primary: "Start Application" (white background, links to /signup)
   - Secondary: "Contact Us" (transparent with border, links to /contact)
 
 **Animations:**
@@ -969,7 +969,7 @@ Using 8px base unit:
 - Full-width card on mobile
 - Max-width 400px on desktop
 
-#### 4.2 Register Page (`/register`)
+#### 4.2 Signup Page (`/signup`)
 
 **Form Fields:**
 - First Name (required)
