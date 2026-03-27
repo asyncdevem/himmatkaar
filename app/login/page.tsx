@@ -71,8 +71,8 @@ export default function Login() {
             </div>
 
             <div className="text-center lg:text-left">
-              <h2 className="text-4xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight">Admin Login</h2>
-              <p className="mt-3 text-slate-600 dark:text-slate-400">Sign in with your admin account to access the dashboard.</p>
+              <h2 className="text-4xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight">Login</h2>
+              <p className="mt-3 text-slate-600 dark:text-slate-400">Sign in to access your dashboard account.</p>
             </div>
 
             {/* Glassmorphic Form Container */}

@@ -9,24 +9,24 @@ function getAdminAllowlist() {
     .filter(Boolean);
 }
 
-export async function middleware(req: NextRequest) {
+export async function proxy(req: NextRequest) {
   // Check if accessing admin routes
   if (req.nextUrl.pathname.startsWith('/dashboard/admin')) {
     // Get Supabase session from cookies
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
     const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
-    
+
     // Create a Supabase client with the request cookies
     const supabase = createClient(supabaseUrl, supabaseAnonKey, {
       auth: {
-        persistSession: false
-      }
+        persistSession: false,
+      },
     });
 
     // Get session from cookies
     const accessToken = req.cookies.get('sb-access-token')?.value;
     const refreshToken = req.cookies.get('sb-refresh-token')?.value;
-    
+
     // If no tokens, redirect to login
     if (!accessToken && !refreshToken) {
       const redirectUrl = req.nextUrl.clone();

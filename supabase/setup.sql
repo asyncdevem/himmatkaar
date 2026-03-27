@@ -1,3 +1,77 @@
+-- ============================================
+-- USER PROFILES TABLE
+-- ============================================
+
+-- Mirror auth users in an app-level profiles table.
+CREATE TABLE IF NOT EXISTS profiles (
+  id UUID PRIMARY KEY REFERENCES auth.users(id) ON DELETE CASCADE,
+  email TEXT UNIQUE,
+  full_name TEXT,
+  role TEXT NOT NULL DEFAULT 'student' CHECK (role IN ('student', 'coordinator', 'admin')),
+  status TEXT NOT NULL DEFAULT 'active' CHECK (status IN ('active', 'inactive', 'pending')),
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT TIMEZONE('utc'::text, NOW()) NOT NULL,
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT TIMEZONE('utc'::text, NOW()) NOT NULL
+);
+
+CREATE INDEX IF NOT EXISTS idx_profiles_role ON profiles(role);
+CREATE INDEX IF NOT EXISTS idx_profiles_email ON profiles(email);
+
+ALTER TABLE profiles ENABLE ROW LEVEL SECURITY;
+
+-- Users can read/update only their own profile.
+CREATE POLICY "Users can read own profile" ON profiles
+  FOR SELECT
+  TO authenticated
+  USING (auth.uid() = id);
+
+CREATE POLICY "Users can update own profile" ON profiles
+  FOR UPDATE
+  TO authenticated
+  USING (auth.uid() = id)
+  WITH CHECK (auth.uid() = id);
+
+CREATE POLICY "Users can insert own profile" ON profiles
+  FOR INSERT
+  TO authenticated
+  WITH CHECK (auth.uid() = id);
+
+-- Keep profiles table in sync when a new auth user is created.
+CREATE OR REPLACE FUNCTION public.handle_new_user_profile()
+RETURNS TRIGGER AS $$
+BEGIN
+  INSERT INTO public.profiles (id, email)
+  VALUES (NEW.id, NEW.email)
+  ON CONFLICT (id) DO UPDATE
+  SET email = EXCLUDED.email,
+      updated_at = TIMEZONE('utc'::text, NOW());
+
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
+
+DROP TRIGGER IF EXISTS on_auth_user_created_profile ON auth.users;
+CREATE TRIGGER on_auth_user_created_profile
+  AFTER INSERT ON auth.users
+  FOR EACH ROW EXECUTE FUNCTION public.handle_new_user_profile();
+
+-- Helper to promote a known user to admin by email.
+CREATE OR REPLACE FUNCTION public.set_user_role_by_email(target_email TEXT, target_role TEXT)
+RETURNS VOID AS $$
+BEGIN
+  IF target_role NOT IN ('student', 'coordinator', 'admin') THEN
+    RAISE EXCEPTION 'Invalid role: %', target_role;
+  END IF;
+
+  UPDATE public.profiles
+  SET role = target_role,
+      updated_at = TIMEZONE('utc'::text, NOW())
+  WHERE LOWER(email) = LOWER(target_email);
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
+
+-- Example (run in Supabase SQL editor after the user exists):
+-- SELECT public.set_user_role_by_email('admin@himmatkaar.org', 'admin');
+
 -- Create events table in Supabase
 CREATE TABLE IF NOT EXISTS events (
   id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
@@ -60,6 +134,11 @@ $$ language 'plpgsql';
 
 -- Create trigger to call the function
 CREATE TRIGGER update_events_updated_at BEFORE UPDATE ON events
+FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
+
+-- Create trigger to keep profiles.updated_at fresh
+DROP TRIGGER IF EXISTS update_profiles_updated_at ON profiles;
+CREATE TRIGGER update_profiles_updated_at BEFORE UPDATE ON profiles
 FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
 
 

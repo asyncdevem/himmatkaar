@@ -10,7 +10,9 @@ import {
   MessageSquare,
   TrendingUp,
   Users,
-  Mail
+  Mail,
+  UserPlus,
+  ShieldCheck
 } from "lucide-react";
 
 interface Stats {
@@ -34,10 +36,86 @@ export default function AdminDashboard() {
     totalSubscribers: 0
   });
   const [loading, setLoading] = useState(true);
+  const [newAdminEmail, setNewAdminEmail] = useState("");
+  const [newAdminPassword, setNewAdminPassword] = useState("");
+  const [newAdminName, setNewAdminName] = useState("");
+  const [promoteEmail, setPromoteEmail] = useState("");
+  const [creatingAdmin, setCreatingAdmin] = useState(false);
+  const [promotingAdmin, setPromotingAdmin] = useState(false);
+  const [adminUserMessage, setAdminUserMessage] = useState("");
+  const [adminUserError, setAdminUserError] = useState("");
 
   useEffect(() => {
     fetchStats();
   }, []);
+
+  const createAdminUser = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setAdminUserMessage("");
+    setAdminUserError("");
+    setCreatingAdmin(true);
+
+    try {
+      const response = await fetch('/api/admin/users', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          mode: 'create',
+          email: newAdminEmail,
+          password: newAdminPassword,
+          fullName: newAdminName,
+        }),
+      });
+
+      const data = await response.json();
+      if (!response.ok) {
+        setAdminUserError(data.error || 'Failed to create admin user.');
+        return;
+      }
+
+      setAdminUserMessage(`Admin user created: ${data.user?.email || newAdminEmail}`);
+      setNewAdminEmail("");
+      setNewAdminPassword("");
+      setNewAdminName("");
+    } catch (error) {
+      console.error('Create admin error:', error);
+      setAdminUserError('Failed to create admin user.');
+    } finally {
+      setCreatingAdmin(false);
+    }
+  };
+
+  const promoteExistingUser = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setAdminUserMessage("");
+    setAdminUserError("");
+    setPromotingAdmin(true);
+
+    try {
+      const response = await fetch('/api/admin/users', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          mode: 'promote',
+          email: promoteEmail,
+        }),
+      });
+
+      const data = await response.json();
+      if (!response.ok) {
+        setAdminUserError(data.error || 'Failed to promote user.');
+        return;
+      }
+
+      setAdminUserMessage(`User promoted to admin: ${data.user?.email || promoteEmail}`);
+      setPromoteEmail("");
+    } catch (error) {
+      console.error('Promote admin error:', error);
+      setAdminUserError('Failed to promote user.');
+    } finally {
+      setPromotingAdmin(false);
+    }
+  };
 
   const fetchStats = async () => {
     try {
@@ -199,6 +277,92 @@ export default function AdminDashboard() {
                       </div>
                     </div>
                   </div>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm space-y-6">
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <h3 className="text-lg font-bold text-slate-900">Admin User Management</h3>
+                    <p className="text-sm text-slate-500 mt-1">Create a new dashboard user account or promote an existing user to admin.</p>
+                  </div>
+                  <div className="p-3 bg-[#39894c]/10 rounded-lg">
+                    <ShieldCheck className="text-[#39894c]" size={22} />
+                  </div>
+                </div>
+
+                {adminUserError && (
+                  <div className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+                    {adminUserError}
+                  </div>
+                )}
+
+                {adminUserMessage && (
+                  <div className="rounded-lg border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-700">
+                    {adminUserMessage}
+                  </div>
+                )}
+
+                <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+                  <form onSubmit={createAdminUser} className="space-y-3 rounded-lg border border-slate-200 p-4">
+                    <div className="flex items-center gap-2 text-slate-900 font-semibold">
+                      <UserPlus size={18} className="text-[#39894c]" />
+                      Create New Admin User
+                    </div>
+                    <input
+                      type="text"
+                      value={newAdminName}
+                      onChange={(e) => setNewAdminName(e.target.value)}
+                      placeholder="Full name (optional)"
+                      className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#39894c]/20 focus:border-[#39894c]"
+                    />
+                    <input
+                      type="email"
+                      required
+                      value={newAdminEmail}
+                      onChange={(e) => setNewAdminEmail(e.target.value)}
+                      placeholder="admin@example.com"
+                      className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#39894c]/20 focus:border-[#39894c]"
+                    />
+                    <input
+                      type="password"
+                      required
+                      minLength={6}
+                      value={newAdminPassword}
+                      onChange={(e) => setNewAdminPassword(e.target.value)}
+                      placeholder="Temporary password (min 6 chars)"
+                      className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#39894c]/20 focus:border-[#39894c]"
+                    />
+                    <button
+                      type="submit"
+                      disabled={creatingAdmin}
+                      className="w-full rounded-lg bg-[#39894c] px-4 py-2.5 text-sm font-bold text-white hover:bg-[#2d5f3d] disabled:opacity-50"
+                    >
+                      {creatingAdmin ? 'Creating...' : 'Create Admin User'}
+                    </button>
+                  </form>
+
+                  <form onSubmit={promoteExistingUser} className="space-y-3 rounded-lg border border-slate-200 p-4">
+                    <div className="flex items-center gap-2 text-slate-900 font-semibold">
+                      <ShieldCheck size={18} className="text-[#39894c]" />
+                      Promote Existing User
+                    </div>
+                    <input
+                      type="email"
+                      required
+                      value={promoteEmail}
+                      onChange={(e) => setPromoteEmail(e.target.value)}
+                      placeholder="existing-user@example.com"
+                      className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#39894c]/20 focus:border-[#39894c]"
+                    />
+                    <button
+                      type="submit"
+                      disabled={promotingAdmin}
+                      className="w-full rounded-lg bg-slate-900 px-4 py-2.5 text-sm font-bold text-white hover:bg-slate-800 disabled:opacity-50"
+                    >
+                      {promotingAdmin ? 'Promoting...' : 'Promote To Admin'}
+                    </button>
+                  </form>
                 </div>
               </div>
 

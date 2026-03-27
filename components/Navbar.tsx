@@ -130,7 +130,7 @@ export default function Navbar() {
 
           <div className="hidden lg:flex items-center gap-4">
             <Link href="/login" className="text-sm font-bold px-5 py-2.5 rounded-lg hover:bg-[var(--color-primary)]/5 transition-colors">
-              Admin Login
+              Login
             </Link>
             <Link href="/signup" className="bg-[var(--color-primary)] text-white text-sm font-bold px-6 py-2.5 rounded-lg shadow-lg shadow-[#39894c]/20 hover:brightness-110 transition-all">
               Apply Now
@@ -199,7 +199,7 @@ export default function Navbar() {
               </Link>
               <div className="border-t border-slate-200 dark:border-slate-800 my-2"></div>
               <Link href="/login" className="text-base font-bold text-center py-3 rounded-lg hover:bg-[var(--color-primary)]/5 transition-colors" onClick={() => setMobileMenuOpen(false)}>
-                Admin Login
+                Login
               </Link>
               <Link href="/signup" className="bg-[var(--color-primary)] text-white text-base font-bold py-3 rounded-lg hover:brightness-110 shadow-lg text-center transition-all" onClick={() => setMobileMenuOpen(false)}>
                 Apply Now

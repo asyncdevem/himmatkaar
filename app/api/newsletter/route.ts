@@ -1,9 +1,52 @@
 import { NextResponse } from 'next/server';
-import { supabase } from '@/lib/supabase';
+import { supabase, supabaseAdmin } from '@/lib/supabase';
 
-export async function GET() {
+function getAdminAllowlist() {
+  return (process.env.NEXT_PUBLIC_ADMIN_EMAILS || '')
+    .split(',')
+    .map((email) => email.trim().toLowerCase())
+    .filter(Boolean);
+}
+
+function getCookieValue(cookieHeader: string, key: string) {
+  const parts = cookieHeader.split(';').map((part) => part.trim());
+  const match = parts.find((part) => part.startsWith(`${key}=`));
+  if (!match) return '';
+  return decodeURIComponent(match.substring(key.length + 1));
+}
+
+async function isAdminRequest(request: Request) {
+  const cookieHeader = request.headers.get('cookie') || '';
+  const accessToken = getCookieValue(cookieHeader, 'sb-access-token');
+
+  if (!accessToken) return false;
+
+  const { data, error } = await supabase.auth.getUser(accessToken);
+  if (error || !data.user) return false;
+
+  const adminAllowlist = getAdminAllowlist();
+  const signedInEmail = data.user.email?.toLowerCase() || '';
+  if (adminAllowlist.length > 0 && adminAllowlist.includes(signedInEmail)) {
+    return true;
+  }
+
+  const { data: profile } = await supabaseAdmin
+    .from('profiles')
+    .select('role')
+    .eq('id', data.user.id)
+    .maybeSingle();
+
+  return profile?.role === 'admin';
+}
+
+export async function GET(request: Request) {
   try {
-    const { data: subscribers, error } = await supabase
+    const isAdmin = await isAdminRequest(request);
+    if (!isAdmin) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
+    const { data: subscribers, error } = await supabaseAdmin
       .from('newsletter_subscribers')
       .select('*')
       .order('subscribed_at', { ascending: false });
@@ -24,11 +67,9 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
     
-    const { data: subscriber, error } = await supabase
+    const { error } = await supabase
       .from('newsletter_subscribers')
-      .insert([{ email: body.email }])
-      .select()
-      .single();
+      .insert([{ email: body.email }]);
 
     if (error) {
       // Check if it's a duplicate email error
@@ -39,7 +80,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: error.message }, { status: 500 });
     }
 
-    return NextResponse.json({ subscriber, success: true }, { status: 201 });
+    return NextResponse.json({ success: true }, { status: 201 });
   } catch (error) {
     console.error('API error:', error);
     return NextResponse.json({ error: 'Failed to subscribe' }, { status: 500 });

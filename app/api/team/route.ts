@@ -1,9 +1,24 @@
 import { NextResponse } from 'next/server';
-import { supabase } from '@/lib/supabase';
+import { supabaseAdmin } from '@/lib/supabase';
+
+function mapMemberFromDb(member: Record<string, any>) {
+  return {
+    ...member,
+    linkedin: member.linkedin_url ?? '',
+  };
+}
+
+function mapMemberToDb(body: Record<string, any>) {
+  const { linkedin, linkedin_url, ...rest } = body;
+  return {
+    ...rest,
+    linkedin_url: linkedin_url ?? linkedin ?? null,
+  };
+}
 
 export async function GET() {
   try {
-    const { data: members, error } = await supabase
+    const { data: members, error } = await supabaseAdmin
       .from('team_members')
       .select('*')
       .order('display_order', { ascending: true });
@@ -13,7 +28,7 @@ export async function GET() {
       return NextResponse.json({ error: error.message }, { status: 500 });
     }
 
-    return NextResponse.json({ members: members || [] });
+    return NextResponse.json({ members: (members || []).map(mapMemberFromDb) });
   } catch (error) {
     console.error('API error:', error);
     return NextResponse.json({ error: 'Failed to fetch team members' }, { status: 500 });
@@ -23,10 +38,11 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
+    const payload = mapMemberToDb(body);
     
-    const { data: member, error } = await supabase
+    const { data: member, error } = await supabaseAdmin
       .from('team_members')
-      .insert([body])
+      .insert([payload])
       .select()
       .single();
 
@@ -35,7 +51,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: error.message }, { status: 500 });
     }
 
-    return NextResponse.json({ member }, { status: 201 });
+    return NextResponse.json({ member: mapMemberFromDb(member) }, { status: 201 });
   } catch (error) {
     console.error('API error:', error);
     return NextResponse.json({ error: 'Failed to create team member' }, { status: 500 });

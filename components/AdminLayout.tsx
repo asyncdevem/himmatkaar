@@ -30,7 +30,7 @@ export default function AdminLayout({ children, title }: AdminLayoutProps) {
       setLoggingOut(true);
       try {
         await signOut();
-        router.push("/admin/login");
+        router.push("/login");
       } catch (error) {
         console.error("Logout error:", error);
         setLoggingOut(false);
