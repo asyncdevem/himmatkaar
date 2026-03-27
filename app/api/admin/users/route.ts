@@ -1,4 +1,6 @@
 import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
+import { createClient } from '@supabase/supabase-js';
 import { supabase, supabaseAdmin } from '@/lib/supabase';
 
 function getAdminAllowlist() {
@@ -8,20 +10,54 @@ function getAdminAllowlist() {
     .filter(Boolean);
 }
 
-function getCookieValue(cookieHeader: string, key: string) {
-  const parts = cookieHeader.split(';').map((part) => part.trim());
-  const match = parts.find((part) => part.startsWith(`${key}=`));
-  if (!match) return '';
-  return decodeURIComponent(match.substring(key.length + 1));
+function getAccessTokenFromCookies(request: NextRequest) {
+  const directToken = request.cookies.get('sb-access-token')?.value;
+  if (directToken) {
+    return directToken;
+  }
+
+  // Fallback for Supabase auth cookie format (sb-<project-ref>-auth-token)
+  const authCookie = request.cookies
+    .getAll()
+    .find((cookie) => cookie.name.endsWith('-auth-token'))?.value;
+
+  if (!authCookie) {
+    return '';
+  }
+
+  try {
+    const decoded = decodeURIComponent(authCookie);
+    const parsed = JSON.parse(decoded);
+
+    if (Array.isArray(parsed) && typeof parsed[0] === 'string') {
+      return parsed[0];
+    }
+
+    if (parsed && typeof parsed === 'object' && typeof parsed.access_token === 'string') {
+      return parsed.access_token;
+    }
+  } catch {
+    // Ignore malformed fallback cookie and return empty token.
+  }
+
+  return '';
 }
 
-async function isAdminRequest(request: Request) {
-  const cookieHeader = request.headers.get('cookie') || '';
-  const accessToken = getCookieValue(cookieHeader, 'sb-access-token');
+async function isAdminRequest(request: NextRequest) {
+  const accessToken = getAccessTokenFromCookies(request);
 
   if (!accessToken) return false;
 
-  const { data, error } = await supabase.auth.getUser(accessToken);
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+  const serverSupabase = createClient(supabaseUrl, supabaseAnonKey, {
+    auth: {
+      persistSession: false,
+      autoRefreshToken: false,
+    },
+  });
+
+  const { data, error } = await serverSupabase.auth.getUser(accessToken);
   if (error || !data.user) return false;
 
   const adminAllowlist = getAdminAllowlist();
@@ -39,7 +75,7 @@ async function isAdminRequest(request: Request) {
   return profile?.role === 'admin';
 }
 
-export async function POST(request: Request) {
+export async function POST(request: NextRequest) {
   try {
     const isAdmin = await isAdminRequest(request);
     if (!isAdmin) {

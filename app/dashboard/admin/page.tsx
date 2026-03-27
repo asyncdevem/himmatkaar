@@ -58,6 +58,7 @@ export default function AdminDashboard() {
     try {
       const response = await fetch('/api/admin/users', {
         method: 'POST',
+        credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           mode: 'create',
@@ -94,6 +95,7 @@ export default function AdminDashboard() {
     try {
       const response = await fetch('/api/admin/users', {
         method: 'POST',
+        credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           mode: 'promote',
