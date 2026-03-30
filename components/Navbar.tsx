@@ -14,8 +14,8 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-white/95 dark:bg-[#151d17]/95 border-b border-slate-200 dark:border-[var(--color-primary)]/10 text-slate-900 dark:text-white transition-all duration-300">
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-white/95 border-b border-slate-200 dark:border-[var(--color-primary)]/10 text-slate-900 dark:text-white transition-all duration-300 dark:backdrop-blur-xl dark:bg-black/80 dark:border dark:border-white/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
             <Image 
               src="/himmatkaar-logo.jpg" 
@@ -48,7 +48,7 @@ export default function Navbar() {
                   onMouseEnter={() => setAboutDropdownOpen(true)}
                   onMouseLeave={() => setAboutDropdownOpen(false)}
                 >
-                  <div className="bg-white dark:bg-slate-900 rounded-lg shadow-xl border border-slate-200 dark:border-slate-800 py-2">
+                  <div className="bg-white  rounded-lg shadow-xl border border-slate-200 dark:border-slate-800 py-2 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
                     <Link href="/about" className="block px-4 py-2 text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-[var(--color-primary)] transition-colors">
                       About Himmatkaar
                     </Link>
@@ -78,15 +78,15 @@ export default function Navbar() {
                   onMouseEnter={() => setProgramDropdownOpen(true)}
                   onMouseLeave={() => setProgramDropdownOpen(false)}
                 >
-                  <div className="bg-white dark:bg-slate-900 rounded-lg shadow-xl border border-slate-200 dark:border-slate-800 py-2">
+                  <div className="bg-white  rounded-lg shadow-xl border border-slate-200 dark:border-slate-800 py-2 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
                     <Link href="/launchpad" className="block px-4 py-2 text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-[var(--color-primary)] transition-colors">
                       Launchpad
                     </Link>
-                    <Link href="/fellowship" className="block px-4 py-2 text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-[var(--color-primary)] transition-colors">
-                      Fellowship
+                    <Link href="/technical-workshops" className="block px-4 py-2 text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-[var(--color-primary)] transition-colors">
+                      Technical Workshops
                     </Link>
-                    <Link href="/impact" className="block px-4 py-2 text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-[var(--color-primary)] transition-colors">
-                      Impact
+                    <Link href="/networking-events" className="block px-4 py-2 text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-[var(--color-primary)] transition-colors">
+                      Networking Events
                     </Link>
                   </div>
                 </div>
@@ -108,7 +108,7 @@ export default function Navbar() {
                   onMouseEnter={() => setHappeningsDropdownOpen(true)}
                   onMouseLeave={() => setHappeningsDropdownOpen(false)}
                 >
-                  <div className="bg-white dark:bg-slate-900 rounded-lg shadow-xl border border-slate-200 dark:border-slate-800 py-2">
+                  <div className="bg-white  rounded-lg shadow-xl border border-slate-200 dark:border-slate-800 py-2 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
                     <Link href="/events/upcoming" className="block px-4 py-2 text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-[var(--color-primary)] transition-colors">
                       Upcoming Events
                     </Link>
@@ -132,7 +132,7 @@ export default function Navbar() {
             <Link href="/login" className="text-sm font-bold px-5 py-2.5 rounded-lg hover:bg-[var(--color-primary)]/5 transition-colors">
               Login
             </Link>
-            <Link href="/signup" className="bg-[var(--color-primary)] text-white text-sm font-bold px-6 py-2.5 rounded-lg shadow-lg shadow-[#39894c]/20 hover:brightness-110 transition-all">
+            <Link href="/signup" className="bg-[var(--color-primary)] text-white text-sm font-bold px-4 sm:px-6 py-2.5 rounded-lg shadow-lg shadow-[#39894c]/20 hover:brightness-110 transition-all">
               Apply Now
             </Link>
           </div>
@@ -154,9 +154,9 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="fixed top-20 left-0 right-0 z-40 lg:hidden bg-white/95 dark:bg-[#151d17]/95 backdrop-blur-xl border-b border-[var(--color-primary)]/10 overflow-hidden shadow-2xl"
+            className="fixed top-20 left-0 right-0 z-40 lg:hidden bg-white/95 backdrop-blur-xl border-b border-[var(--color-primary)]/10 overflow-hidden shadow-2xl dark:backdrop-blur-xl dark:bg-black/85 dark:border dark:border-white/10"
           >
-            <div className="flex flex-col gap-2 py-6 px-6 max-h-[calc(100vh-5rem)] overflow-y-auto">
+            <div className="flex flex-col gap-2 py-6 px-4 sm:px-6 max-h-[calc(100vh-5rem)] overflow-y-auto">
               <Link href="/" className="text-base font-bold hover:text-[var(--color-primary)] transition-colors py-2" onClick={() => setMobileMenuOpen(false)}>
                 HOME
               </Link>
@@ -176,11 +176,11 @@ export default function Navbar() {
               <Link href="/launchpad" className="text-base font-semibold hover:text-[var(--color-primary)] transition-colors py-2 pl-4" onClick={() => setMobileMenuOpen(false)}>
                 Launchpad
               </Link>
-              <Link href="/fellowship" className="text-base font-semibold hover:text-[var(--color-primary)] transition-colors py-2 pl-4" onClick={() => setMobileMenuOpen(false)}>
-                Fellowship
+              <Link href="/technical-workshops" className="text-base font-semibold hover:text-[var(--color-primary)] transition-colors py-2 pl-4" onClick={() => setMobileMenuOpen(false)}>
+                Technical Workshops
               </Link>
-              <Link href="/impact" className="text-base font-semibold hover:text-[var(--color-primary)] transition-colors py-2 pl-4" onClick={() => setMobileMenuOpen(false)}>
-                Impact
+              <Link href="/networking-events" className="text-base font-semibold hover:text-[var(--color-primary)] transition-colors py-2 pl-4" onClick={() => setMobileMenuOpen(false)}>
+                Networking Events
               </Link>
               <div className="border-t border-slate-200 dark:border-slate-800 my-2"></div>
               <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Happenings</p>

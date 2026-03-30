@@ -45,7 +45,7 @@ export default function Login() {
           </div>
           <div className="relative z-20 flex flex-col justify-between h-full p-16 text-white">
             <Link href="/" className="flex items-center gap-3 w-fit hover:opacity-80 transition-opacity">
-              <div className="bg-white p-2 rounded-lg">
+              <div className="bg-white p-2 rounded-lg dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
                 <Rocket className="size-8 text-[var(--color-primary)]" />
               </div>
               <span className="text-2xl font-bold tracking-tight">HimmatKaar</span>
@@ -63,7 +63,7 @@ export default function Login() {
             {/* Mobile Logo */}
             <div className="lg:hidden flex justify-center mb-8">
               <Link href="/" className="flex items-center gap-3">
-                <div className="bg-white p-2 rounded-lg shadow-sm">
+                <div className="bg-white p-2 rounded-lg shadow-sm dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
                   <Rocket className="size-8 text-[var(--color-primary)]" />
                 </div>
                 <span className="text-xl font-bold text-slate-900 dark:text-slate-100">HimmatKaar</span>
@@ -76,7 +76,7 @@ export default function Login() {
             </div>
 
             {/* Glassmorphic Form Container */}
-            <div className="bg-white/70 dark:bg-slate-800/50 backdrop-blur-xl border border-white/20 dark:border-slate-700/30 p-8 rounded-xl shadow-2xl shadow-[var(--color-primary)]/5">
+            <div className="bg-white/70  backdrop-blur-xl border border-white/20 dark:border-slate-700/30 p-8 rounded-xl shadow-2xl shadow-[var(--color-primary)]/5 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Error Message */}
                 {error && (
@@ -95,7 +95,7 @@ export default function Login() {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       required
-                      className="w-full pl-12 pr-4 py-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent transition-all outline-none" 
+                      className="w-full pl-12 pr-4 py-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-white  text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent transition-all outline-none dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10" 
                       placeholder="name@company.com" 
                     />
                   </div>
@@ -115,7 +115,7 @@ export default function Login() {
                       value={formData.password}
                       onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                       required
-                      className="w-full pl-12 pr-12 py-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent transition-all outline-none" 
+                      className="w-full pl-12 pr-12 py-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-white  text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent transition-all outline-none dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10" 
                       placeholder="••••••••" 
                     />
                     <button 

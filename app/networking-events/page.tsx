@@ -8,11 +8,11 @@ import Footer from "@/components/Footer";
 
 export default function NetworkingEventsPage() {
   return (
-    <div className="min-h-screen bg-white dark:bg-[#0a0f0b]">
+    <div className="min-h-screen bg-white  dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
       <Navbar />
 
       <main className="pt-32 pb-24">
-        <section className="max-w-6xl mx-auto px-6 mb-16">
+        <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-16">
           <Link href="/" className="inline-flex items-center gap-2 text-[#39894c] hover:underline mb-8 font-semibold">
             <ArrowLeft size={20} /> Back to Home
           </Link>
@@ -33,7 +33,7 @@ export default function NetworkingEventsPage() {
           </motion.div>
         </section>
 
-        <section className="max-w-6xl mx-auto px-6 mb-16">
+        <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-16">
           <div className="grid md:grid-cols-3 gap-6">
             {[
               { icon: <Handshake size={28} />, title: "Mentor Access", desc: "Connect directly with experienced mentors and advisors." },
@@ -46,7 +46,7 @@ export default function NetworkingEventsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6"
+                className="bg-slate-50  border border-slate-200 dark:border-slate-800 rounded-2xl p-6 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
               >
                 <div className="text-[#39894c] mb-4">{item.icon}</div>
                 <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{item.title}</h3>
@@ -56,7 +56,7 @@ export default function NetworkingEventsPage() {
           </div>
         </section>
 
-        <section className="max-w-4xl mx-auto px-6">
+        <section className="max-w-4xl mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -65,7 +65,7 @@ export default function NetworkingEventsPage() {
           >
             <h2 className="text-3xl font-bold mb-4">Join the Next Networking Event</h2>
             <p className="text-white/90 mb-7">Check upcoming sessions and connect with the Himmatkaar community.</p>
-            <Link href="/events/upcoming" className="inline-flex items-center gap-2 bg-white text-[#2d5f3d] px-8 py-4 rounded-lg font-bold hover:scale-105 transition-transform">
+            <Link href="/events/upcoming" className="inline-flex items-center gap-2 bg-white text-[#2d5f3d] px-8 py-4 rounded-lg font-bold hover:scale-105 transition-transform dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
               View Upcoming Events <ArrowRight size={18} />
             </Link>
           </motion.div>

@@ -307,12 +307,12 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
   }
 
   return (
-    <div className="min-h-screen bg-white dark:bg-[#0a0f0b]">
+    <div className="min-h-screen bg-white  dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
       <Navbar />
 
       <main className="pt-32 pb-24">
         {/* Header */}
-        <article className="max-w-4xl mx-auto px-6">
+        <article className="max-w-4xl mx-auto px-4 sm:px-6">
           <Link href="/blog" className="inline-flex items-center gap-2 text-[#39894c] hover:underline mb-8 font-semibold">
             <ArrowLeft size={20} /> Back to Blog
           </Link>
@@ -403,16 +403,16 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
             <div className="flex items-center justify-between flex-wrap gap-4">
               <h3 className="text-xl font-bold text-slate-900 dark:text-white">Share this article</h3>
               <div className="flex gap-3">
-                <button className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-[#39894c] hover:text-white transition-colors">
+                <button className="w-10 h-10 rounded-full bg-slate-100  flex items-center justify-center hover:bg-[#39894c] hover:text-white transition-colors dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
                   <Facebook size={18} />
                 </button>
-                <button className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-[#39894c] hover:text-white transition-colors">
+                <button className="w-10 h-10 rounded-full bg-slate-100  flex items-center justify-center hover:bg-[#39894c] hover:text-white transition-colors dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
                   <Twitter size={18} />
                 </button>
-                <button className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-[#39894c] hover:text-white transition-colors">
+                <button className="w-10 h-10 rounded-full bg-slate-100  flex items-center justify-center hover:bg-[#39894c] hover:text-white transition-colors dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
                   <Linkedin size={18} />
                 </button>
-                <button className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-[#39894c] hover:text-white transition-colors">
+                <button className="w-10 h-10 rounded-full bg-slate-100  flex items-center justify-center hover:bg-[#39894c] hover:text-white transition-colors dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
                   <Share2 size={18} />
                 </button>
               </div>
@@ -424,7 +424,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mt-12 p-8 bg-slate-50 dark:bg-slate-900 rounded-2xl"
+            className="mt-12 p-8 bg-slate-50  rounded-2xl dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
           >
             <h3 className="text-xl font-bold mb-4 text-slate-900 dark:text-white">About the Author</h3>
             <div className="flex items-start gap-4">
@@ -442,7 +442,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
         </article>
 
         {/* Related Posts CTA */}
-        <section className="max-w-4xl mx-auto px-6 mt-24">
+        <section className="max-w-4xl mx-auto px-4 sm:px-6 mt-24">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -454,7 +454,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
               Explore more insights and stories from the Himmatkaar community
             </p>
             <Link href="/blog">
-              <button className="bg-white text-[#2d5f3d] px-10 py-4 rounded-lg font-bold text-lg hover:scale-105 transition-transform shadow-xl">
+              <button className="bg-white text-[#2d5f3d] px-6 sm:px-10 py-4 rounded-lg font-bold text-lg hover:scale-105 transition-transform shadow-xl dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
                 View All Posts
               </button>
             </Link>

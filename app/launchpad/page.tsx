@@ -22,23 +22,23 @@ import Footer from "@/components/Footer";
 
 export default function Launchpad() {
   return (
-    <div className="min-h-screen bg-white dark:bg-[#0a0f0b]">
+    <div className="min-h-screen bg-white  dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
       <Navbar />
 
       {/* Hero Section */}
       <section className="relative bg-[#2d5f3d] text-white py-32 lg:py-40 overflow-hidden mt-20">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+          <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"></div>
         </div>
-        <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
             className="inline-block mb-6"
           >
-            <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-semibold border border-white/20">
+            <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-semibold border border-white/20 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
               <Rocket size={16} />
               12-Week Professional Development Program
             </span>
@@ -66,12 +66,12 @@ export default function Launchpad() {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <Link href="/signup">
-              <button className="bg-white text-[#2d5f3d] px-12 py-5 rounded-lg font-bold text-lg hover:bg-slate-100 transition-all shadow-2xl hover:scale-105 flex items-center gap-2">
+              <button className="bg-white text-[#2d5f3d] px-6 sm:px-10 py-4 sm:py-5 rounded-lg font-bold text-lg hover:bg-slate-100 transition-all shadow-2xl hover:scale-105 flex items-center gap-2 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
                 Apply for LaunchPad <ArrowRight size={20} />
               </button>
             </Link>
             <Link href="/contact">
-              <button className="bg-white/10 backdrop-blur-sm text-white px-12 py-5 rounded-lg font-bold text-lg hover:bg-white/20 transition-all border border-white/30">
+              <button className="bg-white/10 backdrop-blur-sm text-white px-6 sm:px-10 py-4 sm:py-5 rounded-lg font-bold text-lg hover:bg-white/20 transition-all border border-white/30 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
                 Learn More
               </button>
             </Link>
@@ -80,7 +80,7 @@ export default function Launchpad() {
       </section>
 
       {/* Program Overview */}
-      <section className="py-20 px-6 bg-slate-50 dark:bg-[#0f1410]">
+      <section className="py-20 px-4 sm:px-6 bg-slate-50  dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {[
@@ -95,7 +95,7 @@ export default function Launchpad() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white dark:bg-slate-900 rounded-2xl p-6 lg:p-8 border border-slate-200 dark:border-slate-800 shadow-lg text-center hover:shadow-2xl transition-all duration-300"
+                className="bg-white  rounded-2xl p-6 lg:p-8 border border-slate-200 dark:border-slate-800 shadow-lg text-center hover:shadow-2xl transition-all duration-300 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
               >
                 <div className={`w-14 h-14 mx-auto rounded-2xl ${item.bg} ${item.color} flex items-center justify-center mb-4`}>
                   {item.icon}
@@ -109,7 +109,7 @@ export default function Launchpad() {
       </section>
 
       {/* Program Objectives */}
-      <section className="py-28 px-6 bg-white dark:bg-[#0a0f0b]">
+      <section className="py-28 px-4 sm:px-6 bg-white  dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-20">
             <span className="inline-block text-[#39894c] font-bold text-sm uppercase tracking-wider mb-4">Program Objectives</span>
@@ -132,7 +132,7 @@ export default function Launchpad() {
                  whileInView={{ opacity: 1, y: 0 }}
                  viewport={{ once: true }}
                  transition={{ delay: index * 0.08, duration: 0.5 }}
-                 className="group p-8 bg-slate-50 dark:bg-slate-900 rounded-2xl hover:shadow-2xl transition-all border border-slate-100 dark:border-slate-800 hover:border-[#39894c]/30"
+                 className="group p-8 bg-slate-50  rounded-2xl hover:shadow-2xl transition-all border border-slate-100 dark:border-slate-800 hover:border-[#39894c]/30 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
                >
                  <div className="text-[#39894c] mb-6 group-hover:scale-110 transition-transform inline-block">
                    {benefit.icon}
@@ -146,7 +146,7 @@ export default function Launchpad() {
       </section>
 
       {/* 12-Week Curriculum */}
-      <section className="py-28 px-6 bg-slate-50 dark:bg-[#0f1410]">
+      <section className="py-28 px-4 sm:px-6 bg-slate-50  dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-20">
             <span className="inline-block text-[#39894c] font-bold text-sm uppercase tracking-wider mb-4">Weekly Curriculum</span>
@@ -175,7 +175,7 @@ export default function Launchpad() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05, duration: 0.5 }}
-                className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-slate-200 dark:border-slate-800 hover:shadow-xl transition-all"
+                className="bg-white  rounded-xl p-6 border border-slate-200 dark:border-slate-800 hover:shadow-xl transition-all dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
               >
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-12 h-12 rounded-full bg-[#39894c] text-white flex items-center justify-center font-bold text-lg">
@@ -198,7 +198,7 @@ export default function Launchpad() {
       </section>
 
       {/* Mentors & Facilitators */}
-      <section className="py-28 px-6 bg-white dark:bg-[#0a0f0b]">
+      <section className="py-28 px-4 sm:px-6 bg-white  dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-20">
             <span className="inline-block text-[#39894c] font-bold text-sm uppercase tracking-wider mb-4">Expert Guidance</span>
@@ -222,7 +222,7 @@ export default function Launchpad() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.08, duration: 0.5 }}
-                className="bg-slate-50 dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 hover:shadow-xl transition-all"
+                className="bg-slate-50  rounded-2xl p-6 border border-slate-200 dark:border-slate-800 hover:shadow-xl transition-all dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
               >
                 <div className="w-16 h-16 rounded-full bg-[#39894c] text-white flex items-center justify-center font-bold text-2xl mb-4">
                   {mentor.name.charAt(0)}
@@ -240,10 +240,10 @@ export default function Launchpad() {
       </section>
 
       {/* Eligibility Requirements */}
-      <section className="py-28 px-6 bg-[#2d5f3d] text-white relative overflow-hidden">
+      <section className="py-28 px-4 sm:px-6 bg-[#2d5f3d] text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+          <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"></div>
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"></div>
         </div>
 
         <div className="max-w-6xl mx-auto relative z-10">
@@ -276,7 +276,7 @@ export default function Launchpad() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
-                className="flex items-start gap-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/15 transition-colors"
+                className="flex items-start gap-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/15 transition-colors dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
               >
                 <div className="w-8 h-8 rounded-full bg-[#39894c] flex items-center justify-center shrink-0 mt-0.5">
                   <CheckCircle2 size={20} />
@@ -295,7 +295,7 @@ export default function Launchpad() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-28 px-6 bg-white dark:bg-[#0a0f0b] relative overflow-hidden">
+      <section className="py-28 px-4 sm:px-6 bg-white  relative overflow-hidden dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -312,12 +312,12 @@ export default function Launchpad() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/signup">
-                <button className="bg-white text-[#2d5f3d] px-10 py-5 rounded-xl font-bold text-xl hover:scale-105 transition-transform shadow-xl inline-flex items-center gap-2">
+                <button className="bg-white text-[#2d5f3d] px-6 sm:px-10 py-4 sm:py-5 rounded-xl font-bold text-xl hover:scale-105 transition-transform shadow-xl inline-flex items-center gap-2 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
                   Start Application <ArrowRight size={24} />
                 </button>
               </Link>
               <Link href="/contact">
-                <button className="bg-white/10 backdrop-blur-sm text-white px-10 py-5 rounded-xl font-bold text-xl hover:bg-white/20 transition-all border-2 border-white/30">
+                <button className="bg-white/10 backdrop-blur-sm text-white px-6 sm:px-10 py-4 sm:py-5 rounded-xl font-bold text-xl hover:bg-white/20 transition-all border-2 border-white/30 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
                   Contact Us
                 </button>
               </Link>

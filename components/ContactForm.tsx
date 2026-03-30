@@ -53,7 +53,7 @@ export default function ContactForm() {
           required
           value={formData.first_name}
           onChange={(e) => setFormData({...formData, first_name: e.target.value})}
-          className="px-5 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:border-[#39894c] focus:outline-none transition-colors" 
+          className="w-full px-5 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white text-slate-900 dark:text-white focus:border-[#39894c] focus:outline-none transition-colors dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10" 
         />
         <input 
           type="text" 
@@ -61,7 +61,7 @@ export default function ContactForm() {
           required
           value={formData.last_name}
           onChange={(e) => setFormData({...formData, last_name: e.target.value})}
-          className="px-5 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:border-[#39894c] focus:outline-none transition-colors" 
+          className="w-full px-5 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white text-slate-900 dark:text-white focus:border-[#39894c] focus:outline-none transition-colors dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10" 
         />
       </div>
       <input 
@@ -69,7 +69,7 @@ export default function ContactForm() {
         placeholder="Phone" 
         value={formData.phone}
         onChange={(e) => setFormData({...formData, phone: e.target.value})}
-        className="w-full px-5 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:border-[#39894c] focus:outline-none transition-colors" 
+        className="w-full px-5 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white  text-slate-900 dark:text-white focus:border-[#39894c] focus:outline-none transition-colors dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10" 
       />
       <input 
         type="email" 
@@ -77,7 +77,7 @@ export default function ContactForm() {
         required
         value={formData.email}
         onChange={(e) => setFormData({...formData, email: e.target.value})}
-        className="w-full px-5 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:border-[#39894c] focus:outline-none transition-colors" 
+        className="w-full px-5 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white  text-slate-900 dark:text-white focus:border-[#39894c] focus:outline-none transition-colors dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10" 
       />
       <textarea 
         placeholder="Message" 
@@ -85,12 +85,12 @@ export default function ContactForm() {
         required
         value={formData.message}
         onChange={(e) => setFormData({...formData, message: e.target.value})}
-        className="w-full px-5 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:border-[#39894c] focus:outline-none transition-colors resize-none"
+        className="w-full px-5 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white  text-slate-900 dark:text-white focus:border-[#39894c] focus:outline-none transition-colors resize-none dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
       ></textarea>
       <button 
         type="submit" 
         disabled={submitting}
-        className="bg-[#39894c] text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-[#2d6f3d] transition-colors shadow-lg hover:shadow-xl w-full md:w-auto disabled:opacity-50"
+        className="bg-[#39894c] text-white px-6 sm:px-10 py-4 rounded-xl font-bold text-lg hover:bg-[#2d6f3d] transition-colors shadow-lg hover:shadow-xl w-full md:w-auto disabled:opacity-50"
       >
         {submitting ? 'Sending...' : 'Submit Message'}
       </button>

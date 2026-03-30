@@ -22,7 +22,7 @@ const staggerContainer = {
 
 export default function Impact() {
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col font-jakarta relative overflow-hidden">
+    <div className="min-h-screen bg-gray-50 flex flex-col font-jakarta relative overflow-hidden dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
       {/* Background Ambience */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
         <div className="absolute top-[-10%] right-[-5%] w-[50%] h-[40%] bg-primary/10 rounded-full blur-[120px]" />
@@ -33,7 +33,7 @@ export default function Impact() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6 lg:px-12 relative z-10 flex-grow flex items-center justify-center">
+      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-12 relative z-10 flex-grow flex items-center justify-center">
         <div className="max-w-5xl mx-auto text-center">
           <motion.div
             initial="initial"
@@ -61,7 +61,7 @@ export default function Impact() {
       </section>
 
       {/* Main Stats - Floating Cards */}
-      <section className="py-12 px-6 lg:px-12 relative z-20 -mt-10 mb-10">
+      <section className="py-12 px-4 sm:px-6 lg:px-12 relative z-20 -mt-10 mb-10">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
             {[
@@ -75,7 +75,7 @@ export default function Impact() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6, delay: index * 0.15 }}
-                className="bg-white/80 backdrop-blur-xl rounded-3xl p-8 border border-white shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] transition-all duration-300 relative overflow-hidden group"
+                className="bg-white/80 backdrop-blur-xl rounded-3xl p-8 border border-white shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] transition-all duration-300 relative overflow-hidden group dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
               >
                 {/* Decorative Solid Line */}
                 <div className={`absolute top-0 left-0 w-full h-1.5 ${stat.iconColor} opacity-70 group-hover:opacity-100 transition-opacity`} />
@@ -105,7 +105,7 @@ export default function Impact() {
       </section>
 
       {/* Detailed Impact Breakdown */}
-      <section className="py-24 px-6 lg:px-12 bg-white relative">
+      <section className="py-24 px-4 sm:px-6 lg:px-12 bg-white relative dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-20">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">The Ripple Effect</h2>
@@ -184,7 +184,7 @@ export default function Impact() {
       </section>
 
       {/* Interactive Progress Indicators */}
-      <section className="py-24 px-6 lg:px-12 bg-gray-900 relative overflow-hidden text-white">
+      <section className="py-24 px-4 sm:px-6 lg:px-12 bg-gray-900 relative overflow-hidden text-white">
         {/* Abstract Background */}
         <div className="absolute top-0 right-0 w-full h-full opacity-20">
           <svg className="absolute w-full h-full" xmlns="http://www.w3.org/2000/svg">
@@ -208,7 +208,7 @@ export default function Impact() {
             <p className="text-xl text-gray-400">Continuous measurement ensures we stay on target.</p>
           </motion.div>
           
-          <div className="bg-white/10 backdrop-blur-md rounded-3xl border border-white/10 p-8 lg:p-12">
+          <div className="bg-white/10 backdrop-blur-md rounded-3xl border border-white/10 p-8 lg:p-12 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
             <div className="space-y-10">
               {[
                 { label: "Job Placement Rate (Within 90 Days)", value: 85, color: "bg-primary" },
@@ -246,7 +246,7 @@ export default function Impact() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-primary/10 text-center px-6">
+      <section className="py-20 bg-primary/10 text-center px-4 sm:px-6">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl font-bold text-gray-900 mb-6">Be Part of the Impact</h2>
           <p className="text-lg text-gray-700 mb-8">
@@ -256,7 +256,7 @@ export default function Impact() {
              <Link href="/get-involved" className="bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-primary-hover transition-colors shadow-lg shadow-primary/20">
                Get Involved
              </Link>
-             <Link href="/contact" className="bg-white text-gray-900 px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-50 border border-gray-200 transition-colors">
+             <Link href="/contact" className="bg-white text-gray-900 px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-50 border border-gray-200 transition-colors dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
                Contact Us
              </Link>
           </div>

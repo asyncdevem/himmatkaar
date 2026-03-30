@@ -42,12 +42,12 @@ export default function UpcomingEvents() {
   ];
 
   return (
-    <div className="min-h-screen bg-white dark:bg-[#0a0f0b]">
+    <div className="min-h-screen bg-white  dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
       <Navbar />
 
       <main className="pt-32 pb-24">
         {/* Header */}
-        <section className="max-w-7xl mx-auto px-6 mb-16">
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 mb-16">
           <Link href="/" className="inline-flex items-center gap-2 text-[#39894c] hover:underline mb-8 font-semibold">
             <ArrowLeft size={20} /> Back to Home
           </Link>
@@ -69,7 +69,7 @@ export default function UpcomingEvents() {
         </section>
 
         {/* Events Grid */}
-        <section className="max-w-7xl mx-auto px-6">
+        <section className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {upcomingEvents.map((event, idx) => (
               <motion.div
@@ -78,7 +78,7 @@ export default function UpcomingEvents() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1, duration: 0.5 }}
-                className="group bg-white dark:bg-slate-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all border border-slate-100 dark:border-slate-800"
+                className="group bg-white  rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all border border-slate-100 dark:border-slate-800 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
               >
                 <div className="relative overflow-hidden h-56">
                   <Image 
@@ -127,12 +127,12 @@ export default function UpcomingEvents() {
         </section>
 
         {/* Newsletter CTA */}
-        <section className="max-w-4xl mx-auto px-6 mt-24">
+        <section className="max-w-4xl mx-auto px-4 sm:px-6 mt-24">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-slate-50 dark:bg-slate-900 rounded-3xl p-12 text-center border border-slate-200 dark:border-slate-800"
+            className="bg-slate-50  rounded-3xl p-12 text-center border border-slate-200 dark:border-slate-800 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
           >
             <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-slate-900 dark:text-white">Stay Updated</h2>
             <p className="text-lg mb-8 text-slate-600 dark:text-slate-400">
@@ -142,7 +142,7 @@ export default function UpcomingEvents() {
               <input 
                 type="email" 
                 placeholder="Enter your email" 
-                className="flex-1 px-5 py-4 rounded-lg border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:border-[#39894c] focus:outline-none"
+                className="flex-1 px-5 py-4 rounded-lg border-2 border-slate-200 dark:border-slate-700 bg-white  text-slate-900 dark:text-white focus:border-[#39894c] focus:outline-none dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
               />
               <button className="bg-[#39894c] text-white px-8 py-4 rounded-lg font-bold hover:bg-[#2d6f3d] transition-colors">
                 Subscribe

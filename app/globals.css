@@ -27,10 +27,12 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
 }
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 @keyframes fadeInLeft {
@@ -72,4 +74,21 @@ html {
 .scrollbar-hide {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #000000;
+  }
+  body {
+    background-color: #0c120f;
+    background-image: 
+      radial-gradient(ellipse at 10% 10%, rgba(57, 137, 76, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 90% 10%, rgba(21, 29, 23, 1) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, rgba(57, 137, 76, 0.05) 0%, transparent 50%),
+      radial-gradient(ellipse at 90% 90%, rgba(57, 137, 76, 0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at 10% 90%, rgba(21, 29, 23, 1) 0%, transparent 50%);
+    background-attachment: fixed;
+    color: #f1f5f9;
+  }
 }

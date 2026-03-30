@@ -56,11 +56,11 @@ export default function CoreTeamPage() {
   }, [members, currentPage]);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-[#0a0f0b]">
+    <div className="min-h-screen bg-white  dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
       <Navbar />
 
       <main className="pt-32 pb-24">
-        <section className="max-w-7xl mx-auto px-6 mb-16">
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 mb-16">
           <Link href="/team#core-team" className="inline-flex items-center gap-2 text-[#39894c] hover:underline mb-8 font-semibold">
             <ArrowLeft size={20} /> Back to Team
           </Link>
@@ -81,7 +81,7 @@ export default function CoreTeamPage() {
           </motion.div>
         </section>
 
-        <section className="max-w-7xl mx-auto px-6">
+        <section className="max-w-7xl mx-auto px-4 sm:px-6">
           {loading ? (
             <div className="flex items-center justify-center py-20">
               <Loader2 className="animate-spin text-[#39894c]" size={48} />
@@ -100,7 +100,7 @@ export default function CoreTeamPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: idx * 0.08, duration: 0.5 }}
-                    className="group bg-slate-50 dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 hover:shadow-2xl transition-all"
+                    className="group bg-slate-50  rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 hover:shadow-2xl transition-all dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
                   >
                     <div className="relative h-80 overflow-hidden">
                       <Image
@@ -116,7 +116,7 @@ export default function CoreTeamPage() {
                         <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity">
                           <a
                             href={member.linkedin}
-                            className="w-10 h-10 bg-white/90 rounded-full flex items-center justify-center hover:bg-[#39894c] hover:text-white transition-colors"
+                            className="w-10 h-10 bg-white/90 rounded-full flex items-center justify-center hover:bg-[#39894c] hover:text-white transition-colors dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
                             target="_blank"
                             rel="noopener noreferrer"
                           >

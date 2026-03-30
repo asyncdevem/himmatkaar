@@ -56,12 +56,12 @@ export default function Team() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-[#0a0f0b]">
+    <div className="min-h-screen bg-white  dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
       <Navbar />
 
       <main className="pt-32 pb-24">
         {/* Header */}
-        <section className="max-w-7xl mx-auto px-6 mb-16">
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 mb-16">
           <Link href="/" className="inline-flex items-center gap-2 text-[#39894c] hover:underline mb-8 font-semibold">
             <ArrowLeft size={20} /> Back to Home
           </Link>
@@ -83,7 +83,7 @@ export default function Team() {
         </section>
 
         {/* Core Team Section */}
-        <section id="core-team" className="max-w-7xl mx-auto px-6 mb-16">
+        <section id="core-team" className="max-w-7xl mx-auto px-4 sm:px-6 mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -112,7 +112,7 @@ export default function Team() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1, duration: 0.5 }}
-                className="group bg-slate-50 dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 hover:shadow-2xl transition-all"
+                className="group bg-slate-50  rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 hover:shadow-2xl transition-all dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
               >
                 {/* Image */}
                 <div className="relative h-80 overflow-hidden">
@@ -129,7 +129,7 @@ export default function Team() {
                   <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity">
                     <a 
                       href={member.linkedin} 
-                      className="w-10 h-10 bg-white/90 rounded-full flex items-center justify-center hover:bg-[#39894c] hover:text-white transition-colors"
+                      className="w-10 h-10 bg-white/90 rounded-full flex items-center justify-center hover:bg-[#39894c] hover:text-white transition-colors dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -151,7 +151,7 @@ export default function Team() {
         </section>
 
         {/* Ambassadors Preview Section */}
-        <section className="max-w-7xl mx-auto px-6 mb-16">
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -180,7 +180,7 @@ export default function Team() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1, duration: 0.5 }}
-                className="group bg-slate-50 dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 hover:shadow-2xl transition-all"
+                className="group bg-slate-50  rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 hover:shadow-2xl transition-all dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
               >
                 {/* Image */}
                 <div className="relative h-64 overflow-hidden">
@@ -197,7 +197,7 @@ export default function Team() {
                   <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity">
                     <a 
                       href={member.linkedin} 
-                      className="w-8 h-8 bg-white/90 rounded-full flex items-center justify-center hover:bg-[#39894c] hover:text-white transition-colors"
+                      className="w-8 h-8 bg-white/90 rounded-full flex items-center justify-center hover:bg-[#39894c] hover:text-white transition-colors dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -219,7 +219,7 @@ export default function Team() {
         </section>
 
         {/* Join Team CTA */}
-        <section className="max-w-4xl mx-auto px-6 mt-24">
+        <section className="max-w-4xl mx-auto px-4 sm:px-6 mt-24">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -236,7 +236,7 @@ export default function Team() {
                 We're always looking for passionate individuals who want to make a difference
               </p>
               <Link href="/contact">
-                <button className="bg-white text-[#2d5f3d] px-10 py-4 rounded-lg font-bold text-lg hover:scale-105 transition-transform shadow-xl">
+                <button className="bg-white text-[#2d5f3d] px-6 sm:px-10 py-4 rounded-lg font-bold text-lg hover:scale-105 transition-transform shadow-xl dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
                   Get in Touch
                 </button>
               </Link>

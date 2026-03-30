@@ -25,13 +25,13 @@ import NewsletterForm from "@/components/NewsletterForm";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white dark:bg-[#0a0f0b] text-slate-900 dark:text-slate-100 antialiased">
+    <div className="min-h-screen bg-white text-slate-900 dark:text-slate-100 antialiased overflow-x-hidden dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
       <Navbar />
 
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="relative bg-slate-50 dark:bg-[#0f1410] py-20 lg:py-32 overflow-hidden">
-          <div className="max-w-7xl mx-auto px-6">
+        <section className="relative bg-slate-50  py-20 lg:py-32 overflow-hidden dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               {/* Left Column - Text Content */}
               <motion.div
@@ -56,7 +56,7 @@ export default function Home() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.1 }}
-                  className="text-5xl lg:text-7xl font-extrabold leading-tight mb-6 tracking-tight text-slate-900 dark:text-white"
+                  className="text-4xl sm:text-5xl lg:text-7xl font-extrabold leading-tight mb-6 tracking-tight text-slate-900 dark:text-white"
                 >
                   Evolve Your Future with <span className="text-[#39894c]">Himmatkaar!</span>
                 </motion.h1>
@@ -77,12 +77,12 @@ export default function Home() {
                   className="flex flex-col sm:flex-row gap-4"
                 >
                   <Link href="/signup">
-                    <button className="bg-[#39894c] text-white px-10 py-4 rounded-lg font-bold text-lg hover:bg-[#2d6f3d] transition-all shadow-xl hover:shadow-2xl hover:scale-105 flex items-center justify-center gap-2">
+                    <button className="bg-[#39894c] text-white px-6 sm:px-10 py-4 rounded-lg font-bold text-lg hover:bg-[#2d6f3d] transition-all shadow-xl hover:shadow-2xl hover:scale-105 flex items-center justify-center gap-2">
                       Apply Here <ArrowRight size={20} />
                     </button>
                   </Link>
                   <Link href="/about">
-                    <button className="bg-white dark:bg-slate-800 text-slate-900 dark:text-white px-10 py-4 rounded-lg font-bold text-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-all border-2 border-slate-200 dark:border-slate-700">
+                    <button className="bg-white  text-slate-900 dark:text-white px-6 sm:px-10 py-4 rounded-lg font-bold text-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-all border-2 border-slate-200 dark:border-slate-700 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
                       Learn More
                     </button>
                   </Link>
@@ -102,7 +102,7 @@ export default function Home() {
                   <div className="absolute -bottom-8 -left-8 w-72 h-72 bg-[#2d5f3d]/10 rounded-full blur-3xl"></div>
                   
                   {/* Main Image Container */}
-                  <div className="relative bg-white dark:bg-slate-800 rounded-3xl shadow-2xl overflow-hidden border-4 border-white dark:border-slate-700">
+                  <div className="relative bg-white  rounded-3xl shadow-2xl overflow-hidden border-4 border-white dark:border-slate-700 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
                     <Image 
                       src="/hero-person.jpg" 
                       alt="Himmatkaar Community"
@@ -113,13 +113,13 @@ export default function Home() {
                     />
                     
                     {/* Overlay Badge */}
-                    <div className="absolute bottom-6 left-6 right-6 bg-white/95 dark:bg-slate-900/95 backdrop-blur-sm rounded-2xl p-6 shadow-xl">
-                      <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-[#39894c] rounded-full flex items-center justify-center text-white font-bold text-xl">
+                    <div className="absolute bottom-3 left-3 right-3 sm:bottom-6 sm:left-6 sm:right-6 bg-white/95 backdrop-blur-sm rounded-2xl p-4 sm:p-6 shadow-xl dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
+                      <div className="flex items-center gap-3 sm:gap-4">
+                        <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#39894c] rounded-full flex items-center justify-center text-white font-bold text-lg sm:text-xl">
                           ✓
                         </div>
                         <div>
-                          <p className="font-bold text-slate-900 dark:text-white text-lg">1,000+ Youth Empowered</p>
+                          <p className="font-bold text-slate-900 dark:text-white text-base sm:text-lg">1,000+ Youth Empowered</p>
                           <p className="text-sm text-slate-600 dark:text-slate-400">Join Faisalabad's largest youth network</p>
                         </div>
                       </div>
@@ -132,8 +132,8 @@ export default function Home() {
         </section>
 
         {/* Partner Network */}
-        <section className="py-20 bg-slate-50 dark:bg-[#0f1410] border-b border-slate-200 dark:border-slate-800">
-          <div className="max-w-7xl mx-auto px-6">
+        <section className="py-20 bg-slate-50  border-b border-slate-200 dark:border-slate-800 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -156,7 +156,7 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1 }}
-                  className="flex-shrink-0 w-64 h-40 bg-white dark:bg-slate-900 rounded-2xl border-2 border-slate-200 dark:border-slate-800 hover:border-[#39894c] dark:hover:border-[#39894c] transition-all shadow-sm hover:shadow-lg flex items-center justify-center p-8 group"
+                  className="flex-shrink-0 w-64 h-40 bg-white  rounded-2xl border-2 border-slate-200 dark:border-slate-800 hover:border-[#39894c] dark:hover:border-[#39894c] transition-all shadow-sm hover:shadow-lg flex items-center justify-center p-8 group dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
                 >
                   <div className="relative w-full h-full flex items-center justify-center">
                     <Image 
@@ -190,8 +190,8 @@ export default function Home() {
         </section>
 
         {/* About Us */}
-        <section className="py-28 bg-white dark:bg-[#0a0f0b]">
-          <div className="max-w-7xl mx-auto px-6">
+        <section className="py-28 bg-white  dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
@@ -209,8 +209,8 @@ export default function Home() {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="absolute -bottom-6 -right-6 bg-[#39894c] text-white p-8 rounded-xl shadow-2xl max-w-xs">
-                  <p className="text-4xl font-bold mb-1">1,000+</p>
+                <div className="mt-4 sm:mt-0 sm:absolute sm:-bottom-6 sm:-right-6 bg-[#39894c] text-white p-5 sm:p-8 rounded-xl shadow-2xl max-w-xs ml-auto">
+                  <p className="text-3xl sm:text-4xl font-bold mb-1">1,000+</p>
                   <p className="text-sm font-semibold opacity-90">Youth Empowered</p>
                 </div>
               </motion.div>
@@ -228,7 +228,7 @@ export default function Home() {
                 <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-xl mb-8">
                   Our mission is to cultivate a strong resource pool to support young innovators and change-makers across Pakistan, helping them transform their ideas into impactful initiatives that benefit their communities.
                 </p>
-                <div className="grid grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="flex items-start gap-3">
                     <CheckCircle2 className="text-[#39894c] flex-shrink-0 mt-1" size={28} />
                     <div>
@@ -250,8 +250,8 @@ export default function Home() {
         </section>
 
         {/* Our Three Tracks */}
-        <section className="py-28 bg-slate-50 dark:bg-[#0f1410]">
-          <div className="max-w-7xl mx-auto px-6">
+        <section className="py-28 bg-slate-50  dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -307,8 +307,8 @@ export default function Home() {
         <EventsSection />
 
         {/* Our Offerings */}
-        <section className="py-28 bg-slate-50 dark:bg-[#0f1410]">
-          <div className="max-w-7xl mx-auto px-6">
+        <section className="py-28 bg-slate-50  dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -334,7 +334,7 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.08 }}
-                  className="group p-8 bg-white dark:bg-slate-900 rounded-2xl hover:shadow-2xl transition-all border border-slate-100 dark:border-slate-800 hover:border-[#39894c]/30"
+                  className="group p-8 bg-white  rounded-2xl hover:shadow-2xl transition-all border border-slate-100 dark:border-slate-800 hover:border-[#39894c]/30 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
                 >
                   <div className="text-[#39894c] mb-6 group-hover:scale-110 transition-transform inline-block">{offering.icon}</div>
                   <h3 className="text-2xl font-bold mb-4 text-slate-900 dark:text-white">{offering.title}</h3>
@@ -346,45 +346,45 @@ export default function Home() {
         </section>
 
         {/* Stats & Contact */}
-        <section className="py-28 bg-white dark:bg-[#0a0f0b]">
-          <div className="max-w-7xl mx-auto px-6">
+        <section className="py-28 bg-white  dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
             {/* Stats */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-[#2d5f3d] rounded-3xl p-12 lg:p-16 mb-20 shadow-2xl"
+              className="bg-[#2d5f3d] rounded-3xl p-6 sm:p-10 lg:p-16 mb-20 shadow-2xl"
             >
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center text-white">
                 <div>
-                  <p className="text-6xl lg:text-7xl font-extrabold mb-3">0.7+</p>
-                  <p className="text-xl font-semibold opacity-90">Years of Operation</p>
+                  <p className="text-4xl sm:text-5xl lg:text-7xl font-extrabold mb-3">0.7+</p>
+                  <p className="text-sm sm:text-xl font-semibold opacity-90">Years of Operation</p>
                 </div>
                 <div>
-                  <p className="text-6xl lg:text-7xl font-extrabold mb-3">1000+</p>
-                  <p className="text-xl font-semibold opacity-90">Student Impact</p>
+                  <p className="text-4xl sm:text-5xl lg:text-7xl font-extrabold mb-3">1000+</p>
+                  <p className="text-sm sm:text-xl font-semibold opacity-90">Student Impact</p>
                 </div>
                 <div>
-                  <p className="text-6xl lg:text-7xl font-extrabold mb-3">6+</p>
-                  <p className="text-xl font-semibold opacity-90">Events Organized</p>
+                  <p className="text-4xl sm:text-5xl lg:text-7xl font-extrabold mb-3">6+</p>
+                  <p className="text-sm sm:text-xl font-semibold opacity-90">Events Organized</p>
                 </div>
                 <div>
-                  <p className="text-6xl lg:text-7xl font-extrabold mb-3">20+</p>
-                  <p className="text-xl font-semibold opacity-90">Staff Employs</p>
+                  <p className="text-4xl sm:text-5xl lg:text-7xl font-extrabold mb-3">20+</p>
+                  <p className="text-sm sm:text-xl font-semibold opacity-90">Staff Employs</p>
                 </div>
               </div>
             </motion.div>
 
             {/* Contact Form */}
-            <div className="grid lg:grid-cols-2 gap-16">
+            <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
               >
                 <span className="inline-block text-[#39894c] font-bold text-base uppercase tracking-wider mb-4">Get In Touch</span>
-                <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-slate-900 dark:text-white">Send Us A Message</h2>
-                <p className="text-slate-600 dark:text-slate-400 mb-8 text-xl">Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-slate-900 dark:text-white">Send Us A Message</h2>
+                <p className="text-slate-600 dark:text-slate-400 mb-8 text-base sm:text-xl">Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
                 <ContactForm />
               </motion.div>
               <motion.div
@@ -394,22 +394,24 @@ export default function Home() {
                 className="flex flex-col justify-center"
               >
                 <span className="inline-block text-[#39894c] font-bold text-base uppercase tracking-wider mb-4">Stay Updated</span>
-                <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-slate-900 dark:text-white">Subscribe to our Newsletter</h2>
-                <p className="text-slate-600 dark:text-slate-400 mb-8 text-xl">Stay updated with the latest news, events, and opportunities from Himmatkaar.</p>
-                <NewsletterForm />
-                <div className="bg-slate-50 dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-slate-800">
-                  <h3 className="text-2xl font-bold mb-6 text-slate-900 dark:text-white">Contact Information</h3>
-                  <div className="space-y-4 text-slate-600 dark:text-slate-400 text-lg">
-                    <p className="flex items-center gap-3">
-                      <Mail className="text-[#39894c]" size={24} />
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-slate-900 dark:text-white">Subscribe to our Newsletter</h2>
+                <p className="text-slate-600 dark:text-slate-400 mb-8 text-base sm:text-xl">Stay updated with the latest news, events, and opportunities from Himmatkaar.</p>
+                <div className="mt-1">
+                  <NewsletterForm />
+                </div>
+                <div className="mt-6 sm:mt-8 bg-slate-50 p-5 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
+                  <h3 className="text-xl sm:text-2xl font-bold mb-6 text-slate-900 dark:text-white">Contact Information</h3>
+                  <div className="space-y-4 text-slate-600 dark:text-slate-400 text-sm sm:text-lg">
+                    <p className="flex items-start gap-3 break-all sm:break-normal">
+                      <Mail className="text-[#39894c] flex-shrink-0 mt-0.5" size={20} />
                       <span>himmatkaarofficial@gmail.com</span>
                     </p>
-                    <p className="flex items-center gap-3">
-                      <Phone className="text-[#39894c]" size={24} />
+                    <p className="flex items-start gap-3">
+                      <Phone className="text-[#39894c] flex-shrink-0 mt-0.5" size={20} />
                       <span>+92 342 4853908</span>
                     </p>
-                    <p className="flex items-center gap-3">
-                      <MapPin className="text-[#39894c]" size={24} />
+                    <p className="flex items-start gap-3">
+                      <MapPin className="text-[#39894c] flex-shrink-0 mt-0.5" size={20} />
                       <span>Faisalabad, Pakistan</span>
                     </p>
                   </div>
@@ -420,8 +422,8 @@ export default function Home() {
         </section>
 
         {/* Testimonials */}
-        <section className="py-28 bg-slate-50 dark:bg-[#0f1410]">
-          <div className="max-w-6xl mx-auto px-6">
+        <section className="py-28 bg-slate-50  dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}

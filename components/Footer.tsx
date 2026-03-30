@@ -5,7 +5,7 @@ import { Rocket, Facebook, Instagram, Linkedin } from "lucide-react";
 export default function Footer() {
   return (
     <footer className="bg-[var(--color-primary)]/5 border-t border-[var(--color-primary)]/10 py-20 dark:bg-black/20">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
         <div className="space-y-6">
           <div className="flex items-center gap-3">
             <Image 
@@ -74,22 +74,22 @@ export default function Footer() {
         <div className="space-y-6">
           <h6 className="font-bold text-slate-900 dark:text-white uppercase text-xs tracking-widest">Stay Updated</h6>
           <p className="text-sm text-slate-600 dark:text-slate-400">Get the latest impact stories and opportunities delivered to your inbox.</p>
-          <form className="flex gap-2">
+          <form className="flex flex-col sm:flex-row gap-2">
             <input 
-              className="flex-1 bg-white dark:bg-slate-800 dark:text-white border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/20" 
+              className="flex-1 bg-white  dark:text-white border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/20 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10" 
               placeholder="Your email" 
               type="email" 
             />
-            <button type="button" className="bg-[var(--color-primary)] text-white p-2 px-4 rounded-lg hover:brightness-110 transition-all font-semibold">
+            <button type="button" className="bg-[var(--color-primary)] text-white p-2 px-4 rounded-lg hover:brightness-110 transition-all font-semibold w-full sm:w-auto">
               Send
             </button>
           </form>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500 dark:text-slate-400 uppercase tracking-widest font-bold">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 mt-16 pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500 dark:text-slate-400 uppercase tracking-widest font-bold">
         <p>© 2026 HIMMATKAAR</p>
-        <div className="flex gap-8">
+        <div className="flex flex-wrap justify-center gap-4 sm:gap-8">
           <Link className="hover:text-[var(--color-primary)]" href="/privacy">Privacy</Link>
           <Link className="hover:text-[var(--color-primary)]" href="/terms">Terms</Link>
           <Link className="hover:text-[var(--color-primary)]" href="/cookie-policy">Cookie Policy</Link>

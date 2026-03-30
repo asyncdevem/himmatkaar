@@ -59,7 +59,7 @@ export default function TestimonialCarousel() {
         <div className="flex">
           {testimonials.map((testimonial, index) => (
             <div key={index} className="flex-[0_0_100%] min-w-0 px-4">
-              <div className="bg-white rounded-2xl p-8 shadow-xl">
+              <div className="bg-white rounded-2xl p-8 shadow-xl dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
                 <Quote className="text-[#3a8a4d] mb-4" size={40} />
                 <p className="text-gray-700 text-lg mb-6 italic">"{testimonial.text}"</p>
                 <div className="flex items-center gap-4">
@@ -79,13 +79,13 @@ export default function TestimonialCarousel() {
 
       <button
         onClick={scrollPrev}
-        className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white rounded-full p-2 shadow-lg hover:bg-gray-50 transition-all"
+        className="hidden sm:flex absolute left-2 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow-lg hover:bg-gray-50 transition-all dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
       >
         <ChevronLeft className="text-[#3a8a4d]" size={24} />
       </button>
       <button
         onClick={scrollNext}
-        className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white rounded-full p-2 shadow-lg hover:bg-gray-50 transition-all"
+        className="hidden sm:flex absolute right-2 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow-lg hover:bg-gray-50 transition-all dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
       >
         <ChevronRight className="text-[#3a8a4d]" size={24} />
       </button>

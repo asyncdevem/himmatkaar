@@ -90,8 +90,8 @@ export default function EventsSection() {
   };
 
   return (
-    <section className="py-28 bg-white dark:bg-[#0a0f0b]">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-28 bg-white  dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -106,7 +106,7 @@ export default function EventsSection() {
         {loading ? (
           <div className="grid md:grid-cols-3 gap-8">
             {[1, 2, 3].map((i) => (
-              <div key={i} className="bg-slate-100 dark:bg-slate-800 rounded-2xl h-96 animate-pulse"></div>
+              <div key={i} className="bg-slate-100  rounded-2xl h-96 animate-pulse dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"></div>
             ))}
           </div>
         ) : error ? (
@@ -124,7 +124,7 @@ export default function EventsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="group bg-white dark:bg-slate-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all border border-slate-100 dark:border-slate-800"
+              className="group bg-white  rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all border border-slate-100 dark:border-slate-800 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
             >
               <div className="relative overflow-hidden">
                 <Image 

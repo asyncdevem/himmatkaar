@@ -4,8 +4,8 @@ import { Clock3, Rocket, ShieldCheck } from "lucide-react";
 export default function SignUp() {
   return (
     <div className="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex items-center justify-center">
-      <div className="w-full max-w-3xl px-6">
-        <div className="bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl border border-slate-200 dark:border-slate-800 rounded-3xl shadow-2xl p-8 md:p-12">
+      <div className="w-full max-w-3xl px-4 sm:px-6">
+        <div className="bg-white/80  backdrop-blur-xl border border-slate-200 dark:border-slate-800 rounded-3xl shadow-2xl p-8 md:p-12 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary)] text-sm font-bold mb-6">
             <Clock3 size={16} />
             Coming Soon
@@ -39,13 +39,13 @@ export default function SignUp() {
           <div className="flex flex-col sm:flex-row gap-3">
             <Link
               href="/login"
-              className="inline-flex items-center justify-center px-6 py-3 bg-[var(--color-primary)] text-white font-bold rounded-xl hover:brightness-110 transition-all"
+              className="inline-flex items-center justify-center px-4 sm:px-6 py-3 bg-[var(--color-primary)] text-white font-bold rounded-xl hover:brightness-110 transition-all"
             >
               Go To Admin Login
             </Link>
             <Link
               href="/"
-              className="inline-flex items-center justify-center px-6 py-3 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-bold rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
+              className="inline-flex items-center justify-center px-4 sm:px-6 py-3 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-bold rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
             >
               Back To Home
             </Link>

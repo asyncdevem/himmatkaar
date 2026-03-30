@@ -5,11 +5,11 @@ import Footer from "@/components/Footer";
 
 export default function TermsPage() {
   return (
-    <div className="min-h-screen bg-white dark:bg-[#0a0f0b]">
+    <div className="min-h-screen bg-white  dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
       <Navbar />
 
       <main className="pt-32 pb-24">
-        <section className="max-w-4xl mx-auto px-6">
+        <section className="max-w-4xl mx-auto px-4 sm:px-6">
           <Link href="/" className="inline-flex items-center gap-2 text-[#39894c] hover:underline mb-8 font-semibold">
             <ArrowLeft size={20} /> Back to Home
           </Link>
