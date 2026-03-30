@@ -36,7 +36,7 @@ export default function Team() {
     const fetchData = async () => {
       try {
         const [teamRes, ambassadorsRes] = await Promise.all([
-          fetch('/api/team'),
+          fetch('/api/team?limit=6'),
           fetch('/api/ambassadors?limit=4')
         ]);
         
@@ -83,15 +83,20 @@ export default function Team() {
         </section>
 
         {/* Core Team Section */}
-        <section className="max-w-7xl mx-auto px-6 mb-16">
+        <section id="core-team" className="max-w-7xl mx-auto px-6 mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-12"
+            className="mb-12 flex justify-between items-end"
           >
-            <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-2">Core Team</h2>
-            <p className="text-slate-600 dark:text-slate-400">Leadership driving our mission forward</p>
+            <div>
+              <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-2">Core Team</h2>
+              <p className="text-slate-600 dark:text-slate-400">Leadership driving our mission forward</p>
+            </div>
+            <Link href="/core-team" className="text-[#39894c] font-semibold hover:underline flex items-center gap-1">
+              View All Teammates <ArrowLeft size={18} className="rotate-180" />
+            </Link>
           </motion.div>
 
           {loading ? (

@@ -260,13 +260,13 @@ export default function Home() {
             >
               <span className="inline-block text-[#39894c] font-bold text-base uppercase tracking-wider mb-4">Programs</span>
               <h2 className="text-4xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-4">Our Three Tracks</h2>
-              <p className="text-slate-600 dark:text-slate-400 text-xl max-w-2xl mx-auto">Choose the path that aligns with your goals and aspirations</p>
+              <p className="text-slate-600 dark:text-slate-400 text-xl max-w-2xl mx-auto">Explore our initiatives: Launchpad, Technical Workshops, and Networking Events</p>
             </motion.div>
             <div className="grid md:grid-cols-3 gap-8">
               {[
                 { title: "Launchpad", link: "/launchpad", color: "#2d5f3d", desc: "Launch your innovative projects with Himmatkaar", img: "/track-launchpad.jpg" },
-                { title: "Workshops", link: "/events", color: "#39894c", desc: "Skill-building workshops and training sessions", img: "/track-fellowship.jpg" },
-                { title: "Networking Events", link: "/events", color: "#4a9d5f", desc: "Connect with mentors and industry leaders", img: "/track-impact.jpg" }
+                { title: "Technical Workshops", link: "/technical-workshops", color: "#39894c", desc: "Skill-building technical workshops and practical training sessions", img: "/track-fellowship.jpg" },
+                { title: "Networking Events", link: "/networking-events", color: "#4a9d5f", desc: "Connect with mentors and industry leaders", img: "/track-impact.jpg" }
               ].map((track, idx) => (
                 <motion.div
                   key={idx}

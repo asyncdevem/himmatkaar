@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { supabaseAdmin } from '@/lib/supabase';
+import { supabase, supabaseAdmin } from '@/lib/supabase';
 
 function mapMemberFromDb(member: Record<string, any>) {
   return {
@@ -16,12 +16,26 @@ function mapMemberToDb(body: Record<string, any>) {
   };
 }
 
-export async function GET() {
+export async function GET(request: Request) {
   try {
-    const { data: members, error } = await supabaseAdmin
+    const { searchParams } = new URL(request.url);
+    const limitParam = searchParams.get('limit');
+    const parsedLimit = limitParam ? Number(limitParam) : undefined;
+    const limit =
+      typeof parsedLimit === 'number' && Number.isInteger(parsedLimit) && parsedLimit > 0
+        ? parsedLimit
+        : undefined;
+
+    let query = supabase
       .from('team_members')
       .select('*')
       .order('display_order', { ascending: true });
+
+    if (limit) {
+      query = query.limit(limit);
+    }
+
+    const { data: members, error } = await query;
 
     if (error) {
       console.error('Supabase error:', error);

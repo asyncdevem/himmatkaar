@@ -55,8 +55,8 @@ export default function Footer() {
           <h6 className="font-bold text-slate-900 dark:text-white mb-6 uppercase text-xs tracking-widest">Platform</h6>
           <ul className="space-y-4 text-sm text-slate-600 dark:text-slate-400">
             <li><Link className="hover:text-[var(--color-primary)] transition-colors" href="/about">Our Mission</Link></li>
-            <li><Link className="hover:text-[var(--color-primary)] transition-colors" href="/impact">Project Gallery</Link></li>
-            <li><Link className="hover:text-[var(--color-primary)] transition-colors" href="/fellowship">Training Portal</Link></li>
+            <li><Link className="hover:text-[var(--color-primary)] transition-colors" href="/core-team">Core Team</Link></li>
+            <li><Link className="hover:text-[var(--color-primary)] transition-colors" href="/launchpad">Launchpad</Link></li>
             <li><Link className="hover:text-[var(--color-primary)] transition-colors" href="/impact">Impact Reports</Link></li>
           </ul>
         </div>
@@ -64,10 +64,10 @@ export default function Footer() {
         <div>
           <h6 className="font-bold text-slate-900 dark:text-white mb-6 uppercase text-xs tracking-widest">Resources</h6>
           <ul className="space-y-4 text-sm text-slate-600 dark:text-slate-400">
-            <li><Link className="hover:text-[var(--color-primary)] transition-colors" href="/contact">Help Center</Link></li>
-            <li><Link className="hover:text-[var(--color-primary)] transition-colors" href="/contact">Safety Guidelines</Link></li>
+            <li><Link className="hover:text-[var(--color-primary)] transition-colors" href="/technical-workshops">Technical Workshops</Link></li>
+            <li><Link className="hover:text-[var(--color-primary)] transition-colors" href="/networking-events">Networking Events</Link></li>
+            <li><Link className="hover:text-[var(--color-primary)] transition-colors" href="/events/upcoming">Upcoming Events</Link></li>
             <li><Link className="hover:text-[var(--color-primary)] transition-colors" href="/contact">Partner with Us</Link></li>
-            <li><Link className="hover:text-[var(--color-primary)] transition-colors" href="/fellowship">Careers</Link></li>
           </ul>
         </div>
 
@@ -90,9 +90,9 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500 dark:text-slate-400 uppercase tracking-widest font-bold">
         <p>© 2026 HIMMATKAAR</p>
         <div className="flex gap-8">
-          <Link className="hover:text-[var(--color-primary)]" href="#">Privacy</Link>
-          <Link className="hover:text-[var(--color-primary)]" href="#">Terms</Link>
-          <Link className="hover:text-[var(--color-primary)]" href="#">Cookie Policy</Link>
+          <Link className="hover:text-[var(--color-primary)]" href="/privacy">Privacy</Link>
+          <Link className="hover:text-[var(--color-primary)]" href="/terms">Terms</Link>
+          <Link className="hover:text-[var(--color-primary)]" href="/cookie-policy">Cookie Policy</Link>
         </div>
       </div>
     </footer>

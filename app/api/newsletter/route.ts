@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { createClient } from '@supabase/supabase-js';
 import { supabase, supabaseAdmin } from '@/lib/supabase';
 
 function getAdminAllowlist() {
@@ -24,13 +25,27 @@ async function isAdminRequest(request: Request) {
   const { data, error } = await supabase.auth.getUser(accessToken);
   if (error || !data.user) return false;
 
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+  const roleClient = createClient(supabaseUrl, supabaseAnonKey, {
+    auth: {
+      persistSession: false,
+      autoRefreshToken: false,
+    },
+    global: {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    },
+  });
+
   const adminAllowlist = getAdminAllowlist();
   const signedInEmail = data.user.email?.toLowerCase() || '';
   if (adminAllowlist.length > 0 && adminAllowlist.includes(signedInEmail)) {
     return true;
   }
 
-  const { data: profile } = await supabaseAdmin
+  const { data: profile } = await roleClient
     .from('profiles')
     .select('role')
     .eq('id', data.user.id)
