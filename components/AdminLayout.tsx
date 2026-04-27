@@ -11,7 +11,8 @@ import {
   UserCircle,
   Award,
   MessageSquare,
-  LogOut
+  LogOut,
+  FileText
 } from "lucide-react";
 import { signOut } from "@/lib/auth";
 
@@ -100,6 +101,18 @@ export default function AdminLayout({ children, title }: AdminLayoutProps) {
           >
             <Award size={20} className={isActive('/dashboard/admin/ambassadors') ? '' : 'group-hover:text-[#39894c] transition-colors'} />
             <span className="text-sm">Ambassadors</span>
+          </Link>
+
+          <Link 
+            href="/dashboard/admin/blog" 
+            className={`flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all group ${
+              isActive('/dashboard/admin/blog') 
+                ? 'bg-[#39894c] text-white font-semibold shadow-md shadow-[#39894c]/20' 
+                : 'text-slate-600 hover:bg-slate-50'
+            }`}
+          >
+            <FileText size={20} className={isActive('/dashboard/admin/blog') ? '' : 'group-hover:text-[#39894c] transition-colors'} />
+            <span className="text-sm">Blog</span>
           </Link>
 
           <Link 

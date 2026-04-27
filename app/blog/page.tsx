@@ -1,75 +1,54 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowLeft, Calendar, User, ArrowRight, Clock } from "lucide-react";
+import { ArrowLeft, Calendar, User, ArrowRight, Clock, Loader2 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
+interface BlogPost {
+  id: string;
+  slug: string;
+  title: string;
+  excerpt: string;
+  author: string;
+  date: string;
+  read_time: string;
+  image: string;
+  category: string;
+  published: boolean;
+}
+
 export default function Blog() {
-  const blogPosts = [
-    {
-      slug: "5-ways-to-build-successful-startup-pakistan",
-      title: "5 Ways to Build a Successful Startup in Pakistan",
-      excerpt: "Discover the essential strategies and insights for launching and scaling your startup in Pakistan's growing entrepreneurial ecosystem.",
-      author: "Ahmed Khan",
-      date: "March 10, 2026",
-      readTime: "5 min read",
-      image: "/event-leadership.jpg",
-      category: "Entrepreneurship"
-    },
-    {
-      slug: "power-of-youth-leadership-social-change",
-      title: "The Power of Youth Leadership in Social Change",
-      excerpt: "Explore how young leaders are driving transformative change in communities across Pakistan through innovative solutions.",
-      author: "Fatima Ali",
-      date: "March 5, 2026",
-      readTime: "7 min read",
-      image: "/event-workshop.jpg",
-      category: "Leadership"
-    },
-    {
-      slug: "tech-skills-young-professionals-2026",
-      title: "Tech Skills Every Young Professional Needs in 2026",
-      excerpt: "Stay ahead of the curve with these essential technical skills that are shaping the future of work in Pakistan.",
-      author: "Bilal Ahmed",
-      date: "February 28, 2026",
-      readTime: "6 min read",
-      image: "/event-openhouse.jpg",
-      category: "Technology"
-    },
-    {
-      slug: "building-sustainable-communities-guide",
-      title: "Building Sustainable Communities: A Guide",
-      excerpt: "Learn practical approaches to creating lasting impact in your community through sustainable development initiatives.",
-      author: "Sara Hussain",
-      date: "February 20, 2026",
-      readTime: "8 min read",
-      image: "/about-hero.jpg",
-      category: "Impact"
-    },
-    {
-      slug: "from-idea-to-launch-startup-journey",
-      title: "From Idea to Launch: A Startup Journey",
-      excerpt: "Follow the inspiring journey of a Himmatkaar alumni who turned their innovative idea into a thriving business.",
-      author: "Hassan Malik",
-      date: "February 15, 2026",
-      readTime: "10 min read",
-      image: "/hero-person.jpg",
-      category: "Success Stories"
-    },
-    {
-      slug: "networking-tips-young-professionals",
-      title: "Networking Tips for Young Professionals",
-      excerpt: "Master the art of professional networking with these proven strategies to build meaningful connections.",
-      author: "Ayesha Raza",
-      date: "February 10, 2026",
-      readTime: "4 min read",
-      image: "/track-fellowship.jpg",
-      category: "Career"
+  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchBlogPosts();
+  }, []);
+
+  const fetchBlogPosts = async () => {
+    try {
+      const response = await fetch('/api/blog?published=true');
+      const data = await response.json();
+      setBlogPosts(data.posts || []);
+    } catch (error) {
+      console.error('Error fetching blog posts:', error);
+    } finally {
+      setLoading(false);
     }
-  ];
+  };
+
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', { 
+      year: 'numeric', 
+      month: 'long', 
+      day: 'numeric' 
+    });
+  };
 
   return (
     <div className="min-h-screen bg-white  dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
@@ -100,62 +79,72 @@ export default function Blog() {
 
         {/* Blog Grid */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.map((post, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1, duration: 0.5 }}
-                className="group bg-white  rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all border border-slate-100 dark:border-slate-800 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
-              >
-                <div className="relative overflow-hidden h-56">
-                  <Image 
-                    src={post.image} 
-                    alt={post.title} 
-                    width={400}
-                    height={250}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
-                  />
-                  <div className="absolute top-4 left-4 bg-[#39894c] text-white px-3 py-1 rounded-full text-xs font-bold">
-                    {post.category}
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-3 text-slate-900 dark:text-white group-hover:text-[#39894c] transition-colors">
-                    {post.title}
-                  </h3>
-                  <p className="text-slate-600 dark:text-slate-400 mb-4 leading-relaxed text-sm">
-                    {post.excerpt}
-                  </p>
-                  
-                  <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-500 mb-4">
-                    <div className="flex items-center gap-4">
-                      <span className="flex items-center gap-1">
-                        <User size={14} />
-                        {post.author}
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <Clock size={14} />
-                        {post.readTime}
-                      </span>
+          {loading ? (
+            <div className="flex items-center justify-center h-64">
+              <Loader2 className="animate-spin text-[#39894c]" size={48} />
+            </div>
+          ) : blogPosts.length === 0 ? (
+            <div className="text-center py-16">
+              <p className="text-xl text-slate-600 dark:text-slate-400">No blog posts available yet. Check back soon!</p>
+            </div>
+          ) : (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {blogPosts.map((post, idx) => (
+                <motion.div
+                  key={post.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1, duration: 0.5 }}
+                  className="group bg-white  rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all border border-slate-100 dark:border-slate-800 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
+                >
+                  <div className="relative overflow-hidden h-56">
+                    <Image 
+                      src={post.image} 
+                      alt={post.title} 
+                      width={400}
+                      height={250}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
+                    />
+                    <div className="absolute top-4 left-4 bg-[#39894c] text-white px-3 py-1 rounded-full text-xs font-bold">
+                      {post.category}
                     </div>
                   </div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold mb-3 text-slate-900 dark:text-white group-hover:text-[#39894c] transition-colors">
+                      {post.title}
+                    </h3>
+                    <p className="text-slate-600 dark:text-slate-400 mb-4 leading-relaxed text-sm">
+                      {post.excerpt}
+                    </p>
+                    
+                    <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-500 mb-4">
+                      <div className="flex items-center gap-4">
+                        <span className="flex items-center gap-1">
+                          <User size={14} />
+                          {post.author}
+                        </span>
+                        <span className="flex items-center gap-1">
+                          <Clock size={14} />
+                          {post.read_time}
+                        </span>
+                      </div>
+                    </div>
 
-                  <div className="flex items-center justify-between">
-                    <span className="flex items-center gap-1 text-xs text-slate-500">
-                      <Calendar size={14} />
-                      {post.date}
-                    </span>
-                    <Link href={`/blog/${post.slug}`} className="text-[#39894c] font-semibold text-sm hover:gap-2 flex items-center gap-1 transition-all">
-                      Read More <ArrowRight size={16} />
-                    </Link>
+                    <div className="flex items-center justify-between">
+                      <span className="flex items-center gap-1 text-xs text-slate-500">
+                        <Calendar size={14} />
+                        {formatDate(post.date)}
+                      </span>
+                      <Link href={`/blog/${post.slug}`} className="text-[#39894c] font-semibold text-sm hover:gap-2 flex items-center gap-1 transition-all">
+                        Read More <ArrowRight size={16} />
+                      </Link>
+                    </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+                </motion.div>
+              ))}
+            </div>
+          )}
         </section>
 
         {/* Newsletter CTA */}
