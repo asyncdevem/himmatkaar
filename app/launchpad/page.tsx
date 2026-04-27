@@ -65,11 +65,11 @@ export default function Launchpad() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
-            <Link href="/signup">
+            <a href="https://forms.gle/H9RbJgYjAoK65BiZ6" target="_blank" rel="noopener noreferrer">
               <button className="bg-white text-[#2d5f3d] px-6 sm:px-10 py-4 sm:py-5 rounded-lg font-bold text-lg hover:bg-slate-100 transition-all shadow-2xl hover:scale-105 flex items-center gap-2 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
                 Apply for LaunchPad <ArrowRight size={20} />
               </button>
-            </Link>
+            </a>
             <Link href="/contact">
               <button className="bg-white/10 backdrop-blur-sm text-white px-6 sm:px-10 py-4 sm:py-5 rounded-lg font-bold text-lg hover:bg-white/20 transition-all border border-white/30 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
                 Learn More
@@ -311,11 +311,11 @@ export default function Launchpad() {
               Applications for the next cohort are now open. Join Pakistan's most successful startup accelerator and turn your vision into reality.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/signup">
+              <a href="https://forms.gle/H9RbJgYjAoK65BiZ6" target="_blank" rel="noopener noreferrer">
                 <button className="bg-white text-[#2d5f3d] px-6 sm:px-10 py-4 sm:py-5 rounded-xl font-bold text-xl hover:scale-105 transition-transform shadow-xl inline-flex items-center gap-2 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
                   Start Application <ArrowRight size={24} />
                 </button>
-              </Link>
+              </a>
               <Link href="/contact">
                 <button className="bg-white/10 backdrop-blur-sm text-white px-6 sm:px-10 py-4 sm:py-5 rounded-xl font-bold text-xl hover:bg-white/20 transition-all border-2 border-white/30 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
                   Contact Us
