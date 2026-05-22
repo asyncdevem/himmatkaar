@@ -213,8 +213,7 @@ export default function Launchpad() {
               { name: "Ubaid Afzal", role: "Mentor & Corporate Trainer", expertise: "Communication & Soft Skills" },
               { name: "Rameen Anwar", role: "Communication Manager, NIC Faisalabad", expertise: "Branding & Presentation Skills" },
               { name: "Abubakar Dilawar", role: "CEO & Founder, Kahani", expertise: "Storytelling, Ideation & Innovation" },
-              { name: "Hammad Armagan", role: "Director, Cybergel", expertise: "AI Tools & Digital Productivity" },
-              { name: "Wahaj Siraj", role: "CEO, Nayatel", expertise: "Leadership, Corporate Insight & Growth Mindset" }
+              { name: "Hammad Armagan", role: "Chief AI Officer, Cybergen1 Team", expertise: "AI Tools & Digital Productivity" }
             ].map((mentor, index) => (
               <motion.div
                 key={index}
