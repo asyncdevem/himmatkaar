@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Quote, Star } from "lucide-react";
+import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
@@ -144,7 +145,13 @@ export default function Testimonials() {
                   
                   <div className="flex items-center gap-4 mt-auto">
                     <div className="w-14 h-14 rounded-full overflow-hidden border border-gray-200 shadow-sm relative">
-                      <img src={testimonial.image} alt={testimonial.name} className="w-full h-full object-cover" />
+                      <Image 
+                        src={testimonial.image} 
+                        alt={`${testimonial.name} - ${testimonial.role} from ${testimonial.location}`}
+                        width={56}
+                        height={56}
+                        className="w-full h-full object-cover rounded-2xl" 
+                      />
                     </div>
                     <div>
                       <h4 className="font-bold text-gray-900 text-lg">{testimonial.name}</h4>

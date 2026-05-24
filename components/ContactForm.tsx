@@ -40,57 +40,87 @@ export default function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5">
+    <form onSubmit={handleSubmit} className="space-y-5" aria-label="Contact form">
       {success && (
-        <div className="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg">
+        <div 
+          className="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg"
+          role="alert"
+          aria-live="polite"
+        >
           Message sent successfully! We'll get back to you soon.
         </div>
       )}
       <div className="grid md:grid-cols-2 gap-5">
+        <div>
+          <label htmlFor="first-name" className="sr-only">First Name</label>
+          <input 
+            id="first-name"
+            type="text" 
+            placeholder="First Name" 
+            required
+            value={formData.first_name}
+            onChange={(e) => setFormData({...formData, first_name: e.target.value})}
+            className="w-full px-5 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white text-slate-900 dark:text-white focus:border-[#39894c] focus:outline-none transition-colors dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
+            aria-label="First Name"
+          />
+        </div>
+        <div>
+          <label htmlFor="last-name" className="sr-only">Last Name</label>
+          <input 
+            id="last-name"
+            type="text" 
+            placeholder="Last Name" 
+            required
+            value={formData.last_name}
+            onChange={(e) => setFormData({...formData, last_name: e.target.value})}
+            className="w-full px-5 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white text-slate-900 dark:text-white focus:border-[#39894c] focus:outline-none transition-colors dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
+            aria-label="Last Name"
+          />
+        </div>
+      </div>
+      <div>
+        <label htmlFor="phone" className="sr-only">Phone</label>
         <input 
-          type="text" 
-          placeholder="First Name" 
-          required
-          value={formData.first_name}
-          onChange={(e) => setFormData({...formData, first_name: e.target.value})}
-          className="w-full px-5 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white text-slate-900 dark:text-white focus:border-[#39894c] focus:outline-none transition-colors dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10" 
-        />
-        <input 
-          type="text" 
-          placeholder="Last Name" 
-          required
-          value={formData.last_name}
-          onChange={(e) => setFormData({...formData, last_name: e.target.value})}
-          className="w-full px-5 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white text-slate-900 dark:text-white focus:border-[#39894c] focus:outline-none transition-colors dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10" 
+          id="phone"
+          type="tel" 
+          placeholder="Phone" 
+          value={formData.phone}
+          onChange={(e) => setFormData({...formData, phone: e.target.value})}
+          className="w-full px-5 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white  text-slate-900 dark:text-white focus:border-[#39894c] focus:outline-none transition-colors dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
+          aria-label="Phone number"
         />
       </div>
-      <input 
-        type="tel" 
-        placeholder="Phone" 
-        value={formData.phone}
-        onChange={(e) => setFormData({...formData, phone: e.target.value})}
-        className="w-full px-5 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white  text-slate-900 dark:text-white focus:border-[#39894c] focus:outline-none transition-colors dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10" 
-      />
-      <input 
-        type="email" 
-        placeholder="Email" 
-        required
-        value={formData.email}
-        onChange={(e) => setFormData({...formData, email: e.target.value})}
-        className="w-full px-5 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white  text-slate-900 dark:text-white focus:border-[#39894c] focus:outline-none transition-colors dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10" 
-      />
-      <textarea 
-        placeholder="Message" 
-        rows={5} 
-        required
-        value={formData.message}
-        onChange={(e) => setFormData({...formData, message: e.target.value})}
-        className="w-full px-5 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white  text-slate-900 dark:text-white focus:border-[#39894c] focus:outline-none transition-colors resize-none dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
-      ></textarea>
+      <div>
+        <label htmlFor="email" className="sr-only">Email</label>
+        <input 
+          id="email"
+          type="email" 
+          placeholder="Email" 
+          required
+          value={formData.email}
+          onChange={(e) => setFormData({...formData, email: e.target.value})}
+          className="w-full px-5 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white  text-slate-900 dark:text-white focus:border-[#39894c] focus:outline-none transition-colors dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
+          aria-label="Email address"
+        />
+      </div>
+      <div>
+        <label htmlFor="message" className="sr-only">Message</label>
+        <textarea 
+          id="message"
+          placeholder="Message" 
+          rows={5} 
+          required
+          value={formData.message}
+          onChange={(e) => setFormData({...formData, message: e.target.value})}
+          className="w-full px-5 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white  text-slate-900 dark:text-white focus:border-[#39894c] focus:outline-none transition-colors resize-none dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
+          aria-label="Your message"
+        ></textarea>
+      </div>
       <button 
         type="submit" 
         disabled={submitting}
         className="bg-[#39894c] text-white px-6 sm:px-10 py-4 rounded-xl font-bold text-lg hover:bg-[#2d6f3d] transition-colors shadow-lg hover:shadow-xl w-full md:w-auto disabled:opacity-50"
+        aria-label={submitting ? 'Sending message' : 'Submit message'}
       >
         {submitting ? 'Sending...' : 'Submit Message'}
       </button>

@@ -40,28 +40,41 @@ export default function NewsletterForm() {
   return (
     <div className="space-y-4">
       {success && (
-        <div className="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg mb-4">
+        <div 
+          className="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg mb-4"
+          role="alert"
+          aria-live="polite"
+        >
           Successfully subscribed to newsletter!
         </div>
       )}
       {error && (
-        <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg mb-4">
+        <div 
+          className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg mb-4"
+          role="alert"
+          aria-live="assertive"
+        >
           {error}
         </div>
       )}
-      <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row sm:items-stretch gap-3 sm:gap-4">
+      <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row sm:items-stretch gap-3 sm:gap-4" aria-label="Newsletter subscription form">
+        <label htmlFor="newsletter-email" className="sr-only">Email address</label>
         <input 
+          id="newsletter-email"
           type="email" 
           placeholder="Enter your email" 
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full flex-1 px-5 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white text-slate-900 dark:text-white focus:border-[#39894c] focus:outline-none transition-colors dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10" 
+          className="w-full flex-1 px-5 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white text-slate-900 dark:text-white focus:border-[#39894c] focus:outline-none transition-colors dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
+          aria-label="Email address for newsletter subscription"
+          aria-describedby={error ? "newsletter-error" : undefined}
         />
         <button 
           type="submit"
           disabled={submitting}
           className="bg-[#39894c] text-white px-6 sm:px-10 py-4 rounded-xl font-bold hover:bg-[#2d6f3d] transition-colors shadow-lg hover:shadow-xl disabled:opacity-50 w-full sm:w-auto sm:min-w-[170px]"
+          aria-label={submitting ? 'Subscribing to newsletter' : 'Subscribe to newsletter'}
         >
           {submitting ? 'Subscribing...' : 'Subscribe'}
         </button>

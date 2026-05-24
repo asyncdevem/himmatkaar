@@ -2,25 +2,64 @@
 @plugin "@tailwindcss/typography";
 
 :root {
+  /* Brand Colors */
+  --color-courage-green: #1A6B3C;
+  --color-courage-gold: #F3AE29;
+  --color-off-white: #F4F1EB;
+  --color-mint-tint: #A8D5B5;
+  --color-deep-sapphire: #2C3E6B;
+  --color-deep-navy: #1A1A2E;
+  --color-white: #FFFFFF;
+  
+  /* Font Families */
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Montserrat', sans-serif;
+  
+  /* Legacy variables for compatibility */
   --background: #ffffff;
   --foreground: #171717;
 }
 
 @theme inline {
+  /* Colors */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-primary: #39894c;
-  --color-background-light: #f6f7f7;
-  --color-background-dark: #151d17;
-  --font-sans: var(--font-plus-jakarta-sans);
+  --color-primary: var(--color-courage-green);
+  --color-background-light: var(--color-off-white);
+  --color-background-dark: var(--color-deep-navy);
+  --color-courage-green: #1A6B3C;
+  --color-courage-gold: #F3AE29;
+  --color-off-white: #F4F1EB;
+  --color-mint-tint: #A8D5B5;
+  --color-deep-sapphire: #2C3E6B;
+  --color-deep-navy: #1A1A2E;
+  --color-white: #FFFFFF;
+  
+  /* Font Families */
+  --font-sans: var(--font-body);
   --font-mono: var(--font-geist-mono);
-  --font-display: var(--font-plus-jakarta-sans);
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Montserrat', sans-serif;
+  
+  /* Font Sizes */
+  --font-size-hero: 64px;
+  --font-size-h1: 40px;
+  --font-size-h2: 28px;
+  --font-size-body-large: 18px;
+  
+  /* Spacing */
+  --spacing-section-desktop: 112px;
+  --spacing-section-mobile: 80px;
+  
+  /* Animations */
+  --animate-marquee: marquee 30s linear infinite;
 }
 
+/* Preserve system preference for accessibility */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #151d17;
-    --foreground: #ededed;
+    --background: var(--color-deep-navy);
+    --foreground: var(--color-white);
   }
 }
 
@@ -58,6 +97,15 @@ html {
   }
 }
 
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 .animate-fade-in-left {
   animation: fadeInLeft 1s ease-out;
 }
@@ -77,20 +125,11 @@ html {
   scrollbar-width: none;  /* Firefox */
 }
 
+/* System preference dark mode preserved for accessibility */
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #000000;
-  }
   body {
-    background-color: #0c120f;
-    background-image: 
-      radial-gradient(ellipse at 10% 10%, rgba(57, 137, 76, 0.15) 0%, transparent 50%),
-      radial-gradient(ellipse at 90% 10%, rgba(21, 29, 23, 1) 0%, transparent 50%),
-      radial-gradient(ellipse at 50% 50%, rgba(57, 137, 76, 0.05) 0%, transparent 50%),
-      radial-gradient(ellipse at 90% 90%, rgba(57, 137, 76, 0.1) 0%, transparent 50%),
-      radial-gradient(ellipse at 10% 90%, rgba(21, 29, 23, 1) 0%, transparent 50%);
-    background-attachment: fixed;
-    color: #f1f5f9;
+    background: var(--background);
+    color: var(--foreground);
   }
 }
 
