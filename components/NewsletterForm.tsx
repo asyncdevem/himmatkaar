@@ -66,7 +66,7 @@ export default function NewsletterForm() {
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full flex-1 px-5 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white text-slate-900 dark:text-white focus:border-[#39894c] focus:outline-none transition-colors dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
+          className="w-full flex-1 px-5 py-4 rounded-xl border-2 border-slate-200 bg-white text-slate-900 focus:border-[#39894c] focus:outline-none transition-colors"
           aria-label="Email address for newsletter subscription"
           aria-describedby={error ? "newsletter-error" : undefined}
         />
@@ -82,3 +82,4 @@ export default function NewsletterForm() {
     </div>
   );
 }
+

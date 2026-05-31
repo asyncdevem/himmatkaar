@@ -35,3 +35,4 @@ export const StaggeredGrid: React.FC<StaggeredGridProps> = ({
     </div>
   );
 };
+

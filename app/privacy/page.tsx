@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 
 export default function PrivacyPage() {
   return (
-    <div className="min-h-screen bg-white  dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
+    <div className="min-h-screen bg-white">
       <Navbar />
 
       <main className="pt-32 pb-24">
@@ -14,12 +14,12 @@ export default function PrivacyPage() {
             <ArrowLeft size={20} /> Back to Home
           </Link>
 
-          <h1 className="text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white mb-4">Privacy Policy</h1>
-          <p className="text-slate-600 dark:text-slate-400 mb-10">Effective date: March 30, 2026</p>
+          <h1 className="text-4xl lg:text-5xl font-extrabold text-slate-900 mb-4">Privacy Policy</h1>
+          <p className="text-slate-600 mb-10">Effective date: March 30, 2026</p>
 
-          <div className="space-y-8 text-slate-700 dark:text-slate-300 leading-relaxed">
+          <div className="space-y-8 text-slate-700 leading-relaxed">
             <section>
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">1. Information We Collect</h2>
+              <h2 className="text-2xl font-bold text-slate-900 mb-3">1. Information We Collect</h2>
               <p>
                 We may collect information you provide directly, such as your name, email address, phone number,
                 and any details submitted through forms, event registrations, newsletters, or applications.
@@ -27,7 +27,7 @@ export default function PrivacyPage() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">2. How We Use Information</h2>
+              <h2 className="text-2xl font-bold text-slate-900 mb-3">2. How We Use Information</h2>
               <p>
                 We use your information to provide programs, process applications, communicate updates, improve our
                 services, and support community engagement initiatives.
@@ -35,7 +35,7 @@ export default function PrivacyPage() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">3. Data Sharing</h2>
+              <h2 className="text-2xl font-bold text-slate-900 mb-3">3. Data Sharing</h2>
               <p>
                 We do not sell personal data. We may share data with trusted service providers that help us run our
                 platform, where necessary to operate services, comply with legal obligations, or protect user safety.
@@ -43,7 +43,7 @@ export default function PrivacyPage() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">4. Data Security</h2>
+              <h2 className="text-2xl font-bold text-slate-900 mb-3">4. Data Security</h2>
               <p>
                 We use reasonable administrative and technical safeguards to protect personal information. No method
                 of transmission or storage is 100% secure, but we continuously improve our security practices.
@@ -51,7 +51,7 @@ export default function PrivacyPage() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">5. Your Choices</h2>
+              <h2 className="text-2xl font-bold text-slate-900 mb-3">5. Your Choices</h2>
               <p>
                 You may request access, correction, or deletion of your personal information, subject to legal and
                 operational requirements.
@@ -59,7 +59,7 @@ export default function PrivacyPage() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">6. Contact</h2>
+              <h2 className="text-2xl font-bold text-slate-900 mb-3">6. Contact</h2>
               <p>
                 For privacy-related questions, contact us through our contact page.
               </p>
@@ -75,3 +75,6 @@ export default function PrivacyPage() {
     </div>
   );
 }
+
+
+

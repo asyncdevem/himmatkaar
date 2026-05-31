@@ -33,3 +33,4 @@ export const OfferingCard: React.FC<OfferingCardProps> = ({
     </Card>
   );
 };
+

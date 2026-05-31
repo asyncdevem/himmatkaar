@@ -32,3 +32,4 @@ export const TestimonialsSection: React.FC = () => {
     </section>
   );
 };
+

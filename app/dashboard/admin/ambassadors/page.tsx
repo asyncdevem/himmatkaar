@@ -10,3 +10,6 @@ export default function AdminAmbassadors() {
     </AdminLayout>
   );
 }
+
+
+

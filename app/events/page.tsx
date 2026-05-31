@@ -36,7 +36,7 @@ export default function Events() {
   ];
 
   return (
-    <div className="min-h-screen bg-white  dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
+    <div className="min-h-screen bg-white">
       <Navbar />
 
       <main className="pt-32 pb-24">
@@ -53,10 +53,10 @@ export default function Events() {
             className="text-center max-w-3xl mx-auto"
           >
             <span className="inline-block text-[#39894c] font-bold text-sm uppercase tracking-wider mb-4">Past Events</span>
-            <h1 className="text-4xl lg:text-6xl font-extrabold mb-6 text-slate-900 dark:text-white">
+            <h1 className="text-4xl lg:text-6xl font-extrabold mb-6 text-slate-900">
               Our <span className="text-[#39894c]">Events</span> Journey
             </h1>
-            <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+            <p className="text-lg text-slate-600 leading-relaxed">
               Explore the impactful events we've organized to empower youth and build communities across Pakistan.
             </p>
           </motion.div>
@@ -72,7 +72,7 @@ export default function Events() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1, duration: 0.5 }}
-                className="group bg-white  rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all border border-slate-100 dark:border-slate-800 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
+                className="group bg-white  rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all border border-slate-100"
               >
                 <div className="relative overflow-hidden h-56">
                   <Image 
@@ -87,19 +87,19 @@ export default function Events() {
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold mb-3 text-slate-900 dark:text-white">{event.title}</h3>
-                  <p className="text-slate-600 dark:text-slate-400 mb-4 leading-relaxed text-sm">{event.description}</p>
+                  <h3 className="text-xl font-bold mb-3 text-slate-900">{event.title}</h3>
+                  <p className="text-slate-600 mb-4 leading-relaxed text-sm">{event.description}</p>
                   
                   <div className="space-y-2 mb-4">
-                    <p className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
+                    <p className="flex items-center gap-2 text-sm text-slate-600">
                       <Calendar size={16} className="text-[#39894c]" />
                       {event.date}
                     </p>
-                    <p className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
+                    <p className="flex items-center gap-2 text-sm text-slate-600">
                       <MapPin size={16} className="text-[#39894c]" />
                       {event.location}
                     </p>
-                    <p className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
+                    <p className="flex items-center gap-2 text-sm text-slate-600">
                       <Users size={16} className="text-[#39894c]" />
                       {event.attendees} Attendees
                     </p>
@@ -123,7 +123,7 @@ export default function Events() {
               Check out our upcoming events and be part of the change
             </p>
             <Link href="/events/upcoming">
-              <button className="bg-white text-[#2d5f3d] px-6 sm:px-10 py-4 rounded-lg font-bold text-lg hover:scale-105 transition-transform shadow-xl inline-flex items-center gap-2 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
+              <button className="bg-white text-[#2d5f3d] px-6 sm:px-10 py-4 rounded-lg font-bold text-lg hover:scale-105 transition-transform shadow-xl inline-flex items-center gap-2">
                 View Upcoming Events <ArrowRight size={20} />
               </button>
             </Link>
@@ -135,3 +135,6 @@ export default function Events() {
     </div>
   );
 }
+
+
+

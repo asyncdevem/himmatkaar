@@ -56,7 +56,7 @@ export default function CoreTeamPage() {
   }, [members, currentPage]);
 
   return (
-    <div className="min-h-screen bg-white  dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
+    <div className="min-h-screen bg-white">
       <Navbar />
 
       <main className="pt-32 pb-24">
@@ -72,10 +72,10 @@ export default function CoreTeamPage() {
             className="text-center max-w-3xl mx-auto"
           >
             <span className="inline-block text-[#39894c] font-bold text-sm uppercase tracking-wider mb-4">Core Team</span>
-            <h1 className="text-4xl lg:text-6xl font-extrabold mb-6 text-slate-900 dark:text-white">
+            <h1 className="text-4xl lg:text-6xl font-extrabold mb-6 text-slate-900">
               Meet All <span className="text-[#39894c]">Teammates</span>
             </h1>
-            <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+            <p className="text-lg text-slate-600 leading-relaxed">
               Explore our complete leadership team and the people driving Himmatkaar forward.
             </p>
           </motion.div>
@@ -88,7 +88,7 @@ export default function CoreTeamPage() {
             </div>
           ) : members.length === 0 ? (
             <div className="text-center py-20">
-              <p className="text-slate-600 dark:text-slate-400">No team members found.</p>
+              <p className="text-slate-600">No team members found.</p>
             </div>
           ) : (
             <>
@@ -100,7 +100,7 @@ export default function CoreTeamPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: idx * 0.08, duration: 0.5 }}
-                    className="group bg-slate-50  rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 hover:shadow-2xl transition-all dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
+                    className="group bg-slate-50  rounded-2xl overflow-hidden border border-slate-200 hover:shadow-2xl transition-all"
                   >
                     <div className="relative h-80 overflow-hidden">
                       <Image
@@ -116,7 +116,7 @@ export default function CoreTeamPage() {
                         <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity">
                           <a
                             href={member.linkedin}
-                            className="w-10 h-10 bg-white/90 rounded-full flex items-center justify-center hover:bg-[#39894c] hover:text-white transition-colors dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
+                            className="w-10 h-10 bg-white/90 rounded-full flex items-center justify-center hover:bg-[#39894c] hover:text-white transition-colors"
                             target="_blank"
                             rel="noopener noreferrer"
                           >
@@ -127,9 +127,9 @@ export default function CoreTeamPage() {
                     </div>
 
                     <div className="p-6">
-                      <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">{member.name}</h3>
+                      <h3 className="text-2xl font-bold text-slate-900 mb-2">{member.name}</h3>
                       <p className="text-[#39894c] font-semibold mb-3">{member.role}</p>
-                      <p className="text-slate-600 dark:text-slate-400 leading-relaxed">{member.bio}</p>
+                      <p className="text-slate-600 leading-relaxed">{member.bio}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -140,7 +140,7 @@ export default function CoreTeamPage() {
                   type="button"
                   onClick={() => setCurrentPage((prev) => Math.max(1, prev - 1))}
                   disabled={currentPage === 1}
-                  className="px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-slate-100 dark:hover:bg-slate-800"
+                  className="px-4 py-2 rounded-lg border border-slate-300 text-slate-700 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-slate-100"
                 >
                   Previous
                 </button>
@@ -153,7 +153,7 @@ export default function CoreTeamPage() {
                     className={`px-4 py-2 rounded-lg border ${
                       page === currentPage
                         ? "bg-[#39894c] text-white border-[#39894c]"
-                        : "border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800"
+                        : "border-slate-300 text-slate-700 hover:bg-slate-100"
                     }`}
                   >
                     {page}
@@ -164,7 +164,7 @@ export default function CoreTeamPage() {
                   type="button"
                   onClick={() => setCurrentPage((prev) => Math.min(totalPages, prev + 1))}
                   disabled={currentPage === totalPages}
-                  className="px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-slate-100 dark:hover:bg-slate-800"
+                  className="px-4 py-2 rounded-lg border border-slate-300 text-slate-700 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-slate-100"
                 >
                   Next
                 </button>
@@ -178,3 +178,6 @@ export default function CoreTeamPage() {
     </div>
   );
 }
+
+
+

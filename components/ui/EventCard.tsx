@@ -47,3 +47,4 @@ export const EventCard: React.FC<EventCardProps> = ({
     </Card>
   );
 };
+

@@ -60,7 +60,7 @@ export default function ContactForm() {
             required
             value={formData.first_name}
             onChange={(e) => setFormData({...formData, first_name: e.target.value})}
-            className="w-full px-5 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white text-slate-900 dark:text-white focus:border-[#39894c] focus:outline-none transition-colors dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
+            className="w-full px-5 py-4 rounded-xl border-2 border-slate-200 bg-white text-slate-900 focus:border-[#39894c] focus:outline-none transition-colors"
             aria-label="First Name"
           />
         </div>
@@ -73,7 +73,7 @@ export default function ContactForm() {
             required
             value={formData.last_name}
             onChange={(e) => setFormData({...formData, last_name: e.target.value})}
-            className="w-full px-5 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white text-slate-900 dark:text-white focus:border-[#39894c] focus:outline-none transition-colors dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
+            className="w-full px-5 py-4 rounded-xl border-2 border-slate-200 bg-white text-slate-900 focus:border-[#39894c] focus:outline-none transition-colors"
             aria-label="Last Name"
           />
         </div>
@@ -86,7 +86,7 @@ export default function ContactForm() {
           placeholder="Phone" 
           value={formData.phone}
           onChange={(e) => setFormData({...formData, phone: e.target.value})}
-          className="w-full px-5 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white  text-slate-900 dark:text-white focus:border-[#39894c] focus:outline-none transition-colors dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
+          className="w-full px-5 py-4 rounded-xl border-2 border-slate-200 bg-white  text-slate-900 focus:border-[#39894c] focus:outline-none transition-colors"
           aria-label="Phone number"
         />
       </div>
@@ -99,7 +99,7 @@ export default function ContactForm() {
           required
           value={formData.email}
           onChange={(e) => setFormData({...formData, email: e.target.value})}
-          className="w-full px-5 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white  text-slate-900 dark:text-white focus:border-[#39894c] focus:outline-none transition-colors dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
+          className="w-full px-5 py-4 rounded-xl border-2 border-slate-200 bg-white  text-slate-900 focus:border-[#39894c] focus:outline-none transition-colors"
           aria-label="Email address"
         />
       </div>
@@ -112,7 +112,7 @@ export default function ContactForm() {
           required
           value={formData.message}
           onChange={(e) => setFormData({...formData, message: e.target.value})}
-          className="w-full px-5 py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white  text-slate-900 dark:text-white focus:border-[#39894c] focus:outline-none transition-colors resize-none dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
+          className="w-full px-5 py-4 rounded-xl border-2 border-slate-200 bg-white  text-slate-900 focus:border-[#39894c] focus:outline-none transition-colors resize-none"
           aria-label="Your message"
         ></textarea>
       </div>
@@ -127,3 +127,4 @@ export default function ContactForm() {
     </form>
   );
 }
+

@@ -26,3 +26,4 @@ export const FadeInUp: React.FC<FadeInUpProps> = ({ children, delay = 0 }) => {
     </motion.div>
   );
 };
+

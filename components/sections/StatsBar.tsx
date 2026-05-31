@@ -45,3 +45,4 @@ export const StatsBar: React.FC<StatsBarProps> = ({ stats }) => {
     </section>
   );
 };
+

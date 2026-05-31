@@ -42,7 +42,7 @@ export default function UpcomingEvents() {
   ];
 
   return (
-    <div className="min-h-screen bg-white  dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
+    <div className="min-h-screen bg-white">
       <Navbar />
 
       <main className="pt-32 pb-24">
@@ -59,10 +59,10 @@ export default function UpcomingEvents() {
             className="text-center max-w-3xl mx-auto"
           >
             <span className="inline-block text-[#39894c] font-bold text-sm uppercase tracking-wider mb-4">What's Next</span>
-            <h1 className="text-4xl lg:text-6xl font-extrabold mb-6 text-slate-900 dark:text-white">
+            <h1 className="text-4xl lg:text-6xl font-extrabold mb-6 text-slate-900">
               Upcoming <span className="text-[#39894c]">Events</span>
             </h1>
-            <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+            <p className="text-lg text-slate-600 leading-relaxed">
               Don't miss out on these exciting opportunities to learn, network, and grow with Himmatkaar.
             </p>
           </motion.div>
@@ -78,7 +78,7 @@ export default function UpcomingEvents() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1, duration: 0.5 }}
-                className="group bg-white  rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all border border-slate-100 dark:border-slate-800 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
+                className="group bg-white  rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all border border-slate-100"
               >
                 <div className="relative overflow-hidden h-56">
                   <Image 
@@ -93,23 +93,23 @@ export default function UpcomingEvents() {
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold mb-3 text-slate-900 dark:text-white">{event.title}</h3>
-                  <p className="text-slate-600 dark:text-slate-400 mb-4 leading-relaxed text-sm">{event.description}</p>
+                  <h3 className="text-xl font-bold mb-3 text-slate-900">{event.title}</h3>
+                  <p className="text-slate-600 mb-4 leading-relaxed text-sm">{event.description}</p>
                   
                   <div className="space-y-2 mb-6">
-                    <p className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
+                    <p className="flex items-center gap-2 text-sm text-slate-600">
                       <Calendar size={16} className="text-[#39894c]" />
                       {event.date}
                     </p>
-                    <p className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
+                    <p className="flex items-center gap-2 text-sm text-slate-600">
                       <Clock size={16} className="text-[#39894c]" />
                       {event.time}
                     </p>
-                    <p className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
+                    <p className="flex items-center gap-2 text-sm text-slate-600">
                       <MapPin size={16} className="text-[#39894c]" />
                       {event.location}
                     </p>
-                    <p className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
+                    <p className="flex items-center gap-2 text-sm text-slate-600">
                       <Users size={16} className="text-[#39894c]" />
                       {event.attendees}
                     </p>
@@ -132,17 +132,17 @@ export default function UpcomingEvents() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-slate-50  rounded-3xl p-12 text-center border border-slate-200 dark:border-slate-800 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
+            className="bg-slate-50  rounded-3xl p-12 text-center border border-slate-200"
           >
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-slate-900 dark:text-white">Stay Updated</h2>
-            <p className="text-lg mb-8 text-slate-600 dark:text-slate-400">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-slate-900">Stay Updated</h2>
+            <p className="text-lg mb-8 text-slate-600">
               Subscribe to our newsletter to get notified about upcoming events
             </p>
             <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
               <input 
                 type="email" 
                 placeholder="Enter your email" 
-                className="flex-1 px-5 py-4 rounded-lg border-2 border-slate-200 dark:border-slate-700 bg-white  text-slate-900 dark:text-white focus:border-[#39894c] focus:outline-none dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
+                className="flex-1 px-5 py-4 rounded-lg border-2 border-slate-200 bg-white  text-slate-900 focus:border-[#39894c] focus:outline-none"
               />
               <button className="bg-[#39894c] text-white px-8 py-4 rounded-lg font-bold hover:bg-[#2d6f3d] transition-colors">
                 Subscribe
@@ -156,3 +156,5 @@ export default function UpcomingEvents() {
     </div>
   );
 }
+
+

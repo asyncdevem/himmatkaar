@@ -15,7 +15,7 @@ const fadeInUp = {
 
 export default function About() {
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col relative overflow-hidden font-jakarta dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
+    <div className="min-h-screen bg-gray-50 flex flex-col relative overflow-hidden font-jakarta">
       {/* Background Blobs */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/20 rounded-full blur-3xl" />
@@ -64,7 +64,7 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="bg-white/70 backdrop-blur-xl border border-white/40 shadow-[0_8px_32px_rgba(0,0,0,0.05)] rounded-3xl p-10 hover:shadow-[0_12px_48px_rgba(58,138,77,0.1)] transition-all duration-300 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
+              className="bg-white/70 backdrop-blur-xl border border-white/40 shadow-[0_8px_32px_rgba(0,0,0,0.05)] rounded-3xl p-10 hover:shadow-[0_12px_48px_rgba(58,138,77,0.1)] transition-all duration-300"
             >
               <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-6">
                 <Target className="text-primary w-8 h-8" />
@@ -80,7 +80,7 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="bg-white/70 backdrop-blur-xl border border-white/40 shadow-[0_8px_32px_rgba(0,0,0,0.05)] rounded-3xl p-10 hover:shadow-[0_12px_48px_rgba(58,138,77,0.1)] transition-all duration-300 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
+              className="bg-white/70 backdrop-blur-xl border border-white/40 shadow-[0_8px_32px_rgba(0,0,0,0.05)] rounded-3xl p-10 hover:shadow-[0_12px_48px_rgba(58,138,77,0.1)] transition-all duration-300"
             >
               <div className="w-16 h-16 rounded-2xl bg-emerald-500/10 flex items-center justify-center mb-6">
                 <Eye className="text-emerald-500 w-8 h-8" />
@@ -95,7 +95,7 @@ export default function About() {
       </section>
 
       {/* Core Values */}
-      <section className="py-24 px-4 sm:px-6 lg:px-12 bg-white relative dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
+      <section className="py-24 px-4 sm:px-6 lg:px-12 bg-white relative">
         <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4 tracking-tight">Our Core Values</h2>
@@ -114,7 +114,7 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-gray-50 rounded-3xl p-8 border border-gray-100 hover:border-gray-200 transition-colors group dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
+                className="bg-gray-50 rounded-3xl p-8 border border-gray-100 hover:border-gray-200 transition-colors group"
               >
                 <div className={`w-16 h-16 rounded-2xl ${value.bg} ${value.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
                   {value.icon}
@@ -169,4 +169,7 @@ export default function About() {
     </div>
   );
 }
+
+
+
 

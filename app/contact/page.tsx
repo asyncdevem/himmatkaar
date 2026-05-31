@@ -41,7 +41,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col font-jakarta relative overflow-hidden dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
+    <div className="min-h-screen bg-gray-50 flex flex-col font-jakarta relative overflow-hidden">
       {/* Background Ambience */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
         <div className="absolute top-[-10%] right-[-5%] w-[50%] h-[40%] bg-primary/10 rounded-full blur-[120px]" />
@@ -104,7 +104,7 @@ export default function Contact() {
                 <motion.div
                   key={idx}
                   whileHover={{ scale: 1.02, x: 10 }}
-                  className="bg-white/80 backdrop-blur-xl rounded-2xl p-6 border border-white shadow-sm hover:shadow-md transition-all duration-300 flex items-start gap-5 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
+                  className="bg-white/80 backdrop-blur-xl rounded-2xl p-6 border border-white shadow-sm hover:shadow-md transition-all duration-300 flex items-start gap-5"
                 >
                   <div className={`p-4 rounded-xl shrink-0 ${info.bg}`}>
                     {info.icon}
@@ -133,7 +133,7 @@ export default function Contact() {
                     "Next cohort begins orientation soon"
                   ].map((step, i) => (
                     <li key={i} className="flex items-start gap-3">
-                      <div className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center shrink-0 mt-0.5 text-sm font-semibold text-primary dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">{i+1}</div>
+                      <div className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center shrink-0 mt-0.5 text-sm font-semibold text-primary">{i+1}</div>
                       <span className="text-gray-300 leading-snug">{step}</span>
                     </li>
                   ))}
@@ -148,7 +148,7 @@ export default function Contact() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="lg:col-span-3"
             >
-              <div className="bg-white rounded-[2rem] p-8 lg:p-12 shadow-[0_8px_40px_rgba(0,0,0,0.06)] border border-gray-100 relative overflow-hidden dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
+              <div className="bg-white rounded-[2rem] p-8 lg:p-12 shadow-[0_8px_40px_rgba(0,0,0,0.06)] border border-gray-100 relative overflow-hidden">
                 {/* Decorative form background element */}
                 <div className="absolute top-0 right-0 w-full h-full overflow-hidden pointer-events-none z-0">
                   <div className="absolute -top-24 -right-24 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
@@ -277,3 +277,6 @@ export default function Contact() {
     </div>
   );
 }
+
+
+

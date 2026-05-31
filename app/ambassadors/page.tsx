@@ -39,7 +39,7 @@ export default function Ambassadors() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white  dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
+    <div className="min-h-screen bg-white">
       <Navbar />
 
       <main className="pt-32 pb-24">
@@ -56,10 +56,10 @@ export default function Ambassadors() {
             className="text-center max-w-3xl mx-auto"
           >
             <span className="inline-block text-[#39894c] font-bold text-sm uppercase tracking-wider mb-4">Campus Ambassadors</span>
-            <h1 className="text-4xl lg:text-6xl font-extrabold mb-6 text-slate-900 dark:text-white">
+            <h1 className="text-4xl lg:text-6xl font-extrabold mb-6 text-slate-900">
               Our <span className="text-[#39894c]">Ambassadors</span> Network
             </h1>
-            <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+            <p className="text-lg text-slate-600 leading-relaxed">
               Meet our passionate campus ambassadors representing Himmatkaar across Pakistan's major cities and universities.
             </p>
           </motion.div>
@@ -80,7 +80,7 @@ export default function Ambassadors() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.08, duration: 0.5 }}
-                className="group bg-slate-50  rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 hover:shadow-2xl transition-all dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
+                className="group bg-slate-50  rounded-2xl overflow-hidden border border-slate-200 hover:shadow-2xl transition-all"
               >
                 {/* Image */}
                 <div className="relative h-64 overflow-hidden">
@@ -103,7 +103,7 @@ export default function Ambassadors() {
                   <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity">
                     <a 
                       href={ambassador.linkedin} 
-                      className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-[#39894c] hover:text-white transition-colors dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
+                      className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-[#39894c] hover:text-white transition-colors"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -114,9 +114,9 @@ export default function Ambassadors() {
 
                 {/* Content */}
                 <div className="p-5">
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-1">{ambassador.name}</h3>
+                  <h3 className="text-xl font-bold text-slate-900 mb-1">{ambassador.name}</h3>
                   <p className="text-[#39894c] font-semibold mb-3 text-sm">{ambassador.role}</p>
-                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">{ambassador.bio}</p>
+                  <p className="text-slate-600 leading-relaxed text-sm">{ambassador.bio}</p>
                 </div>
               </motion.div>
             ))}
@@ -142,7 +142,7 @@ export default function Ambassadors() {
                 Join our network and represent Himmatkaar at your university
               </p>
               <Link href="/contact">
-                <button className="bg-white text-[#2d5f3d] px-6 sm:px-10 py-4 rounded-lg font-bold text-lg hover:scale-105 transition-transform shadow-xl dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
+                <button className="bg-white text-[#2d5f3d] px-6 sm:px-10 py-4 rounded-lg font-bold text-lg hover:scale-105 transition-transform shadow-xl">
                   Apply Now
                 </button>
               </Link>
@@ -155,3 +155,6 @@ export default function Ambassadors() {
     </div>
   );
 }
+
+
+

@@ -59,3 +59,4 @@ export const PartnerMarquee: React.FC<PartnerMarqueeProps> = ({ logos }) => {
     </div>
   );
 };
+

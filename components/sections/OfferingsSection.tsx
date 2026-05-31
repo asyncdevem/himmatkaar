@@ -57,3 +57,4 @@ export const OfferingsSection: React.FC<OfferingsSectionProps> = ({
     </section>
   );
 };
+

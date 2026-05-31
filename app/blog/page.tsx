@@ -51,7 +51,7 @@ export default function Blog() {
   };
 
   return (
-    <div className="min-h-screen bg-white  dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
+    <div className="min-h-screen bg-white">
       <Navbar />
 
       <main className="pt-32 pb-24">
@@ -68,10 +68,10 @@ export default function Blog() {
             className="text-center max-w-3xl mx-auto"
           >
             <span className="inline-block text-[#39894c] font-bold text-sm uppercase tracking-wider mb-4">Insights & Stories</span>
-            <h1 className="text-4xl lg:text-6xl font-extrabold mb-6 text-slate-900 dark:text-white">
+            <h1 className="text-4xl lg:text-6xl font-extrabold mb-6 text-slate-900">
               Himmatkaar <span className="text-[#39894c]">Blog</span>
             </h1>
-            <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+            <p className="text-lg text-slate-600 leading-relaxed">
               Explore articles, insights, and success stories from our community of changemakers and innovators.
             </p>
           </motion.div>
@@ -85,7 +85,7 @@ export default function Blog() {
             </div>
           ) : blogPosts.length === 0 ? (
             <div className="text-center py-16">
-              <p className="text-xl text-slate-600 dark:text-slate-400">No blog posts available yet. Check back soon!</p>
+              <p className="text-xl text-slate-600">No blog posts available yet. Check back soon!</p>
             </div>
           ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -96,7 +96,7 @@ export default function Blog() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1, duration: 0.5 }}
-                  className="group bg-white  rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all border border-slate-100 dark:border-slate-800 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
+                  className="group bg-white  rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all border border-slate-100"
                 >
                   <div className="relative overflow-hidden h-56">
                     <Image 
@@ -111,14 +111,14 @@ export default function Blog() {
                     </div>
                   </div>
                   <div className="p-6">
-                    <h3 className="text-xl font-bold mb-3 text-slate-900 dark:text-white group-hover:text-[#39894c] transition-colors">
+                    <h3 className="text-xl font-bold mb-3 text-slate-900 group-hover:text-[#39894c] transition-colors">
                       {post.title}
                     </h3>
-                    <p className="text-slate-600 dark:text-slate-400 mb-4 leading-relaxed text-sm">
+                    <p className="text-slate-600 mb-4 leading-relaxed text-sm">
                       {post.excerpt}
                     </p>
                     
-                    <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-500 mb-4">
+                    <div className="flex items-center justify-between text-xs text-slate-500 mb-4">
                       <div className="flex items-center gap-4">
                         <span className="flex items-center gap-1">
                           <User size={14} />
@@ -165,7 +165,7 @@ export default function Blog() {
                 placeholder="Enter your email" 
                 className="flex-1 px-5 py-4 rounded-lg text-slate-900 focus:outline-none"
               />
-              <button className="bg-white text-[#2d5f3d] px-8 py-4 rounded-lg font-bold hover:scale-105 transition-transform dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
+              <button className="bg-white text-[#2d5f3d] px-8 py-4 rounded-lg font-bold hover:scale-105 transition-transform">
                 Subscribe
               </button>
             </div>
@@ -177,3 +177,5 @@ export default function Blog() {
     </div>
   );
 }
+
+

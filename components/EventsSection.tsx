@@ -90,7 +90,7 @@ export default function EventsSection() {
   };
 
   return (
-    <section className="py-28 bg-white  dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
+    <section className="py-28 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -99,19 +99,19 @@ export default function EventsSection() {
           className="text-center mb-16"
         >
           <span className="inline-block text-[#39894c] font-bold text-base uppercase tracking-wider mb-4">Events</span>
-          <h2 className="text-4xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-4">Invent Your Future With Us</h2>
-          <p className="text-slate-600 dark:text-slate-400 text-xl max-w-2xl mx-auto">Join our upcoming events and connect with like-minded changemakers</p>
+          <h2 className="text-4xl lg:text-6xl font-bold text-slate-900 mb-4">Invent Your Future With Us</h2>
+          <p className="text-slate-600 text-xl max-w-2xl mx-auto">Join our upcoming events and connect with like-minded changemakers</p>
         </motion.div>
 
         {loading ? (
           <div className="grid md:grid-cols-3 gap-8">
             {[1, 2, 3].map((i) => (
-              <div key={i} className="bg-slate-100  rounded-2xl h-96 animate-pulse dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"></div>
+              <div key={i} className="bg-slate-100  rounded-2xl h-96 animate-pulse"></div>
             ))}
           </div>
         ) : error ? (
           <div className="text-center py-12">
-            <p className="text-slate-600 dark:text-slate-400 mb-4">{error}</p>
+            <p className="text-slate-600 mb-4">{error}</p>
             <p className="text-sm text-slate-500">Showing default events</p>
           </div>
         ) : null}
@@ -124,7 +124,7 @@ export default function EventsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="group bg-white  rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all border border-slate-100 dark:border-slate-800 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
+              className="group bg-white  rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all border border-slate-100"
             >
               <div className="relative overflow-hidden">
                 <Image 
@@ -140,7 +140,7 @@ export default function EventsSection() {
               </div>
               <div className="p-6">
                 <p className="text-base text-[#39894c] font-semibold mb-2">{formatDate(event.date)}</p>
-                <h3 className="text-2xl font-bold mb-4 text-slate-900 dark:text-white">{event.title}</h3>
+                <h3 className="text-2xl font-bold mb-4 text-slate-900">{event.title}</h3>
                 <Link href="/events">
                   <button className="text-[#39894c] font-semibold text-lg hover:gap-2 flex items-center gap-1 transition-all group">
                     Event Details <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
@@ -164,3 +164,4 @@ export default function EventsSection() {
     </section>
   );
 }
+

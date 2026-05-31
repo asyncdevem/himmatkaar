@@ -66,7 +66,7 @@ const fadeInUp = {
 
 export default function Testimonials() {
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col font-jakarta relative overflow-hidden dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
+    <div className="min-h-screen bg-gray-50 flex flex-col font-jakarta relative overflow-hidden">
       {/* Dynamic Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
         <div className="absolute top-[-10%] right-[-5%] w-[40%] h-[40%] bg-blue-400/20 rounded-full blur-[120px]" />
@@ -111,7 +111,7 @@ export default function Testimonials() {
       </section>
 
       {/* Grid Testimonials */}
-      <section className="py-24 px-4 sm:px-6 lg:px-12 bg-white relative dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
+      <section className="py-24 px-4 sm:px-6 lg:px-12 bg-white relative">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-20">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">More Voices</h2>
@@ -126,7 +126,7 @@ export default function Testimonials() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white rounded-3xl p-8 border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] hover:-translate-y-2 transition-all duration-300 relative group overflow-hidden dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
+                className="bg-white rounded-3xl p-8 border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] hover:-translate-y-2 transition-all duration-300 relative group overflow-hidden"
               >
                 {/* Decorative background on hover */}
                 <div className="absolute inset-0 bg-emerald-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -194,7 +194,7 @@ export default function Testimonials() {
                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white/5 backdrop-blur-md rounded-3xl p-10 border border-white/10 hover:bg-white/10 transition-colors dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
+                className="bg-white/5 backdrop-blur-md rounded-3xl p-10 border border-white/10 hover:bg-white/10 transition-colors"
               >
                 <div className="text-6xl md:text-7xl font-extrabold text-white mb-4">{stat.number}</div>
                 <div className="text-lg font-medium text-gray-300">{stat.label}</div>
@@ -208,3 +208,6 @@ export default function Testimonials() {
     </div>
   );
 }
+
+
+

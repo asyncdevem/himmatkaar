@@ -10,3 +10,6 @@ export default function AdminEvents() {
     </AdminLayout>
   );
 }
+
+
+

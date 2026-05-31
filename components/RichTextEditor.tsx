@@ -201,3 +201,4 @@ export default function RichTextEditor({ content, onChange, placeholder }: RichT
     </div>
   );
 }
+
