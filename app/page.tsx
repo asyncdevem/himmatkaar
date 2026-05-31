@@ -37,9 +37,11 @@ export default function Home() {
     primaryCTA: { text: "Apply Now", href: "/signup" },
     secondaryCTA: { text: "Learn More", href: "/about" },
     heroImages: [
-      "/hero-person.jpg",
-      "/about-hero.jpg",
-      "/himmatkaar-logo.jpg"
+      "/home-page-carosel/1.jpg",
+      "/home-page-carosel/2.jpg",
+      "/home-page-carosel/3.jpg",
+      "/home-page-carosel/4.jpeg",
+      "/home-page-carosel/5.jpeg"
     ]
   };
 

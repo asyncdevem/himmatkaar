@@ -3,7 +3,6 @@
 import { useState, useEffect, useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight, Quote, Star } from "lucide-react";
-import Image from "next/image";
 import { motion } from "framer-motion";
 
 const testimonials = [
@@ -11,7 +10,6 @@ const testimonials = [
     name: "Ahmed Khan",
     role: "Software Engineer",
     company: "Tech Corp",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=faces",
     rating: 5,
     text: "HimmatKaar transformed my career trajectory completely. The fellowship taught me not just technical skills, but how to think critically and communicate effectively. Within 2 months of completing the program, I landed my dream job at a leading tech company!"
   },
@@ -19,7 +17,6 @@ const testimonials = [
     name: "Fatima Ali",
     role: "Marketing Manager",
     company: "Digital Solutions",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&crop=faces",
     rating: 5,
     text: "The confidence I gained through HimmatKaar is invaluable. The public speaking sessions and resume workshops prepared me for real-world challenges. I'm now leading a team of 10 people and couldn't be more grateful for this opportunity!"
   },
@@ -27,7 +24,6 @@ const testimonials = [
     name: "Hassan Raza",
     role: "Data Analyst",
     company: "Analytics Pro",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&crop=faces",
     rating: 5,
     text: "Coming from a small town, I never thought I could compete with city students. HimmatKaar showed me that with the right mindset and skills, anything is possible. The mentorship and networking opportunities opened doors I never knew existed!"
   },
@@ -35,7 +31,6 @@ const testimonials = [
     name: "Ayesha Malik",
     role: "Product Designer",
     company: "Creative Studio",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=faces",
     rating: 5,
     text: "The fellowship's focus on lifelong learning changed my perspective entirely. I learned how to learn, which has been crucial in my fast-paced design career. The community support continues even after graduation. Highly recommend to everyone!"
   }
@@ -105,14 +100,10 @@ export default function TestimonialCarousel() {
                 {/* Author Info */}
                 <div className="flex items-center gap-5 relative z-10">
                   <div className="relative">
-                    <div className="w-20 h-20 rounded-full overflow-hidden border-4 border-[var(--color-courage-green)] shadow-lg">
-                      <Image 
-                        src={testimonial.image} 
-                        alt={`${testimonial.name} - ${testimonial.role}`}
-                        width={80}
-                        height={80}
-                        className="w-full h-full object-cover" 
-                      />
+                    <div className="w-20 h-20 rounded-full bg-[var(--color-courage-green)] flex items-center justify-center border-4 border-[var(--color-courage-green)] shadow-lg">
+                      <span className="text-white text-2xl font-bold">
+                        {testimonial.name.split(' ').map(n => n[0]).join('')}
+                      </span>
                     </div>
                     {/* Verified Badge */}
                     <div className="absolute -bottom-1 -right-1 bg-[var(--color-courage-green)] rounded-full p-1.5 border-2 border-[var(--color-deep-navy)]">
