@@ -3,7 +3,8 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { Mail, Lock, Eye, EyeOff, Rocket, Loader2 } from "lucide-react";
+import Image from "next/image";
+import { Mail, Lock, Eye, EyeOff, Loader2 } from "lucide-react";
 import { signIn } from "@/lib/auth";
 
 export default function Login() {
