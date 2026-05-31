@@ -33,11 +33,11 @@ export default function Login() {
   };
 
   return (
-    <div className="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex items-center justify-center">
+    <div className="min-h-screen flex items-center justify-center bg-[var(--color-off-white)]">
       <div className="flex w-full min-h-screen">
         {/* Left Side: Hero Image Section */}
         <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden">
-          <div className="absolute inset-0 bg-[var(--color-primary)]/60 mix-blend-multiply z-10"></div>
+          <div className="absolute inset-0 bg-[var(--color-courage-green)]/90 mix-blend-multiply z-10"></div>
           <div 
             className="absolute inset-0 bg-center bg-cover" 
             style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80")' }}
@@ -45,48 +45,48 @@ export default function Login() {
           </div>
           <div className="relative z-20 flex flex-col justify-between h-full p-16 text-white">
             <Link href="/" className="flex items-center gap-3 w-fit hover:opacity-80 transition-opacity">
-              <div className="bg-white p-2 rounded-lg dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
-                <Rocket className="size-8 text-[var(--color-primary)]" />
+              <div className="bg-white p-2 rounded-lg">
+                <Rocket className="size-8 text-[var(--color-courage-green)]" />
               </div>
-              <span className="text-2xl font-bold tracking-tight">HimmatKaar</span>
+              <span className="text-2xl font-bold tracking-tight font-display">Himmatkaar</span>
             </Link>
             <div className="max-w-md">
-              <h1 className="text-5xl font-extrabold leading-tight mb-6">Empowering the youth of tomorrow.</h1>
-              <p className="text-lg opacity-90 leading-relaxed">Join a community dedicated to growth, innovation, and leadership. Your journey to excellence starts here.</p>
+              <h1 className="text-5xl font-extrabold leading-tight mb-6 font-heading">Empowering the youth of tomorrow.</h1>
+              <p className="text-lg opacity-90 leading-relaxed font-body">Join a community dedicated to growth, innovation, and leadership. Your journey to excellence starts here.</p>
             </div>
           </div>
         </div>
 
         {/* Right Side: Login Form Section */}
-        <div className="w-full lg:w-1/2 flex items-center justify-center p-8 bg-background-light dark:bg-background-dark">
+        <div className="w-full lg:w-1/2 flex items-center justify-center p-8 bg-[var(--color-off-white)]">
           <div className="w-full max-w-md space-y-8">
             {/* Mobile Logo */}
             <div className="lg:hidden flex justify-center mb-8">
               <Link href="/" className="flex items-center gap-3">
-                <div className="bg-white p-2 rounded-lg shadow-sm dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
-                  <Rocket className="size-8 text-[var(--color-primary)]" />
+                <div className="bg-white p-2 rounded-lg shadow-sm">
+                  <Rocket className="size-8 text-[var(--color-courage-green)]" />
                 </div>
-                <span className="text-xl font-bold text-slate-900 dark:text-slate-100">HimmatKaar</span>
+                <span className="text-xl font-bold text-[var(--color-deep-navy)] font-display">Himmatkaar</span>
               </Link>
             </div>
 
             <div className="text-center lg:text-left">
-              <h2 className="text-4xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight">Login</h2>
-              <p className="mt-3 text-slate-600 dark:text-slate-400">Sign in to access your dashboard account.</p>
+              <h2 className="text-4xl font-extrabold text-[var(--color-deep-navy)] tracking-tight font-heading">Login</h2>
+              <p className="mt-3 text-slate-600 font-body">Sign in to access your dashboard account.</p>
             </div>
 
-            {/* Glassmorphic Form Container */}
-            <div className="bg-white/70  backdrop-blur-xl border border-white/20 dark:border-slate-700/30 p-8 rounded-xl shadow-2xl shadow-[var(--color-primary)]/5 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
+            {/* Form Container */}
+            <div className="bg-white border border-slate-200 p-8 rounded-xl shadow-lg">
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Error Message */}
                 {error && (
-                  <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
+                  <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm font-body">
                     {error}
                   </div>
                 )}
                 {/* Email Field */}
                 <div className="space-y-2">
-                  <label className="text-sm font-semibold text-slate-700 dark:text-slate-300 ml-1" htmlFor="email">Email Address</label>
+                  <label className="text-sm font-semibold text-slate-700 ml-1 font-body" htmlFor="email">Email Address</label>
                   <div className="relative">
                     <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={20} />
                     <input 
@@ -95,7 +95,7 @@ export default function Login() {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       required
-                      className="w-full pl-12 pr-4 py-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-white  text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent transition-all outline-none dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10" 
+                      className="w-full pl-12 pr-4 py-4 rounded-xl border border-slate-200 bg-white text-slate-900 focus:ring-2 focus:ring-[var(--color-courage-green)] focus:border-transparent transition-all outline-none font-body" 
                       placeholder="name@company.com" 
                     />
                   </div>
@@ -104,8 +104,8 @@ export default function Login() {
                 {/* Password Field */}
                 <div className="space-y-2">
                   <div className="flex justify-between items-center px-1">
-                    <label className="text-sm font-semibold text-slate-700 dark:text-slate-300" htmlFor="password">Password</label>
-                    <Link href="/forgot-password" className="text-xs font-bold text-[var(--color-primary)] hover:underline">Forgot password?</Link>
+                    <label className="text-sm font-semibold text-slate-700 font-body" htmlFor="password">Password</label>
+                    <Link href="/forgot-password" className="text-xs font-bold text-[var(--color-courage-green)] hover:underline font-body">Forgot password?</Link>
                   </div>
                   <div className="relative">
                     <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={20} />
@@ -115,13 +115,13 @@ export default function Login() {
                       value={formData.password}
                       onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                       required
-                      className="w-full pl-12 pr-12 py-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-white  text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent transition-all outline-none dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10" 
+                      className="w-full pl-12 pr-12 py-4 rounded-xl border border-slate-200 bg-white text-slate-900 focus:ring-2 focus:ring-[var(--color-courage-green)] focus:border-transparent transition-all outline-none font-body" 
                       placeholder="••••••••" 
                     />
                     <button 
                       type="button" 
                       onClick={() => setShowPassword(!showPassword)}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
+                      className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 transition-colors"
                     >
                       {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                     </button>
@@ -132,7 +132,7 @@ export default function Login() {
                 <button 
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-[var(--color-primary)] hover:brightness-110 text-white font-bold py-4 rounded-xl shadow-lg shadow-[var(--color-primary)]/20 transition-all transform active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  className="w-full bg-[var(--color-courage-green)] hover:brightness-110 text-white font-bold py-4 rounded-xl shadow-lg transition-all transform active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 font-body"
                 >
                   {loading ? (
                     <>
@@ -146,7 +146,7 @@ export default function Login() {
               </form>
             </div>
 
-            <p className="text-center text-slate-600 dark:text-slate-400 text-sm font-medium">
+            <p className="text-center text-slate-600 text-sm font-medium font-body">
               Public signup is coming soon for other roles.
             </p>
           </div>
