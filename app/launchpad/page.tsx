@@ -22,14 +22,14 @@ import Footer from "@/components/Footer";
 
 export default function Launchpad() {
   return (
-    <div className="min-h-screen bg-white  dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
+    <div className="min-h-screen bg-white">
       <Navbar />
 
       {/* Hero Section */}
       <section className="relative bg-[#2d5f3d] text-white py-32 lg:py-40 overflow-hidden mt-20">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"></div>
+          <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center relative z-10">
           <motion.div
@@ -38,7 +38,7 @@ export default function Launchpad() {
             transition={{ duration: 0.5 }}
             className="inline-block mb-6"
           >
-            <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-semibold border border-white/20 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
+            <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-semibold border border-white/20">
               <Rocket size={16} />
               6-Week Training + 6-Week Industry Internship
             </span>
@@ -80,7 +80,7 @@ export default function Launchpad() {
       </section>
 
       {/* Program Overview */}
-      <section className="py-20 px-4 sm:px-6 bg-slate-50  dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
+      <section className="py-20 px-4 sm:px-6 bg-slate-50">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {[
@@ -95,13 +95,13 @@ export default function Launchpad() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white  rounded-2xl p-6 lg:p-8 border border-slate-200 dark:border-slate-800 shadow-lg text-center hover:shadow-2xl transition-all duration-300 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
+                className="bg-white  rounded-2xl p-6 lg:p-8 border border-slate-200 shadow-lg text-center hover:shadow-2xl transition-all duration-300"
               >
                 <div className={`w-14 h-14 mx-auto rounded-2xl ${item.bg} ${item.color} flex items-center justify-center mb-4`}>
                   {item.icon}
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-1">{item.title}</h3>
-                <p className="text-slate-600 dark:text-slate-400 font-medium text-sm lg:text-base">{item.desc}</p>
+                <h3 className="text-xl font-bold text-slate-900 mb-1">{item.title}</h3>
+                <p className="text-slate-600 font-medium text-sm lg:text-base">{item.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -109,12 +109,12 @@ export default function Launchpad() {
       </section>
 
       {/* Program Objectives */}
-      <section className="py-28 px-4 sm:px-6 bg-white  dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
+      <section className="py-28 px-4 sm:px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-20">
             <span className="inline-block text-[#39894c] font-bold text-sm uppercase tracking-wider mb-4">Program Objectives</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight">What You'll Achieve</h2>
-            <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">Transform into an industry-ready professional through 6 weeks of intensive training and 6 weeks of hands-on industry experience</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">What You'll Achieve</h2>
+            <p className="text-lg text-slate-600 leading-relaxed">Transform into an industry-ready professional through 6 weeks of intensive training and 6 weeks of hands-on industry experience</p>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -132,13 +132,13 @@ export default function Launchpad() {
                  whileInView={{ opacity: 1, y: 0 }}
                  viewport={{ once: true }}
                  transition={{ delay: index * 0.08, duration: 0.5 }}
-                 className="group p-8 bg-slate-50  rounded-2xl hover:shadow-2xl transition-all border border-slate-100 dark:border-slate-800 hover:border-[#39894c]/30 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
+                 className="group p-8 bg-slate-50  rounded-2xl hover:shadow-2xl transition-all border border-slate-100 hover:border-[#39894c]/30"
                >
                  <div className="text-[#39894c] mb-6 group-hover:scale-110 transition-transform inline-block">
                    {benefit.icon}
                  </div>
-                 <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4">{benefit.title}</h3>
-                 <p className="text-slate-600 dark:text-slate-400 leading-relaxed">{benefit.desc}</p>
+                 <h3 className="text-xl font-bold text-slate-900 mb-4">{benefit.title}</h3>
+                 <p className="text-slate-600 leading-relaxed">{benefit.desc}</p>
                </motion.div>
             ))}
           </div>
@@ -146,12 +146,12 @@ export default function Launchpad() {
       </section>
 
       {/* 6-Week Training Curriculum */}
-      <section className="py-28 px-4 sm:px-6 bg-slate-50  dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
+      <section className="py-28 px-4 sm:px-6 bg-slate-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-20">
             <span className="inline-block text-[#39894c] font-bold text-sm uppercase tracking-wider mb-4">Training Curriculum</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight">6-Week Intensive Training</h2>
-            <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">Every Monday & Thursday sessions with weekly one-on-one mentorship from Salman Khan</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">6-Week Intensive Training</h2>
+            <p className="text-lg text-slate-600 leading-relaxed">Every Monday & Thursday sessions with weekly one-on-one mentorship from Salman Khan</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -169,31 +169,31 @@ export default function Launchpad() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05, duration: 0.5 }}
-                className="bg-white  rounded-xl p-6 border border-slate-200 dark:border-slate-800 hover:shadow-xl transition-all dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
+                className="bg-white  rounded-xl p-6 border border-slate-200 hover:shadow-xl transition-all"
               >
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-12 h-12 rounded-full bg-[#39894c] text-white flex items-center justify-center font-bold text-lg">
                     {week.week}
                   </div>
                   <div>
-                    <h3 className="font-bold text-slate-900 dark:text-white">{week.theme}</h3>
+                    <h3 className="font-bold text-slate-900">{week.theme}</h3>
                     <p className="text-xs text-[#39894c] font-semibold">Week {week.week}</p>
                   </div>
                 </div>
                 <div className="mb-3">
-                  <p className="text-xs text-slate-500 dark:text-slate-500 font-semibold mb-2">Key Topics:</p>
+                  <p className="text-xs text-slate-500 font-semibold mb-2">Key Topics:</p>
                   <ul className="space-y-1">
                     {week.topics.map((topic, idx) => (
-                      <li key={idx} className="text-sm text-slate-600 dark:text-slate-400 flex items-start gap-2">
+                      <li key={idx} className="text-sm text-slate-600 flex items-start gap-2">
                         <CheckCircle2 size={14} className="text-[#39894c] mt-0.5 shrink-0" />
                         {topic}
                       </li>
                     ))}
                   </ul>
                 </div>
-                <div className="pt-3 border-t border-slate-100 dark:border-slate-800">
-                  <p className="text-xs text-slate-500 dark:text-slate-500 font-semibold mb-1">Deliverable:</p>
-                  <p className="text-sm text-slate-700 dark:text-slate-300">{week.deliverable}</p>
+                <div className="pt-3 border-t border-slate-100">
+                  <p className="text-xs text-slate-500 font-semibold mb-1">Deliverable:</p>
+                  <p className="text-sm text-slate-700">{week.deliverable}</p>
                 </div>
               </motion.div>
             ))}
@@ -202,7 +202,7 @@ export default function Launchpad() {
       </section>
 
       {/* One-on-One Mentorship Section */}
-      <section className="py-28 px-4 sm:px-6 bg-white  dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
+      <section className="py-28 px-4 sm:px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -212,8 +212,8 @@ export default function Launchpad() {
               transition={{ duration: 0.6 }}
             >
               <span className="inline-block text-[#39894c] font-bold text-sm uppercase tracking-wider mb-4">Personalized Guidance</span>
-              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight">One-on-One Mentorship</h2>
-              <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">One-on-One Mentorship</h2>
+              <p className="text-lg text-slate-600 leading-relaxed mb-6">
                 Every week, you'll have a dedicated one-on-one mentorship session with <span className="font-bold text-[#39894c]">Salman Khan</span>, where 2-3 students receive personalized guidance, feedback, and career advice.
               </p>
               <div className="space-y-4">
@@ -228,7 +228,7 @@ export default function Launchpad() {
                     <div className="w-6 h-6 rounded-full bg-[#39894c] flex items-center justify-center shrink-0 mt-0.5">
                       <CheckCircle2 size={16} className="text-white" />
                     </div>
-                    <p className="text-slate-700 dark:text-slate-300">{item}</p>
+                    <p className="text-slate-700">{item}</p>
                   </div>
                 ))}
               </div>
@@ -267,12 +267,12 @@ export default function Launchpad() {
       </section>
 
       {/* Industry Internship Section */}
-      <section className="py-28 px-4 sm:px-6 bg-slate-50  dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
+      <section className="py-28 px-4 sm:px-6 bg-slate-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-20">
             <span className="inline-block text-[#39894c] font-bold text-sm uppercase tracking-wider mb-4">Weeks 7-12</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight">6-Week Industry Internship</h2>
-            <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">Apply your learning in real-world settings with hands-on industry experience</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">6-Week Industry Internship</h2>
+            <p className="text-lg text-slate-600 leading-relaxed">Apply your learning in real-world settings with hands-on industry experience</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
@@ -281,13 +281,13 @@ export default function Launchpad() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="bg-white  rounded-2xl p-8 border border-slate-200 dark:border-slate-800 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
+              className="bg-white  rounded-2xl p-8 border border-slate-200"
             >
               <div className="w-16 h-16 rounded-2xl bg-[#39894c]/10 text-[#39894c] flex items-center justify-center mb-6">
                 <Rocket size={32} />
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">Real-World Experience</h3>
-              <p className="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
+              <h3 className="text-2xl font-bold text-slate-900 mb-4">Real-World Experience</h3>
+              <p className="text-slate-600 mb-6 leading-relaxed">
                 After completing the 6-week training, you'll be placed in a 6-week industry internship where you'll apply everything you've learned in a professional environment.
               </p>
               <ul className="space-y-3">
@@ -300,7 +300,7 @@ export default function Launchpad() {
                 ].map((item, index) => (
                   <li key={index} className="flex items-start gap-3">
                     <CheckCircle2 size={18} className="text-[#39894c] mt-0.5 shrink-0" />
-                    <span className="text-slate-700 dark:text-slate-300">{item}</span>
+                    <span className="text-slate-700">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -311,13 +311,13 @@ export default function Launchpad() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="bg-white  rounded-2xl p-8 border border-slate-200 dark:border-slate-800 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
+              className="bg-white  rounded-2xl p-8 border border-slate-200"
             >
               <div className="w-16 h-16 rounded-2xl bg-[#39894c]/10 text-[#39894c] flex items-center justify-center mb-6">
                 <Target size={32} />
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">Internship Benefits</h3>
-              <p className="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
+              <h3 className="text-2xl font-bold text-slate-900 mb-4">Internship Benefits</h3>
+              <p className="text-slate-600 mb-6 leading-relaxed">
                 The internship phase is designed to bridge the gap between training and full-time employment, giving you the confidence and experience employers look for.
               </p>
               <ul className="space-y-3">
@@ -330,7 +330,7 @@ export default function Launchpad() {
                 ].map((item, index) => (
                   <li key={index} className="flex items-start gap-3">
                     <CheckCircle2 size={18} className="text-[#39894c] mt-0.5 shrink-0" />
-                    <span className="text-slate-700 dark:text-slate-300">{item}</span>
+                    <span className="text-slate-700">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -340,12 +340,12 @@ export default function Launchpad() {
       </section>
 
       {/* Facilitators & Mentors */}
-      <section className="py-28 px-4 sm:px-6 bg-white  dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
+      <section className="py-28 px-4 sm:px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-20">
             <span className="inline-block text-[#39894c] font-bold text-sm uppercase tracking-wider mb-4">Expert Guidance</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight">Facilitators & Mentors</h2>
-            <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">Learn from industry leaders and experienced professionals who will guide your journey</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">Facilitators & Mentors</h2>
+            <p className="text-lg text-slate-600 leading-relaxed">Learn from industry leaders and experienced professionals who will guide your journey</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -365,16 +365,16 @@ export default function Launchpad() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.08, duration: 0.5 }}
-                className="bg-slate-50  rounded-2xl p-6 border border-slate-200 dark:border-slate-800 hover:shadow-xl transition-all dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
+                className="bg-slate-50  rounded-2xl p-6 border border-slate-200 hover:shadow-xl transition-all"
               >
                 <div className="w-16 h-16 rounded-full bg-[#39894c] text-white flex items-center justify-center font-bold text-2xl mb-4">
                   {mentor.name.split(' ').map(n => n[0]).join('')}
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{mentor.name}</h3>
-                <p className="text-sm text-slate-600 dark:text-slate-400 mb-3 font-medium">{mentor.role}</p>
-                <div className="pt-3 border-t border-slate-200 dark:border-slate-800">
+                <h3 className="text-xl font-bold text-slate-900 mb-2">{mentor.name}</h3>
+                <p className="text-sm text-slate-600 mb-3 font-medium">{mentor.role}</p>
+                <div className="pt-3 border-t border-slate-200">
                   <p className="text-xs text-[#39894c] font-semibold mb-1">Expertise:</p>
-                  <p className="text-sm text-slate-700 dark:text-slate-300">{mentor.expertise}</p>
+                  <p className="text-sm text-slate-700">{mentor.expertise}</p>
                 </div>
               </motion.div>
             ))}
@@ -385,8 +385,8 @@ export default function Launchpad() {
       {/* Eligibility Requirements */}
       <section className="py-28 px-4 sm:px-6 bg-[#2d5f3d] text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"></div>
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"></div>
+          <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
         </div>
 
         <div className="max-w-6xl mx-auto relative z-10">
@@ -419,7 +419,7 @@ export default function Launchpad() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
-                className="flex items-start gap-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/15 transition-colors dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
+                className="flex items-start gap-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/15 transition-colors"
               >
                 <div className="w-8 h-8 rounded-full bg-[#39894c] flex items-center justify-center shrink-0 mt-0.5">
                   <CheckCircle2 size={20} />
@@ -438,7 +438,7 @@ export default function Launchpad() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-28 px-4 sm:px-6 bg-white  relative overflow-hidden dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
+      <section className="py-28 px-4 sm:px-6 bg-white  relative overflow-hidden">
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -473,3 +473,4 @@ export default function Launchpad() {
     </div>
   );
 }
+
