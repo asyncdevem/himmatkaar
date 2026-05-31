@@ -66,12 +66,12 @@ export default function Launchpad() {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSdLfYvAZc0W6J53bdxLtlJCSv-uM40bJG22C9POuPZVa56BlQ/viewform?usp=dialog" target="_blank" rel="noopener noreferrer">
-              <button className="bg-white text-[#2d5f3d] px-6 sm:px-10 py-4 sm:py-5 rounded-lg font-bold text-lg hover:bg-slate-100 transition-all shadow-2xl hover:scale-105 flex items-center gap-2 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
+              <button className="bg-white text-[#2d5f3d] px-6 sm:px-10 py-4 sm:py-5 rounded-lg font-bold text-lg hover:bg-slate-100 transition-all shadow-2xl hover:scale-105 flex items-center gap-2">
                 Apply for LaunchPad <ArrowRight size={20} />
               </button>
             </a>
             <Link href="/contact">
-              <button className="bg-white/10 backdrop-blur-sm text-white px-6 sm:px-10 py-4 sm:py-5 rounded-lg font-bold text-lg hover:bg-white/20 transition-all border border-white/30 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
+              <button className="bg-white/10 backdrop-blur-sm text-white px-6 sm:px-10 py-4 sm:py-5 rounded-lg font-bold text-lg hover:bg-white/20 transition-all border border-white/30">
                 Learn More
               </button>
             </Link>
@@ -455,12 +455,12 @@ export default function Launchpad() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="https://docs.google.com/forms/d/e/1FAIpQLSdLfYvAZc0W6J53bdxLtlJCSv-uM40bJG22C9POuPZVa56BlQ/viewform?usp=dialog" target="_blank" rel="noopener noreferrer">
-                <button className="bg-white text-[#2d5f3d] px-6 sm:px-10 py-4 sm:py-5 rounded-xl font-bold text-xl hover:scale-105 transition-transform shadow-xl inline-flex items-center gap-2 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
+                <button className="bg-white text-[#2d5f3d] px-6 sm:px-10 py-4 sm:py-5 rounded-xl font-bold text-xl hover:scale-105 transition-transform shadow-xl inline-flex items-center gap-2">
                   Start Application <ArrowRight size={24} />
                 </button>
               </a>
               <Link href="/contact">
-                <button className="bg-white/10 backdrop-blur-sm text-white px-6 sm:px-10 py-4 sm:py-5 rounded-xl font-bold text-xl hover:bg-white/20 transition-all border-2 border-white/30 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
+                <button className="bg-white/10 backdrop-blur-sm text-white px-6 sm:px-10 py-4 sm:py-5 rounded-xl font-bold text-xl hover:bg-white/20 transition-all border-2 border-white/30">
                   Contact Us
                 </button>
               </Link>
