@@ -45,10 +45,14 @@ export default function Login() {
           </div>
           <div className="relative z-20 flex flex-col justify-between h-full p-16 text-white">
             <Link href="/" className="flex items-center gap-3 w-fit hover:opacity-80 transition-opacity">
-              <div className="bg-white p-2 rounded-lg">
-                <Rocket className="size-8 text-[var(--color-courage-green)]" />
-              </div>
-              <span className="text-2xl font-bold tracking-tight font-display">Himmatkaar</span>
+              <Image 
+                src="/himmatkaar-logo.jpg" 
+                alt="Himmatkaar Logo" 
+                width={56} 
+                height={56} 
+                className="rounded-lg"
+              />
+              <span className="text-2xl font-bold tracking-tight font-heading">Himmatkaar</span>
             </Link>
             <div className="max-w-md">
               <h1 className="text-5xl font-extrabold leading-tight mb-6 font-heading">Empowering the youth of tomorrow.</h1>
@@ -63,10 +67,14 @@ export default function Login() {
             {/* Mobile Logo */}
             <div className="lg:hidden flex justify-center mb-8">
               <Link href="/" className="flex items-center gap-3">
-                <div className="bg-white p-2 rounded-lg shadow-sm">
-                  <Rocket className="size-8 text-[var(--color-courage-green)]" />
-                </div>
-                <span className="text-xl font-bold text-[var(--color-deep-navy)] font-display">Himmatkaar</span>
+                <Image 
+                  src="/himmatkaar-logo.jpg" 
+                  alt="Himmatkaar Logo" 
+                  width={48} 
+                  height={48} 
+                  className="rounded-lg"
+                />
+                <span className="text-xl font-bold text-[var(--color-deep-navy)] font-heading">Himmatkaar</span>
               </Link>
             </div>
 

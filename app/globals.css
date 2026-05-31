@@ -15,9 +15,9 @@
   --font-display: 'Playfair Display', serif;
   --font-body: 'Montserrat', sans-serif;
   
-  /* Legacy variables for compatibility */
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Fixed light mode variables */
+  --background: #F4F1EB;
+  --foreground: #1A1A2E;
 }
 
 @theme inline {
@@ -53,14 +53,6 @@
   
   /* Animations */
   --animate-marquee: marquee 30s linear infinite;
-}
-
-/* Preserve system preference for accessibility */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: var(--color-deep-navy);
-    --foreground: var(--color-white);
-  }
 }
 
 body {
@@ -123,14 +115,6 @@ html {
 .scrollbar-hide {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
-}
-
-/* System preference dark mode preserved for accessibility */
-@media (prefers-color-scheme: dark) {
-  body {
-    background: var(--background);
-    color: var(--foreground);
-  }
 }
 
 /* TipTap Editor Styles */
@@ -256,32 +240,6 @@ html {
   font-style: italic;
 }
 
-/* Dark mode styles for TipTap */
-@media (prefers-color-scheme: dark) {
-  .ProseMirror h2,
-  .ProseMirror h3 {
-    color: #f1f5f9;
-  }
-
-  .ProseMirror p,
-  .ProseMirror li {
-    color: #cbd5e1;
-  }
-
-  .ProseMirror strong {
-    color: #f1f5f9;
-  }
-
-  .ProseMirror code {
-    background-color: #334155;
-    color: #fca5a5;
-  }
-
-  .ProseMirror blockquote {
-    color: #94a3b8;
-  }
-}
-
 /* Blog Content Rendering Styles */
 .blog-content h2 {
   font-size: 1.875rem;
@@ -392,30 +350,4 @@ html {
 
 .blog-content em {
   font-style: italic;
-}
-
-/* Dark mode styles for blog content */
-@media (prefers-color-scheme: dark) {
-  .blog-content h2,
-  .blog-content h3 {
-    color: #f1f5f9;
-  }
-
-  .blog-content p,
-  .blog-content li {
-    color: #cbd5e1;
-  }
-
-  .blog-content strong {
-    color: #f1f5f9;
-  }
-
-  .blog-content code {
-    background-color: #334155;
-    color: #fca5a5;
-  }
-
-  .blog-content blockquote {
-    color: #94a3b8;
-  }
 }
