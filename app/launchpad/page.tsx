@@ -40,7 +40,7 @@ export default function Launchpad() {
           >
             <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-semibold border border-white/20 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
               <Rocket size={16} />
-              12-Week Professional Development Program
+              6-Week Training + 6-Week Industry Internship
             </span>
           </motion.div>
           <motion.h1 
@@ -57,7 +57,7 @@ export default function Launchpad() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl lg:text-2xl max-w-4xl mx-auto mb-10 text-white/95 leading-relaxed font-light"
           >
-            Empowering Future Professionals - Bridge the gap between education and industry-readiness through practical workshops, guided mentorship, and real-world exposure.
+            Transform from student to professional in 12 weeks. 6 weeks of intensive training with one-on-one mentorship from Salman Khan, followed by 6 weeks of industry internship. Limited to 25 students per cohort.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -65,7 +65,7 @@ export default function Launchpad() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
-            <a href="https://forms.gle/H9RbJgYjAoK65BiZ6" target="_blank" rel="noopener noreferrer">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdLfYvAZc0W6J53bdxLtlJCSv-uM40bJG22C9POuPZVa56BlQ/viewform?usp=dialog" target="_blank" rel="noopener noreferrer">
               <button className="bg-white text-[#2d5f3d] px-6 sm:px-10 py-4 sm:py-5 rounded-lg font-bold text-lg hover:bg-slate-100 transition-all shadow-2xl hover:scale-105 flex items-center gap-2 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
                 Apply for LaunchPad <ArrowRight size={20} />
               </button>
@@ -84,9 +84,9 @@ export default function Launchpad() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: <Calendar className="w-8 h-8" />, title: "Duration", desc: "12 Weeks Intensive", color: "text-[#39894c]", bg: "bg-[#39894c]/10" },
-              { icon: <Clock className="w-8 h-8" />, title: "Format", desc: "1 Live + 1 Mentorship/Week", color: "text-[#39894c]", bg: "bg-[#39894c]/10" },
-              { icon: <Users className="w-8 h-8" />, title: "Target", desc: "Students & Graduates", color: "text-[#39894c]", bg: "bg-[#39894c]/10" },
+              { icon: <Calendar className="w-8 h-8" />, title: "Duration", desc: "12 Weeks (6+6)", color: "text-[#39894c]", bg: "bg-[#39894c]/10" },
+              { icon: <Clock className="w-8 h-8" />, title: "Format", desc: "Mon/Thu + Mentorship", color: "text-[#39894c]", bg: "bg-[#39894c]/10" },
+              { icon: <Users className="w-8 h-8" />, title: "Cohort Size", desc: "25 Students per Cohort", color: "text-[#39894c]", bg: "bg-[#39894c]/10" },
               { icon: <Award className="w-8 h-8" />, title: "Mode", desc: "Hybrid (In-person + Online)", color: "text-[#39894c]", bg: "bg-[#39894c]/10" }
             ].map((item, index) => (
               <motion.div
@@ -114,7 +114,7 @@ export default function Launchpad() {
           <div className="text-center max-w-2xl mx-auto mb-20">
             <span className="inline-block text-[#39894c] font-bold text-sm uppercase tracking-wider mb-4">Program Objectives</span>
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight">What You'll Achieve</h2>
-            <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">By the end of the 12-week program, you will have transformed into an industry-ready professional</p>
+            <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">Transform into an industry-ready professional through 6 weeks of intensive training and 6 weeks of hands-on industry experience</p>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -145,29 +145,23 @@ export default function Launchpad() {
         </div>
       </section>
 
-      {/* 12-Week Curriculum */}
+      {/* 6-Week Training Curriculum */}
       <section className="py-28 px-4 sm:px-6 bg-slate-50  dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-20">
-            <span className="inline-block text-[#39894c] font-bold text-sm uppercase tracking-wider mb-4">Weekly Curriculum</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight">12-Week Journey</h2>
-            <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">A comprehensive week-by-week breakdown of your transformation journey</p>
+            <span className="inline-block text-[#39894c] font-bold text-sm uppercase tracking-wider mb-4">Training Curriculum</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight">6-Week Intensive Training</h2>
+            <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">Every Monday & Thursday sessions with weekly one-on-one mentorship from Salman Khan</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { week: 1, theme: "Orientation & Self-Discovery", focus: "Finding Your 'Why'", deliverable: "Personal Career Purpose Statement" },
-              { week: 2, theme: "Growth & Entrepreneurial Mindset", focus: "From Job-Seeker to Opportunity-Creator", deliverable: "Personal Growth & Learning Plan" },
-              { week: 3, theme: "Building a Professional Brand", focus: "Positioning Yourself for Opportunity", deliverable: "Polished Resume + LinkedIn Profile" },
-              { week: 4, theme: "Career Navigation & Job Search", focus: "Standing Out in the Hiring Process", deliverable: "Mock Interview Feedback Report" },
-              { week: 5, theme: "Connection Building & Networking", focus: "Your Network Is Your Net Worth", deliverable: "Networking Action Plan" },
-              { week: 6, theme: "Global Opportunities", focus: "Semester Exchange & Scholarships", deliverable: "Statement of Purpose + Tracker" },
-              { week: 7, theme: "Power of Soft Skills", focus: "Human Skills for Digital Future", deliverable: "Soft Skills Development Plan" },
-              { week: 8, theme: "Sales as Universal Skill", focus: "Selling Yourself & Your Ideas", deliverable: "Personal Elevator Pitch Script" },
-              { week: 9, theme: "Becoming a Generalist", focus: "Breadth Before Depth", deliverable: "Skill Map + Learning Roadmap" },
-              { week: 10, theme: "Time, Stress & AI Productivity", focus: "Work Smarter, Not Harder", deliverable: "Productivity Plan + AI Workflow" },
-              { week: 11, theme: "Academia to Corporate Life", focus: "Adapting for Professional Success", deliverable: "Corporate Readiness Checklist" },
-              { week: 12, theme: "Showcase & Networking Ceremony", focus: "Reflect. Present. Celebrate.", deliverable: "Career Roadmap + Certificate" }
+              { week: 1, theme: "Mindset & Purpose", topics: ["Growth Mindset", "Finding Your Why", "Goal Setting"], deliverable: "Personal Purpose Statement" },
+              { week: 2, theme: "Professional Branding", topics: ["Personal Brand Development", "LinkedIn Optimization", "Digital Presence"], deliverable: "Professional Brand Portfolio" },
+              { week: 3, theme: "Communication Skills", topics: ["Effective Communication", "Public Speaking", "Presentation Skills"], deliverable: "Communication Skills Assessment" },
+              { week: 4, theme: "Soft Skills Development", topics: ["Teamwork & Collaboration", "Problem Solving", "Emotional Intelligence"], deliverable: "Soft Skills Action Plan" },
+              { week: 5, theme: "Career Transition", topics: ["Resume Building", "Interview Preparation", "Job Search Strategies"], deliverable: "Career Readiness Package" },
+              { week: 6, theme: "Industry Readiness", topics: ["Corporate Culture", "Professional Etiquette", "Workplace Dynamics"], deliverable: "Industry Readiness Certificate" }
             ].map((week, index) => (
               <motion.div
                 key={index}
@@ -186,7 +180,17 @@ export default function Launchpad() {
                     <p className="text-xs text-[#39894c] font-semibold">Week {week.week}</p>
                   </div>
                 </div>
-                <p className="text-sm text-slate-600 dark:text-slate-400 mb-3 font-medium">{week.focus}</p>
+                <div className="mb-3">
+                  <p className="text-xs text-slate-500 dark:text-slate-500 font-semibold mb-2">Key Topics:</p>
+                  <ul className="space-y-1">
+                    {week.topics.map((topic, idx) => (
+                      <li key={idx} className="text-sm text-slate-600 dark:text-slate-400 flex items-start gap-2">
+                        <CheckCircle2 size={14} className="text-[#39894c] mt-0.5 shrink-0" />
+                        {topic}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
                 <div className="pt-3 border-t border-slate-100 dark:border-slate-800">
                   <p className="text-xs text-slate-500 dark:text-slate-500 font-semibold mb-1">Deliverable:</p>
                   <p className="text-sm text-slate-700 dark:text-slate-300">{week.deliverable}</p>
@@ -197,23 +201,163 @@ export default function Launchpad() {
         </div>
       </section>
 
-      {/* Mentors & Facilitators */}
+      {/* One-on-One Mentorship Section */}
+      <section className="py-28 px-4 sm:px-6 bg-white  dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <span className="inline-block text-[#39894c] font-bold text-sm uppercase tracking-wider mb-4">Personalized Guidance</span>
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight">One-on-One Mentorship</h2>
+              <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
+                Every week, you'll have a dedicated one-on-one mentorship session with <span className="font-bold text-[#39894c]">Salman Khan</span>, where 2-3 students receive personalized guidance, feedback, and career advice.
+              </p>
+              <div className="space-y-4">
+                {[
+                  "Personalized career guidance and goal setting",
+                  "Individual feedback on your progress and development",
+                  "Tailored advice for your specific career path",
+                  "Direct access to industry insights and expertise",
+                  "Support in overcoming personal challenges"
+                ].map((item, index) => (
+                  <div key={index} className="flex items-start gap-3">
+                    <div className="w-6 h-6 rounded-full bg-[#39894c] flex items-center justify-center shrink-0 mt-0.5">
+                      <CheckCircle2 size={16} className="text-white" />
+                    </div>
+                    <p className="text-slate-700 dark:text-slate-300">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-[#2d5f3d] rounded-2xl p-8 text-white"
+            >
+              <div className="text-center mb-6">
+                <div className="w-24 h-24 rounded-full bg-white/10 flex items-center justify-center font-bold text-4xl mx-auto mb-4">
+                  SK
+                </div>
+                <h3 className="text-2xl font-bold mb-2">Salman Khan</h3>
+                <p className="text-white/80">Lead Mentor & Career Coach</p>
+              </div>
+              <div className="space-y-3 text-sm">
+                <div className="bg-white/10 rounded-lg p-4">
+                  <p className="font-semibold mb-1">Session Format</p>
+                  <p className="text-white/80">Weekly 1-hour sessions with 2-3 students</p>
+                </div>
+                <div className="bg-white/10 rounded-lg p-4">
+                  <p className="font-semibold mb-1">Focus Areas</p>
+                  <p className="text-white/80">Career planning, skill development, and personal growth</p>
+                </div>
+                <div className="bg-white/10 rounded-lg p-4">
+                  <p className="font-semibold mb-1">Commitment</p>
+                  <p className="text-white/80">6 weeks of dedicated mentorship throughout training</p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Industry Internship Section */}
+      <section className="py-28 px-4 sm:px-6 bg-slate-50  dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center max-w-3xl mx-auto mb-20">
+            <span className="inline-block text-[#39894c] font-bold text-sm uppercase tracking-wider mb-4">Weeks 7-12</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight">6-Week Industry Internship</h2>
+            <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">Apply your learning in real-world settings with hands-on industry experience</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-white  rounded-2xl p-8 border border-slate-200 dark:border-slate-800 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
+            >
+              <div className="w-16 h-16 rounded-2xl bg-[#39894c]/10 text-[#39894c] flex items-center justify-center mb-6">
+                <Rocket size={32} />
+              </div>
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">Real-World Experience</h3>
+              <p className="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
+                After completing the 6-week training, you'll be placed in a 6-week industry internship where you'll apply everything you've learned in a professional environment.
+              </p>
+              <ul className="space-y-3">
+                {[
+                  "Work on real projects with industry professionals",
+                  "Apply your training in practical scenarios",
+                  "Build your professional portfolio",
+                  "Gain valuable industry connections",
+                  "Receive mentorship from industry experts"
+                ].map((item, index) => (
+                  <li key={index} className="flex items-start gap-3">
+                    <CheckCircle2 size={18} className="text-[#39894c] mt-0.5 shrink-0" />
+                    <span className="text-slate-700 dark:text-slate-300">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="bg-white  rounded-2xl p-8 border border-slate-200 dark:border-slate-800 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
+            >
+              <div className="w-16 h-16 rounded-2xl bg-[#39894c]/10 text-[#39894c] flex items-center justify-center mb-6">
+                <Target size={32} />
+              </div>
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">Internship Benefits</h3>
+              <p className="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
+                The internship phase is designed to bridge the gap between training and full-time employment, giving you the confidence and experience employers look for.
+              </p>
+              <ul className="space-y-3">
+                {[
+                  "Certificate of completion from host organization",
+                  "Professional references for future opportunities",
+                  "Potential for full-time job offers",
+                  "Expanded professional network",
+                  "Real-world problem-solving experience"
+                ].map((item, index) => (
+                  <li key={index} className="flex items-start gap-3">
+                    <CheckCircle2 size={18} className="text-[#39894c] mt-0.5 shrink-0" />
+                    <span className="text-slate-700 dark:text-slate-300">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Facilitators & Mentors */}
       <section className="py-28 px-4 sm:px-6 bg-white  dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-20">
             <span className="inline-block text-[#39894c] font-bold text-sm uppercase tracking-wider mb-4">Expert Guidance</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight">Meet Your Mentors</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight">Facilitators & Mentors</h2>
             <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">Learn from industry leaders and experienced professionals who will guide your journey</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { name: "Aymen Shahid", role: "Program Manager, NIC Faisalabad", expertise: "Entrepreneurship & Startup Mindset" },
-              { name: "Awais Khan", role: "Program Manager, Beaconhouse Incubation Centre", expertise: "Career Navigation & Networking" },
-              { name: "Ubaid Afzal", role: "Mentor & Corporate Trainer", expertise: "Communication & Soft Skills" },
-              { name: "Rameen Anwar", role: "Communication Manager, NIC Faisalabad", expertise: "Branding & Presentation Skills" },
-              { name: "Abubakar Dilawar", role: "CEO & Founder, Kahani", expertise: "Storytelling, Ideation & Innovation" },
-              { name: "Hammad Armagan", role: "Chief AI Officer, Cybergen1 Team", expertise: "AI Tools & Digital Productivity" }
+              { name: "Sipehre Shamsi", role: "Lead Facilitator", expertise: "Career Development & Professional Growth" },
+              { name: "Aimen Shahid", role: "Program Facilitator", expertise: "Communication & Soft Skills" },
+              { name: "Frasat Tanveer", role: "Industry Mentor", expertise: "Corporate Readiness & Workplace Skills" },
+              { name: "Dr. Ahmad", role: "Academic Advisor", expertise: "Research & Academic Excellence" },
+              { name: "Ubaid Afzal", role: "Career Coach", expertise: "Job Search & Interview Preparation" },
+              { name: "Dr. Hammad Armaghan", role: "Technical Mentor", expertise: "Technology & Innovation" },
+              { name: "Rameen Anwar", role: "Branding Specialist", expertise: "Personal Branding & Digital Presence" },
+              { name: "Awais Khan", role: "Networking Coach", expertise: "Professional Networking & Connections" }
             ].map((mentor, index) => (
               <motion.div
                 key={index}
@@ -224,7 +368,7 @@ export default function Launchpad() {
                 className="bg-slate-50  rounded-2xl p-6 border border-slate-200 dark:border-slate-800 hover:shadow-xl transition-all dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10"
               >
                 <div className="w-16 h-16 rounded-full bg-[#39894c] text-white flex items-center justify-center font-bold text-2xl mb-4">
-                  {mentor.name.charAt(0)}
+                  {mentor.name.split(' ').map(n => n[0]).join('')}
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{mentor.name}</h3>
                 <p className="text-sm text-slate-600 dark:text-slate-400 mb-3 font-medium">{mentor.role}</p>
@@ -256,18 +400,18 @@ export default function Launchpad() {
               Who Should Apply?
             </motion.h2>
             <p className="text-white/90 text-lg leading-relaxed max-w-2xl mx-auto">
-              This program is designed for university students and fresh graduates ready to bridge the gap between education and professional success.
+              This program is designed for university students and fresh graduates ready to transform into industry-ready professionals through intensive training and real-world experience.
             </p>
           </div>
           
           <div className="grid md:grid-cols-2 gap-6">
             {[
-              "University students in their final years looking to prepare for the job market",
-              "Fresh graduates seeking to enhance their employability and career readiness",
-              "Young professionals wanting to transition smoothly into corporate environments",
-              "Individuals committed to personal and professional growth",
-              "Those ready to invest 12 weeks in transforming their career trajectory",
-              "Aspiring professionals eager to learn from industry experts and mentors"
+              "University students in their final years preparing for the job market",
+              "Fresh graduates seeking to enhance employability and career readiness",
+              "Young professionals wanting to transition into corporate environments",
+              "Individuals committed to 12 weeks of intensive personal and professional growth",
+              "Those ready to participate in Monday/Thursday sessions plus weekly mentorship",
+              "Aspiring professionals eager to gain 6 weeks of industry internship experience"
             ].map((item, index) => (
               <motion.div
                 key={index}
@@ -287,7 +431,7 @@ export default function Launchpad() {
 
           <div className="mt-16 text-center">
             <p className="text-white/90 text-lg mb-6">
-              Complete the program and receive: Resume, LinkedIn Profile, Career Roadmap, and Certificate of Completion
+              Complete the program and receive: Professional Resume, Optimized LinkedIn Profile, Industry Internship Certificate, and LaunchPad Completion Certificate
             </p>
           </div>
         </div>
@@ -304,13 +448,13 @@ export default function Launchpad() {
             className="bg-[#2d5f3d] rounded-3xl p-12 lg:p-16 shadow-2xl"
           >
             <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6 tracking-tight">
-              Ready to Launch Your Startup?
+              Ready to Transform Your Career?
             </h2>
             <p className="text-xl text-white/90 mb-10 font-medium max-w-2xl mx-auto">
-              Applications for the next cohort are now open. Join Pakistan's most successful startup accelerator and turn your vision into reality.
+              Applications for the next cohort are now open. Limited to 25 students. Join Himmatkaar LaunchPad and transform from student to professional in 12 weeks.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="https://forms.gle/H9RbJgYjAoK65BiZ6" target="_blank" rel="noopener noreferrer">
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSdLfYvAZc0W6J53bdxLtlJCSv-uM40bJG22C9POuPZVa56BlQ/viewform?usp=dialog" target="_blank" rel="noopener noreferrer">
                 <button className="bg-white text-[#2d5f3d] px-6 sm:px-10 py-4 sm:py-5 rounded-xl font-bold text-xl hover:scale-105 transition-transform shadow-xl inline-flex items-center gap-2 dark:backdrop-blur-xl dark:bg-white/5 dark:border dark:border-white/10">
                   Start Application <ArrowRight size={24} />
                 </button>
