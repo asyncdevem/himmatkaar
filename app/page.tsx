@@ -9,8 +9,12 @@ import {
   Award,
   Rocket,
   Code,
-  Network
+  Network,
+  CheckCircle2,
+  ArrowRight
 } from "lucide-react";
+import Link from "next/link";
+import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import {
@@ -142,6 +146,86 @@ export default function Home() {
 
         {/* Stats Bar */}
         <StatsBar stats={stats} />
+
+        {/* Career Launchpad Feature Section */}
+        <section className="py-28 px-4 sm:px-6 bg-gradient-to-br from-[#2d5f3d] to-[#39894c] text-white relative overflow-hidden">
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+            <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+          </div>
+          <div className="max-w-7xl mx-auto relative z-10">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-semibold border border-white/20 mb-6">
+                  <Rocket size={16} />
+                  Our Flagship Program
+                </div>
+                <h2 className="text-5xl lg:text-6xl font-extrabold leading-tight mb-6 tracking-tight">
+                  Career <span className="text-[#a8d5ba]">LaunchPad</span>
+                </h2>
+                <p className="text-xl text-white/95 leading-relaxed mb-8">
+                  Transform from student to professional in just 12 weeks. Our comprehensive program combines 6 weeks of intensive training with one-on-one mentorship, followed by 6 weeks of real industry internship experience.
+                </p>
+                <div className="space-y-4 mb-8">
+                  {[
+                    "6 weeks of intensive training with expert mentors",
+                    "Weekly one-on-one mentorship sessions",
+                    "6 weeks of hands-on industry internship",
+                    "Limited to 25 students per cohort"
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                      <div className="w-6 h-6 rounded-full bg-white flex items-center justify-center shrink-0 mt-0.5">
+                        <CheckCircle2 size={16} className="text-[#39894c]" />
+                      </div>
+                      <p className="text-lg text-white/90">{item}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <a href="https://docs.google.com/forms/d/e/1FAIpQLSdLfYvAZc0W6J53bdxLtlJCSv-uM40bJG22C9POuPZVa56BlQ/viewform?usp=dialog" target="_blank" rel="noopener noreferrer">
+                    <button className="bg-white text-[#2d5f3d] px-8 py-4 rounded-lg font-bold text-lg hover:bg-slate-100 transition-all shadow-2xl hover:scale-105 flex items-center gap-2">
+                      Apply Now <ArrowRight size={20} />
+                    </button>
+                  </a>
+                  <Link href="/launchpad">
+                    <button className="bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white/20 transition-all border border-white/30">
+                      Learn More
+                    </button>
+                  </Link>
+                </div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="grid grid-cols-2 gap-6"
+              >
+                <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 text-center">
+                  <div className="text-5xl font-extrabold mb-2">12</div>
+                  <div className="text-white/80 font-medium">Weeks Total</div>
+                </div>
+                <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 text-center">
+                  <div className="text-5xl font-extrabold mb-2">25</div>
+                  <div className="text-white/80 font-medium">Students/Cohort</div>
+                </div>
+                <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 text-center">
+                  <div className="text-5xl font-extrabold mb-2">6</div>
+                  <div className="text-white/80 font-medium">Weeks Training</div>
+                </div>
+                <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 text-center">
+                  <div className="text-5xl font-extrabold mb-2">6</div>
+                  <div className="text-white/80 font-medium">Weeks Internship</div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
 
         {/* Events Section */}
         <EventsSection />

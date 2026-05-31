@@ -97,9 +97,9 @@ export default function Contact() {
               </div>
 
               {[
-                { icon: <Mail className="w-6 h-6 text-primary" />, title: "Email Us", items: ["info@himmatkaar.org", "admissions@himmatkaar.org"], bg: "bg-primary/10" },
-                { icon: <Phone className="w-6 h-6 text-blue-500" />, title: "Call Us", items: ["+92 XXX XXXXXXX", "Mon-Fri, 9am - 5pm PKT"], bg: "bg-blue-500/10" },
-                { icon: <MapPin className="w-6 h-6 text-emerald-500" />, title: "Visit Us", items: ["Lahore, Pakistan", "Serving students nationwide"], bg: "bg-emerald-500/10" }
+                { icon: <Mail className="w-6 h-6 text-primary" />, title: "Email Us", items: ["hello@himmatkaar.com"], bg: "bg-primary/10" },
+                { icon: <Phone className="w-6 h-6 text-blue-500" />, title: "Call Us", items: ["0342-4853908", "Mon-Fri, 9am - 5pm PKT"], bg: "bg-blue-500/10" },
+                { icon: <MapPin className="w-6 h-6 text-emerald-500" />, title: "Visit Us", items: ["Remote", "Serving students nationwide"], bg: "bg-emerald-500/10" }
               ].map((info, idx) => (
                 <motion.div
                   key={idx}

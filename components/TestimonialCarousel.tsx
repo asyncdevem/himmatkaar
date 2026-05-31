@@ -11,7 +11,7 @@ const testimonials = [
     name: "Ahmed Khan",
     role: "Software Engineer",
     company: "Tech Corp",
-    image: "/himmatkaar-logo.jpg",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=faces",
     rating: 5,
     text: "HimmatKaar transformed my career trajectory completely. The fellowship taught me not just technical skills, but how to think critically and communicate effectively. Within 2 months of completing the program, I landed my dream job at a leading tech company!"
   },
@@ -19,7 +19,7 @@ const testimonials = [
     name: "Fatima Ali",
     role: "Marketing Manager",
     company: "Digital Solutions",
-    image: "/himmatkaar-logo.jpg",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&crop=faces",
     rating: 5,
     text: "The confidence I gained through HimmatKaar is invaluable. The public speaking sessions and resume workshops prepared me for real-world challenges. I'm now leading a team of 10 people and couldn't be more grateful for this opportunity!"
   },
@@ -27,7 +27,7 @@ const testimonials = [
     name: "Hassan Raza",
     role: "Data Analyst",
     company: "Analytics Pro",
-    image: "/himmatkaar-logo.jpg",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&crop=faces",
     rating: 5,
     text: "Coming from a small town, I never thought I could compete with city students. HimmatKaar showed me that with the right mindset and skills, anything is possible. The mentorship and networking opportunities opened doors I never knew existed!"
   },
@@ -35,7 +35,7 @@ const testimonials = [
     name: "Ayesha Malik",
     role: "Product Designer",
     company: "Creative Studio",
-    image: "/himmatkaar-logo.jpg",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=faces",
     rating: 5,
     text: "The fellowship's focus on lifelong learning changed my perspective entirely. I learned how to learn, which has been crucial in my fast-paced design career. The community support continues even after graduation. Highly recommend to everyone!"
   }

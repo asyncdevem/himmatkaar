@@ -76,21 +76,29 @@ export default function Footer() {
 
         {/* Column 4: Stay Updated */}
         <div className="space-y-6">
-          <h6 className="font-bold text-[var(--color-courage-gold)] uppercase text-xs tracking-widest">Stay Updated</h6>
-          <p className="text-sm text-white/80">Get the latest impact stories and opportunities delivered to your inbox.</p>
-          <form className="flex flex-col sm:flex-row gap-2" aria-label="Newsletter subscription">
-            <label htmlFor="footer-email" className="sr-only">Email address</label>
-            <input 
-              id="footer-email"
-              className="flex-1 bg-white/10 text-white border border-white/20 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-courage-green)]/50 placeholder:text-white/50" 
-              placeholder="Your email" 
-              type="email"
-              aria-label="Email address for newsletter"
-            />
-            <button type="button" className="bg-[var(--color-courage-green)] text-white p-2 px-4 rounded-lg hover:brightness-110 transition-all font-semibold w-full sm:w-auto" aria-label="Subscribe to newsletter">
-              Send
-            </button>
-          </form>
+          <h6 className="font-bold text-[var(--color-courage-gold)] uppercase text-xs tracking-widest">Contact Us</h6>
+          <div className="space-y-3 text-sm text-white/80">
+            <p>Email: hello@himmatkaar.com</p>
+            <p>Phone: 0342-4853908</p>
+            <p>Location: Remote</p>
+          </div>
+          <div className="pt-4">
+            <h6 className="font-bold text-[var(--color-courage-gold)] uppercase text-xs tracking-widest mb-3">Stay Updated</h6>
+            <p className="text-sm text-white/80 mb-3">Get the latest impact stories and opportunities.</p>
+            <form className="flex flex-col sm:flex-row gap-2" aria-label="Newsletter subscription">
+              <label htmlFor="footer-email" className="sr-only">Email address</label>
+              <input 
+                id="footer-email"
+                className="flex-1 bg-white/10 text-white border border-white/20 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-courage-green)]/50 placeholder:text-white/50" 
+                placeholder="Your email" 
+                type="email"
+                aria-label="Email address for newsletter"
+              />
+              <button type="button" className="bg-[var(--color-courage-green)] text-white p-2 px-4 rounded-lg hover:brightness-110 transition-all font-semibold w-full sm:w-auto" aria-label="Subscribe to newsletter">
+                Send
+              </button>
+            </form>
+          </div>
         </div>
       </div>
 
