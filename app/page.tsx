@@ -34,7 +34,7 @@ export default function Home() {
   const heroData = {
     headline: "Evolve Your Future with Himmatkaar!",
     urduHeadline: "ہمت کار",
-    primaryCTA: { text: "Apply Now", href: "/signup" },
+    primaryCTA: { text: "Apply for Himmatkaar LaunchPad", href: "https://docs.google.com/forms/d/e/1FAIpQLSdLfYvAZc0W6J53bdxLtlJCSv-uM40bJG22C9POuPZVa56BlQ/viewform?usp=dialog" },
     secondaryCTA: { text: "Learn More", href: "/about" },
     heroImages: [
       "/home-page-carosel/1.jpg",
@@ -168,7 +168,7 @@ export default function Home() {
                   Our Flagship Program
                 </div>
                 <h2 className="text-5xl lg:text-6xl font-extrabold leading-tight mb-6 tracking-tight">
-                  Career <span className="text-[#a8d5ba]">LaunchPad</span>
+                  Himmatkaar <span className="text-[#a8d5ba]">LaunchPad</span>
                 </h2>
                 <p className="text-xl text-white/95 leading-relaxed mb-8">
                   Transform from student to professional in just 12 weeks. Our comprehensive program combines 6 weeks of intensive training with one-on-one mentorship, followed by 6 weeks of real industry internship experience.
