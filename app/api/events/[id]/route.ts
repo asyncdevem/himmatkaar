@@ -1,5 +1,8 @@
 import { NextResponse } from 'next/server';
-import { supabase } from '@/lib/supabase';
+import { supabase, supabaseAdmin } from '@/lib/supabase';
+
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
 export async function GET(
   request: Request,
@@ -39,7 +42,7 @@ export async function PUT(
     const body = await request.json();
     
     // First check if event exists
-    const { data: existingEvent, error: checkError } = await supabase
+    const { data: existingEvent, error: checkError } = await supabaseAdmin
       .from('events')
       .select('id')
       .eq('id', id)
@@ -50,7 +53,7 @@ export async function PUT(
     }
 
     // Update the event
-    const { error: updateError } = await supabase
+    const { error: updateError } = await supabaseAdmin
       .from('events')
       .update(body)
       .eq('id', id);
@@ -61,7 +64,7 @@ export async function PUT(
     }
 
     // Fetch the updated event
-    const { data: event, error: fetchError } = await supabase
+    const { data: event, error: fetchError } = await supabaseAdmin
       .from('events')
       .select('*')
       .eq('id', id)
@@ -86,7 +89,7 @@ export async function DELETE(
   try {
     const { id } = await params;
     
-    const { error } = await supabase
+    const { error } = await supabaseAdmin
       .from('events')
       .delete()
       .eq('id', id);

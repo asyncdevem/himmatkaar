@@ -122,7 +122,7 @@ export default function Home() {
   const stats = [
     { value: 1, suffix: "+", label: "Years of Operation" },
     { value: 1000, suffix: "+", label: "Student Impact" },
-    { value: 6, suffix: "+", label: "Events Organized" },
+    { value: 10, suffix: "+", label: "Events Organized" },
     { value: 20, suffix: "+", label: "Staff Employs" }
   ];
 
@@ -149,7 +149,7 @@ export default function Home() {
         {/* Stats Bar */}
         <StatsBar stats={stats} />
 
-        {/* Career Launchpad Feature Section */}
+        {/* Himmatkaar Launchpad Feature Section */}
         <section className="py-28 px-4 sm:px-6 bg-gradient-to-br from-[#2d5f3d] to-[#39894c] text-white relative overflow-hidden">
           <div className="absolute inset-0 opacity-10">
             <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
