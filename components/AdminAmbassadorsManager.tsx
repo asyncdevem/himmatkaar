@@ -27,6 +27,7 @@ export default function AdminAmbassadorsManager() {
     name: "",
     role: "Campus Ambassador",
     city: "",
+    university: "",
     bio: "",
     image: "",
     linkedin: "",
@@ -128,6 +129,7 @@ export default function AdminAmbassadorsManager() {
       name: "",
       role: "Campus Ambassador",
       city: "",
+      university: "",
       bio: "",
       image: "",
       linkedin: "",
@@ -142,6 +144,7 @@ export default function AdminAmbassadorsManager() {
       name: ambassador.name,
       role: ambassador.role,
       city: ambassador.city,
+      university: (ambassador as any).university || "",
       bio: ambassador.bio,
       image: ambassador.image,
       linkedin: ambassador.linkedin,
@@ -296,6 +299,18 @@ export default function AdminAmbassadorsManager() {
                   onChange={(e) => setFormData({...formData, city: e.target.value})}
                   className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-[#39894c]/20 focus:border-[#39894c] transition-all"
                   placeholder="Karachi"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-slate-700 mb-2">University *</label>
+                <input
+                  type="text"
+                  required
+                  value={formData.university}
+                  onChange={(e) => setFormData({...formData, university: e.target.value})}
+                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-[#39894c]/20 focus:border-[#39894c] transition-all"
+                  placeholder="University of Karachi"
                 />
               </div>
 
