@@ -1,45 +1,93 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowLeft, Calendar, MapPin, Users, Clock, ArrowRight } from "lucide-react";
+import { ArrowLeft, Calendar, MapPin, Users, Clock, ArrowRight, Loader2 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
+interface Event {
+  id: string;
+  title: string;
+  description: string;
+  date: string;
+  time: string;
+  location: string;
+  type: string;
+  image: string;
+  status: string;
+}
+
 export default function UpcomingEvents() {
-  const upcomingEvents = [
+  const [events, setEvents] = useState<Event[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchEvents() {
+      try {
+        const response = await fetch('/api/events?status=upcoming', { cache: 'no-store' });
+        const data = await response.json();
+        
+        if (response.ok) {
+          setEvents(data.events || []);
+        }
+      } catch (err) {
+        console.error('Error fetching events:', err);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchEvents();
+  }, []);
+
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+  };
+
+  const fallbackEvents = [
     {
+      id: '1',
       title: "Startup Pitch Competition 2026",
-      date: "March 25, 2026",
+      date: "2026-03-25",
       time: "10:00 AM - 5:00 PM",
       location: "Karachi Expo Center",
       attendees: "Expected 600+",
       image: "/event-leadership.jpg",
       description: "Compete for seed funding and mentorship opportunities. Present your startup idea to leading investors and industry experts.",
-      status: "Registration Open"
+      status: "Registration Open",
+      type: "Competition"
     },
     {
+      id: '2',
       title: "Tech Skills Bootcamp",
-      date: "April 10, 2026",
+      date: "2026-04-10",
       time: "9:00 AM - 6:00 PM",
       location: "Lahore Innovation Hub",
       attendees: "Limited to 150",
       image: "/event-workshop.jpg",
       description: "Intensive 3-day bootcamp covering web development, mobile apps, and AI fundamentals with hands-on projects.",
-      status: "Early Bird"
+      status: "Early Bird",
+      type: "Bootcamp"
     },
     {
+      id: '3',
       title: "Social Impact Summit",
-      date: "April 20, 2026",
+      date: "2026-04-20",
       time: "2:00 PM - 8:00 PM",
       location: "Islamabad Convention Hall",
       attendees: "Expected 400+",
       image: "/event-openhouse.jpg",
       description: "Join social entrepreneurs and changemakers to discuss sustainable solutions for community challenges.",
-      status: "Coming Soon"
+      status: "Coming Soon",
+      type: "Summit"
     }
   ];
+
+  const displayEvents = events.length > 0 ? events : fallbackEvents;
 
   return (
     <div className="min-h-screen bg-white">
@@ -68,63 +116,76 @@ export default function UpcomingEvents() {
           </motion.div>
         </section>
 
-        {/* Events Grid */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {upcomingEvents.map((event, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1, duration: 0.5 }}
-                className="group bg-white  rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all border border-slate-100"
-              >
-                <div className="relative overflow-hidden h-56">
-                  <Image 
-                    src={event.image} 
-                    alt={event.title} 
-                    width={400}
-                    height={250}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
-                  />
-                  <div className="absolute top-4 right-4 bg-[#39894c] text-white px-3 py-1 rounded-full text-xs font-bold">
-                    {event.status}
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-3 text-slate-900">{event.title}</h3>
-                  <p className="text-slate-600 mb-4 leading-relaxed text-sm">{event.description}</p>
-                  
-                  <div className="space-y-2 mb-6">
-                    <p className="flex items-center gap-2 text-sm text-slate-600">
-                      <Calendar size={16} className="text-[#39894c]" />
-                      {event.date}
-                    </p>
-                    <p className="flex items-center gap-2 text-sm text-slate-600">
-                      <Clock size={16} className="text-[#39894c]" />
-                      {event.time}
-                    </p>
-                    <p className="flex items-center gap-2 text-sm text-slate-600">
-                      <MapPin size={16} className="text-[#39894c]" />
-                      {event.location}
-                    </p>
-                    <p className="flex items-center gap-2 text-sm text-slate-600">
-                      <Users size={16} className="text-[#39894c]" />
-                      {event.attendees}
-                    </p>
-                  </div>
+        {/* Loading State */}
+        {loading ? (
+          <section className="max-w-7xl mx-auto px-4 sm:px-6">
+            <div className="flex items-center justify-center h-64">
+              <Loader2 className="animate-spin text-[#39894c]" size={48} />
+            </div>
+          </section>
+        ) : (
+          <>
+            {/* Events Grid */}
+            <section className="max-w-7xl mx-auto px-4 sm:px-6">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {displayEvents.map((event, idx) => (
+                  <motion.div
+                    key={event.id}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.1, duration: 0.5 }}
+                    className="group bg-white  rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all border border-slate-100"
+                  >
+                    <div className="relative overflow-hidden h-56">
+                      <Image 
+                        src={event.image} 
+                        alt={event.title} 
+                        width={400}
+                        height={250}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
+                      />
+                      <div className="absolute top-4 right-4 bg-[#39894c] text-white px-3 py-1 rounded-full text-xs font-bold">
+                        {event.status}
+                      </div>
+                    </div>
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold mb-3 text-slate-900">{event.title}</h3>
+                      <p className="text-slate-600 mb-4 leading-relaxed text-sm">{event.description}</p>
+                      
+                      <div className="space-y-2 mb-6">
+                        <p className="flex items-center gap-2 text-sm text-slate-600">
+                          <Calendar size={16} className="text-[#39894c]" />
+                          {formatDate(event.date)}
+                        </p>
+                        <p className="flex items-center gap-2 text-sm text-slate-600">
+                          <Clock size={16} className="text-[#39894c]" />
+                          {event.time}
+                        </p>
+                        <p className="flex items-center gap-2 text-sm text-slate-600">
+                          <MapPin size={16} className="text-[#39894c]" />
+                          {event.location}
+                        </p>
+                        {(event as any).attendees && (
+                          <p className="flex items-center gap-2 text-sm text-slate-600">
+                            <Users size={16} className="text-[#39894c]" />
+                            {(event as any).attendees}
+                          </p>
+                        )}
+                      </div>
 
-                  <Link href="/signup">
-                    <button className="w-full bg-[#39894c] text-white py-3 rounded-lg font-bold hover:bg-[#2d6f3d] transition-colors flex items-center justify-center gap-2">
-                      Register Now <ArrowRight size={18} />
-                    </button>
-                  </Link>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </section>
+                      <Link href="/signup">
+                        <button className="w-full bg-[#39894c] text-white py-3 rounded-lg font-bold hover:bg-[#2d6f3d] transition-colors flex items-center justify-center gap-2">
+                          Register Now <ArrowRight size={18} />
+                        </button>
+                      </Link>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </section>
+          </>
+        )}
 
         {/* Newsletter CTA */}
         <section className="max-w-4xl mx-auto px-4 sm:px-6 mt-24">
