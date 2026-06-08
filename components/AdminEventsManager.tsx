@@ -46,7 +46,7 @@ export default function AdminEventsManager() {
 
   const fetchEvents = async () => {
     try {
-      const response = await fetch('/api/events?limit=100');
+      const response = await fetch('/api/events?limit=100&status=all', { cache: 'no-store' });
       const data = await response.json();
       setEvents(data.events || []);
     } catch (error) {

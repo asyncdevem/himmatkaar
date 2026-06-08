@@ -54,7 +54,7 @@ export default function AdminBlogManager() {
 
   const fetchPosts = async () => {
     try {
-      const response = await fetch('/api/blog');
+      const response = await fetch('/api/blog', { cache: 'no-store' });
       const data = await response.json();
       setPosts(data.posts || []);
     } catch (error) {

@@ -37,7 +37,7 @@ export default function AdminTeamManager() {
 
   const fetchMembers = async () => {
     try {
-      const response = await fetch('/api/team');
+      const response = await fetch('/api/team', { cache: 'no-store' });
       const data = await response.json();
       setMembers(data.members || []);
     } catch (error) {
